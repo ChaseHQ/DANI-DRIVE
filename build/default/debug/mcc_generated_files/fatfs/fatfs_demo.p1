@@ -1,0 +1,120 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"97 mcc_generated_files/fatfs/ff.h
+[; ;mcc_generated_files/fatfs/ff.h: 97: typedef struct {
+[s S1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `us 1 `us 1 `us 1 `ul 1 `ul 1 `ul 1 `ul 1 `ul 1 `ul 1 `ul 1 `ul 1 `ul 1 `ul 1 `uc -> 512 `i ]
+[n S1 . fs_type pdrv n_fats wflag fsi_flag id n_rootdir csize last_clst free_clst cdir n_fatent fsize volbase fatbase dirbase database winsect win ]
+"144
+[; ;mcc_generated_files/fatfs/ff.h: 144: typedef struct {
+[s S2 `*S1 1 `us 1 `uc 1 `uc 1 `ul 1 `ul 1 ]
+[n S2 . fs id attr stat sclust objsize ]
+"167
+[; ;mcc_generated_files/fatfs/ff.h: 167: typedef struct {
+[s S3 `S2 1 `uc 1 `uc 1 `ul 1 `ul 1 `ul 1 `ul 1 `*uc 1 `uc -> 512 `i ]
+[n S3 . obj flag err fptr clust sect dir_sect dir_ptr buf ]
+"29 mcc_generated_files/fatfs/drva.h
+[; ;mcc_generated_files/fatfs/drva.h: 29: _Bool DRVA_IsMediaPresent(void);
+[v _DRVA_IsMediaPresent `(a ~T0 @X0 0 ef ]
+"39 mcc_generated_files/fatfs/fatfs_demo.c
+[; ;mcc_generated_files/fatfs/fatfs_demo.c: 39:     if (f_mount(&drive,"0:",1) == FR_OK)
+[c E68 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 .. ]
+[n E68 . FR_OK FR_DISK_ERR FR_INT_ERR FR_NOT_READY FR_NO_FILE FR_NO_PATH FR_INVALID_NAME FR_DENIED FR_EXIST FR_INVALID_OBJECT FR_WRITE_PROTECTED FR_INVALID_DRIVE FR_NOT_ENABLED FR_NO_FILESYSTEM FR_MKFS_ABORTED FR_TIMEOUT FR_LOCKED FR_NOT_ENOUGH_CORE FR_TOO_MANY_OPEN_FILES FR_INVALID_PARAMETER  ]
+"280 mcc_generated_files/fatfs/ff.h
+[; ;mcc_generated_files/fatfs/ff.h: 280: FRESULT f_mount (FATFS* fs, const TCHAR* path, BYTE opt);
+[v _f_mount `(E68 ~T0 @X0 0 ef3`*S1`*Cuc`uc ]
+"254
+[; ;mcc_generated_files/fatfs/ff.h: 254: FRESULT f_open (FIL* fp, const TCHAR* path, BYTE mode);
+[v _f_open `(E68 ~T0 @X0 0 ef3`*S3`*Cuc`uc ]
+"257
+[; ;mcc_generated_files/fatfs/ff.h: 257: FRESULT f_write (FIL* fp, const void* buff, UINT btw, UINT* bw);
+[v _f_write `(E68 ~T0 @X0 0 ef4`*S3`*Cv`ui`*ui ]
+"255
+[; ;mcc_generated_files/fatfs/ff.h: 255: FRESULT f_close (FIL* fp);
+[v _f_close `(E68 ~T0 @X0 0 ef1`*S3 ]
+"27 mcc_generated_files/fatfs/fatfs_demo.c
+[; ;mcc_generated_files/fatfs/fatfs_demo.c: 27: static FATFS drive;
+[v _drive `S1 ~T0 @X0 1 s ]
+"28
+[; ;mcc_generated_files/fatfs/fatfs_demo.c: 28: static FIL file;
+[v _file `S3 ~T0 @X0 1 s ]
+"30
+[; ;mcc_generated_files/fatfs/fatfs_demo.c: 30: void FatFsDemo_Tasks(void)
+[v _FatFsDemo_Tasks `(v ~T0 @X0 1 ef ]
+"31
+[; ;mcc_generated_files/fatfs/fatfs_demo.c: 31: {
+{
+[e :U _FatFsDemo_Tasks ]
+[f ]
+"32
+[; ;mcc_generated_files/fatfs/fatfs_demo.c: 32:     UINT actualLength;
+[v _actualLength `ui ~T0 @X0 1 a ]
+[v F261 `uc ~T0 @X0 -> 13 `i s ]
+[i F261
+:U ..
+"33
+[; ;mcc_generated_files/fatfs/fatfs_demo.c: 33:     char data[] = "Hello World!";
+-> 72 `c
+-> 101 `c
+-> 108 `c
+-> 108 `c
+-> 111 `c
+-> 32 `c
+-> 87 `c
+-> 111 `c
+-> 114 `c
+-> 108 `c
+-> 100 `c
+-> 33 `c
+-> 0 `c
+..
+]
+[v _data `uc ~T0 @X0 -> 13 `i a ]
+[e = _data F261 ]
+"34
+[; ;mcc_generated_files/fatfs/fatfs_demo.c: 34:     if( DRVA_IsMediaPresent() == 0)
+[e $ ! == -> ( _DRVA_IsMediaPresent ..  `i -> 0 `i 7  ]
+"35
+[; ;mcc_generated_files/fatfs/fatfs_demo.c: 35:     {
+{
+"36
+[; ;mcc_generated_files/fatfs/fatfs_demo.c: 36:         return;
+[e $UE 6  ]
+"37
+[; ;mcc_generated_files/fatfs/fatfs_demo.c: 37:     }
+}
+[e :U 7 ]
+"39
+[; ;mcc_generated_files/fatfs/fatfs_demo.c: 39:     if (f_mount(&drive,"0:",1) == FR_OK)
+[e $ ! == -> ( _f_mount (3 , , &U _drive :s 1C -> -> 1 `i `uc `ui -> . `E68 0 `ui 8  ]
+"40
+[; ;mcc_generated_files/fatfs/fatfs_demo.c: 40:     {
+{
+"41
+[; ;mcc_generated_files/fatfs/fatfs_demo.c: 41:         if (f_open(&file, "HELLO.TXT", 0x02 | 0x04 ) == FR_OK)
+[e $ ! == -> ( _f_open (3 , , &U _file :s 2C -> | -> 2 `i -> 4 `i `uc `ui -> . `E68 0 `ui 9  ]
+"42
+[; ;mcc_generated_files/fatfs/fatfs_demo.c: 42:         {
+{
+"43
+[; ;mcc_generated_files/fatfs/fatfs_demo.c: 43:             f_write(&file, data, sizeof(data)-1, &actualLength );
+[e ( _f_write (4 , , , &U _file -> &U _data `*Cv - -> # _data `ui -> -> 1 `i `ui &U _actualLength ]
+"44
+[; ;mcc_generated_files/fatfs/fatfs_demo.c: 44:             f_close(&file);
+[e ( _f_close (1 &U _file ]
+"45
+[; ;mcc_generated_files/fatfs/fatfs_demo.c: 45:         }
+}
+[e :U 9 ]
+"47
+[; ;mcc_generated_files/fatfs/fatfs_demo.c: 47:         f_mount(0,"0:",0);
+[e ( _f_mount (3 , , -> -> 0 `i `*S1 :s 3C -> -> 0 `i `uc ]
+"48
+[; ;mcc_generated_files/fatfs/fatfs_demo.c: 48:     }
+}
+[e :U 8 ]
+"49
+[; ;mcc_generated_files/fatfs/fatfs_demo.c: 49: }
+[e :UE 6 ]
+}
+[a 2C 72 69 76 76 79 46 84 88 84 0 ]
+[a 1C 48 58 0 ]
+[a 3C 48 58 0 ]

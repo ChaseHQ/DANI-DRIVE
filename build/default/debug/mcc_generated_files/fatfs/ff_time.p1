@@ -1,0 +1,64 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"64 mcc_generated_files/fatfs/ff_time.c
+[; ;mcc_generated_files/fatfs/ff_time.c: 64: static DWORD decimalToFatTime(uint16_t year, uint8_t month, uint8_t day, uint8_t hour, uint8_t minute, uint8_t seconds)
+[v _decimalToFatTime `(ul ~T0 @X0 1 sf6`us`uc`uc`uc`uc`uc ]
+"65
+[; ;mcc_generated_files/fatfs/ff_time.c: 65: {
+{
+[e :U _decimalToFatTime ]
+"64
+[; ;mcc_generated_files/fatfs/ff_time.c: 64: static DWORD decimalToFatTime(uint16_t year, uint8_t month, uint8_t day, uint8_t hour, uint8_t minute, uint8_t seconds)
+[v _year `us ~T0 @X0 1 r1 ]
+[v _month `uc ~T0 @X0 1 r2 ]
+[v _day `uc ~T0 @X0 1 r3 ]
+[v _hour `uc ~T0 @X0 1 r4 ]
+[v _minute `uc ~T0 @X0 1 r5 ]
+[v _seconds `uc ~T0 @X0 1 r6 ]
+"65
+[; ;mcc_generated_files/fatfs/ff_time.c: 65: {
+[f ]
+"66
+[; ;mcc_generated_files/fatfs/ff_time.c: 66:     DWORD fatTime;
+[v _fatTime `ul ~T0 @X0 1 a ]
+"68
+[; ;mcc_generated_files/fatfs/ff_time.c: 68:     fatTime = (seconds >> 1);
+[e = _fatTime -> -> >> -> _seconds `i -> 1 `i `l `ul ]
+"69
+[; ;mcc_generated_files/fatfs/ff_time.c: 69:     fatTime |= ( ((DWORD)minute) << 5 );
+[e =| _fatTime << -> _minute `ul -> 5 `i ]
+"70
+[; ;mcc_generated_files/fatfs/ff_time.c: 70:     fatTime |= ( ((DWORD)hour) << 11 );
+[e =| _fatTime << -> _hour `ul -> 11 `i ]
+"71
+[; ;mcc_generated_files/fatfs/ff_time.c: 71:     fatTime |= ( ((DWORD)day) << 16 );
+[e =| _fatTime << -> _day `ul -> 16 `i ]
+"72
+[; ;mcc_generated_files/fatfs/ff_time.c: 72:     fatTime |= ( ((DWORD)month) << 21 );
+[e =| _fatTime << -> _month `ul -> 21 `i ]
+"73
+[; ;mcc_generated_files/fatfs/ff_time.c: 73:     fatTime |= ( ((DWORD)(year - 1980)) << 25 );
+[e =| _fatTime << -> - -> _year `ui -> -> 1980 `i `ui `ul -> 25 `i ]
+"75
+[; ;mcc_generated_files/fatfs/ff_time.c: 75:     return fatTime;
+[e ) _fatTime ]
+[e $UE 6  ]
+"76
+[; ;mcc_generated_files/fatfs/ff_time.c: 76: }
+[e :UE 6 ]
+}
+"78
+[; ;mcc_generated_files/fatfs/ff_time.c: 78: DWORD get_fattime (void)
+[v _get_fattime `(ul ~T0 @X0 1 ef ]
+"79
+[; ;mcc_generated_files/fatfs/ff_time.c: 79: {
+{
+[e :U _get_fattime ]
+[f ]
+"80
+[; ;mcc_generated_files/fatfs/ff_time.c: 80:     return decimalToFatTime(2018, 6, 31, 5, 10, 30);
+[e ) ( _decimalToFatTime (4 , , , , , -> -> 2018 `i `us -> -> 6 `i `uc -> -> 31 `i `uc -> -> 5 `i `uc -> -> 10 `i `uc -> -> 30 `i `uc ]
+[e $UE 7  ]
+"81
+[; ;mcc_generated_files/fatfs/ff_time.c: 81: }
+[e :UE 7 ]
+}
