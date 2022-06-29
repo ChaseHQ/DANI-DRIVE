@@ -16414,7 +16414,7 @@ typedef struct {
 
 
 
-
+ const TCHAR* pat;
 
 } FFDIR;
 
@@ -16781,15 +16781,14 @@ _Bool DRVA_IsWriteProtected(void)
 
 uint16_t DRVA_GetSectorSize(void)
 {
-
     return 512;
 }
 
-uint32_t DRVA_GetSectorCount(void)
-{
 
-    return 0;
-}
+
+
+
+
 
 _Bool DRVA_SectorRead(uint32_t sector_address, uint8_t* buffer, uint16_t sector_count)
 {

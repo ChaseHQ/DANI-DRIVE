@@ -23,8 +23,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _I2C1_Read1ByteRegister `(uc ~T0 @X0 0 ef2`uc`uc ]
 "190 ./mcc_generated_files/fatfs/ff.h
 [; ;./mcc_generated_files/fatfs/ff.h: 190: typedef struct {
-[s S1443 `S1441 1 `ul 1 `ul 1 `ul 1 `*uc 1 `uc -> 12 `i ]
-[n S1443 . obj dptr clust sect dir fn ]
+[s S1443 `S1441 1 `ul 1 `ul 1 `ul 1 `*uc 1 `uc -> 12 `i `*Cuc 1 ]
+[n S1443 . obj dptr clust sect dir fn pat ]
 "209
 [; ;./mcc_generated_files/fatfs/ff.h: 209: typedef struct {
 [s S1444 `ul 1 `us 1 `us 1 `uc 1 `uc -> 13 `i ]
@@ -34,17 +34,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _DRVA_IsMediaPresent `(a ~T0 @X0 0 ef ]
 "80 main.c
 [; ;main.c: 80:         if (f_mount(&drive,"0:",1) == FR_OK)
-[c E10076 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 .. ]
-[n E10076 . FR_OK FR_DISK_ERR FR_INT_ERR FR_NOT_READY FR_NO_FILE FR_NO_PATH FR_INVALID_NAME FR_DENIED FR_EXIST FR_INVALID_OBJECT FR_WRITE_PROTECTED FR_INVALID_DRIVE FR_NOT_ENABLED FR_NO_FILESYSTEM FR_MKFS_ABORTED FR_TIMEOUT FR_LOCKED FR_NOT_ENOUGH_CORE FR_TOO_MANY_OPEN_FILES FR_INVALID_PARAMETER  ]
+[c E10077 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 .. ]
+[n E10077 . FR_OK FR_DISK_ERR FR_INT_ERR FR_NOT_READY FR_NO_FILE FR_NO_PATH FR_INVALID_NAME FR_DENIED FR_EXIST FR_INVALID_OBJECT FR_WRITE_PROTECTED FR_INVALID_DRIVE FR_NOT_ENABLED FR_NO_FILESYSTEM FR_MKFS_ABORTED FR_TIMEOUT FR_LOCKED FR_NOT_ENOUGH_CORE FR_TOO_MANY_OPEN_FILES FR_INVALID_PARAMETER  ]
 "280 ./mcc_generated_files/fatfs/ff.h
 [; ;./mcc_generated_files/fatfs/ff.h: 280: FRESULT f_mount (FATFS* fs, const TCHAR* path, BYTE opt);
-[v _f_mount `(E10076 ~T0 @X0 0 ef3`*S1440`*Cuc`uc ]
+[v _f_mount `(E10077 ~T0 @X0 0 ef3`*S1440`*Cuc`uc ]
 "261
 [; ;./mcc_generated_files/fatfs/ff.h: 261: FRESULT f_opendir (FFDIR* dp, const TCHAR* path);
-[v _f_opendir `(E10076 ~T0 @X0 0 ef2`*S1443`*Cuc ]
+[v _f_opendir `(E10077 ~T0 @X0 0 ef2`*S1443`*Cuc ]
 "263
 [; ;./mcc_generated_files/fatfs/ff.h: 263: FRESULT f_readdir (FFDIR* dp, FILINFO* fno);
-[v _f_readdir `(E10076 ~T0 @X0 0 ef2`*S1443`*S1444 ]
+[v _f_readdir `(E10077 ~T0 @X0 0 ef2`*S1443`*S1444 ]
 "8 C:/Users/Craig Vella/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\builtins.h
 [v ___nop `(v ~T0 @X0 0 ef ]
 [p i ___nop ]
@@ -1582,8 +1582,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "72
 [; ;main.c: 72:     UINT actualLength;
 [v _actualLength `ui ~T0 @X0 1 a ]
-[v F10618 `uc ~T0 @X0 -> 13 `i s ]
-[i F10618
+[v F10619 `uc ~T0 @X0 -> 13 `i s ]
+[i F10619
 :U ..
 "73
 [; ;main.c: 73:     char data[] = "Hello World!";
@@ -1603,7 +1603,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _data `uc ~T0 @X0 -> 13 `i a ]
-[e = _data F10618 ]
+[e = _data F10619 ]
 "75
 [; ;main.c: 75:     FFDIR dir;
 [v _dir `S1443 ~T0 @X0 1 a ]
@@ -1616,7 +1616,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "80
 [; ;main.c: 80:         if (f_mount(&drive,"0:",1) == FR_OK)
-[e $ ! == -> ( _f_mount (3 , , &U _drive :s 1C -> -> 1 `i `uc `ui -> . `E10076 0 `ui 1454  ]
+[e $ ! == -> ( _f_mount (3 , , &U _drive :s 1C -> -> 1 `i `uc `ui -> . `E10077 0 `ui 1454  ]
 "81
 [; ;main.c: 81:         {
 {

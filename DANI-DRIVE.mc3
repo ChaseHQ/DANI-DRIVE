@@ -85,7 +85,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="FatFs" name="FF_FS_RPATH"/>
-         <value>1</value>
+         <value>2</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="FatFs" name="FF_FS_TIMEOUT"/>
@@ -161,7 +161,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="FatFs" name="FF_USE_FIND"/>
-         <value>0</value>
+         <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="FatFs" name="FF_USE_FORWARD"/>
@@ -177,7 +177,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="FatFs" name="FF_USE_MKFS"/>
-         <value>0</value>
+         <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="FatFs" name="FF_USE_STRFUNC"/>
@@ -7635,7 +7635,7 @@
       </entry>
       <entry>
          <file>mcc_generated_files\fatfs\ffconf.h</file>
-         <hash>71f23f78cc3ff7f87d6db1ce14400922bd1e7ccf2da99488138cc2fc13db6e04</hash>
+         <hash>1871d886a0938e5d1986bd2ef67fdfbf7bc8d94b45c7ae135f6b9db6fa1ab371</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\device_config.c</file>

@@ -258,15 +258,14 @@ bool DRVA_IsWriteProtected(void)
 
 uint16_t DRVA_GetSectorSize(void)
 {
-    #warning "You will need to implement this function for this driver to work."
     return 512;
 }
 
-uint32_t DRVA_GetSectorCount(void)
+/*uint32_t DRVA_GetSectorCount(void)
 {
     #warning "You will need to implement this function for this driver to work."
     return 0;
-}
+}*/
 
 bool DRVA_SectorRead(uint32_t sector_address, uint8_t* buffer, uint16_t sector_count)
 {

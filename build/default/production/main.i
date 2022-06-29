@@ -16404,7 +16404,7 @@ typedef struct {
 
 
 
-
+ const TCHAR* pat;
 
 } FFDIR;
 

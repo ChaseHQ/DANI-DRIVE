@@ -126,7 +126,7 @@ typedef struct {
 
 
 
-
+ const TCHAR* pat;
 
 } FFDIR;
 
@@ -959,6 +959,62 @@ static void get_fileinfo (
  fno->ftime = ld_word(dp->dir + 22 + 0);
  fno->fdate = ld_word(dp->dir + 22 + 2);
 }
+# 2740 "mcc_generated_files/fatfs/ff.c"
+static DWORD get_achar (
+ const TCHAR** ptr
+)
+{
+ DWORD chr;
+# 2753 "mcc_generated_files/fatfs/ff.c"
+ chr = (BYTE)*(*ptr)++;
+ if (((chr) >= 'a' && (chr) <= 'z')) chr -= 0x20;
+
+
+
+ if (chr >= 0x80) chr = ExCvt[chr - 0x80];
+# 2767 "mcc_generated_files/fatfs/ff.c"
+ return chr;
+}
+
+
+static int pattern_matching (
+ const TCHAR* pat,
+ const TCHAR* nam,
+ int skip,
+ int inf
+)
+{
+ const TCHAR *pp, *np;
+ DWORD pc, nc;
+ int nm, nx;
+
+
+ while (skip--) {
+  if (!get_achar(&nam)) return 0;
+ }
+ if (*pat == 0 && inf) return 1;
+
+ do {
+  pp = pat; np = nam;
+  for (;;) {
+   if (*pp == '?' || *pp == '*') {
+    nm = nx = 0;
+    do {
+     if (*pp++ == '?') nm++; else nx = 1;
+    } while (*pp == '?' || *pp == '*');
+    if (pattern_matching(pp, np, nm, nx)) return 1;
+    nc = *np; break;
+   }
+   pc = get_achar(&pp);
+   nc = get_achar(&np);
+   if (pc != nc) break;
+   if (pc == 0) return 1;
+  }
+  get_achar(&nam);
+ } while (inf && nc);
+
+ return 0;
+}
 # 2818 "mcc_generated_files/fatfs/ff.c"
 static FRESULT create_name (
  FFDIR* dp,
@@ -1061,7 +1117,7 @@ static FRESULT follow_path (
    ns = dp->fn[11];
    if (res != FR_OK) {
     if (res == FR_NO_FILE) {
-     if (1 && (ns & 0x20)) {
+     if (2 && (ns & 0x20)) {
       if (!(ns & 0x04)) continue;
       dp->fn[11] = 0x80;
       res = FR_OK;
@@ -1864,6 +1920,78 @@ FRESULT f_chdir (
 
  return res;
 }
+
+
+
+FRESULT f_getcwd (
+ TCHAR* buff,
+ UINT len
+)
+{
+ FRESULT res;
+ FFDIR dj;
+ FATFS *fs;
+ UINT i, n;
+ DWORD ccl;
+ TCHAR *tp = buff;
+
+
+
+
+
+
+ FILINFO fno;
+
+
+
+
+ res = find_volume((const TCHAR**)&buff, &fs, 0);
+ if (res == FR_OK) {
+  dj.obj.fs = fs;
+                 ;
+
+
+  i = len;
+  if (!0 || fs->fs_type != 4) {
+   dj.obj.sclust = fs->cdir;
+   while ((ccl = dj.obj.sclust) != 0) {
+    res = dir_sdi(&dj, 1 * 32);
+    if (res != FR_OK) break;
+    res = move_window(fs, dj.sect);
+    if (res != FR_OK) break;
+    dj.obj.sclust = ld_clust(fs, dj.dir);
+    res = dir_sdi(&dj, 0);
+    if (res != FR_OK) break;
+    do {
+     res = dir_read(&dj, 0);
+     if (res != FR_OK) break;
+     if (ccl == ld_clust(fs, dj.dir)) break;
+     res = dir_next(&dj, 0);
+    } while (res == FR_OK);
+    if (res == FR_NO_FILE) res = FR_INT_ERR;
+    if (res != FR_OK) break;
+    get_fileinfo(&dj, &fno);
+    for (n = 0; fno.fname[n]; n++) ;
+    if (i < n + 1) {
+     res = FR_NOT_ENOUGH_CORE; break;
+    }
+    while (n) buff[--i] = fno.fname[--n];
+    buff[--i] = '/';
+   }
+  }
+  if (res == FR_OK) {
+   if (i == len) buff[--i] = '/';
+# 4205 "mcc_generated_files/fatfs/ff.c"
+   if (res == FR_OK) {
+    do *tp++ = buff[i++]; while (i < len);
+   }
+  }
+               ;
+ }
+
+ *tp = 0;
+ return res;
+}
 # 4226 "mcc_generated_files/fatfs/ff.c"
 FRESULT f_lseek (
  FIL* fp,
@@ -2060,6 +2188,49 @@ FRESULT f_readdir (
  }
  return res;
 }
+# 4519 "mcc_generated_files/fatfs/ff.c"
+FRESULT f_findnext (
+ FFDIR* dp,
+ FILINFO* fno
+)
+{
+ FRESULT res;
+
+
+ for (;;) {
+  res = f_readdir(dp, fno);
+  if (res != FR_OK || !fno || !fno->fname[0]) break;
+  if (pattern_matching(dp->pat, fno->fname, 0, 0)) break;
+
+
+
+ }
+ return res;
+}
+
+
+
+
+
+
+
+FRESULT f_findfirst (
+ FFDIR* dp,
+ FILINFO* fno,
+ const TCHAR* path,
+ const TCHAR* pattern
+)
+{
+ FRESULT res;
+
+
+ dp->pat = pattern;
+ res = f_opendir(dp, path);
+ if (res == FR_OK) {
+  res = f_findnext(dp, fno);
+ }
+ return res;
+}
 # 4571 "mcc_generated_files/fatfs/ff.c"
 FRESULT f_stat (
  const TCHAR* path,
@@ -2214,7 +2385,7 @@ FRESULT f_unlink (
   dj.obj.fs = fs;
                  ;
   res = follow_path(&dj, path);
-  if (1 && res == FR_OK && (dj.fn[11] & 0x20)) {
+  if (2 && res == FR_OK && (dj.fn[11] & 0x20)) {
    res = FR_INVALID_NAME;
   }
 
@@ -2300,7 +2471,7 @@ FRESULT f_mkdir (
                  ;
   res = follow_path(&dj, path);
   if (res == FR_OK) res = FR_EXIST;
-  if (1 && res == FR_NO_FILE && (dj.fn[11] & 0x20)) {
+  if (2 && res == FR_NO_FILE && (dj.fn[11] & 0x20)) {
    res = FR_INVALID_NAME;
   }
   if (res == FR_NO_FILE) {
@@ -2584,4 +2755,292 @@ FRESULT f_setlabel (
  }
 
  return res;
+}
+# 5507 "mcc_generated_files/fatfs/ff.c"
+FRESULT f_mkfs (
+ const TCHAR* path,
+ BYTE opt,
+ DWORD au,
+ void* work,
+ UINT len
+)
+{
+ const UINT n_fats = 1;
+ const UINT n_rootdir = 512;
+ static const WORD cst[] = {1, 4, 16, 64, 256, 512, 0};
+ static const WORD cst32[] = {1, 2, 4, 8, 16, 32, 0};
+ BYTE fmt, sys, *buf, *pte, pdrv, part;
+ WORD ss;
+ DWORD szb_buf, sz_buf, sz_blk, n_clst, pau, sect, nsect, n;
+ DWORD b_vol, b_fat, b_data;
+ DWORD sz_vol, sz_rsv, sz_fat, sz_dir;
+ UINT i;
+ int vol;
+ DSTATUS stat;
+
+
+
+
+
+
+ vol = get_ldnumber(&path);
+ if (vol < 0) return FR_INVALID_DRIVE;
+ if (FatFs[vol]) FatFs[vol]->fs_type = 0;
+ pdrv = (BYTE)(vol);
+ part = 0;
+
+
+ stat = disk_initialize(pdrv);
+ if (stat & 0x01) return FR_NOT_READY;
+ if (stat & 0x04) return FR_WRITE_PROTECTED;
+ if (disk_ioctl(pdrv, 3, &sz_blk) != RES_OK || !sz_blk || sz_blk > 32768 || (sz_blk & (sz_blk - 1))) sz_blk = 1;
+
+
+
+
+ ss = 512;
+
+ if ((au != 0 && au < ss) || au > 0x1000000 || (au & (au - 1))) return FR_INVALID_PARAMETER;
+ au /= ss;
+# 5560 "mcc_generated_files/fatfs/ff.c"
+ {
+  buf = (BYTE*)work;
+  sz_buf = len / ss;
+  szb_buf = sz_buf * ss;
+ }
+ if (!buf || sz_buf == 0) return FR_NOT_ENOUGH_CORE;
+
+
+ if (0 && part != 0) {
+
+  if (disk_read(pdrv, buf, 0, 1) != RES_OK) return FR_DISK_ERR;
+  if (ld_word(buf + 510) != 0xAA55) return FR_MKFS_ABORTED;
+  pte = buf + (446 + (part - 1) * 16);
+  if (pte[4] == 0) return FR_MKFS_ABORTED;
+  b_vol = ld_dword(pte + 8);
+  sz_vol = ld_dword(pte + 12);
+ } else {
+
+  if (disk_ioctl(pdrv, 1, &sz_vol) != RES_OK) return FR_DISK_ERR;
+  b_vol = (opt & 0x08) ? 0 : 63;
+  if (sz_vol < b_vol) return FR_MKFS_ABORTED;
+  sz_vol -= b_vol;
+ }
+ if (sz_vol < 128) return FR_MKFS_ABORTED;
+
+
+ do {
+  if (0 && (opt & 0x04)) {
+   if ((opt & 0x07) == 0x04 || sz_vol >= 0x4000000 || au > 128) {
+    fmt = 4; break;
+   }
+  }
+  if (au > 128) return FR_INVALID_PARAMETER;
+  if (opt & 0x02) {
+   if ((opt & 0x07) == 0x02 || !(opt & 0x01)) {
+    fmt = 3; break;
+   }
+  }
+  if (!(opt & 0x01)) return FR_INVALID_PARAMETER;
+  fmt = 2;
+ } while (0);
+# 5765 "mcc_generated_files/fatfs/ff.c"
+ {
+  do {
+   pau = au;
+
+   if (fmt == 3) {
+    if (pau == 0) {
+     n = sz_vol / 0x20000;
+     for (i = 0, pau = 1; cst32[i] && cst32[i] <= n; i++, pau <<= 1) ;
+    }
+    n_clst = sz_vol / pau;
+    sz_fat = (n_clst * 4 + 8 + ss - 1) / ss;
+    sz_rsv = 32;
+    sz_dir = 0;
+    if (n_clst <= 0xFFF5 || n_clst > 0x0FFFFFF5) return FR_MKFS_ABORTED;
+   } else {
+    if (pau == 0) {
+     n = sz_vol / 0x1000;
+     for (i = 0, pau = 1; cst[i] && cst[i] <= n; i++, pau <<= 1) ;
+    }
+    n_clst = sz_vol / pau;
+    if (n_clst > 0xFF5) {
+     n = n_clst * 2 + 4;
+    } else {
+     fmt = 1;
+     n = (n_clst * 3 + 1) / 2 + 3;
+    }
+    sz_fat = (n + ss - 1) / ss;
+    sz_rsv = 1;
+    sz_dir = (DWORD)n_rootdir * 32 / ss;
+   }
+   b_fat = b_vol + sz_rsv;
+   b_data = b_fat + sz_fat * n_fats + sz_dir;
+
+
+   n = ((b_data + sz_blk - 1) & ~(sz_blk - 1)) - b_data;
+   if (fmt == 3) {
+    sz_rsv += n; b_fat += n;
+   } else {
+    sz_fat += n / n_fats;
+   }
+
+
+   if (sz_vol < b_data + pau * 16 - b_vol) return FR_MKFS_ABORTED;
+   n_clst = (sz_vol - sz_rsv - sz_fat * n_fats - sz_dir) / pau;
+   if (fmt == 3) {
+    if (n_clst <= 0xFFF5) {
+     if (au == 0 && (au = pau / 2) != 0) continue;
+     return FR_MKFS_ABORTED;
+    }
+   }
+   if (fmt == 2) {
+    if (n_clst > 0xFFF5) {
+     if (au == 0 && (pau * 2) <= 64) {
+      au = pau * 2; continue;
+     }
+     if ((opt & 0x02)) {
+      fmt = 3; continue;
+     }
+     if (au == 0 && (au = pau * 2) <= 128) continue;
+     return FR_MKFS_ABORTED;
+    }
+    if (n_clst <= 0xFF5) {
+     if (au == 0 && (au = pau * 2) <= 128) continue;
+     return FR_MKFS_ABORTED;
+    }
+   }
+   if (fmt == 1 && n_clst > 0xFF5) return FR_MKFS_ABORTED;
+
+
+   break;
+  } while (1);
+
+
+
+
+
+
+  mem_set(buf, 0, ss);
+  mem_cpy(buf + 0, "\xEB\xFE\x90" "MSDOS5.0", 11);
+  st_word(buf + 11, ss);
+  buf[13] = (BYTE)pau;
+  st_word(buf + 14, (WORD)sz_rsv);
+  buf[16] = (BYTE)n_fats;
+  st_word(buf + 17, (WORD)((fmt == 3) ? 0 : n_rootdir));
+  if (sz_vol < 0x10000) {
+   st_word(buf + 19, (WORD)sz_vol);
+  } else {
+   st_dword(buf + 32, sz_vol);
+  }
+  buf[21] = 0xF8;
+  st_word(buf + 24, 63);
+  st_word(buf + 26, 255);
+  st_dword(buf + 28, b_vol);
+  if (fmt == 3) {
+   st_dword(buf + 67, get_fattime());
+   st_dword(buf + 36, sz_fat);
+   st_dword(buf + 44, 2);
+   st_word(buf + 48, 1);
+   st_word(buf + 50, 6);
+   buf[64] = 0x80;
+   buf[66] = 0x29;
+   mem_cpy(buf + 71, "NO NAME    " "FAT32   ", 19);
+  } else {
+   st_dword(buf + 39, get_fattime());
+   st_word(buf + 22, (WORD)sz_fat);
+   buf[36] = 0x80;
+   buf[38] = 0x29;
+   mem_cpy(buf + 43, "NO NAME    " "FAT     ", 19);
+  }
+  st_word(buf + 510, 0xAA55);
+  if (disk_write(pdrv, buf, b_vol, 1) != RES_OK) return FR_DISK_ERR;
+
+
+  if (fmt == 3) {
+   disk_write(pdrv, buf, b_vol + 6, 1);
+   mem_set(buf, 0, ss);
+   st_dword(buf + 0, 0x41615252);
+   st_dword(buf + 484, 0x61417272);
+   st_dword(buf + 488, n_clst - 1);
+   st_dword(buf + 492, 2);
+   st_word(buf + 510, 0xAA55);
+   disk_write(pdrv, buf, b_vol + 7, 1);
+   disk_write(pdrv, buf, b_vol + 1, 1);
+  }
+
+
+  mem_set(buf, 0, (UINT)szb_buf);
+  sect = b_fat;
+  for (i = 0; i < n_fats; i++) {
+   if (fmt == 3) {
+    st_dword(buf + 0, 0xFFFFFFF8);
+    st_dword(buf + 4, 0xFFFFFFFF);
+    st_dword(buf + 8, 0x0FFFFFFF);
+   } else {
+    st_dword(buf + 0, (fmt == 1) ? 0xFFFFF8 : 0xFFFFFFF8);
+   }
+   nsect = sz_fat;
+   do {
+    n = (nsect > sz_buf) ? sz_buf : nsect;
+    if (disk_write(pdrv, buf, sect, (UINT)n) != RES_OK) return FR_DISK_ERR;
+    mem_set(buf, 0, ss);
+    sect += n; nsect -= n;
+   } while (nsect);
+  }
+
+
+  nsect = (fmt == 3) ? pau : sz_dir;
+  do {
+   n = (nsect > sz_buf) ? sz_buf : nsect;
+   if (disk_write(pdrv, buf, sect, (UINT)n) != RES_OK) return FR_DISK_ERR;
+   sect += n; nsect -= n;
+  } while (nsect);
+ }
+
+
+ if (0 && fmt == 4) {
+  sys = 0x07;
+ } else {
+  if (fmt == 3) {
+   sys = 0x0C;
+  } else {
+   if (sz_vol >= 0x10000) {
+    sys = 0x06;
+   } else {
+    sys = (fmt == 2) ? 0x04 : 0x01;
+   }
+  }
+ }
+
+
+ if (0 && part != 0) {
+
+  if (disk_read(pdrv, buf, 0, 1) != RES_OK) return FR_DISK_ERR;
+  buf[446 + (part - 1) * 16 + 4] = sys;
+  if (disk_write(pdrv, buf, 0, 1) != RES_OK) return FR_DISK_ERR;
+ } else {
+  if (!(opt & 0x08)) {
+   mem_set(buf, 0, ss);
+   st_word(buf + 510, 0xAA55);
+   pte = buf + 446;
+   pte[0] = 0;
+   pte[1] = 1;
+   pte[2] = 1;
+   pte[3] = 0;
+   pte[4] = sys;
+   n = (b_vol + sz_vol) / (63 * 255);
+   pte[5] = 254;
+   pte[6] = (BYTE)(((n >> 2) & 0xC0) | 63);
+   pte[7] = (BYTE)n;
+   st_dword(pte + 8, b_vol);
+   st_dword(pte + 12, sz_vol);
+   if (disk_write(pdrv, buf, 0, 1) != RES_OK) return FR_DISK_ERR;
+  }
+ }
+
+ if (disk_ioctl(pdrv, 0, 0) != RES_OK) return FR_DISK_ERR;
+
+ return FR_OK;
 }
