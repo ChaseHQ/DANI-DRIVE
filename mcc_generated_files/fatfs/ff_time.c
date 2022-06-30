@@ -60,6 +60,7 @@
 
 #include "ff.h"
 #include <stdint.h>
+#include "../../rtc.h"
 
 static DWORD decimalToFatTime(uint16_t year, uint8_t month, uint8_t day, uint8_t hour, uint8_t minute, uint8_t seconds)
 {
@@ -77,5 +78,6 @@ static DWORD decimalToFatTime(uint16_t year, uint8_t month, uint8_t day, uint8_t
 
 DWORD get_fattime (void)
 {
-    return decimalToFatTime(2018, 6, 31, 5, 10, 30);
+    struct tm clk = ReadClock();
+    return decimalToFatTime(1900+clk.tm_year, clk.tm_mon+1, clk.tm_mday, clk.tm_hour, clk.tm_min, clk.tm_sec);
 }

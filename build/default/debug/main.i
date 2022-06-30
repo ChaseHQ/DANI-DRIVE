@@ -16009,10 +16009,18 @@ unsigned char __t3rd16on(void);
 # 50 "./mcc_generated_files/mcc.h" 2
 
 # 1 "./mcc_generated_files/pin_manager.h" 1
-# 178 "./mcc_generated_files/pin_manager.h"
+# 378 "./mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 190 "./mcc_generated_files/pin_manager.h"
+# 390 "./mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
+# 403 "./mcc_generated_files/pin_manager.h"
+void IOCCF1_ISR(void);
+# 426 "./mcc_generated_files/pin_manager.h"
+void IOCCF1_SetInterruptHandler(void (* InterruptHandler)(void));
+# 450 "./mcc_generated_files/pin_manager.h"
+extern void (*IOCCF1_InterruptHandler)(void);
+# 474 "./mcc_generated_files/pin_manager.h"
+void IOCCF1_DefaultInterruptHandler(void);
 # 51 "./mcc_generated_files/mcc.h" 2
 
 
@@ -16404,7 +16412,7 @@ typedef struct {
 
 
 
-
+ const TCHAR* pat;
 
 } FFDIR;
 
@@ -16502,16 +16510,84 @@ void OSCILLATOR_Initialize(void);
 void PMD_Initialize(void);
 # 1 "main.c" 2
 
-# 1 "./mcc_generated_files/examples/i2c1_master_example.h" 1
-# 54 "./mcc_generated_files/examples/i2c1_master_example.h"
-uint8_t I2C1_Read1ByteRegister(i2c1_address_t address, uint8_t reg);
-uint16_t I2C1_Read2ByteRegister(i2c1_address_t address, uint8_t reg);
-void I2C1_Write1ByteRegister(i2c1_address_t address, uint8_t reg, uint8_t data);
-void I2C1_Write2ByteRegister(i2c1_address_t address, uint8_t reg, uint16_t data);
-void I2C1_WriteNBytes(i2c1_address_t address, uint8_t *data, size_t len);
-void I2C1_ReadNBytes(i2c1_address_t address, uint8_t *data, size_t len);
-void I2C1_ReadDataBlock(i2c1_address_t address, uint8_t reg, uint8_t *data, size_t len);
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 1 3
+# 25 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 411 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef struct __locale_struct * locale_t;
+# 25 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 2 3
+
+
+void *memcpy (void *restrict, const void *restrict, size_t);
+void *memmove (void *, const void *, size_t);
+void *memset (void *, int, size_t);
+int memcmp (const void *, const void *, size_t);
+void *memchr (const void *, int, size_t);
+
+char *strcpy (char *restrict, const char *restrict);
+char *strncpy (char *restrict, const char *restrict, size_t);
+
+char *strcat (char *restrict, const char *restrict);
+char *strncat (char *restrict, const char *restrict, size_t);
+
+int strcmp (const char *, const char *);
+int strncmp (const char *, const char *, size_t);
+
+int strcoll (const char *, const char *);
+size_t strxfrm (char *restrict, const char *restrict, size_t);
+
+char *strchr (const char *, int);
+char *strrchr (const char *, int);
+
+size_t strcspn (const char *, const char *);
+size_t strspn (const char *, const char *);
+char *strpbrk (const char *, const char *);
+char *strstr (const char *, const char *);
+char *strtok (char *restrict, const char *restrict);
+
+size_t strlen (const char *);
+
+char *strerror (int);
+# 65 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 3
+char *strtok_r (char *restrict, const char *restrict, char **restrict);
+int strerror_r (int, char *, size_t);
+char *stpcpy(char *restrict, const char *restrict);
+char *stpncpy(char *restrict, const char *restrict, size_t);
+size_t strnlen (const char *, size_t);
+char *strdup (const char *);
+char *strndup (const char *, size_t);
+char *strsignal(int);
+char *strerror_l (int, locale_t);
+int strcoll_l (const char *, const char *, locale_t);
+size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
+
+
+
+
+void *memccpy (void *restrict, const void *restrict, int, size_t);
 # 2 "main.c" 2
+
+
+# 1 "./mcc_generated_files/fatfs/drva.h" 1
+# 29 "./mcc_generated_files/fatfs/drva.h"
+_Bool DRVA_IsMediaPresent(void);
+_Bool DRVA_MediaInitialize(void);
+_Bool DRVA_IsMediaInitialized(void);
+
+_Bool DRVA_IsWriteProtected(void);
+uint16_t DRVA_GetSectorSize(void);
+uint32_t DRVA_GetSectorCount(void);
+
+_Bool DRVA_SectorRead(uint32_t sector_address, uint8_t* buffer, uint16_t sector_count);
+_Bool DRVA_SectorWrite(uint32_t sector_address, const uint8_t* buffer, uint16_t sector_count);
+
+void DRVA_TMR_ms(void);
+# 4 "main.c" 2
+
+# 1 "./rtc.h" 1
+
+
+
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\time.h" 1 3
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\time.h" 3
@@ -16538,8 +16614,6 @@ struct timespec { time_t tv_sec; long tv_nsec; };
 
 
 typedef int pid_t;
-# 411 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef struct __locale_struct * locale_t;
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\time.h" 2 3
 
 
@@ -16612,164 +16686,39 @@ extern int daylight;
 extern long timezone;
 extern int getdate_err;
 struct tm *getdate (const char *);
-# 3 "main.c" 2
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 1 3
-# 25 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 25 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 2 3
+# 5 "./rtc.h" 2
 
 
-void *memcpy (void *restrict, const void *restrict, size_t);
-void *memmove (void *, const void *, size_t);
-void *memset (void *, int, size_t);
-int memcmp (const void *, const void *, size_t);
-void *memchr (const void *, int, size_t);
 
-char *strcpy (char *restrict, const char *restrict);
-char *strncpy (char *restrict, const char *restrict, size_t);
-
-char *strcat (char *restrict, const char *restrict);
-char *strncat (char *restrict, const char *restrict, size_t);
-
-int strcmp (const char *, const char *);
-int strncmp (const char *, const char *, size_t);
-
-int strcoll (const char *, const char *);
-size_t strxfrm (char *restrict, const char *restrict, size_t);
-
-char *strchr (const char *, int);
-char *strrchr (const char *, int);
-
-size_t strcspn (const char *, const char *);
-size_t strspn (const char *, const char *);
-char *strpbrk (const char *, const char *);
-char *strstr (const char *, const char *);
-char *strtok (char *restrict, const char *restrict);
-
-size_t strlen (const char *);
-
-char *strerror (int);
-# 65 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 3
-char *strtok_r (char *restrict, const char *restrict, char **restrict);
-int strerror_r (int, char *, size_t);
-char *stpcpy(char *restrict, const char *restrict);
-char *stpncpy(char *restrict, const char *restrict, size_t);
-size_t strnlen (const char *, size_t);
-char *strdup (const char *);
-char *strndup (const char *, size_t);
-char *strsignal(int);
-char *strerror_l (int, locale_t);
-int strcoll_l (const char *, const char *, locale_t);
-size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
+void SetClock(uint8_t year, uint8_t month, uint8_t dayOfMonth, uint8_t dayOfWeek, uint8_t hour, uint8_t minute, uint8_t second);
+struct tm ReadClock();
+# 5 "main.c" 2
 
 
 
 
-void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 4 "main.c" 2
-
-
-# 1 "./mcc_generated_files/fatfs/drva.h" 1
-# 29 "./mcc_generated_files/fatfs/drva.h"
-_Bool DRVA_IsMediaPresent(void);
-_Bool DRVA_MediaInitialize(void);
-_Bool DRVA_IsMediaInitialized(void);
-
-_Bool DRVA_IsWriteProtected(void);
-uint16_t DRVA_GetSectorSize(void);
-uint32_t DRVA_GetSectorCount(void);
-
-_Bool DRVA_SectorRead(uint32_t sector_address, uint8_t* buffer, uint16_t sector_count);
-_Bool DRVA_SectorWrite(uint32_t sector_address, const uint8_t* buffer, uint16_t sector_count);
-
-void DRVA_TMR_ms(void);
-# 6 "main.c" 2
-
-
-
-
-
-
-static FATFS drive;
-static FIL file;
-
-void SetClock(uint8_t year, uint8_t month, uint8_t dayOfMonth, uint8_t dayOfWeek, uint8_t hour, uint8_t minute, uint8_t second) {
-    uint8_t secTPlace = (second / 10);
-    uint8_t secOPlace = second - (secTPlace * 10);
-    uint8_t minTPlace = (minute / 10);
-    uint8_t minOPlace = minute - (minTPlace * 10);
-    uint8_t hourTPlace = (hour / 10);
-    uint8_t hourOPlace = hour - (hourTPlace * 10);
-    uint8_t dayOMTPlace = (dayOfMonth / 10);
-    uint8_t dayOMOPlace = dayOfMonth - (dayOMTPlace * 10);
-    uint8_t monthTPlace = (month / 10);
-    uint8_t monthOPlace = month - (monthTPlace * 10);
-    uint8_t yearTPlace = (year / 10);
-    uint8_t yearOPlace = year - (yearTPlace * 10);
-
-    uint8_t secToWrite = (secTPlace << 4) | secOPlace;
-    uint8_t minToWrite = (minTPlace << 4) | minOPlace;
-    uint8_t hourToWrite = (hourTPlace << 4) | hourOPlace;
-    uint8_t dayOfMonthToWrite = (dayOMTPlace << 4) | dayOMOPlace;
-    uint8_t monthToWrite = (monthTPlace << 4) | monthOPlace;
-    uint8_t yearToWrite = (yearTPlace << 4) | yearOPlace;
-    I2C1_Write1ByteRegister(0b1101000,0x00, secToWrite);
-    I2C1_Write1ByteRegister(0b1101000,0x01, minToWrite);
-    I2C1_Write1ByteRegister(0b1101000,0x02, hourToWrite);
-    I2C1_Write1ByteRegister(0b1101000,0x03, dayOfWeek);
-    I2C1_Write1ByteRegister(0b1101000,0x04, dayOfMonthToWrite);
-    I2C1_Write1ByteRegister(0b1101000,0x05, monthToWrite);
-    I2C1_Write1ByteRegister(0b1101000,0x06, yearToWrite);
-}
-
-struct tm ReadClock() {
-    uint8_t sec, min, hour, weekday, day, month, year;
-    sec = I2C1_Read1ByteRegister(0b1101000,0x00);
-
-    min = I2C1_Read1ByteRegister(0b1101000,0x01);
-
-    hour = I2C1_Read1ByteRegister(0b1101000,0x02);
-
-    weekday = I2C1_Read1ByteRegister(0b1101000,0x03);
-
-    day = I2C1_Read1ByteRegister(0b1101000,0x04);
-
-    month = I2C1_Read1ByteRegister(0b1101000,0x05);
-
-    year = I2C1_Read1ByteRegister(0b1101000,0x06);
-
-    struct tm t;
-    t.tm_sec = ((sec & 0x70) >> 4)*10 + (sec & 0x0F);
-    t.tm_min = ((min & 0x70) >> 4)*10 + (min & 0x0F);
-    t.tm_hour = ((hour & 0x30) >> 4)*10 + (hour & 0x0F);
-    t.tm_wday = (weekday & 0x07) - 1;
-    t.tm_mday = ((day & 0x30) >> 4)*10 + (day & 0x0F);
-    t.tm_mon = (((month & 0x70) >> 4)*10 + (month & 0x0F)) - 1;
-    t.tm_year = (((year & 0xF0) >> 4)*10 + (year & 0x0F)) + 100;
-    return t;
-}
+    FATFS drive;
+    FIL file;
+    FFDIR dir;
+    FILINFO fno;
 
 void DiskTest() {
     UINT actualLength;
     char data[] = "Hello World!";
 
-    FFDIR dir;
-    FILINFO fno;
-
     if (DRVA_IsMediaPresent()) {
 
         if (f_mount(&drive,"0:",1) == FR_OK)
         {
+            if (f_open(&file, "another.txt", 0x02 | 0x04 ) == FR_OK)
+            {
+                f_write(&file, data, sizeof(data)-1, &actualLength );
+                f_close(&file);
+            }
 
 
 
 
-
-            f_opendir(&dir,"");
-            do {
-                f_readdir(&dir, &fno);
-            } while (fno.fname[0]);
 
             f_mount(0,"0:",0);
         }
@@ -16777,20 +16726,28 @@ void DiskTest() {
     }
 }
 
+void CA2IOC(void) {
+    for (int x = 0; x < 500; ++x) __nop();;
+    do { LATCbits.LATC0 = 0; } while(0);
+    for (int x = 0; x < 500; ++x) __nop();;
+    do { LATCbits.LATC0 = 1; } while(0);
+}
+
 void main(void)
 {
 
     for (int x = 0; x < 30000; ++x) __nop();;
 
-
     SYSTEM_Initialize();
 
     TMR0_SetInterruptHandler(DRVA_TMR_ms);
+    IOCCF1_SetInterruptHandler(CA2IOC);
     (INTCONbits.GIE = 1);
     (INTCONbits.PEIE = 1);
     TMR0_StartTimer();
-# 119 "main.c"
-    DiskTest();
+
+
+
 
     while (1);
 }

@@ -16005,15 +16005,25 @@ unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Users/Craig Vella/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\\pic\\include\\xc.h" 2 3
 # 54 "mcc_generated_files/pin_manager.h" 2
-# 178 "mcc_generated_files/pin_manager.h"
+# 378 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 190 "mcc_generated_files/pin_manager.h"
+# 390 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
+# 403 "mcc_generated_files/pin_manager.h"
+void IOCCF1_ISR(void);
+# 426 "mcc_generated_files/pin_manager.h"
+void IOCCF1_SetInterruptHandler(void (* InterruptHandler)(void));
+# 450 "mcc_generated_files/pin_manager.h"
+extern void (*IOCCF1_InterruptHandler)(void);
+# 474 "mcc_generated_files/pin_manager.h"
+void IOCCF1_DefaultInterruptHandler(void);
 # 49 "mcc_generated_files/pin_manager.c" 2
 
 
 
 
+
+void (*IOCCF1_InterruptHandler)(void);
 
 
 void PIN_MANAGER_Initialize(void)
@@ -16023,21 +16033,21 @@ void PIN_MANAGER_Initialize(void)
 
     LATA = 0x00;
     LATB = 0x10;
-    LATC = 0x18;
+    LATC = 0x19;
 
 
 
 
     TRISA = 0xFF;
     TRISB = 0xE5;
-    TRISC = 0xFF;
+    TRISC = 0xFE;
 
 
 
 
-    ANSELC = 0xE7;
+    ANSELC = 0xE4;
     ANSELB = 0xC1;
-    ANSELA = 0xFF;
+    ANSELA = 0x00;
 
 
 
@@ -16068,7 +16078,27 @@ void PIN_MANAGER_Initialize(void)
     INLVLB = 0xFF;
     INLVLC = 0xFF;
     INLVLE = 0x08;
-# 115 "mcc_generated_files/pin_manager.c"
+
+
+
+
+
+
+    IOCCFbits.IOCCF1 = 0;
+
+    IOCCNbits.IOCCN1 = 1;
+
+    IOCCPbits.IOCCP1 = 0;
+
+
+
+
+    IOCCF1_SetInterruptHandler(IOCCF1_DefaultInterruptHandler);
+
+
+    PIE0bits.IOCIE = 1;
+
+
     SSP2DATPPS = 0x0A;
     SSP1CLKPPS = 0x13;
     RB1PPS = 0x11;
@@ -16081,4 +16111,39 @@ void PIN_MANAGER_Initialize(void)
 
 void PIN_MANAGER_IOC(void)
 {
+
+    if(IOCCFbits.IOCCF1 == 1)
+    {
+        IOCCF1_ISR();
+    }
+}
+
+
+
+
+void IOCCF1_ISR(void) {
+
+
+
+
+    if(IOCCF1_InterruptHandler)
+    {
+        IOCCF1_InterruptHandler();
+    }
+    IOCCFbits.IOCCF1 = 0;
+}
+
+
+
+
+void IOCCF1_SetInterruptHandler(void (* InterruptHandler)(void)){
+    IOCCF1_InterruptHandler = InterruptHandler;
+}
+
+
+
+
+void IOCCF1_DefaultInterruptHandler(void){
+
+
 }

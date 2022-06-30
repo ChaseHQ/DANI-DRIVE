@@ -5,29 +5,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S1 . fs_type pdrv n_fats wflag fsi_flag id n_rootdir csize last_clst free_clst cdir n_fatent fsize volbase fatbase dirbase database winsect win ]
 "1034 mcc_generated_files/fatfs/ff.c
 [; ;mcc_generated_files/fatfs/ff.c: 1034: static FRESULT sync_window (
-[c E68 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 .. ]
-[n E68 . FR_OK FR_DISK_ERR FR_INT_ERR FR_NOT_READY FR_NO_FILE FR_NO_PATH FR_INVALID_NAME FR_DENIED FR_EXIST FR_INVALID_OBJECT FR_WRITE_PROTECTED FR_INVALID_DRIVE FR_NOT_ENABLED FR_NO_FILESYSTEM FR_MKFS_ABORTED FR_TIMEOUT FR_LOCKED FR_NOT_ENOUGH_CORE FR_TOO_MANY_OPEN_FILES FR_INVALID_PARAMETER  ]
+[c E69 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 .. ]
+[n E69 . FR_OK FR_DISK_ERR FR_INT_ERR FR_NOT_READY FR_NO_FILE FR_NO_PATH FR_INVALID_NAME FR_DENIED FR_EXIST FR_INVALID_OBJECT FR_WRITE_PROTECTED FR_INVALID_DRIVE FR_NOT_ENABLED FR_NO_FILESYSTEM FR_MKFS_ABORTED FR_TIMEOUT FR_LOCKED FR_NOT_ENOUGH_CORE FR_TOO_MANY_OPEN_FILES FR_INVALID_PARAMETER  ]
 "1042
 [; ;mcc_generated_files/fatfs/ff.c: 1042:   if (disk_write(fs->pdrv, fs->win, fs->winsect, 1) == RES_OK) {
-[c E209 0 1 2 3 4 .. ]
-[n E209 . RES_OK RES_ERROR RES_WRPRT RES_NOTRDY RES_PARERR  ]
+[c E210 0 1 2 3 4 .. ]
+[n E210 . RES_OK RES_ERROR RES_WRPRT RES_NOTRDY RES_PARERR  ]
 "35 mcc_generated_files/fatfs/diskio.h
 [; ;mcc_generated_files/fatfs/diskio.h: 35: DRESULT disk_write (BYTE pdrv, const BYTE* buff, DWORD sector, UINT count);
-[v _disk_write `(E209 ~T0 @X0 0 ef4`uc`*Cuc`ul`ui ]
+[v _disk_write `(E210 ~T0 @X0 0 ef4`uc`*Cuc`ul`ui ]
 "34
 [; ;mcc_generated_files/fatfs/diskio.h: 34: DRESULT disk_read (BYTE pdrv, BYTE* buff, DWORD sector, UINT count);
-[v _disk_read `(E209 ~T0 @X0 0 ef4`uc`*uc`ul`ui ]
+[v _disk_read `(E210 ~T0 @X0 0 ef4`uc`*uc`ul`ui ]
 "36
 [; ;mcc_generated_files/fatfs/diskio.h: 36: DRESULT disk_ioctl (BYTE pdrv, BYTE cmd, void* buff);
-[v _disk_ioctl `(E209 ~T0 @X0 0 ef3`uc`uc`*v ]
+[v _disk_ioctl `(E210 ~T0 @X0 0 ef3`uc`uc`*v ]
 "144 mcc_generated_files/fatfs/ff.h
 [; ;mcc_generated_files/fatfs/ff.h: 144: typedef struct {
 [s S2 `*S1 1 `us 1 `uc 1 `uc 1 `ul 1 `ul 1 ]
 [n S2 . fs id attr stat sclust objsize ]
 "190
 [; ;mcc_generated_files/fatfs/ff.h: 190: typedef struct {
-[s S4 `S2 1 `ul 1 `ul 1 `ul 1 `*uc 1 `uc -> 12 `i ]
-[n S4 . obj dptr clust sect dir fn ]
+[s S4 `S2 1 `ul 1 `ul 1 `ul 1 `*uc 1 `uc -> 12 `i `*Cuc 1 ]
+[n S4 . obj dptr clust sect dir fn pat ]
 "209
 [; ;mcc_generated_files/fatfs/ff.h: 209: typedef struct {
 [s S5 `ul 1 `us 1 `us 1 `uc 1 `uc -> 13 `i ]
@@ -526,7 +526,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "1034
 [; ;mcc_generated_files/fatfs/ff.c: 1034: static FRESULT sync_window (
-[v _sync_window `(E68 ~T0 @X0 1 sf1`*S1 ]
+[v _sync_window `(E69 ~T0 @X0 1 sf1`*S1 ]
 "1037
 [; ;mcc_generated_files/fatfs/ff.c: 1037: {
 {
@@ -539,15 +539,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "1038
 [; ;mcc_generated_files/fatfs/ff.c: 1038:  FRESULT res = FR_OK;
-[v _res `E68 ~T0 @X0 1 a ]
-[e = _res . `E68 0 ]
+[v _res `E69 ~T0 @X0 1 a ]
+[e = _res . `E69 0 ]
 "1041
 [; ;mcc_generated_files/fatfs/ff.c: 1041:  if (fs->wflag) {
 [e $ ! != -> . *U _fs 3 `i -> 0 `i 32  ]
 {
 "1042
 [; ;mcc_generated_files/fatfs/ff.c: 1042:   if (disk_write(fs->pdrv, fs->win, fs->winsect, 1) == RES_OK) {
-[e $ ! == -> ( _disk_write (4 , , , . *U _fs 1 -> &U . *U _fs 18 `*Cuc . *U _fs 17 -> -> 1 `i `ui `ui -> . `E209 0 `ui 33  ]
+[e $ ! == -> ( _disk_write (4 , , , . *U _fs 1 -> &U . *U _fs 18 `*Cuc . *U _fs 17 -> -> 1 `i `ui `ui -> . `E210 0 `ui 33  ]
 {
 "1043
 [; ;mcc_generated_files/fatfs/ff.c: 1043:    fs->wflag = 0;
@@ -573,7 +573,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "1048
 [; ;mcc_generated_files/fatfs/ff.c: 1048:    res = FR_DISK_ERR;
-[e = _res . `E68 1 ]
+[e = _res . `E69 1 ]
 "1049
 [; ;mcc_generated_files/fatfs/ff.c: 1049:   }
 }
@@ -592,7 +592,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "1056
 [; ;mcc_generated_files/fatfs/ff.c: 1056: static FRESULT move_window (
-[v _move_window `(E68 ~T0 @X0 1 sf2`*S1`ul ]
+[v _move_window `(E69 ~T0 @X0 1 sf2`*S1`ul ]
 "1060
 [; ;mcc_generated_files/fatfs/ff.c: 1060: {
 {
@@ -608,8 +608,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "1061
 [; ;mcc_generated_files/fatfs/ff.c: 1061:  FRESULT res = FR_OK;
-[v _res `E68 ~T0 @X0 1 a ]
-[e = _res . `E68 0 ]
+[v _res `E69 ~T0 @X0 1 a ]
+[e = _res . `E69 0 ]
 "1064
 [; ;mcc_generated_files/fatfs/ff.c: 1064:  if (sector != fs->winsect) {
 [e $ ! != _sector . *U _fs 17 38  ]
@@ -619,18 +619,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _sync_window (1 _fs ]
 "1068
 [; ;mcc_generated_files/fatfs/ff.c: 1068:   if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 39  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 39  ]
 {
 "1069
 [; ;mcc_generated_files/fatfs/ff.c: 1069:    if (disk_read(fs->pdrv, fs->win, sector, 1) != RES_OK) {
-[e $ ! != -> ( _disk_read (4 , , , . *U _fs 1 &U . *U _fs 18 _sector -> -> 1 `i `ui `ui -> . `E209 0 `ui 40  ]
+[e $ ! != -> ( _disk_read (4 , , , . *U _fs 1 &U . *U _fs 18 _sector -> -> 1 `i `ui `ui -> . `E210 0 `ui 40  ]
 {
 "1070
 [; ;mcc_generated_files/fatfs/ff.c: 1070:     sector = 0xFFFFFFFF;
 [e = _sector -> 4294967295 `ul ]
 "1071
 [; ;mcc_generated_files/fatfs/ff.c: 1071:     res = FR_DISK_ERR;
-[e = _res . `E68 1 ]
+[e = _res . `E69 1 ]
 "1072
 [; ;mcc_generated_files/fatfs/ff.c: 1072:    }
 }
@@ -656,7 +656,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "1087
 [; ;mcc_generated_files/fatfs/ff.c: 1087: static FRESULT sync_fs (
-[v _sync_fs `(E68 ~T0 @X0 1 sf1`*S1 ]
+[v _sync_fs `(E69 ~T0 @X0 1 sf1`*S1 ]
 "1090
 [; ;mcc_generated_files/fatfs/ff.c: 1090: {
 {
@@ -669,13 +669,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "1091
 [; ;mcc_generated_files/fatfs/ff.c: 1091:  FRESULT res;
-[v _res `E68 ~T0 @X0 1 a ]
+[v _res `E69 ~T0 @X0 1 a ]
 "1094
 [; ;mcc_generated_files/fatfs/ff.c: 1094:  res = sync_window(fs);
 [e = _res ( _sync_window (1 _fs ]
 "1095
 [; ;mcc_generated_files/fatfs/ff.c: 1095:  if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 42  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 42  ]
 {
 "1096
 [; ;mcc_generated_files/fatfs/ff.c: 1096:   if (fs->fs_type == 3 && fs->fsi_flag == 1) {
@@ -714,8 +714,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 43 ]
 "1110
 [; ;mcc_generated_files/fatfs/ff.c: 1110:   if (disk_ioctl(fs->pdrv, 0, 0) != RES_OK) res = FR_DISK_ERR;
-[e $ ! != -> ( _disk_ioctl (3 , , . *U _fs 1 -> -> 0 `i `uc -> -> 0 `i `*v `ui -> . `E209 0 `ui 44  ]
-[e = _res . `E68 1 ]
+[e $ ! != -> ( _disk_ioctl (3 , , . *U _fs 1 -> -> 0 `i `uc -> -> 0 `i `*v `ui -> . `E210 0 `ui 44  ]
+[e = _res . `E69 1 ]
 [e :U 44 ]
 "1111
 [; ;mcc_generated_files/fatfs/ff.c: 1111:  }
@@ -818,7 +818,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e =+ _bc / _bc -> -> 2 `i `ui ]
 "1160
 [; ;mcc_generated_files/fatfs/ff.c: 1160:    if (move_window(fs, fs->fatbase + (bc / ((UINT)512))) != FR_OK) break;
-[e $ ! != -> ( _move_window (2 , _fs + . *U _fs 14 -> / _bc -> -> 512 `i `ui `ul `ui -> . `E68 0 `ui 53  ]
+[e $ ! != -> ( _move_window (2 , _fs + . *U _fs 14 -> / _bc -> -> 512 `i `ui `ul `ui -> . `E69 0 `ui 53  ]
 [e $U 50  ]
 [e :U 53 ]
 "1161
@@ -826,7 +826,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _wc -> *U + &U . *U _fs 18 * -> % ++ _bc -> -> 1 `i `ui -> -> 512 `i `ui `ux -> -> # *U &U . *U _fs 18 `ui `ux `ui ]
 "1162
 [; ;mcc_generated_files/fatfs/ff.c: 1162:    if (move_window(fs, fs->fatbase + (bc / ((UINT)512))) != FR_OK) break;
-[e $ ! != -> ( _move_window (2 , _fs + . *U _fs 14 -> / _bc -> -> 512 `i `ui `ul `ui -> . `E68 0 `ui 54  ]
+[e $ ! != -> ( _move_window (2 , _fs + . *U _fs 14 -> / _bc -> -> 512 `i `ui `ul `ui -> . `E69 0 `ui 54  ]
 [e $U 50  ]
 [e :U 54 ]
 "1163
@@ -843,7 +843,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 55 ]
 "1168
 [; ;mcc_generated_files/fatfs/ff.c: 1168:    if (move_window(fs, fs->fatbase + (clst / (((UINT)512) / 2))) != FR_OK) break;
-[e $ ! != -> ( _move_window (2 , _fs + . *U _fs 14 / _clst -> / -> -> 512 `i `ui -> -> 2 `i `ui `ul `ui -> . `E68 0 `ui 56  ]
+[e $ ! != -> ( _move_window (2 , _fs + . *U _fs 14 / _clst -> / -> -> 512 `i `ui -> -> 2 `i `ui `ul `ui -> . `E69 0 `ui 56  ]
 [e $U 50  ]
 [e :U 56 ]
 "1169
@@ -857,7 +857,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 57 ]
 "1173
 [; ;mcc_generated_files/fatfs/ff.c: 1173:    if (move_window(fs, fs->fatbase + (clst / (((UINT)512) / 4))) != FR_OK) break;
-[e $ ! != -> ( _move_window (2 , _fs + . *U _fs 14 / _clst -> / -> -> 512 `i `ui -> -> 4 `i `ui `ul `ui -> . `E68 0 `ui 58  ]
+[e $ ! != -> ( _move_window (2 , _fs + . *U _fs 14 / _clst -> / -> -> 512 `i `ui -> -> 4 `i `ui `ul `ui -> . `E69 0 `ui 58  ]
 [e $U 50  ]
 [e :U 58 ]
 "1174
@@ -896,7 +896,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "1218
 [; ;mcc_generated_files/fatfs/ff.c: 1218: static FRESULT put_fat (
-[v _put_fat `(E68 ~T0 @X0 1 sf3`*S1`ul`ul ]
+[v _put_fat `(E69 ~T0 @X0 1 sf3`*S1`ul`ul ]
 "1223
 [; ;mcc_generated_files/fatfs/ff.c: 1223: {
 {
@@ -921,8 +921,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _p `*uc ~T0 @X0 1 a ]
 "1226
 [; ;mcc_generated_files/fatfs/ff.c: 1226:  FRESULT res = FR_INT_ERR;
-[v _res `E68 ~T0 @X0 1 a ]
-[e = _res . `E68 2 ]
+[v _res `E69 ~T0 @X0 1 a ]
+[e = _res . `E69 2 ]
 "1229
 [; ;mcc_generated_files/fatfs/ff.c: 1229:  if (clst >= 2 && clst < fs->n_fatent) {
 [e $ ! && >= _clst -> -> -> 2 `i `l `ul < _clst . *U _fs 11 61  ]
@@ -943,7 +943,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _move_window (2 , _fs + . *U _fs 14 -> / _bc -> -> 512 `i `ui `ul ]
 "1234
 [; ;mcc_generated_files/fatfs/ff.c: 1234:    if (res != FR_OK) break;
-[e $ ! != -> _res `ui -> . `E68 0 `ui 65  ]
+[e $ ! != -> _res `ui -> . `E69 0 `ui 65  ]
 [e $U 62  ]
 [e :U 65 ]
 "1235
@@ -960,7 +960,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _move_window (2 , _fs + . *U _fs 14 -> / _bc -> -> 512 `i `ui `ul ]
 "1239
 [; ;mcc_generated_files/fatfs/ff.c: 1239:    if (res != FR_OK) break;
-[e $ ! != -> _res `ui -> . `E68 0 `ui 66  ]
+[e $ ! != -> _res `ui -> . `E69 0 `ui 66  ]
 [e $U 62  ]
 [e :U 66 ]
 "1240
@@ -983,7 +983,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _move_window (2 , _fs + . *U _fs 14 / _clst -> / -> -> 512 `i `ui -> -> 2 `i `ui `ul ]
 "1247
 [; ;mcc_generated_files/fatfs/ff.c: 1247:    if (res != FR_OK) break;
-[e $ ! != -> _res `ui -> . `E68 0 `ui 68  ]
+[e $ ! != -> _res `ui -> . `E69 0 `ui 68  ]
 [e $U 62  ]
 [e :U 68 ]
 "1248
@@ -1003,7 +1003,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _move_window (2 , _fs + . *U _fs 14 / _clst -> / -> -> 512 `i `ui -> -> 4 `i `ui `ul ]
 "1257
 [; ;mcc_generated_files/fatfs/ff.c: 1257:    if (res != FR_OK) break;
-[e $ ! != -> _res `ui -> . `E68 0 `ui 70  ]
+[e $ ! != -> _res `ui -> . `E69 0 `ui 70  ]
 [e $U 62  ]
 [e :U 70 ]
 "1258
@@ -1050,7 +1050,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "1408
 [; ;mcc_generated_files/fatfs/ff.c: 1408: static FRESULT remove_chain (
-[v _remove_chain `(E68 ~T0 @X0 1 sf3`*S2`ul`ul ]
+[v _remove_chain `(E69 ~T0 @X0 1 sf3`*S2`ul`ul ]
 "1413
 [; ;mcc_generated_files/fatfs/ff.c: 1413: {
 {
@@ -1069,8 +1069,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "1414
 [; ;mcc_generated_files/fatfs/ff.c: 1414:  FRESULT res = FR_OK;
-[v _res `E68 ~T0 @X0 1 a ]
-[e = _res . `E68 0 ]
+[v _res `E69 ~T0 @X0 1 a ]
+[e = _res . `E69 0 ]
 "1415
 [; ;mcc_generated_files/fatfs/ff.c: 1415:  DWORD nxt;
 [v _nxt `ul ~T0 @X0 1 a ]
@@ -1081,7 +1081,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1424
 [; ;mcc_generated_files/fatfs/ff.c: 1424:  if (clst < 2 || clst >= fs->n_fatent) return FR_INT_ERR;
 [e $ ! || < _clst -> -> -> 2 `i `l `ul >= _clst . *U _fs 11 73  ]
-[e ) . `E68 2 ]
+[e ) . `E69 2 ]
 [e $UE 72  ]
 [e :U 73 ]
 "1427
@@ -1093,7 +1093,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _put_fat (3 , , _fs _pclst -> 4294967295 `ul ]
 "1429
 [; ;mcc_generated_files/fatfs/ff.c: 1429:   if (res != FR_OK) return res;
-[e $ ! != -> _res `ui -> . `E68 0 `ui 75  ]
+[e $ ! != -> _res `ui -> . `E69 0 `ui 75  ]
 [e ) _res ]
 [e $UE 72  ]
 [e :U 75 ]
@@ -1116,13 +1116,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1436
 [; ;mcc_generated_files/fatfs/ff.c: 1436:   if (nxt == 1) return FR_INT_ERR;
 [e $ ! == _nxt -> -> -> 1 `i `l `ul 80  ]
-[e ) . `E68 2 ]
+[e ) . `E69 2 ]
 [e $UE 72  ]
 [e :U 80 ]
 "1437
 [; ;mcc_generated_files/fatfs/ff.c: 1437:   if (nxt == 0xFFFFFFFF) return FR_DISK_ERR;
 [e $ ! == _nxt -> 4294967295 `ul 81  ]
-[e ) . `E68 1 ]
+[e ) . `E69 1 ]
 [e $UE 72  ]
 [e :U 81 ]
 "1438
@@ -1134,7 +1134,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _put_fat (3 , , _fs _clst -> -> -> 0 `i `l `ul ]
 "1440
 [; ;mcc_generated_files/fatfs/ff.c: 1440:    if (res != FR_OK) return res;
-[e $ ! != -> _res `ui -> . `E68 0 `ui 83  ]
+[e $ ! != -> _res `ui -> . `E69 0 `ui 83  ]
 [e ) _res ]
 [e $UE 72  ]
 [e :U 83 ]
@@ -1166,7 +1166,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 77 ]
 "1493
 [; ;mcc_generated_files/fatfs/ff.c: 1493:  return FR_OK;
-[e ) . `E68 0 ]
+[e ) . `E69 0 ]
 [e $UE 72  ]
 "1494
 [; ;mcc_generated_files/fatfs/ff.c: 1494: }
@@ -1195,7 +1195,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _scl `ul ~T0 @X0 1 a ]
 "1509
 [; ;mcc_generated_files/fatfs/ff.c: 1509:  FRESULT res;
-[v _res `E68 ~T0 @X0 1 a ]
+[v _res `E69 ~T0 @X0 1 a ]
 "1510
 [; ;mcc_generated_files/fatfs/ff.c: 1510:  FATFS *fs = obj->fs;
 [v _fs `*S1 ~T0 @X0 1 a ]
@@ -1371,7 +1371,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _put_fat (3 , , _fs _ncl -> 4294967295 `ul ]
 "1580
 [; ;mcc_generated_files/fatfs/ff.c: 1580:   if (res == FR_OK && clst != 0) {
-[e $ ! && == -> _res `ui -> . `E68 0 `ui != _clst -> -> -> 0 `i `l `ul 107  ]
+[e $ ! && == -> _res `ui -> . `E69 0 `ui != _clst -> -> -> 0 `i `l `ul 107  ]
 {
 "1581
 [; ;mcc_generated_files/fatfs/ff.c: 1581:    res = put_fat(fs, clst, ncl);
@@ -1385,7 +1385,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "1585
 [; ;mcc_generated_files/fatfs/ff.c: 1585:  if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 108  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 108  ]
 {
 "1586
 [; ;mcc_generated_files/fatfs/ff.c: 1586:   fs->last_clst = ncl;
@@ -1406,7 +1406,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "1590
 [; ;mcc_generated_files/fatfs/ff.c: 1590:   ncl = (res == FR_DISK_ERR) ? 0xFFFFFFFF : 1;
-[e = _ncl ? == -> _res `ui -> . `E68 1 `ui : -> 4294967295 `ul -> -> -> 1 `i `l `ul ]
+[e = _ncl ? == -> _res `ui -> . `E69 1 `ui : -> 4294967295 `ul -> -> -> 1 `i `l `ul ]
 "1591
 [; ;mcc_generated_files/fatfs/ff.c: 1591:  }
 }
@@ -1421,7 +1421,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "1636
 [; ;mcc_generated_files/fatfs/ff.c: 1636: static FRESULT dir_clear (
-[v _dir_clear `(E68 ~T0 @X0 1 sf2`*S1`ul ]
+[v _dir_clear `(E69 ~T0 @X0 1 sf2`*S1`ul ]
 "1640
 [; ;mcc_generated_files/fatfs/ff.c: 1640: {
 {
@@ -1447,8 +1447,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _ibuf `*uc ~T0 @X0 1 a ]
 "1646
 [; ;mcc_generated_files/fatfs/ff.c: 1646:  if (sync_window(fs) != FR_OK) return FR_DISK_ERR;
-[e $ ! != -> ( _sync_window (1 _fs `ui -> . `E68 0 `ui 112  ]
-[e ) . `E68 1 ]
+[e $ ! != -> ( _sync_window (1 _fs `ui -> . `E69 0 `ui 112  ]
+[e ) . `E69 1 ]
 [e $UE 111  ]
 [e :U 112 ]
 "1647
@@ -1475,7 +1475,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 113 ]
 [e =+ _n _szb ]
 [e :U 116 ]
-[e $ && < _n -> . *U _fs 7 `ui == -> ( _disk_write (4 , , , . *U _fs 1 -> _ibuf `*Cuc + _sect -> _n `ul _szb `ui -> . `E209 0 `ui 113  ]
+[e $ && < _n -> . *U _fs 7 `ui == -> ( _disk_write (4 , , , . *U _fs 1 -> _ibuf `*Cuc + _sect -> _n `ul _szb `ui -> . `E210 0 `ui 113  ]
 [e :U 114 ]
 }
 "1663
@@ -1483,7 +1483,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "1664
 [; ;mcc_generated_files/fatfs/ff.c: 1664:  return (n == fs->csize) ? FR_OK : FR_DISK_ERR;
-[e ) -> ? == _n -> . *U _fs 7 `ui : . `E68 0 . `E68 1 `E68 ]
+[e ) -> ? == _n -> . *U _fs 7 `ui : . `E69 0 . `E69 1 `E69 ]
 [e $UE 111  ]
 "1665
 [; ;mcc_generated_files/fatfs/ff.c: 1665: }
@@ -1491,7 +1491,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "1675
 [; ;mcc_generated_files/fatfs/ff.c: 1675: static FRESULT dir_sdi (
-[v _dir_sdi `(E68 ~T0 @X0 1 sf2`*S4`ul ]
+[v _dir_sdi `(E69 ~T0 @X0 1 sf2`*S4`ul ]
 "1679
 [; ;mcc_generated_files/fatfs/ff.c: 1679: {
 {
@@ -1519,7 +1519,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "1685
 [; ;mcc_generated_files/fatfs/ff.c: 1685:   return FR_INT_ERR;
-[e ) . `E68 2 ]
+[e ) . `E69 2 ]
 [e $UE 117  ]
 "1686
 [; ;mcc_generated_files/fatfs/ff.c: 1686:  }
@@ -1554,7 +1554,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1695
 [; ;mcc_generated_files/fatfs/ff.c: 1695:   if (ofs / 32 >= fs->n_rootdir) return FR_INT_ERR;
 [e $ ! >= / _ofs -> -> -> 32 `i `l `ul -> . *U _fs 6 `ul 122  ]
-[e ) . `E68 2 ]
+[e ) . `E69 2 ]
 [e $UE 117  ]
 [e :U 122 ]
 "1696
@@ -1580,13 +1580,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1702
 [; ;mcc_generated_files/fatfs/ff.c: 1702:    if (clst == 0xFFFFFFFF) return FR_DISK_ERR;
 [e $ ! == _clst -> 4294967295 `ul 127  ]
-[e ) . `E68 1 ]
+[e ) . `E69 1 ]
 [e $UE 117  ]
 [e :U 127 ]
 "1703
 [; ;mcc_generated_files/fatfs/ff.c: 1703:    if (clst < 2 || clst >= fs->n_fatent) return FR_INT_ERR;
 [e $ ! || < _clst -> -> -> 2 `i `l `ul >= _clst . *U _fs 11 128  ]
-[e ) . `E68 2 ]
+[e ) . `E69 2 ]
 [e $UE 117  ]
 [e :U 128 ]
 "1704
@@ -1613,7 +1613,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1709
 [; ;mcc_generated_files/fatfs/ff.c: 1709:  if (dp->sect == 0) return FR_INT_ERR;
 [e $ ! == . *U _dp 3 -> -> -> 0 `i `l `ul 129  ]
-[e ) . `E68 2 ]
+[e ) . `E69 2 ]
 [e $UE 117  ]
 [e :U 129 ]
 "1710
@@ -1624,7 +1624,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . *U _dp 4 + &U . *U _fs 18 * -> % _ofs -> -> -> 512 `i `ui `ul `ux -> -> # *U &U . *U _fs 18 `ui `ux ]
 "1713
 [; ;mcc_generated_files/fatfs/ff.c: 1713:  return FR_OK;
-[e ) . `E68 0 ]
+[e ) . `E69 0 ]
 [e $UE 117  ]
 "1714
 [; ;mcc_generated_files/fatfs/ff.c: 1714: }
@@ -1632,7 +1632,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "1723
 [; ;mcc_generated_files/fatfs/ff.c: 1723: static FRESULT dir_next (
-[v _dir_next `(E68 ~T0 @X0 1 sf2`*S4`i ]
+[v _dir_next `(E69 ~T0 @X0 1 sf2`*S4`i ]
 "1727
 [; ;mcc_generated_files/fatfs/ff.c: 1727: {
 {
@@ -1660,7 +1660,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1733
 [; ;mcc_generated_files/fatfs/ff.c: 1733:  if (dp->sect == 0 || ofs >= (DWORD)((0 && fs->fs_type == 4) ? 0x10000000 : 0x200000)) return FR_NO_FILE;
 [e $ ! || == . *U _dp 3 -> -> -> 0 `i `l `ul >= _ofs -> ? && != -> 0 `i -> 0 `i == -> . *U _fs 0 `i -> 4 `i : -> 268435456 `l -> 2097152 `l `ul 131  ]
-[e ) . `E68 4 ]
+[e ) . `E69 4 ]
 [e $UE 130  ]
 [e :U 131 ]
 "1735
@@ -1681,7 +1681,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1740
 [; ;mcc_generated_files/fatfs/ff.c: 1740:     dp->sect = 0; return FR_NO_FILE;
 [e = . *U _dp 3 -> -> -> 0 `i `l `ul ]
-[e ) . `E68 4 ]
+[e ) . `E69 4 ]
 [e $UE 130  ]
 "1741
 [; ;mcc_generated_files/fatfs/ff.c: 1741:    }
@@ -1705,13 +1705,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1746
 [; ;mcc_generated_files/fatfs/ff.c: 1746:     if (clst <= 1) return FR_INT_ERR;
 [e $ ! <= _clst -> -> -> 1 `i `l `ul 137  ]
-[e ) . `E68 2 ]
+[e ) . `E69 2 ]
 [e $UE 130  ]
 [e :U 137 ]
 "1747
 [; ;mcc_generated_files/fatfs/ff.c: 1747:     if (clst == 0xFFFFFFFF) return FR_DISK_ERR;
 [e $ ! == _clst -> 4294967295 `ul 138  ]
-[e ) . `E68 1 ]
+[e ) . `E69 1 ]
 [e $UE 130  ]
 [e :U 138 ]
 "1748
@@ -1725,7 +1725,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1751
 [; ;mcc_generated_files/fatfs/ff.c: 1751:       dp->sect = 0; return FR_NO_FILE;
 [e = . *U _dp 3 -> -> -> 0 `i `l `ul ]
-[e ) . `E68 4 ]
+[e ) . `E69 4 ]
 [e $UE 130  ]
 "1752
 [; ;mcc_generated_files/fatfs/ff.c: 1752:      }
@@ -1737,25 +1737,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1754
 [; ;mcc_generated_files/fatfs/ff.c: 1754:      if (clst == 0) return FR_DENIED;
 [e $ ! == _clst -> -> -> 0 `i `l `ul 141  ]
-[e ) . `E68 7 ]
+[e ) . `E69 7 ]
 [e $UE 130  ]
 [e :U 141 ]
 "1755
 [; ;mcc_generated_files/fatfs/ff.c: 1755:      if (clst == 1) return FR_INT_ERR;
 [e $ ! == _clst -> -> -> 1 `i `l `ul 142  ]
-[e ) . `E68 2 ]
+[e ) . `E69 2 ]
 [e $UE 130  ]
 [e :U 142 ]
 "1756
 [; ;mcc_generated_files/fatfs/ff.c: 1756:      if (clst == 0xFFFFFFFF) return FR_DISK_ERR;
 [e $ ! == _clst -> 4294967295 `ul 143  ]
-[e ) . `E68 1 ]
+[e ) . `E69 1 ]
 [e $UE 130  ]
 [e :U 143 ]
 "1757
 [; ;mcc_generated_files/fatfs/ff.c: 1757:      if (dir_clear(fs, clst) != FR_OK) return FR_DISK_ERR;
-[e $ ! != -> ( _dir_clear (2 , _fs _clst `ui -> . `E68 0 `ui 144  ]
-[e ) . `E68 1 ]
+[e $ ! != -> ( _dir_clear (2 , _fs _clst `ui -> . `E69 0 `ui 144  ]
+[e ) . `E69 1 ]
 [e $UE 130  ]
 [e :U 144 ]
 "1758
@@ -1793,7 +1793,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . *U _dp 4 + &U . *U _fs 18 * -> % _ofs -> -> -> 512 `i `ui `ul `ux -> -> # *U &U . *U _fs 18 `ui `ux ]
 "1772
 [; ;mcc_generated_files/fatfs/ff.c: 1772:  return FR_OK;
-[e ) . `E68 0 ]
+[e ) . `E69 0 ]
 [e $UE 130  ]
 "1773
 [; ;mcc_generated_files/fatfs/ff.c: 1773: }
@@ -1801,7 +1801,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "1783
 [; ;mcc_generated_files/fatfs/ff.c: 1783: static FRESULT dir_alloc (
-[v _dir_alloc `(E68 ~T0 @X0 1 sf2`*S4`ui ]
+[v _dir_alloc `(E69 ~T0 @X0 1 sf2`*S4`ui ]
 "1787
 [; ;mcc_generated_files/fatfs/ff.c: 1787: {
 {
@@ -1817,7 +1817,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "1788
 [; ;mcc_generated_files/fatfs/ff.c: 1788:  FRESULT res;
-[v _res `E68 ~T0 @X0 1 a ]
+[v _res `E69 ~T0 @X0 1 a ]
 "1789
 [; ;mcc_generated_files/fatfs/ff.c: 1789:  UINT n;
 [v _n `ui ~T0 @X0 1 a ]
@@ -1830,7 +1830,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _dir_sdi (2 , _dp -> -> -> 0 `i `l `ul ]
 "1794
 [; ;mcc_generated_files/fatfs/ff.c: 1794:  if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 147  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 147  ]
 {
 "1795
 [; ;mcc_generated_files/fatfs/ff.c: 1795:   n = 0;
@@ -1844,7 +1844,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _move_window (2 , _fs . *U _dp 3 ]
 "1798
 [; ;mcc_generated_files/fatfs/ff.c: 1798:    if (res != FR_OK) break;
-[e $ ! != -> _res `ui -> . `E68 0 `ui 151  ]
+[e $ ! != -> _res `ui -> . `E69 0 `ui 151  ]
 [e $U 149  ]
 [e :U 151 ]
 "1802
@@ -1875,7 +1875,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1809
 [; ;mcc_generated_files/fatfs/ff.c: 1809:   } while (res == FR_OK);
 }
-[e $ == -> _res `ui -> . `E68 0 `ui 150  ]
+[e $ == -> _res `ui -> . `E69 0 `ui 150  ]
 [e :U 149 ]
 "1810
 [; ;mcc_generated_files/fatfs/ff.c: 1810:  }
@@ -1883,8 +1883,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 147 ]
 "1812
 [; ;mcc_generated_files/fatfs/ff.c: 1812:  if (res == FR_NO_FILE) res = FR_DENIED;
-[e $ ! == -> _res `ui -> . `E68 4 `ui 155  ]
-[e = _res . `E68 7 ]
+[e $ ! == -> _res `ui -> . `E69 4 `ui 155  ]
+[e = _res . `E69 7 ]
 [e :U 155 ]
 "1813
 [; ;mcc_generated_files/fatfs/ff.c: 1813:  return res;
@@ -1974,7 +1974,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "2325
 [; ;mcc_generated_files/fatfs/ff.c: 2325: static FRESULT dir_read (
-[v _dir_read `(E68 ~T0 @X0 1 sf2`*S4`i ]
+[v _dir_read `(E69 ~T0 @X0 1 sf2`*S4`i ]
 "2329
 [; ;mcc_generated_files/fatfs/ff.c: 2329: {
 {
@@ -1990,8 +1990,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "2330
 [; ;mcc_generated_files/fatfs/ff.c: 2330:  FRESULT res = FR_NO_FILE;
-[v _res `E68 ~T0 @X0 1 a ]
-[e = _res . `E68 4 ]
+[v _res `E69 ~T0 @X0 1 a ]
+[e = _res . `E69 4 ]
 "2331
 [; ;mcc_generated_files/fatfs/ff.c: 2331:  FATFS *fs = dp->obj.fs;
 [v _fs `*S1 ~T0 @X0 1 a ]
@@ -2010,7 +2010,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _move_window (2 , _fs . *U _dp 3 ]
 "2339
 [; ;mcc_generated_files/fatfs/ff.c: 2339:   if (res != FR_OK) break;
-[e $ ! != -> _res `ui -> . `E68 0 `ui 164  ]
+[e $ ! != -> _res `ui -> . `E69 0 `ui 164  ]
 [e $U 163  ]
 [e :U 164 ]
 "2340
@@ -2022,7 +2022,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "2342
 [; ;mcc_generated_files/fatfs/ff.c: 2342:    res = FR_NO_FILE; break;
-[e = _res . `E68 4 ]
+[e = _res . `E69 4 ]
 [e $U 163  ]
 "2343
 [; ;mcc_generated_files/fatfs/ff.c: 2343:   }
@@ -2053,7 +2053,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _dir_next (2 , _dp -> 0 `i ]
 "2388
 [; ;mcc_generated_files/fatfs/ff.c: 2388:   if (res != FR_OK) break;
-[e $ ! != -> _res `ui -> . `E68 0 `ui 167  ]
+[e $ ! != -> _res `ui -> . `E69 0 `ui 167  ]
 [e $U 163  ]
 [e :U 167 ]
 "2389
@@ -2066,7 +2066,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 163 ]
 "2391
 [; ;mcc_generated_files/fatfs/ff.c: 2391:  if (res != FR_OK) dp->sect = 0;
-[e $ ! != -> _res `ui -> . `E68 0 `ui 168  ]
+[e $ ! != -> _res `ui -> . `E69 0 `ui 168  ]
 [e = . *U _dp 3 -> -> -> 0 `i `l `ul ]
 [e :U 168 ]
 "2392
@@ -2079,7 +2079,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "2403
 [; ;mcc_generated_files/fatfs/ff.c: 2403: static FRESULT dir_find (
-[v _dir_find `(E68 ~T0 @X0 1 sf1`*S4 ]
+[v _dir_find `(E69 ~T0 @X0 1 sf1`*S4 ]
 "2406
 [; ;mcc_generated_files/fatfs/ff.c: 2406: {
 {
@@ -2092,7 +2092,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "2407
 [; ;mcc_generated_files/fatfs/ff.c: 2407:  FRESULT res;
-[v _res `E68 ~T0 @X0 1 a ]
+[v _res `E69 ~T0 @X0 1 a ]
 "2408
 [; ;mcc_generated_files/fatfs/ff.c: 2408:  FATFS *fs = dp->obj.fs;
 [v _fs `*S1 ~T0 @X0 1 a ]
@@ -2105,7 +2105,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _dir_sdi (2 , _dp -> -> -> 0 `i `l `ul ]
 "2415
 [; ;mcc_generated_files/fatfs/ff.c: 2415:  if (res != FR_OK) return res;
-[e $ ! != -> _res `ui -> . `E68 0 `ui 170  ]
+[e $ ! != -> _res `ui -> . `E69 0 `ui 170  ]
 [e ) _res ]
 [e $UE 169  ]
 [e :U 170 ]
@@ -2118,7 +2118,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _move_window (2 , _fs . *U _dp 3 ]
 "2442
 [; ;mcc_generated_files/fatfs/ff.c: 2442:   if (res != FR_OK) break;
-[e $ ! != -> _res `ui -> . `E68 0 `ui 174  ]
+[e $ ! != -> _res `ui -> . `E69 0 `ui 174  ]
 [e $U 172  ]
 [e :U 174 ]
 "2443
@@ -2128,7 +2128,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mcc_generated_files/fatfs/ff.c: 2444:   if (c == 0) { res = FR_NO_FILE; break; }
 [e $ ! == -> _c `i -> 0 `i 175  ]
 {
-[e = _res . `E68 4 ]
+[e = _res . `E69 4 ]
 [e $U 172  ]
 }
 [e :U 175 ]
@@ -2146,7 +2146,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2471
 [; ;mcc_generated_files/fatfs/ff.c: 2471:  } while (res == FR_OK);
 }
-[e $ == -> _res `ui -> . `E68 0 `ui 173  ]
+[e $ == -> _res `ui -> . `E69 0 `ui 173  ]
 [e :U 172 ]
 "2473
 [; ;mcc_generated_files/fatfs/ff.c: 2473:  return res;
@@ -2158,7 +2158,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "2484
 [; ;mcc_generated_files/fatfs/ff.c: 2484: static FRESULT dir_register (
-[v _dir_register `(E68 ~T0 @X0 1 sf1`*S4 ]
+[v _dir_register `(E69 ~T0 @X0 1 sf1`*S4 ]
 "2487
 [; ;mcc_generated_files/fatfs/ff.c: 2487: {
 {
@@ -2171,7 +2171,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "2488
 [; ;mcc_generated_files/fatfs/ff.c: 2488:  FRESULT res;
-[v _res `E68 ~T0 @X0 1 a ]
+[v _res `E69 ~T0 @X0 1 a ]
 "2489
 [; ;mcc_generated_files/fatfs/ff.c: 2489:  FATFS *fs = dp->obj.fs;
 [v _fs `*S1 ~T0 @X0 1 a ]
@@ -2181,14 +2181,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _dir_alloc (2 , _dp -> -> 1 `i `ui ]
 "2566
 [; ;mcc_generated_files/fatfs/ff.c: 2566:  if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 178  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 178  ]
 {
 "2567
 [; ;mcc_generated_files/fatfs/ff.c: 2567:   res = move_window(fs, dp->sect);
 [e = _res ( _move_window (2 , _fs . *U _dp 3 ]
 "2568
 [; ;mcc_generated_files/fatfs/ff.c: 2568:   if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 179  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 179  ]
 {
 "2569
 [; ;mcc_generated_files/fatfs/ff.c: 2569:    mem_set(dp->dir, 0, 32);
@@ -2217,7 +2217,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "2590
 [; ;mcc_generated_files/fatfs/ff.c: 2590: static FRESULT dir_remove (
-[v _dir_remove `(E68 ~T0 @X0 1 sf1`*S4 ]
+[v _dir_remove `(E69 ~T0 @X0 1 sf1`*S4 ]
 "2593
 [; ;mcc_generated_files/fatfs/ff.c: 2593: {
 {
@@ -2230,7 +2230,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "2594
 [; ;mcc_generated_files/fatfs/ff.c: 2594:  FRESULT res;
-[v _res `E68 ~T0 @X0 1 a ]
+[v _res `E69 ~T0 @X0 1 a ]
 "2595
 [; ;mcc_generated_files/fatfs/ff.c: 2595:  FATFS *fs = dp->obj.fs;
 [v _fs `*S1 ~T0 @X0 1 a ]
@@ -2240,7 +2240,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _move_window (2 , _fs . *U _dp 3 ]
 "2618
 [; ;mcc_generated_files/fatfs/ff.c: 2618:  if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 181  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 181  ]
 {
 "2619
 [; ;mcc_generated_files/fatfs/ff.c: 2619:   dp->dir[0] = 0xE5;
@@ -2347,9 +2347,195 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mcc_generated_files/fatfs/ff.c: 2729: }
 [e :UE 182 ]
 }
+"2740
+[; ;mcc_generated_files/fatfs/ff.c: 2740: static DWORD get_achar (
+[v _get_achar `(ul ~T0 @X0 1 sf1`**Cuc ]
+"2743
+[; ;mcc_generated_files/fatfs/ff.c: 2743: {
+{
+[e :U _get_achar ]
+"2741
+[; ;mcc_generated_files/fatfs/ff.c: 2741:  const TCHAR** ptr
+[v _ptr `**Cuc ~T0 @X0 1 r1 ]
+"2743
+[; ;mcc_generated_files/fatfs/ff.c: 2743: {
+[f ]
+"2744
+[; ;mcc_generated_files/fatfs/ff.c: 2744:  DWORD chr;
+[v _chr `ul ~T0 @X0 1 a ]
+"2753
+[; ;mcc_generated_files/fatfs/ff.c: 2753:  chr = (BYTE)*(*ptr)++;
+[e = _chr -> -> *U ++ *U _ptr * -> -> 1 `i `x -> -> # *U *U _ptr `i `x `uc `ul ]
+"2754
+[; ;mcc_generated_files/fatfs/ff.c: 2754:  if (((chr) >= 'a' && (chr) <= 'z')) chr -= 0x20;
+[e $ ! && >= _chr -> -> 97 `ui `ul <= _chr -> -> 122 `ui `ul 191  ]
+[e =- _chr -> -> -> 32 `i `l `ul ]
+[e :U 191 ]
+"2758
+[; ;mcc_generated_files/fatfs/ff.c: 2758:  if (chr >= 0x80) chr = ExCvt[chr - 0x80];
+[e $ ! >= _chr -> -> -> 128 `i `l `ul 192  ]
+[e = _chr -> *U + &U _ExCvt * -> - _chr -> -> -> 128 `i `l `ul `ux -> -> # *U &U _ExCvt `ui `ux `ul ]
+[e :U 192 ]
+"2767
+[; ;mcc_generated_files/fatfs/ff.c: 2767:  return chr;
+[e ) _chr ]
+[e $UE 190  ]
+"2768
+[; ;mcc_generated_files/fatfs/ff.c: 2768: }
+[e :UE 190 ]
+}
+"2771
+[; ;mcc_generated_files/fatfs/ff.c: 2771: static int pattern_matching (
+[v _pattern_matching `(i ~T0 @X0 1 sf4`*Cuc`*Cuc`i`i ]
+"2777
+[; ;mcc_generated_files/fatfs/ff.c: 2777: {
+{
+[e :U _pattern_matching ]
+"2772
+[; ;mcc_generated_files/fatfs/ff.c: 2772:  const TCHAR* pat,
+[v _pat `*Cuc ~T0 @X0 1 r1 ]
+"2773
+[; ;mcc_generated_files/fatfs/ff.c: 2773:  const TCHAR* nam,
+[v _nam `*Cuc ~T0 @X0 1 r2 ]
+"2774
+[; ;mcc_generated_files/fatfs/ff.c: 2774:  int skip,
+[v _skip `i ~T0 @X0 1 r3 ]
+"2775
+[; ;mcc_generated_files/fatfs/ff.c: 2775:  int inf
+[v _inf `i ~T0 @X0 1 r4 ]
+"2777
+[; ;mcc_generated_files/fatfs/ff.c: 2777: {
+[f ]
+"2778
+[; ;mcc_generated_files/fatfs/ff.c: 2778:  const TCHAR *pp, *np;
+[v _pp `*Cuc ~T0 @X0 1 a ]
+[v _np `*Cuc ~T0 @X0 1 a ]
+"2779
+[; ;mcc_generated_files/fatfs/ff.c: 2779:  DWORD pc, nc;
+[v _pc `ul ~T0 @X0 1 a ]
+[v _nc `ul ~T0 @X0 1 a ]
+"2780
+[; ;mcc_generated_files/fatfs/ff.c: 2780:  int nm, nx;
+[v _nm `i ~T0 @X0 1 a ]
+[v _nx `i ~T0 @X0 1 a ]
+"2783
+[; ;mcc_generated_files/fatfs/ff.c: 2783:  while (skip--) {
+[e $U 194  ]
+[e :U 195 ]
+{
+"2784
+[; ;mcc_generated_files/fatfs/ff.c: 2784:   if (!get_achar(&nam)) return 0;
+[e $ ! ! != ( _get_achar (1 &U _nam -> -> -> 0 `i `l `ul 197  ]
+[e ) -> 0 `i ]
+[e $UE 193  ]
+[e :U 197 ]
+"2785
+[; ;mcc_generated_files/fatfs/ff.c: 2785:  }
+}
+[e :U 194 ]
+"2783
+[; ;mcc_generated_files/fatfs/ff.c: 2783:  while (skip--) {
+[e $ != -- _skip -> 1 `i -> 0 `i 195  ]
+[e :U 196 ]
+"2786
+[; ;mcc_generated_files/fatfs/ff.c: 2786:  if (*pat == 0 && inf) return 1;
+[e $ ! && == -> *U _pat `i -> 0 `i != _inf -> 0 `i 198  ]
+[e ) -> 1 `i ]
+[e $UE 193  ]
+[e :U 198 ]
+"2788
+[; ;mcc_generated_files/fatfs/ff.c: 2788:  do {
+[e :U 201 ]
+{
+"2789
+[; ;mcc_generated_files/fatfs/ff.c: 2789:   pp = pat; np = nam;
+[e = _pp _pat ]
+[e = _np _nam ]
+"2790
+[; ;mcc_generated_files/fatfs/ff.c: 2790:   for (;;) {
+{
+[e :U 202 ]
+{
+"2791
+[; ;mcc_generated_files/fatfs/ff.c: 2791:    if (*pp == '?' || *pp == '*') {
+[e $ ! || == -> *U _pp `ui -> 63 `ui == -> *U _pp `ui -> 42 `ui 205  ]
+{
+"2792
+[; ;mcc_generated_files/fatfs/ff.c: 2792:     nm = nx = 0;
+[e = _nm = _nx -> 0 `i ]
+"2793
+[; ;mcc_generated_files/fatfs/ff.c: 2793:     do {
+[e :U 208 ]
+{
+"2794
+[; ;mcc_generated_files/fatfs/ff.c: 2794:      if (*pp++ == '?') nm++; else nx = 1;
+[e $ ! == -> *U ++ _pp * -> -> 1 `i `x -> -> # *U _pp `i `x `ui -> 63 `ui 209  ]
+[e ++ _nm -> 1 `i ]
+[e $U 210  ]
+[e :U 209 ]
+[e = _nx -> 1 `i ]
+[e :U 210 ]
+"2795
+[; ;mcc_generated_files/fatfs/ff.c: 2795:     } while (*pp == '?' || *pp == '*');
+}
+[e $ || == -> *U _pp `ui -> 63 `ui == -> *U _pp `ui -> 42 `ui 208  ]
+[e :U 207 ]
+"2796
+[; ;mcc_generated_files/fatfs/ff.c: 2796:     if (pattern_matching(pp, np, nm, nx)) return 1;
+[e $ ! != ( _pattern_matching (4 , , , _pp _np _nm _nx -> 0 `i 211  ]
+[e ) -> 1 `i ]
+[e $UE 193  ]
+[e :U 211 ]
+"2797
+[; ;mcc_generated_files/fatfs/ff.c: 2797:     nc = *np; break;
+[e = _nc -> *U _np `ul ]
+[e $U 203  ]
+"2798
+[; ;mcc_generated_files/fatfs/ff.c: 2798:    }
+}
+[e :U 205 ]
+"2799
+[; ;mcc_generated_files/fatfs/ff.c: 2799:    pc = get_achar(&pp);
+[e = _pc ( _get_achar (1 &U _pp ]
+"2800
+[; ;mcc_generated_files/fatfs/ff.c: 2800:    nc = get_achar(&np);
+[e = _nc ( _get_achar (1 &U _np ]
+"2801
+[; ;mcc_generated_files/fatfs/ff.c: 2801:    if (pc != nc) break;
+[e $ ! != _pc _nc 212  ]
+[e $U 203  ]
+[e :U 212 ]
+"2802
+[; ;mcc_generated_files/fatfs/ff.c: 2802:    if (pc == 0) return 1;
+[e $ ! == _pc -> -> -> 0 `i `l `ul 213  ]
+[e ) -> 1 `i ]
+[e $UE 193  ]
+[e :U 213 ]
+"2803
+[; ;mcc_generated_files/fatfs/ff.c: 2803:   }
+}
+[e $U 202  ]
+[e :U 203 ]
+}
+"2804
+[; ;mcc_generated_files/fatfs/ff.c: 2804:   get_achar(&nam);
+[e ( _get_achar (1 &U _nam ]
+"2805
+[; ;mcc_generated_files/fatfs/ff.c: 2805:  } while (inf && nc);
+}
+[e $ && != _inf -> 0 `i != _nc -> -> -> 0 `i `l `ul 201  ]
+[e :U 200 ]
+"2807
+[; ;mcc_generated_files/fatfs/ff.c: 2807:  return 0;
+[e ) -> 0 `i ]
+[e $UE 193  ]
+"2808
+[; ;mcc_generated_files/fatfs/ff.c: 2808: }
+[e :UE 193 ]
+}
 "2818
 [; ;mcc_generated_files/fatfs/ff.c: 2818: static FRESULT create_name (
-[v _create_name `(E68 ~T0 @X0 1 sf2`*S4`**Cuc ]
+[v _create_name `(E69 ~T0 @X0 1 sf2`*S4`**Cuc ]
 "2822
 [; ;mcc_generated_files/fatfs/ff.c: 2822: {
 {
@@ -2389,36 +2575,36 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _ni -> -> 8 `i `ui ]
 "2954
 [; ;mcc_generated_files/fatfs/ff.c: 2954:  if (p[si] == '.') {
-[e $ ! == -> *U + _p * -> _si `ux -> -> # *U _p `ui `ux `ui -> 46 `ui 191  ]
+[e $ ! == -> *U + _p * -> _si `ux -> -> # *U _p `ui `ux `ui -> 46 `ui 215  ]
 {
 "2955
 [; ;mcc_generated_files/fatfs/ff.c: 2955:   for (;;) {
 {
-[e :U 192 ]
+[e :U 216 ]
 {
 "2956
 [; ;mcc_generated_files/fatfs/ff.c: 2956:    c = (BYTE)p[si++];
 [e = _c -> *U + _p * -> ++ _si -> -> 1 `i `ui `ux -> -> # *U _p `ui `ux `uc ]
 "2957
 [; ;mcc_generated_files/fatfs/ff.c: 2957:    if (c != '.' || si >= 3) break;
-[e $ ! || != -> _c `ui -> 46 `ui >= _si -> -> 3 `i `ui 195  ]
-[e $U 193  ]
-[e :U 195 ]
+[e $ ! || != -> _c `ui -> 46 `ui >= _si -> -> 3 `i `ui 219  ]
+[e $U 217  ]
+[e :U 219 ]
 "2958
 [; ;mcc_generated_files/fatfs/ff.c: 2958:    sfn[i++] = c;
 [e = *U + _sfn * -> ++ _i -> -> 1 `i `ui `ux -> -> # *U _sfn `ui `ux _c ]
 "2959
 [; ;mcc_generated_files/fatfs/ff.c: 2959:   }
 }
-[e $U 192  ]
-[e :U 193 ]
+[e $U 216  ]
+[e :U 217 ]
 }
 "2960
 [; ;mcc_generated_files/fatfs/ff.c: 2960:   if (c != '/' && c != '\\' && c > ' ') return FR_INVALID_NAME;
-[e $ ! && && != -> _c `ui -> 47 `ui != -> _c `ui -> 92 `ui > -> _c `ui -> 32 `ui 196  ]
-[e ) . `E68 6 ]
-[e $UE 190  ]
-[e :U 196 ]
+[e $ ! && && != -> _c `ui -> 47 `ui != -> _c `ui -> 92 `ui > -> _c `ui -> 32 `ui 220  ]
+[e ) . `E69 6 ]
+[e $UE 214  ]
+[e :U 220 ]
 "2961
 [; ;mcc_generated_files/fatfs/ff.c: 2961:   *path = p + si;
 [e = *U _path + _p * -> _si `ux -> -> # *U _p `ui `ux ]
@@ -2427,68 +2613,68 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = *U + _sfn * -> -> 11 `i `x -> -> # *U _sfn `i `x -> ? <= -> _c `ui -> 32 `ui : | -> 4 `i -> 32 `i -> 32 `i `uc ]
 "2963
 [; ;mcc_generated_files/fatfs/ff.c: 2963:   return FR_OK;
-[e ) . `E68 0 ]
-[e $UE 190  ]
+[e ) . `E69 0 ]
+[e $UE 214  ]
 "2964
 [; ;mcc_generated_files/fatfs/ff.c: 2964:  }
 }
-[e :U 191 ]
+[e :U 215 ]
 "2966
 [; ;mcc_generated_files/fatfs/ff.c: 2966:  for (;;) {
 {
-[e :U 197 ]
+[e :U 221 ]
 {
 "2967
 [; ;mcc_generated_files/fatfs/ff.c: 2967:   c = (BYTE)p[si++];
 [e = _c -> *U + _p * -> ++ _si -> -> 1 `i `ui `ux -> -> # *U _p `ui `ux `uc ]
 "2968
 [; ;mcc_generated_files/fatfs/ff.c: 2968:   if (c <= ' ') break;
-[e $ ! <= -> _c `ui -> 32 `ui 200  ]
-[e $U 198  ]
-[e :U 200 ]
+[e $ ! <= -> _c `ui -> 32 `ui 224  ]
+[e $U 222  ]
+[e :U 224 ]
 "2969
 [; ;mcc_generated_files/fatfs/ff.c: 2969:   if (c == '/' || c == '\\') {
-[e $ ! || == -> _c `ui -> 47 `ui == -> _c `ui -> 92 `ui 201  ]
+[e $ ! || == -> _c `ui -> 47 `ui == -> _c `ui -> 92 `ui 225  ]
 {
 "2970
 [; ;mcc_generated_files/fatfs/ff.c: 2970:    while (p[si] == '/' || p[si] == '\\') si++;
-[e $U 202  ]
-[e :U 203 ]
+[e $U 226  ]
+[e :U 227 ]
 [e ++ _si -> -> 1 `i `ui ]
-[e :U 202 ]
-[e $ || == -> *U + _p * -> _si `ux -> -> # *U _p `ui `ux `ui -> 47 `ui == -> *U + _p * -> _si `ux -> -> # *U _p `ui `ux `ui -> 92 `ui 203  ]
-[e :U 204 ]
+[e :U 226 ]
+[e $ || == -> *U + _p * -> _si `ux -> -> # *U _p `ui `ux `ui -> 47 `ui == -> *U + _p * -> _si `ux -> -> # *U _p `ui `ux `ui -> 92 `ui 227  ]
+[e :U 228 ]
 "2971
 [; ;mcc_generated_files/fatfs/ff.c: 2971:    break;
-[e $U 198  ]
+[e $U 222  ]
 "2972
 [; ;mcc_generated_files/fatfs/ff.c: 2972:   }
 }
-[e :U 201 ]
+[e :U 225 ]
 "2973
 [; ;mcc_generated_files/fatfs/ff.c: 2973:   if (c == '.' || i >= ni) {
-[e $ ! || == -> _c `ui -> 46 `ui >= _i _ni 205  ]
+[e $ ! || == -> _c `ui -> 46 `ui >= _i _ni 229  ]
 {
 "2974
 [; ;mcc_generated_files/fatfs/ff.c: 2974:    if (ni == 11 || c != '.') return FR_INVALID_NAME;
-[e $ ! || == _ni -> -> 11 `i `ui != -> _c `ui -> 46 `ui 206  ]
-[e ) . `E68 6 ]
-[e $UE 190  ]
-[e :U 206 ]
+[e $ ! || == _ni -> -> 11 `i `ui != -> _c `ui -> 46 `ui 230  ]
+[e ) . `E69 6 ]
+[e $UE 214  ]
+[e :U 230 ]
 "2975
 [; ;mcc_generated_files/fatfs/ff.c: 2975:    i = 8; ni = 11;
 [e = _i -> -> 8 `i `ui ]
 [e = _ni -> -> 11 `i `ui ]
 "2976
 [; ;mcc_generated_files/fatfs/ff.c: 2976:    continue;
-[e $U 199  ]
+[e $U 223  ]
 "2977
 [; ;mcc_generated_files/fatfs/ff.c: 2977:   }
 }
-[e :U 205 ]
+[e :U 229 ]
 "2983
 [; ;mcc_generated_files/fatfs/ff.c: 2983:   if (c >= 0x80) {
-[e $ ! >= -> _c `i -> 128 `i 207  ]
+[e $ ! >= -> _c `i -> 128 `i 231  ]
 {
 "2984
 [; ;mcc_generated_files/fatfs/ff.c: 2984:    c = ExCvt[c & 0x7F];
@@ -2496,20 +2682,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2985
 [; ;mcc_generated_files/fatfs/ff.c: 2985:   }
 }
-[e :U 207 ]
+[e :U 231 ]
 "2987
 [; ;mcc_generated_files/fatfs/ff.c: 2987:   if (dbc_1st(c)) {
-[e $ ! != ( _dbc_1st (1 _c -> 0 `i 208  ]
+[e $ ! != ( _dbc_1st (1 _c -> 0 `i 232  ]
 {
 "2988
 [; ;mcc_generated_files/fatfs/ff.c: 2988:    d = (BYTE)p[si++];
 [e = _d -> *U + _p * -> ++ _si -> -> 1 `i `ui `ux -> -> # *U _p `ui `ux `uc ]
 "2989
 [; ;mcc_generated_files/fatfs/ff.c: 2989:    if (!dbc_2nd(d) || i >= ni - 1) return FR_INVALID_NAME;
-[e $ ! || ! != ( _dbc_2nd (1 _d -> 0 `i >= _i - _ni -> -> 1 `i `ui 209  ]
-[e ) . `E68 6 ]
-[e $UE 190  ]
-[e :U 209 ]
+[e $ ! || ! != ( _dbc_2nd (1 _d -> 0 `i >= _i - _ni -> -> 1 `i `ui 233  ]
+[e ) . `E69 6 ]
+[e $UE 214  ]
+[e :U 233 ]
 "2990
 [; ;mcc_generated_files/fatfs/ff.c: 2990:    sfn[i++] = c;
 [e = *U + _sfn * -> ++ _i -> -> 1 `i `ui `ux -> -> # *U _sfn `ui `ux _c ]
@@ -2519,62 +2705,62 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2992
 [; ;mcc_generated_files/fatfs/ff.c: 2992:   } else {
 }
-[e $U 210  ]
-[e :U 208 ]
+[e $U 234  ]
+[e :U 232 ]
 {
 "2993
 [; ;mcc_generated_files/fatfs/ff.c: 2993:    if (chk_chr("\"*+,:;<=>\?[]|\x7F", c)) return FR_INVALID_NAME;
-[e $ ! != ( _chk_chr (2 , :s 2C -> _c `i -> 0 `i 211  ]
-[e ) . `E68 6 ]
-[e $UE 190  ]
-[e :U 211 ]
+[e $ ! != ( _chk_chr (2 , :s 2C -> _c `i -> 0 `i 235  ]
+[e ) . `E69 6 ]
+[e $UE 214  ]
+[e :U 235 ]
 "2994
 [; ;mcc_generated_files/fatfs/ff.c: 2994:    if (((c) >= 'a' && (c) <= 'z')) c -= 0x20;
-[e $ ! && >= -> _c `ui -> 97 `ui <= -> _c `ui -> 122 `ui 212  ]
+[e $ ! && >= -> _c `ui -> 97 `ui <= -> _c `ui -> 122 `ui 236  ]
 [e =- _c -> -> 32 `i `uc ]
-[e :U 212 ]
+[e :U 236 ]
 "2995
 [; ;mcc_generated_files/fatfs/ff.c: 2995:    sfn[i++] = c;
 [e = *U + _sfn * -> ++ _i -> -> 1 `i `ui `ux -> -> # *U _sfn `ui `ux _c ]
 "2996
 [; ;mcc_generated_files/fatfs/ff.c: 2996:   }
 }
-[e :U 210 ]
+[e :U 234 ]
 "2997
 [; ;mcc_generated_files/fatfs/ff.c: 2997:  }
 }
-[e :U 199 ]
-[e $U 197  ]
-[e :U 198 ]
+[e :U 223 ]
+[e $U 221  ]
+[e :U 222 ]
 }
 "2998
 [; ;mcc_generated_files/fatfs/ff.c: 2998:  *path = p + si;
 [e = *U _path + _p * -> _si `ux -> -> # *U _p `ui `ux ]
 "2999
 [; ;mcc_generated_files/fatfs/ff.c: 2999:  if (i == 0) return FR_INVALID_NAME;
-[e $ ! == _i -> -> 0 `i `ui 213  ]
-[e ) . `E68 6 ]
-[e $UE 190  ]
-[e :U 213 ]
+[e $ ! == _i -> -> 0 `i `ui 237  ]
+[e ) . `E69 6 ]
+[e $UE 214  ]
+[e :U 237 ]
 "3001
 [; ;mcc_generated_files/fatfs/ff.c: 3001:  if (sfn[0] == 0xE5) sfn[0] = 0x05;
-[e $ ! == -> *U + _sfn * -> -> 0 `i `x -> -> # *U _sfn `i `x `i -> 229 `i 214  ]
+[e $ ! == -> *U + _sfn * -> -> 0 `i `x -> -> # *U _sfn `i `x `i -> 229 `i 238  ]
 [e = *U + _sfn * -> -> 0 `i `x -> -> # *U _sfn `i `x -> -> 5 `i `uc ]
-[e :U 214 ]
+[e :U 238 ]
 "3002
 [; ;mcc_generated_files/fatfs/ff.c: 3002:  sfn[11] = (c <= ' ') ? 0x04 : 0;
 [e = *U + _sfn * -> -> 11 `i `x -> -> # *U _sfn `i `x -> ? <= -> _c `ui -> 32 `ui : -> 4 `i -> 0 `i `uc ]
 "3004
 [; ;mcc_generated_files/fatfs/ff.c: 3004:  return FR_OK;
-[e ) . `E68 0 ]
-[e $UE 190  ]
+[e ) . `E69 0 ]
+[e $UE 214  ]
 "3006
 [; ;mcc_generated_files/fatfs/ff.c: 3006: }
-[e :UE 190 ]
+[e :UE 214 ]
 }
 "3015
 [; ;mcc_generated_files/fatfs/ff.c: 3015: static FRESULT follow_path (
-[v _follow_path `(E68 ~T0 @X0 1 sf2`*S4`*Cuc ]
+[v _follow_path `(E69 ~T0 @X0 1 sf2`*S4`*Cuc ]
 "3019
 [; ;mcc_generated_files/fatfs/ff.c: 3019: {
 {
@@ -2590,7 +2776,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "3020
 [; ;mcc_generated_files/fatfs/ff.c: 3020:  FRESULT res;
-[v _res `E68 ~T0 @X0 1 a ]
+[v _res `E69 ~T0 @X0 1 a ]
 "3021
 [; ;mcc_generated_files/fatfs/ff.c: 3021:  BYTE ns;
 [v _ns `uc ~T0 @X0 1 a ]
@@ -2600,7 +2786,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _fs . . *U _dp 0 0 ]
 "3026
 [; ;mcc_generated_files/fatfs/ff.c: 3026:  if (*path != '/' && *path != '\\') {
-[e $ ! && != -> *U _path `ui -> 47 `ui != -> *U _path `ui -> 92 `ui 216  ]
+[e $ ! && != -> *U _path `ui -> 47 `ui != -> *U _path `ui -> 92 `ui 240  ]
 {
 "3027
 [; ;mcc_generated_files/fatfs/ff.c: 3027:   dp->obj.sclust = fs->cdir;
@@ -2608,29 +2794,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3028
 [; ;mcc_generated_files/fatfs/ff.c: 3028:  } else
 }
-[e $U 217  ]
-[e :U 216 ]
+[e $U 241  ]
+[e :U 240 ]
 "3030
 [; ;mcc_generated_files/fatfs/ff.c: 3030:  {
 {
 "3031
 [; ;mcc_generated_files/fatfs/ff.c: 3031:   while (*path == '/' || *path == '\\') path++;
-[e $U 218  ]
-[e :U 219 ]
+[e $U 242  ]
+[e :U 243 ]
 [e ++ _path * -> -> 1 `i `x -> -> # *U _path `i `x ]
-[e :U 218 ]
-[e $ || == -> *U _path `ui -> 47 `ui == -> *U _path `ui -> 92 `ui 219  ]
-[e :U 220 ]
+[e :U 242 ]
+[e $ || == -> *U _path `ui -> 47 `ui == -> *U _path `ui -> 92 `ui 243  ]
+[e :U 244 ]
 "3032
 [; ;mcc_generated_files/fatfs/ff.c: 3032:   dp->obj.sclust = 0;
 [e = . . *U _dp 0 4 -> -> -> 0 `i `l `ul ]
 "3033
 [; ;mcc_generated_files/fatfs/ff.c: 3033:  }
 }
-[e :U 217 ]
+[e :U 241 ]
 "3051
 [; ;mcc_generated_files/fatfs/ff.c: 3051:  if ((UINT)*path < ' ') {
-[e $ ! < -> *U _path `ui -> 32 `ui 221  ]
+[e $ ! < -> *U _path `ui -> 32 `ui 245  ]
 {
 "3052
 [; ;mcc_generated_files/fatfs/ff.c: 3052:   dp->fn[11] = 0x80;
@@ -2641,22 +2827,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3055
 [; ;mcc_generated_files/fatfs/ff.c: 3055:  } else {
 }
-[e $U 222  ]
-[e :U 221 ]
+[e $U 246  ]
+[e :U 245 ]
 {
 "3056
 [; ;mcc_generated_files/fatfs/ff.c: 3056:   for (;;) {
 {
-[e :U 223 ]
+[e :U 247 ]
 {
 "3057
 [; ;mcc_generated_files/fatfs/ff.c: 3057:    res = create_name(dp, &path);
 [e = _res ( _create_name (2 , _dp &U _path ]
 "3058
 [; ;mcc_generated_files/fatfs/ff.c: 3058:    if (res != FR_OK) break;
-[e $ ! != -> _res `ui -> . `E68 0 `ui 226  ]
-[e $U 224  ]
-[e :U 226 ]
+[e $ ! != -> _res `ui -> . `E69 0 `ui 250  ]
+[e $U 248  ]
+[e :U 250 ]
 "3059
 [; ;mcc_generated_files/fatfs/ff.c: 3059:    res = dir_find(dp);
 [e = _res ( _dir_find (1 _dp ]
@@ -2665,70 +2851,70 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _ns *U + &U . *U _dp 5 * -> -> -> 11 `i `ui `ux -> -> # *U &U . *U _dp 5 `ui `ux ]
 "3061
 [; ;mcc_generated_files/fatfs/ff.c: 3061:    if (res != FR_OK) {
-[e $ ! != -> _res `ui -> . `E68 0 `ui 227  ]
+[e $ ! != -> _res `ui -> . `E69 0 `ui 251  ]
 {
 "3062
 [; ;mcc_generated_files/fatfs/ff.c: 3062:     if (res == FR_NO_FILE) {
-[e $ ! == -> _res `ui -> . `E68 4 `ui 228  ]
+[e $ ! == -> _res `ui -> . `E69 4 `ui 252  ]
 {
 "3063
-[; ;mcc_generated_files/fatfs/ff.c: 3063:      if (1 && (ns & 0x20)) {
-[e $ ! && != -> 1 `i -> 0 `i != & -> _ns `i -> 32 `i -> 0 `i 229  ]
+[; ;mcc_generated_files/fatfs/ff.c: 3063:      if (2 && (ns & 0x20)) {
+[e $ ! && != -> 2 `i -> 0 `i != & -> _ns `i -> 32 `i -> 0 `i 253  ]
 {
 "3064
 [; ;mcc_generated_files/fatfs/ff.c: 3064:       if (!(ns & 0x04)) continue;
-[e $ ! ! != & -> _ns `i -> 4 `i -> 0 `i 230  ]
-[e $U 225  ]
-[e :U 230 ]
+[e $ ! ! != & -> _ns `i -> 4 `i -> 0 `i 254  ]
+[e $U 249  ]
+[e :U 254 ]
 "3065
 [; ;mcc_generated_files/fatfs/ff.c: 3065:       dp->fn[11] = 0x80;
 [e = *U + &U . *U _dp 5 * -> -> -> 11 `i `ui `ux -> -> # *U &U . *U _dp 5 `ui `ux -> -> 128 `i `uc ]
 "3066
 [; ;mcc_generated_files/fatfs/ff.c: 3066:       res = FR_OK;
-[e = _res . `E68 0 ]
+[e = _res . `E69 0 ]
 "3067
 [; ;mcc_generated_files/fatfs/ff.c: 3067:      } else {
 }
-[e $U 231  ]
-[e :U 229 ]
+[e $U 255  ]
+[e :U 253 ]
 {
 "3068
 [; ;mcc_generated_files/fatfs/ff.c: 3068:       if (!(ns & 0x04)) res = FR_NO_PATH;
-[e $ ! ! != & -> _ns `i -> 4 `i -> 0 `i 232  ]
-[e = _res . `E68 5 ]
-[e :U 232 ]
+[e $ ! ! != & -> _ns `i -> 4 `i -> 0 `i 256  ]
+[e = _res . `E69 5 ]
+[e :U 256 ]
 "3069
 [; ;mcc_generated_files/fatfs/ff.c: 3069:      }
 }
-[e :U 231 ]
+[e :U 255 ]
 "3070
 [; ;mcc_generated_files/fatfs/ff.c: 3070:     }
 }
-[e :U 228 ]
+[e :U 252 ]
 "3071
 [; ;mcc_generated_files/fatfs/ff.c: 3071:     break;
-[e $U 224  ]
+[e $U 248  ]
 "3072
 [; ;mcc_generated_files/fatfs/ff.c: 3072:    }
 }
-[e :U 227 ]
+[e :U 251 ]
 "3073
 [; ;mcc_generated_files/fatfs/ff.c: 3073:    if (ns & 0x04) break;
-[e $ ! != & -> _ns `i -> 4 `i -> 0 `i 233  ]
-[e $U 224  ]
-[e :U 233 ]
+[e $ ! != & -> _ns `i -> 4 `i -> 0 `i 257  ]
+[e $U 248  ]
+[e :U 257 ]
 "3075
 [; ;mcc_generated_files/fatfs/ff.c: 3075:    if (!(dp->obj.attr & 0x10)) {
-[e $ ! ! != & -> . . *U _dp 0 2 `i -> 16 `i -> 0 `i 234  ]
+[e $ ! ! != & -> . . *U _dp 0 2 `i -> 16 `i -> 0 `i 258  ]
 {
 "3076
 [; ;mcc_generated_files/fatfs/ff.c: 3076:     res = FR_NO_PATH; break;
-[e = _res . `E68 5 ]
-[e $U 224  ]
+[e = _res . `E69 5 ]
+[e $U 248  ]
 "3077
 [; ;mcc_generated_files/fatfs/ff.c: 3077:    }
 }
-[e :U 234 ]
+[e :U 258 ]
 "3086
 [; ;mcc_generated_files/fatfs/ff.c: 3086:    {
 {
@@ -2741,21 +2927,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3089
 [; ;mcc_generated_files/fatfs/ff.c: 3089:   }
 }
-[e :U 225 ]
-[e $U 223  ]
-[e :U 224 ]
+[e :U 249 ]
+[e $U 247  ]
+[e :U 248 ]
 }
 "3090
 [; ;mcc_generated_files/fatfs/ff.c: 3090:  }
 }
-[e :U 222 ]
+[e :U 246 ]
 "3092
 [; ;mcc_generated_files/fatfs/ff.c: 3092:  return res;
 [e ) _res ]
-[e $UE 215  ]
+[e $UE 239  ]
 "3093
 [; ;mcc_generated_files/fatfs/ff.c: 3093: }
-[e :UE 215 ]
+[e :UE 239 ]
 }
 "3102
 [; ;mcc_generated_files/fatfs/ff.c: 3102: static int get_ldnumber (
@@ -2787,26 +2973,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _tt = _tp *U _path ]
 "3115
 [; ;mcc_generated_files/fatfs/ff.c: 3115:  if (!tp) return vol;
-[e $ ! ! != _tp -> -> 0 `i `*Cuc 236  ]
+[e $ ! ! != _tp -> -> 0 `i `*Cuc 260  ]
 [e ) _vol ]
-[e $UE 235  ]
-[e :U 236 ]
+[e $UE 259  ]
+[e :U 260 ]
 "3116
 [; ;mcc_generated_files/fatfs/ff.c: 3116:  do tc = *tt++; while ((UINT)tc >= (0 ? ' ' : '!') && tc != ':');
-[e :U 239 ]
+[e :U 263 ]
 [e = _tc *U ++ _tt * -> -> 1 `i `x -> -> # *U _tt `i `x ]
-[e $ && >= -> _tc `ui ? != -> 0 `i -> 0 `i : -> 32 `ui -> 33 `ui != -> _tc `ui -> 58 `ui 239  ]
-[e :U 238 ]
+[e $ && >= -> _tc `ui ? != -> 0 `i -> 0 `i : -> 32 `ui -> 33 `ui != -> _tc `ui -> 58 `ui 263  ]
+[e :U 262 ]
 "3118
 [; ;mcc_generated_files/fatfs/ff.c: 3118:  if (tc == ':') {
-[e $ ! == -> _tc `ui -> 58 `ui 240  ]
+[e $ ! == -> _tc `ui -> 58 `ui 264  ]
 {
 "3119
 [; ;mcc_generated_files/fatfs/ff.c: 3119:   i = 1;
 [e = _i -> 1 `i ]
 "3120
 [; ;mcc_generated_files/fatfs/ff.c: 3120:   if (((*tp) >= '0' && (*tp) <= '9') && tp + 2 == tt) {
-[e $ ! && && >= -> *U _tp `ui -> 48 `ui <= -> *U _tp `ui -> 57 `ui == + _tp * -> -> 2 `i `x -> -> # *U _tp `i `x _tt 241  ]
+[e $ ! && && >= -> *U _tp `ui -> 48 `ui <= -> *U _tp `ui -> 57 `ui == + _tp * -> -> 2 `i `x -> -> # *U _tp `i `x _tt 265  ]
 {
 "3121
 [; ;mcc_generated_files/fatfs/ff.c: 3121:    i = (int)*tp - '0';
@@ -2814,10 +3000,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3122
 [; ;mcc_generated_files/fatfs/ff.c: 3122:   }
 }
-[e :U 241 ]
+[e :U 265 ]
 "3136
 [; ;mcc_generated_files/fatfs/ff.c: 3136:   if (i < 1) {
-[e $ ! < _i -> 1 `i 242  ]
+[e $ ! < _i -> 1 `i 266  ]
 {
 "3137
 [; ;mcc_generated_files/fatfs/ff.c: 3137:    vol = i;
@@ -2828,25 +3014,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3139
 [; ;mcc_generated_files/fatfs/ff.c: 3139:   }
 }
-[e :U 242 ]
+[e :U 266 ]
 "3140
 [; ;mcc_generated_files/fatfs/ff.c: 3140:   return vol;
 [e ) _vol ]
-[e $UE 235  ]
+[e $UE 259  ]
 "3141
 [; ;mcc_generated_files/fatfs/ff.c: 3141:  }
 }
-[e :U 240 ]
+[e :U 264 ]
 "3162
 [; ;mcc_generated_files/fatfs/ff.c: 3162:  vol = CurrVol;
 [e = _vol -> _CurrVol `i ]
 "3166
 [; ;mcc_generated_files/fatfs/ff.c: 3166:  return vol;
 [e ) _vol ]
-[e $UE 235  ]
+[e $UE 259  ]
 "3167
 [; ;mcc_generated_files/fatfs/ff.c: 3167: }
-[e :UE 235 ]
+[e :UE 259 ]
 }
 "3176
 [; ;mcc_generated_files/fatfs/ff.c: 3176: static BYTE check_fs (
@@ -2870,47 +3056,47 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . *U _fs 17 -> 4294967295 `ul ]
 "3182
 [; ;mcc_generated_files/fatfs/ff.c: 3182:  if (move_window(fs, sect) != FR_OK) return 4;
-[e $ ! != -> ( _move_window (2 , _fs _sect `ui -> . `E68 0 `ui 244  ]
+[e $ ! != -> ( _move_window (2 , _fs _sect `ui -> . `E69 0 `ui 268  ]
 [e ) -> -> 4 `i `uc ]
-[e $UE 243  ]
-[e :U 244 ]
+[e $UE 267  ]
+[e :U 268 ]
 "3184
 [; ;mcc_generated_files/fatfs/ff.c: 3184:  if (ld_word(fs->win + 510) != 0xAA55) return 3;
-[e $ ! != -> ( _ld_word (1 -> + &U . *U _fs 18 * -> -> 510 `i `x -> -> # *U &U . *U _fs 18 `i `x `*Cuc `ui -> 43605 `ui 245  ]
+[e $ ! != -> ( _ld_word (1 -> + &U . *U _fs 18 * -> -> 510 `i `x -> -> # *U &U . *U _fs 18 `i `x `*Cuc `ui -> 43605 `ui 269  ]
 [e ) -> -> 3 `i `uc ]
-[e $UE 243  ]
-[e :U 245 ]
+[e $UE 267  ]
+[e :U 269 ]
 "3189
 [; ;mcc_generated_files/fatfs/ff.c: 3189:  if (fs->win[0] == 0xE9 || fs->win[0] == 0xEB || fs->win[0] == 0xE8) {
-[e $ ! || || == -> *U + &U . *U _fs 18 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _fs 18 `ui `ux `i -> 233 `i == -> *U + &U . *U _fs 18 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _fs 18 `ui `ux `i -> 235 `i == -> *U + &U . *U _fs 18 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _fs 18 `ui `ux `i -> 232 `i 246  ]
+[e $ ! || || == -> *U + &U . *U _fs 18 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _fs 18 `ui `ux `i -> 233 `i == -> *U + &U . *U _fs 18 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _fs 18 `ui `ux `i -> 235 `i == -> *U + &U . *U _fs 18 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _fs 18 `ui `ux `i -> 232 `i 270  ]
 {
 "3190
 [; ;mcc_generated_files/fatfs/ff.c: 3190:   if (!mem_cmp(fs->win + 54, "FAT", 3)) return 0;
-[e $ ! ! != ( _mem_cmp (3 , , -> + &U . *U _fs 18 * -> -> 54 `i `x -> -> # *U &U . *U _fs 18 `i `x `*Cv :s 4C -> -> 3 `i `ui -> 0 `i 247  ]
+[e $ ! ! != ( _mem_cmp (3 , , -> + &U . *U _fs 18 * -> -> 54 `i `x -> -> # *U &U . *U _fs 18 `i `x `*Cv :s 4C -> -> 3 `i `ui -> 0 `i 271  ]
 [e ) -> -> 0 `i `uc ]
-[e $UE 243  ]
-[e :U 247 ]
+[e $UE 267  ]
+[e :U 271 ]
 "3191
 [; ;mcc_generated_files/fatfs/ff.c: 3191:   if (!mem_cmp(fs->win + 82, "FAT32", 5)) return 0;
-[e $ ! ! != ( _mem_cmp (3 , , -> + &U . *U _fs 18 * -> -> 82 `i `x -> -> # *U &U . *U _fs 18 `i `x `*Cv :s 6C -> -> 5 `i `ui -> 0 `i 248  ]
+[e $ ! ! != ( _mem_cmp (3 , , -> + &U . *U _fs 18 * -> -> 82 `i `x -> -> # *U &U . *U _fs 18 `i `x `*Cv :s 6C -> -> 5 `i `ui -> 0 `i 272  ]
 [e ) -> -> 0 `i `uc ]
-[e $UE 243  ]
-[e :U 248 ]
+[e $UE 267  ]
+[e :U 272 ]
 "3192
 [; ;mcc_generated_files/fatfs/ff.c: 3192:  }
 }
-[e :U 246 ]
+[e :U 270 ]
 "3193
 [; ;mcc_generated_files/fatfs/ff.c: 3193:  return 2;
 [e ) -> -> 2 `i `uc ]
-[e $UE 243  ]
+[e $UE 267  ]
 "3194
 [; ;mcc_generated_files/fatfs/ff.c: 3194: }
-[e :UE 243 ]
+[e :UE 267 ]
 }
 "3203
 [; ;mcc_generated_files/fatfs/ff.c: 3203: static FRESULT find_volume (
-[v _find_volume `(E68 ~T0 @X0 1 sf3`**Cuc`**S1`uc ]
+[v _find_volume `(E69 ~T0 @X0 1 sf3`**Cuc`**S1`uc ]
 "3208
 [; ;mcc_generated_files/fatfs/ff.c: 3208: {
 {
@@ -2963,19 +3149,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _vol ( _get_ldnumber (1 _path ]
 "3221
 [; ;mcc_generated_files/fatfs/ff.c: 3221:  if (vol < 0) return FR_INVALID_DRIVE;
-[e $ ! < _vol -> 0 `i 250  ]
-[e ) . `E68 11 ]
-[e $UE 249  ]
-[e :U 250 ]
+[e $ ! < _vol -> 0 `i 274  ]
+[e ) . `E69 11 ]
+[e $UE 273  ]
+[e :U 274 ]
 "3224
 [; ;mcc_generated_files/fatfs/ff.c: 3224:  fs = FatFs[vol];
 [e = _fs *U + &U _FatFs * -> -> _vol `ui `ux -> -> # *U &U _FatFs `ui `ux ]
 "3225
 [; ;mcc_generated_files/fatfs/ff.c: 3225:  if (!fs) return FR_NOT_ENABLED;
-[e $ ! ! != _fs -> -> 0 `i `*S1 251  ]
-[e ) . `E68 12 ]
-[e $UE 249  ]
-[e :U 251 ]
+[e $ ! ! != _fs -> -> 0 `i `*S1 275  ]
+[e ) . `E69 12 ]
+[e $UE 273  ]
+[e :U 275 ]
 "3229
 [; ;mcc_generated_files/fatfs/ff.c: 3229:  *rfs = fs;
 [e = *U _rfs _fs ]
@@ -2984,39 +3170,39 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e =& _mode -> -> ~ -> 1 `i `uc `uc ]
 "3232
 [; ;mcc_generated_files/fatfs/ff.c: 3232:  if (fs->fs_type != 0) {
-[e $ ! != -> . *U _fs 0 `i -> 0 `i 252  ]
+[e $ ! != -> . *U _fs 0 `i -> 0 `i 276  ]
 {
 "3233
 [; ;mcc_generated_files/fatfs/ff.c: 3233:   stat = disk_status(fs->pdrv);
 [e = _stat ( _disk_status (1 . *U _fs 1 ]
 "3234
 [; ;mcc_generated_files/fatfs/ff.c: 3234:   if (!(stat & 0x01)) {
-[e $ ! ! != & -> _stat `i -> 1 `i -> 0 `i 253  ]
+[e $ ! ! != & -> _stat `i -> 1 `i -> 0 `i 277  ]
 {
 "3235
 [; ;mcc_generated_files/fatfs/ff.c: 3235:    if (!0 && mode && (stat & 0x04)) {
-[e $ ! && && ! != -> 0 `i -> 0 `i != -> _mode `i -> 0 `i != & -> _stat `i -> 4 `i -> 0 `i 254  ]
+[e $ ! && && ! != -> 0 `i -> 0 `i != -> _mode `i -> 0 `i != & -> _stat `i -> 4 `i -> 0 `i 278  ]
 {
 "3236
 [; ;mcc_generated_files/fatfs/ff.c: 3236:     return FR_WRITE_PROTECTED;
-[e ) . `E68 10 ]
-[e $UE 249  ]
+[e ) . `E69 10 ]
+[e $UE 273  ]
 "3237
 [; ;mcc_generated_files/fatfs/ff.c: 3237:    }
 }
-[e :U 254 ]
+[e :U 278 ]
 "3238
 [; ;mcc_generated_files/fatfs/ff.c: 3238:    return FR_OK;
-[e ) . `E68 0 ]
-[e $UE 249  ]
+[e ) . `E69 0 ]
+[e $UE 273  ]
 "3239
 [; ;mcc_generated_files/fatfs/ff.c: 3239:   }
 }
-[e :U 253 ]
+[e :U 277 ]
 "3240
 [; ;mcc_generated_files/fatfs/ff.c: 3240:  }
 }
-[e :U 252 ]
+[e :U 276 ]
 "3245
 [; ;mcc_generated_files/fatfs/ff.c: 3245:  fs->fs_type = 0;
 [e = . *U _fs 0 -> -> 0 `i `uc ]
@@ -3028,28 +3214,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _stat ( _disk_initialize (1 . *U _fs 1 ]
 "3248
 [; ;mcc_generated_files/fatfs/ff.c: 3248:  if (stat & 0x01) {
-[e $ ! != & -> _stat `i -> 1 `i -> 0 `i 255  ]
+[e $ ! != & -> _stat `i -> 1 `i -> 0 `i 279  ]
 {
 "3249
 [; ;mcc_generated_files/fatfs/ff.c: 3249:   return FR_NOT_READY;
-[e ) . `E68 3 ]
-[e $UE 249  ]
+[e ) . `E69 3 ]
+[e $UE 273  ]
 "3250
 [; ;mcc_generated_files/fatfs/ff.c: 3250:  }
 }
-[e :U 255 ]
+[e :U 279 ]
 "3251
 [; ;mcc_generated_files/fatfs/ff.c: 3251:  if (!0 && mode && (stat & 0x04)) {
-[e $ ! && && ! != -> 0 `i -> 0 `i != -> _mode `i -> 0 `i != & -> _stat `i -> 4 `i -> 0 `i 256  ]
+[e $ ! && && ! != -> 0 `i -> 0 `i != -> _mode `i -> 0 `i != & -> _stat `i -> 4 `i -> 0 `i 280  ]
 {
 "3252
 [; ;mcc_generated_files/fatfs/ff.c: 3252:   return FR_WRITE_PROTECTED;
-[e ) . `E68 10 ]
-[e $UE 249  ]
+[e ) . `E69 10 ]
+[e $UE 273  ]
 "3253
 [; ;mcc_generated_files/fatfs/ff.c: 3253:  }
 }
-[e :U 256 ]
+[e :U 280 ]
 "3260
 [; ;mcc_generated_files/fatfs/ff.c: 3260:  bsect = 0;
 [e = _bsect -> -> -> 0 `i `l `ul ]
@@ -3058,15 +3244,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _fmt ( _check_fs (2 , _fs _bsect ]
 "3262
 [; ;mcc_generated_files/fatfs/ff.c: 3262:  if (fmt == 2 || (fmt < 2 && 0 != 0)) {
-[e $ ! || == -> _fmt `i -> 2 `i && < -> _fmt `i -> 2 `i != -> 0 `i -> 0 `i 257  ]
+[e $ ! || == -> _fmt `i -> 2 `i && < -> _fmt `i -> 2 `i != -> 0 `i -> 0 `i 281  ]
 {
 "3263
 [; ;mcc_generated_files/fatfs/ff.c: 3263:   for (i = 0; i < 4; i++) {
 {
 [e = _i -> -> 0 `i `ui ]
-[e $ < _i -> -> 4 `i `ui 258  ]
-[e $U 259  ]
-[e :U 258 ]
+[e $ < _i -> -> 4 `i `ui 282  ]
+[e $U 283  ]
+[e :U 282 ]
 {
 "3264
 [; ;mcc_generated_files/fatfs/ff.c: 3264:    pt = fs->win + (446 + i * 16);
@@ -3078,20 +3264,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mcc_generated_files/fatfs/ff.c: 3266:   }
 }
 [e ++ _i -> -> 1 `i `ui ]
-[e $ < _i -> -> 4 `i `ui 258  ]
-[e :U 259 ]
+[e $ < _i -> -> 4 `i `ui 282  ]
+[e :U 283 ]
 }
 "3267
 [; ;mcc_generated_files/fatfs/ff.c: 3267:   i = 0;
 [e = _i -> -> 0 `i `ui ]
 "3268
 [; ;mcc_generated_files/fatfs/ff.c: 3268:   if (i != 0) i--;
-[e $ ! != _i -> -> 0 `i `ui 261  ]
+[e $ ! != _i -> -> 0 `i `ui 285  ]
 [e -- _i -> -> 1 `i `ui ]
-[e :U 261 ]
+[e :U 285 ]
 "3269
 [; ;mcc_generated_files/fatfs/ff.c: 3269:   do {
-[e :U 264 ]
+[e :U 288 ]
 {
 "3270
 [; ;mcc_generated_files/fatfs/ff.c: 3270:    bsect = br[i];
@@ -3102,41 +3288,41 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3272
 [; ;mcc_generated_files/fatfs/ff.c: 3272:   } while (0 == 0 && fmt >= 2 && ++i < 4);
 }
-[e $ && && == -> 0 `i -> 0 `i >= -> _fmt `i -> 2 `i < =+ _i -> -> 1 `i `ui -> -> 4 `i `ui 264  ]
-[e :U 263 ]
+[e $ && && == -> 0 `i -> 0 `i >= -> _fmt `i -> 2 `i < =+ _i -> -> 1 `i `ui -> -> 4 `i `ui 288  ]
+[e :U 287 ]
 "3273
 [; ;mcc_generated_files/fatfs/ff.c: 3273:  }
 }
-[e :U 257 ]
+[e :U 281 ]
 "3274
 [; ;mcc_generated_files/fatfs/ff.c: 3274:  if (fmt == 4) return FR_DISK_ERR;
-[e $ ! == -> _fmt `i -> 4 `i 265  ]
-[e ) . `E68 1 ]
-[e $UE 249  ]
-[e :U 265 ]
+[e $ ! == -> _fmt `i -> 4 `i 289  ]
+[e ) . `E69 1 ]
+[e $UE 273  ]
+[e :U 289 ]
 "3275
 [; ;mcc_generated_files/fatfs/ff.c: 3275:  if (fmt >= 2) return FR_NO_FILESYSTEM;
-[e $ ! >= -> _fmt `i -> 2 `i 266  ]
-[e ) . `E68 13 ]
-[e $UE 249  ]
-[e :U 266 ]
+[e $ ! >= -> _fmt `i -> 2 `i 290  ]
+[e ) . `E69 13 ]
+[e $UE 273  ]
+[e :U 290 ]
 "3326
 [; ;mcc_generated_files/fatfs/ff.c: 3326:  {
 {
 "3327
 [; ;mcc_generated_files/fatfs/ff.c: 3327:   if (ld_word(fs->win + 11) != ((UINT)512)) return FR_NO_FILESYSTEM;
-[e $ ! != -> ( _ld_word (1 -> + &U . *U _fs 18 * -> -> 11 `i `x -> -> # *U &U . *U _fs 18 `i `x `*Cuc `ui -> -> 512 `i `ui 267  ]
-[e ) . `E68 13 ]
-[e $UE 249  ]
-[e :U 267 ]
+[e $ ! != -> ( _ld_word (1 -> + &U . *U _fs 18 * -> -> 11 `i `x -> -> # *U &U . *U _fs 18 `i `x `*Cuc `ui -> -> 512 `i `ui 291  ]
+[e ) . `E69 13 ]
+[e $UE 273  ]
+[e :U 291 ]
 "3329
 [; ;mcc_generated_files/fatfs/ff.c: 3329:   fasize = ld_word(fs->win + 22);
 [e = _fasize -> ( _ld_word (1 -> + &U . *U _fs 18 * -> -> 22 `i `x -> -> # *U &U . *U _fs 18 `i `x `*Cuc `ul ]
 "3330
 [; ;mcc_generated_files/fatfs/ff.c: 3330:   if (fasize == 0) fasize = ld_dword(fs->win + 36);
-[e $ ! == _fasize -> -> -> 0 `i `l `ul 268  ]
+[e $ ! == _fasize -> -> -> 0 `i `l `ul 292  ]
 [e = _fasize ( _ld_dword (1 -> + &U . *U _fs 18 * -> -> 36 `i `x -> -> # *U &U . *U _fs 18 `i `x `*Cuc ]
-[e :U 268 ]
+[e :U 292 ]
 "3331
 [; ;mcc_generated_files/fatfs/ff.c: 3331:   fs->fsize = fasize;
 [e = . *U _fs 12 _fasize ]
@@ -3145,10 +3331,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . *U _fs 2 *U + &U . *U _fs 18 * -> -> -> 16 `i `ui `ux -> -> # *U &U . *U _fs 18 `ui `ux ]
 "3334
 [; ;mcc_generated_files/fatfs/ff.c: 3334:   if (fs->n_fats != 1 && fs->n_fats != 2) return FR_NO_FILESYSTEM;
-[e $ ! && != -> . *U _fs 2 `i -> 1 `i != -> . *U _fs 2 `i -> 2 `i 269  ]
-[e ) . `E68 13 ]
-[e $UE 249  ]
-[e :U 269 ]
+[e $ ! && != -> . *U _fs 2 `i -> 1 `i != -> . *U _fs 2 `i -> 2 `i 293  ]
+[e ) . `E69 13 ]
+[e $UE 273  ]
+[e :U 293 ]
 "3335
 [; ;mcc_generated_files/fatfs/ff.c: 3335:   fasize *= fs->n_fats;
 [e =* _fasize -> . *U _fs 2 `ul ]
@@ -3157,78 +3343,78 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . *U _fs 7 -> *U + &U . *U _fs 18 * -> -> -> 13 `i `ui `ux -> -> # *U &U . *U _fs 18 `ui `ux `us ]
 "3338
 [; ;mcc_generated_files/fatfs/ff.c: 3338:   if (fs->csize == 0 || (fs->csize & (fs->csize - 1))) return FR_NO_FILESYSTEM;
-[e $ ! || == -> . *U _fs 7 `ui -> -> 0 `i `ui != & -> . *U _fs 7 `ui - -> . *U _fs 7 `ui -> -> 1 `i `ui -> -> 0 `i `ui 270  ]
-[e ) . `E68 13 ]
-[e $UE 249  ]
-[e :U 270 ]
+[e $ ! || == -> . *U _fs 7 `ui -> -> 0 `i `ui != & -> . *U _fs 7 `ui - -> . *U _fs 7 `ui -> -> 1 `i `ui -> -> 0 `i `ui 294  ]
+[e ) . `E69 13 ]
+[e $UE 273  ]
+[e :U 294 ]
 "3340
 [; ;mcc_generated_files/fatfs/ff.c: 3340:   fs->n_rootdir = ld_word(fs->win + 17);
 [e = . *U _fs 6 ( _ld_word (1 -> + &U . *U _fs 18 * -> -> 17 `i `x -> -> # *U &U . *U _fs 18 `i `x `*Cuc ]
 "3341
 [; ;mcc_generated_files/fatfs/ff.c: 3341:   if (fs->n_rootdir % (((UINT)512) / 32)) return FR_NO_FILESYSTEM;
-[e $ ! != % -> . *U _fs 6 `ui / -> -> 512 `i `ui -> -> 32 `i `ui -> -> 0 `i `ui 271  ]
-[e ) . `E68 13 ]
-[e $UE 249  ]
-[e :U 271 ]
+[e $ ! != % -> . *U _fs 6 `ui / -> -> 512 `i `ui -> -> 32 `i `ui -> -> 0 `i `ui 295  ]
+[e ) . `E69 13 ]
+[e $UE 273  ]
+[e :U 295 ]
 "3343
 [; ;mcc_generated_files/fatfs/ff.c: 3343:   tsect = ld_word(fs->win + 19);
 [e = _tsect -> ( _ld_word (1 -> + &U . *U _fs 18 * -> -> 19 `i `x -> -> # *U &U . *U _fs 18 `i `x `*Cuc `ul ]
 "3344
 [; ;mcc_generated_files/fatfs/ff.c: 3344:   if (tsect == 0) tsect = ld_dword(fs->win + 32);
-[e $ ! == _tsect -> -> -> 0 `i `l `ul 272  ]
+[e $ ! == _tsect -> -> -> 0 `i `l `ul 296  ]
 [e = _tsect ( _ld_dword (1 -> + &U . *U _fs 18 * -> -> 32 `i `x -> -> # *U &U . *U _fs 18 `i `x `*Cuc ]
-[e :U 272 ]
+[e :U 296 ]
 "3346
 [; ;mcc_generated_files/fatfs/ff.c: 3346:   nrsv = ld_word(fs->win + 14);
 [e = _nrsv ( _ld_word (1 -> + &U . *U _fs 18 * -> -> 14 `i `x -> -> # *U &U . *U _fs 18 `i `x `*Cuc ]
 "3347
 [; ;mcc_generated_files/fatfs/ff.c: 3347:   if (nrsv == 0) return FR_NO_FILESYSTEM;
-[e $ ! == -> _nrsv `ui -> -> 0 `i `ui 273  ]
-[e ) . `E68 13 ]
-[e $UE 249  ]
-[e :U 273 ]
+[e $ ! == -> _nrsv `ui -> -> 0 `i `ui 297  ]
+[e ) . `E69 13 ]
+[e $UE 273  ]
+[e :U 297 ]
 "3350
 [; ;mcc_generated_files/fatfs/ff.c: 3350:   sysect = nrsv + fasize + fs->n_rootdir / (((UINT)512) / 32);
 [e = _sysect + + -> _nrsv `ul _fasize -> / -> . *U _fs 6 `ui / -> -> 512 `i `ui -> -> 32 `i `ui `ul ]
 "3351
 [; ;mcc_generated_files/fatfs/ff.c: 3351:   if (tsect < sysect) return FR_NO_FILESYSTEM;
-[e $ ! < _tsect _sysect 274  ]
-[e ) . `E68 13 ]
-[e $UE 249  ]
-[e :U 274 ]
+[e $ ! < _tsect _sysect 298  ]
+[e ) . `E69 13 ]
+[e $UE 273  ]
+[e :U 298 ]
 "3352
 [; ;mcc_generated_files/fatfs/ff.c: 3352:   nclst = (tsect - sysect) / fs->csize;
 [e = _nclst / - _tsect _sysect -> . *U _fs 7 `ul ]
 "3353
 [; ;mcc_generated_files/fatfs/ff.c: 3353:   if (nclst == 0) return FR_NO_FILESYSTEM;
-[e $ ! == _nclst -> -> -> 0 `i `l `ul 275  ]
-[e ) . `E68 13 ]
-[e $UE 249  ]
-[e :U 275 ]
+[e $ ! == _nclst -> -> -> 0 `i `l `ul 299  ]
+[e ) . `E69 13 ]
+[e $UE 273  ]
+[e :U 299 ]
 "3354
 [; ;mcc_generated_files/fatfs/ff.c: 3354:   fmt = 0;
 [e = _fmt -> -> 0 `i `uc ]
 "3355
 [; ;mcc_generated_files/fatfs/ff.c: 3355:   if (nclst <= 0x0FFFFFF5) fmt = 3;
-[e $ ! <= _nclst -> -> 268435445 `l `ul 276  ]
+[e $ ! <= _nclst -> -> 268435445 `l `ul 300  ]
 [e = _fmt -> -> 3 `i `uc ]
-[e :U 276 ]
+[e :U 300 ]
 "3356
 [; ;mcc_generated_files/fatfs/ff.c: 3356:   if (nclst <= 0xFFF5) fmt = 2;
-[e $ ! <= _nclst -> -> 65525 `ui `ul 277  ]
+[e $ ! <= _nclst -> -> 65525 `ui `ul 301  ]
 [e = _fmt -> -> 2 `i `uc ]
-[e :U 277 ]
+[e :U 301 ]
 "3357
 [; ;mcc_generated_files/fatfs/ff.c: 3357:   if (nclst <= 0xFF5) fmt = 1;
-[e $ ! <= _nclst -> -> -> 4085 `i `l `ul 278  ]
+[e $ ! <= _nclst -> -> -> 4085 `i `l `ul 302  ]
 [e = _fmt -> -> 1 `i `uc ]
-[e :U 278 ]
+[e :U 302 ]
 "3358
 [; ;mcc_generated_files/fatfs/ff.c: 3358:   if (fmt == 0) return FR_NO_FILESYSTEM;
-[e $ ! == -> _fmt `i -> 0 `i 279  ]
-[e ) . `E68 13 ]
-[e $UE 249  ]
-[e :U 279 ]
+[e $ ! == -> _fmt `i -> 0 `i 303  ]
+[e ) . `E69 13 ]
+[e $UE 273  ]
+[e :U 303 ]
 "3361
 [; ;mcc_generated_files/fatfs/ff.c: 3361:   fs->n_fatent = nclst + 2;
 [e = . *U _fs 11 + _nclst -> -> -> 2 `i `l `ul ]
@@ -3243,20 +3429,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . *U _fs 16 + _bsect _sysect ]
 "3365
 [; ;mcc_generated_files/fatfs/ff.c: 3365:   if (fmt == 3) {
-[e $ ! == -> _fmt `i -> 3 `i 280  ]
+[e $ ! == -> _fmt `i -> 3 `i 304  ]
 {
 "3366
 [; ;mcc_generated_files/fatfs/ff.c: 3366:    if (ld_word(fs->win + 42) != 0) return FR_NO_FILESYSTEM;
-[e $ ! != -> ( _ld_word (1 -> + &U . *U _fs 18 * -> -> 42 `i `x -> -> # *U &U . *U _fs 18 `i `x `*Cuc `ui -> -> 0 `i `ui 281  ]
-[e ) . `E68 13 ]
-[e $UE 249  ]
-[e :U 281 ]
+[e $ ! != -> ( _ld_word (1 -> + &U . *U _fs 18 * -> -> 42 `i `x -> -> # *U &U . *U _fs 18 `i `x `*Cuc `ui -> -> 0 `i `ui 305  ]
+[e ) . `E69 13 ]
+[e $UE 273  ]
+[e :U 305 ]
 "3367
 [; ;mcc_generated_files/fatfs/ff.c: 3367:    if (fs->n_rootdir != 0) return FR_NO_FILESYSTEM;
-[e $ ! != -> . *U _fs 6 `ui -> -> 0 `i `ui 282  ]
-[e ) . `E68 13 ]
-[e $UE 249  ]
-[e :U 282 ]
+[e $ ! != -> . *U _fs 6 `ui -> -> 0 `i `ui 306  ]
+[e ) . `E69 13 ]
+[e $UE 273  ]
+[e :U 306 ]
 "3368
 [; ;mcc_generated_files/fatfs/ff.c: 3368:    fs->dirbase = ld_dword(fs->win + 44);
 [e = . *U _fs 15 ( _ld_dword (1 -> + &U . *U _fs 18 * -> -> 44 `i `x -> -> # *U &U . *U _fs 18 `i `x `*Cuc ]
@@ -3266,15 +3452,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3370
 [; ;mcc_generated_files/fatfs/ff.c: 3370:   } else {
 }
-[e $U 283  ]
-[e :U 280 ]
+[e $U 307  ]
+[e :U 304 ]
 {
 "3371
 [; ;mcc_generated_files/fatfs/ff.c: 3371:    if (fs->n_rootdir == 0) return FR_NO_FILESYSTEM;
-[e $ ! == -> . *U _fs 6 `ui -> -> 0 `i `ui 284  ]
-[e ) . `E68 13 ]
-[e $UE 249  ]
-[e :U 284 ]
+[e $ ! == -> . *U _fs 6 `ui -> -> 0 `i `ui 308  ]
+[e ) . `E69 13 ]
+[e $UE 273  ]
+[e :U 308 ]
 "3372
 [; ;mcc_generated_files/fatfs/ff.c: 3372:    fs->dirbase = fs->fatbase + fasize;
 [e = . *U _fs 15 + . *U _fs 14 _fasize ]
@@ -3284,13 +3470,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3375
 [; ;mcc_generated_files/fatfs/ff.c: 3375:   }
 }
-[e :U 283 ]
+[e :U 307 ]
 "3376
 [; ;mcc_generated_files/fatfs/ff.c: 3376:   if (fs->fsize < (szbfat + (((UINT)512) - 1)) / ((UINT)512)) return FR_NO_FILESYSTEM;
-[e $ ! < . *U _fs 12 / + _szbfat -> - -> -> 512 `i `ui -> -> 1 `i `ui `ul -> -> -> 512 `i `ui `ul 285  ]
-[e ) . `E68 13 ]
-[e $UE 249  ]
-[e :U 285 ]
+[e $ ! < . *U _fs 12 / + _szbfat -> - -> -> 512 `i `ui -> -> 1 `i `ui `ul -> -> -> 512 `i `ui `ul 309  ]
+[e ) . `E69 13 ]
+[e $UE 273  ]
+[e :U 309 ]
 "3380
 [; ;mcc_generated_files/fatfs/ff.c: 3380:   fs->last_clst = fs->free_clst = 0xFFFFFFFF;
 [e = . *U _fs 8 = . *U _fs 9 -> 4294967295 `ul ]
@@ -3299,7 +3485,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . *U _fs 4 -> -> 128 `i `uc ]
 "3383
 [; ;mcc_generated_files/fatfs/ff.c: 3383:   if (fmt == 3
-[e $ ! && && == -> _fmt `i -> 3 `i == -> ( _ld_word (1 -> + &U . *U _fs 18 * -> -> 48 `i `x -> -> # *U &U . *U _fs 18 `i `x `*Cuc `ui -> -> 1 `i `ui == -> ( _move_window (2 , _fs + _bsect -> -> -> 1 `i `l `ul `ui -> . `E68 0 `ui 286  ]
+[e $ ! && && == -> _fmt `i -> 3 `i == -> ( _ld_word (1 -> + &U . *U _fs 18 * -> -> 48 `i `x -> -> # *U &U . *U _fs 18 `i `x `*Cuc `ui -> -> 1 `i `ui == -> ( _move_window (2 , _fs + _bsect -> -> -> 1 `i `l `ul `ui -> . `E69 0 `ui 310  ]
 "3386
 [; ;mcc_generated_files/fatfs/ff.c: 3386:   {
 {
@@ -3308,7 +3494,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . *U _fs 4 -> -> 0 `i `uc ]
 "3388
 [; ;mcc_generated_files/fatfs/ff.c: 3388:    if (ld_word(fs->win + 510) == 0xAA55
-[e $ ! && && == -> ( _ld_word (1 -> + &U . *U _fs 18 * -> -> 510 `i `x -> -> # *U &U . *U _fs 18 `i `x `*Cuc `ui -> 43605 `ui == ( _ld_dword (1 -> + &U . *U _fs 18 * -> -> 0 `i `x -> -> # *U &U . *U _fs 18 `i `x `*Cuc -> -> 1096897106 `l `ul == ( _ld_dword (1 -> + &U . *U _fs 18 * -> -> 484 `i `x -> -> # *U &U . *U _fs 18 `i `x `*Cuc -> -> 1631679090 `l `ul 287  ]
+[e $ ! && && == -> ( _ld_word (1 -> + &U . *U _fs 18 * -> -> 510 `i `x -> -> # *U &U . *U _fs 18 `i `x `*Cuc `ui -> 43605 `ui == ( _ld_dword (1 -> + &U . *U _fs 18 * -> -> 0 `i `x -> -> # *U &U . *U _fs 18 `i `x `*Cuc -> -> 1096897106 `l `ul == ( _ld_dword (1 -> + &U . *U _fs 18 * -> -> 484 `i `x -> -> # *U &U . *U _fs 18 `i `x `*Cuc -> -> 1631679090 `l `ul 311  ]
 "3391
 [; ;mcc_generated_files/fatfs/ff.c: 3391:    {
 {
@@ -3321,11 +3507,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3398
 [; ;mcc_generated_files/fatfs/ff.c: 3398:    }
 }
-[e :U 287 ]
+[e :U 311 ]
 "3399
 [; ;mcc_generated_files/fatfs/ff.c: 3399:   }
 }
-[e :U 286 ]
+[e :U 310 ]
 "3402
 [; ;mcc_generated_files/fatfs/ff.c: 3402:  }
 }
@@ -3340,15 +3526,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . *U _fs 10 -> -> -> 0 `i `l `ul ]
 "3418
 [; ;mcc_generated_files/fatfs/ff.c: 3418:  return FR_OK;
-[e ) . `E68 0 ]
-[e $UE 249  ]
+[e ) . `E69 0 ]
+[e $UE 273  ]
 "3419
 [; ;mcc_generated_files/fatfs/ff.c: 3419: }
-[e :UE 249 ]
+[e :UE 273 ]
 }
 "3428
 [; ;mcc_generated_files/fatfs/ff.c: 3428: static FRESULT validate (
-[v _validate `(E68 ~T0 @X0 1 sf2`*S2`**S1 ]
+[v _validate `(E69 ~T0 @X0 1 sf2`*S2`**S1 ]
 "3432
 [; ;mcc_generated_files/fatfs/ff.c: 3432: {
 {
@@ -3364,41 +3550,41 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "3433
 [; ;mcc_generated_files/fatfs/ff.c: 3433:  FRESULT res = FR_INVALID_OBJECT;
-[v _res `E68 ~T0 @X0 1 a ]
-[e = _res . `E68 9 ]
+[v _res `E69 ~T0 @X0 1 a ]
+[e = _res . `E69 9 ]
 "3436
 [; ;mcc_generated_files/fatfs/ff.c: 3436:  if (obj && obj->fs && obj->fs->fs_type && obj->id == obj->fs->id) {
-[e $ ! && && && != _obj -> -> 0 `i `*S2 != . *U _obj 0 -> -> 0 `i `*S1 != -> . *U . *U _obj 0 0 `i -> 0 `i == -> . *U _obj 1 `ui -> . *U . *U _obj 0 5 `ui 289  ]
+[e $ ! && && && != _obj -> -> 0 `i `*S2 != . *U _obj 0 -> -> 0 `i `*S1 != -> . *U . *U _obj 0 0 `i -> 0 `i == -> . *U _obj 1 `ui -> . *U . *U _obj 0 5 `ui 313  ]
 {
 "3448
 [; ;mcc_generated_files/fatfs/ff.c: 3448:   if (!(disk_status(obj->fs->pdrv) & 0x01)) {
-[e $ ! ! != & -> ( _disk_status (1 . *U . *U _obj 0 1 `i -> 1 `i -> 0 `i 290  ]
+[e $ ! ! != & -> ( _disk_status (1 . *U . *U _obj 0 1 `i -> 1 `i -> 0 `i 314  ]
 {
 "3449
 [; ;mcc_generated_files/fatfs/ff.c: 3449:    res = FR_OK;
-[e = _res . `E68 0 ]
+[e = _res . `E69 0 ]
 "3450
 [; ;mcc_generated_files/fatfs/ff.c: 3450:   }
 }
-[e :U 290 ]
+[e :U 314 ]
 "3452
 [; ;mcc_generated_files/fatfs/ff.c: 3452:  }
 }
-[e :U 289 ]
+[e :U 313 ]
 "3453
 [; ;mcc_generated_files/fatfs/ff.c: 3453:  *rfs = (res == FR_OK) ? obj->fs : 0;
-[e = *U _rfs ? == -> _res `ui -> . `E68 0 `ui : . *U _obj 0 -> -> 0 `i `*S1 ]
+[e = *U _rfs ? == -> _res `ui -> . `E69 0 `ui : . *U _obj 0 -> -> 0 `i `*S1 ]
 "3454
 [; ;mcc_generated_files/fatfs/ff.c: 3454:  return res;
 [e ) _res ]
-[e $UE 288  ]
+[e $UE 312  ]
 "3455
 [; ;mcc_generated_files/fatfs/ff.c: 3455: }
-[e :UE 288 ]
+[e :UE 312 ]
 }
 "3472
 [; ;mcc_generated_files/fatfs/ff.c: 3472: FRESULT f_mount (
-[v _f_mount `(E68 ~T0 @X0 1 ef3`*S1`*Cuc`uc ]
+[v _f_mount `(E69 ~T0 @X0 1 ef3`*S1`*Cuc`uc ]
 "3477
 [; ;mcc_generated_files/fatfs/ff.c: 3477: {
 {
@@ -3423,7 +3609,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _vol `i ~T0 @X0 1 a ]
 "3480
 [; ;mcc_generated_files/fatfs/ff.c: 3480:  FRESULT res;
-[v _res `E68 ~T0 @X0 1 a ]
+[v _res `E69 ~T0 @X0 1 a ]
 "3481
 [; ;mcc_generated_files/fatfs/ff.c: 3481:  const TCHAR *rp = path;
 [v _rp `*Cuc ~T0 @X0 1 a ]
@@ -3433,16 +3619,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _vol ( _get_ldnumber (1 &U _rp ]
 "3486
 [; ;mcc_generated_files/fatfs/ff.c: 3486:  if (vol < 0) return FR_INVALID_DRIVE;
-[e $ ! < _vol -> 0 `i 292  ]
-[e ) . `E68 11 ]
-[e $UE 291  ]
-[e :U 292 ]
+[e $ ! < _vol -> 0 `i 316  ]
+[e ) . `E69 11 ]
+[e $UE 315  ]
+[e :U 316 ]
 "3487
 [; ;mcc_generated_files/fatfs/ff.c: 3487:  cfs = FatFs[vol];
 [e = _cfs *U + &U _FatFs * -> -> _vol `ui `ux -> -> # *U &U _FatFs `ui `ux ]
 "3489
 [; ;mcc_generated_files/fatfs/ff.c: 3489:  if (cfs) {
-[e $ ! != _cfs -> -> 0 `i `*S1 293  ]
+[e $ ! != _cfs -> -> 0 `i `*S1 317  ]
 {
 "3496
 [; ;mcc_generated_files/fatfs/ff.c: 3496:   cfs->fs_type = 0;
@@ -3450,10 +3636,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3497
 [; ;mcc_generated_files/fatfs/ff.c: 3497:  }
 }
-[e :U 293 ]
+[e :U 317 ]
 "3499
 [; ;mcc_generated_files/fatfs/ff.c: 3499:  if (fs) {
-[e $ ! != _fs -> -> 0 `i `*S1 294  ]
+[e $ ! != _fs -> -> 0 `i `*S1 318  ]
 {
 "3500
 [; ;mcc_generated_files/fatfs/ff.c: 3500:   fs->fs_type = 0;
@@ -3461,30 +3647,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3504
 [; ;mcc_generated_files/fatfs/ff.c: 3504:  }
 }
-[e :U 294 ]
+[e :U 318 ]
 "3505
 [; ;mcc_generated_files/fatfs/ff.c: 3505:  FatFs[vol] = fs;
 [e = *U + &U _FatFs * -> -> _vol `ui `ux -> -> # *U &U _FatFs `ui `ux _fs ]
 "3507
 [; ;mcc_generated_files/fatfs/ff.c: 3507:  if (opt == 0) return FR_OK;
-[e $ ! == -> _opt `i -> 0 `i 295  ]
-[e ) . `E68 0 ]
-[e $UE 291  ]
-[e :U 295 ]
+[e $ ! == -> _opt `i -> 0 `i 319  ]
+[e ) . `E69 0 ]
+[e $UE 315  ]
+[e :U 319 ]
 "3509
 [; ;mcc_generated_files/fatfs/ff.c: 3509:  res = find_volume(&path, &fs, 0);
 [e = _res ( _find_volume (3 , , &U _path &U _fs -> -> 0 `i `uc ]
 "3510
 [; ;mcc_generated_files/fatfs/ff.c: 3510:  return res;
 [e ) _res ]
-[e $UE 291  ]
+[e $UE 315  ]
 "3511
 [; ;mcc_generated_files/fatfs/ff.c: 3511: }
-[e :UE 291 ]
+[e :UE 315 ]
 }
 "3520
 [; ;mcc_generated_files/fatfs/ff.c: 3520: FRESULT f_open (
-[v _f_open `(E68 ~T0 @X0 1 ef3`*S3`*Cuc`uc ]
+[v _f_open `(E69 ~T0 @X0 1 ef3`*S3`*Cuc`uc ]
 "3525
 [; ;mcc_generated_files/fatfs/ff.c: 3525: {
 {
@@ -3503,7 +3689,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "3526
 [; ;mcc_generated_files/fatfs/ff.c: 3526:  FRESULT res;
-[v _res `E68 ~T0 @X0 1 a ]
+[v _res `E69 ~T0 @X0 1 a ]
 "3527
 [; ;mcc_generated_files/fatfs/ff.c: 3527:  FFDIR dj;
 [v _dj `S4 ~T0 @X0 1 a ]
@@ -3522,10 +3708,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _ofs `ul ~T0 @X0 1 a ]
 "3536
 [; ;mcc_generated_files/fatfs/ff.c: 3536:  if (!fp) return FR_INVALID_OBJECT;
-[e $ ! ! != _fp -> -> 0 `i `*S3 297  ]
-[e ) . `E68 9 ]
-[e $UE 296  ]
-[e :U 297 ]
+[e $ ! ! != _fp -> -> 0 `i `*S3 321  ]
+[e ) . `E69 9 ]
+[e $UE 320  ]
+[e :U 321 ]
 "3539
 [; ;mcc_generated_files/fatfs/ff.c: 3539:  mode &= 0 ? 0x01 : 0x01 | 0x02 | 0x08 | 0x04 | 0x10 | 0x30;
 [e =& _mode -> ? != -> 0 `i -> 0 `i : -> 1 `i | | | | | -> 1 `i -> 2 `i -> 8 `i -> 4 `i -> 16 `i -> 48 `i `uc ]
@@ -3534,7 +3720,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _find_volume (3 , , &U _path &U _fs _mode ]
 "3541
 [; ;mcc_generated_files/fatfs/ff.c: 3541:  if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 298  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 322  ]
 {
 "3542
 [; ;mcc_generated_files/fatfs/ff.c: 3542:   dj.obj.fs = fs;
@@ -3544,34 +3730,34 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _follow_path (2 , &U _dj _path ]
 "3546
 [; ;mcc_generated_files/fatfs/ff.c: 3546:   if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 299  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 323  ]
 {
 "3547
 [; ;mcc_generated_files/fatfs/ff.c: 3547:    if (dj.fn[11] & 0x80) {
-[e $ ! != & -> *U + &U . _dj 5 * -> -> -> 11 `i `ui `ux -> -> # *U &U . _dj 5 `ui `ux `i -> 128 `i -> 0 `i 300  ]
+[e $ ! != & -> *U + &U . _dj 5 * -> -> -> 11 `i `ui `ux -> -> # *U &U . _dj 5 `ui `ux `i -> 128 `i -> 0 `i 324  ]
 {
 "3548
 [; ;mcc_generated_files/fatfs/ff.c: 3548:     res = FR_INVALID_NAME;
-[e = _res . `E68 6 ]
+[e = _res . `E69 6 ]
 "3549
 [; ;mcc_generated_files/fatfs/ff.c: 3549:    }
 }
-[e :U 300 ]
+[e :U 324 ]
 "3555
 [; ;mcc_generated_files/fatfs/ff.c: 3555:   }
 }
-[e :U 299 ]
+[e :U 323 ]
 "3557
 [; ;mcc_generated_files/fatfs/ff.c: 3557:   if (mode & (0x08 | 0x10 | 0x04)) {
-[e $ ! != & -> _mode `i | | -> 8 `i -> 16 `i -> 4 `i -> 0 `i 301  ]
+[e $ ! != & -> _mode `i | | -> 8 `i -> 16 `i -> 4 `i -> 0 `i 325  ]
 {
 "3558
 [; ;mcc_generated_files/fatfs/ff.c: 3558:    if (res != FR_OK) {
-[e $ ! != -> _res `ui -> . `E68 0 `ui 302  ]
+[e $ ! != -> _res `ui -> . `E69 0 `ui 326  ]
 {
 "3559
 [; ;mcc_generated_files/fatfs/ff.c: 3559:     if (res == FR_NO_FILE) {
-[e $ ! == -> _res `ui -> . `E68 4 `ui 303  ]
+[e $ ! == -> _res `ui -> . `E69 4 `ui 327  ]
 {
 "3563
 [; ;mcc_generated_files/fatfs/ff.c: 3563:      res = dir_register(&dj);
@@ -3579,47 +3765,47 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3565
 [; ;mcc_generated_files/fatfs/ff.c: 3565:     }
 }
-[e :U 303 ]
+[e :U 327 ]
 "3566
 [; ;mcc_generated_files/fatfs/ff.c: 3566:     mode |= 0x08;
 [e =| _mode -> -> 8 `i `uc ]
 "3567
 [; ;mcc_generated_files/fatfs/ff.c: 3567:    }
 }
-[e $U 304  ]
+[e $U 328  ]
 "3568
 [; ;mcc_generated_files/fatfs/ff.c: 3568:    else {
-[e :U 302 ]
+[e :U 326 ]
 {
 "3569
 [; ;mcc_generated_files/fatfs/ff.c: 3569:     if (dj.obj.attr & (0x01 | 0x10)) {
-[e $ ! != & -> . . _dj 0 2 `i | -> 1 `i -> 16 `i -> 0 `i 305  ]
+[e $ ! != & -> . . _dj 0 2 `i | -> 1 `i -> 16 `i -> 0 `i 329  ]
 {
 "3570
 [; ;mcc_generated_files/fatfs/ff.c: 3570:      res = FR_DENIED;
-[e = _res . `E68 7 ]
+[e = _res . `E69 7 ]
 "3571
 [; ;mcc_generated_files/fatfs/ff.c: 3571:     } else {
 }
-[e $U 306  ]
-[e :U 305 ]
+[e $U 330  ]
+[e :U 329 ]
 {
 "3572
 [; ;mcc_generated_files/fatfs/ff.c: 3572:      if (mode & 0x04) res = FR_EXIST;
-[e $ ! != & -> _mode `i -> 4 `i -> 0 `i 307  ]
-[e = _res . `E68 8 ]
-[e :U 307 ]
+[e $ ! != & -> _mode `i -> 4 `i -> 0 `i 331  ]
+[e = _res . `E69 8 ]
+[e :U 331 ]
 "3573
 [; ;mcc_generated_files/fatfs/ff.c: 3573:     }
 }
-[e :U 306 ]
+[e :U 330 ]
 "3574
 [; ;mcc_generated_files/fatfs/ff.c: 3574:    }
 }
-[e :U 304 ]
+[e :U 328 ]
 "3575
 [; ;mcc_generated_files/fatfs/ff.c: 3575:    if (res == FR_OK && (mode & 0x08)) {
-[e $ ! && == -> _res `ui -> . `E68 0 `ui != & -> _mode `i -> 8 `i -> 0 `i 308  ]
+[e $ ! && == -> _res `ui -> . `E69 0 `ui != & -> _mode `i -> 8 `i -> 0 `i 332  ]
 {
 "3594
 [; ;mcc_generated_files/fatfs/ff.c: 3594:     {
@@ -3644,7 +3830,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . *U _fs 3 -> -> 1 `i `uc ]
 "3602
 [; ;mcc_generated_files/fatfs/ff.c: 3602:      if (cl != 0) {
-[e $ ! != _cl -> -> -> 0 `i `l `ul 309  ]
+[e $ ! != _cl -> -> -> 0 `i `l `ul 333  ]
 {
 "3603
 [; ;mcc_generated_files/fatfs/ff.c: 3603:       dw = fs->winsect;
@@ -3654,7 +3840,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _remove_chain (3 , , &U . _dj 0 _cl -> -> -> 0 `i `l `ul ]
 "3605
 [; ;mcc_generated_files/fatfs/ff.c: 3605:       if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 310  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 334  ]
 {
 "3606
 [; ;mcc_generated_files/fatfs/ff.c: 3606:        res = move_window(fs, dw);
@@ -3665,75 +3851,75 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3608
 [; ;mcc_generated_files/fatfs/ff.c: 3608:       }
 }
-[e :U 310 ]
+[e :U 334 ]
 "3609
 [; ;mcc_generated_files/fatfs/ff.c: 3609:      }
 }
-[e :U 309 ]
+[e :U 333 ]
 "3610
 [; ;mcc_generated_files/fatfs/ff.c: 3610:     }
 }
 "3611
 [; ;mcc_generated_files/fatfs/ff.c: 3611:    }
 }
-[e :U 308 ]
+[e :U 332 ]
 "3612
 [; ;mcc_generated_files/fatfs/ff.c: 3612:   }
 }
-[e $U 311  ]
+[e $U 335  ]
 "3613
 [; ;mcc_generated_files/fatfs/ff.c: 3613:   else {
-[e :U 301 ]
+[e :U 325 ]
 {
 "3614
 [; ;mcc_generated_files/fatfs/ff.c: 3614:    if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 312  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 336  ]
 {
 "3615
 [; ;mcc_generated_files/fatfs/ff.c: 3615:     if (dj.obj.attr & 0x10) {
-[e $ ! != & -> . . _dj 0 2 `i -> 16 `i -> 0 `i 313  ]
+[e $ ! != & -> . . _dj 0 2 `i -> 16 `i -> 0 `i 337  ]
 {
 "3616
 [; ;mcc_generated_files/fatfs/ff.c: 3616:      res = FR_NO_FILE;
-[e = _res . `E68 4 ]
+[e = _res . `E69 4 ]
 "3617
 [; ;mcc_generated_files/fatfs/ff.c: 3617:     } else {
 }
-[e $U 314  ]
-[e :U 313 ]
+[e $U 338  ]
+[e :U 337 ]
 {
 "3618
 [; ;mcc_generated_files/fatfs/ff.c: 3618:      if ((mode & 0x02) && (dj.obj.attr & 0x01)) {
-[e $ ! && != & -> _mode `i -> 2 `i -> 0 `i != & -> . . _dj 0 2 `i -> 1 `i -> 0 `i 315  ]
+[e $ ! && != & -> _mode `i -> 2 `i -> 0 `i != & -> . . _dj 0 2 `i -> 1 `i -> 0 `i 339  ]
 {
 "3619
 [; ;mcc_generated_files/fatfs/ff.c: 3619:       res = FR_DENIED;
-[e = _res . `E68 7 ]
+[e = _res . `E69 7 ]
 "3620
 [; ;mcc_generated_files/fatfs/ff.c: 3620:      }
 }
-[e :U 315 ]
+[e :U 339 ]
 "3621
 [; ;mcc_generated_files/fatfs/ff.c: 3621:     }
 }
-[e :U 314 ]
+[e :U 338 ]
 "3622
 [; ;mcc_generated_files/fatfs/ff.c: 3622:    }
 }
-[e :U 312 ]
+[e :U 336 ]
 "3623
 [; ;mcc_generated_files/fatfs/ff.c: 3623:   }
 }
-[e :U 311 ]
+[e :U 335 ]
 "3624
 [; ;mcc_generated_files/fatfs/ff.c: 3624:   if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 316  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 340  ]
 {
 "3625
 [; ;mcc_generated_files/fatfs/ff.c: 3625:    if (mode & 0x08) mode |= 0x40;
-[e $ ! != & -> _mode `i -> 8 `i -> 0 `i 317  ]
+[e $ ! != & -> _mode `i -> 8 `i -> 0 `i 341  ]
 [e =| _mode -> -> 64 `i `uc ]
-[e :U 317 ]
+[e :U 341 ]
 "3626
 [; ;mcc_generated_files/fatfs/ff.c: 3626:    fp->dir_sect = fs->winsect;
 [e = . *U _fp 6 . *U _fs 17 ]
@@ -3743,10 +3929,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3632
 [; ;mcc_generated_files/fatfs/ff.c: 3632:   }
 }
-[e :U 316 ]
+[e :U 340 ]
 "3645
 [; ;mcc_generated_files/fatfs/ff.c: 3645:   if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 318  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 342  ]
 {
 "3654
 [; ;mcc_generated_files/fatfs/ff.c: 3654:    {
@@ -3783,7 +3969,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _mem_set (3 , , -> &U . *U _fp 8 `*v -> 0 `i -> -> 512 `i `ui ]
 "3671
 [; ;mcc_generated_files/fatfs/ff.c: 3671:    if ((mode & 0x20) && fp->obj.objsize > 0) {
-[e $ ! && != & -> _mode `i -> 32 `i -> 0 `i > . . *U _fp 0 5 -> -> -> 0 `i `l `ul 319  ]
+[e $ ! && != & -> _mode `i -> 32 `i -> 0 `i > . . *U _fp 0 5 -> -> -> 0 `i `l `ul 343  ]
 {
 "3672
 [; ;mcc_generated_files/fatfs/ff.c: 3672:     fp->fptr = fp->obj.objsize;
@@ -3798,94 +3984,94 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mcc_generated_files/fatfs/ff.c: 3675:     for (ofs = fp->obj.objsize; res == FR_OK && ofs > bcs; ofs -= bcs) {
 {
 [e = _ofs . . *U _fp 0 5 ]
-[e $U 323  ]
-[e :U 320 ]
+[e $U 347  ]
+[e :U 344 ]
 {
 "3676
 [; ;mcc_generated_files/fatfs/ff.c: 3676:      clst = get_fat(&fp->obj, clst);
 [e = _clst ( _get_fat (2 , &U . *U _fp 0 _clst ]
 "3677
 [; ;mcc_generated_files/fatfs/ff.c: 3677:      if (clst <= 1) res = FR_INT_ERR;
-[e $ ! <= _clst -> -> -> 1 `i `l `ul 324  ]
-[e = _res . `E68 2 ]
-[e :U 324 ]
+[e $ ! <= _clst -> -> -> 1 `i `l `ul 348  ]
+[e = _res . `E69 2 ]
+[e :U 348 ]
 "3678
 [; ;mcc_generated_files/fatfs/ff.c: 3678:      if (clst == 0xFFFFFFFF) res = FR_DISK_ERR;
-[e $ ! == _clst -> 4294967295 `ul 325  ]
-[e = _res . `E68 1 ]
-[e :U 325 ]
+[e $ ! == _clst -> 4294967295 `ul 349  ]
+[e = _res . `E69 1 ]
+[e :U 349 ]
 "3679
 [; ;mcc_generated_files/fatfs/ff.c: 3679:     }
 }
 [e =- _ofs _bcs ]
-[e :U 323 ]
-[e $ && == -> _res `ui -> . `E68 0 `ui > _ofs _bcs 320  ]
-[e :U 321 ]
+[e :U 347 ]
+[e $ && == -> _res `ui -> . `E69 0 `ui > _ofs _bcs 344  ]
+[e :U 345 ]
 }
 "3680
 [; ;mcc_generated_files/fatfs/ff.c: 3680:     fp->clust = clst;
 [e = . *U _fp 4 _clst ]
 "3681
 [; ;mcc_generated_files/fatfs/ff.c: 3681:     if (res == FR_OK && ofs % ((UINT)512)) {
-[e $ ! && == -> _res `ui -> . `E68 0 `ui != % _ofs -> -> -> 512 `i `ui `ul -> -> -> 0 `i `l `ul 326  ]
+[e $ ! && == -> _res `ui -> . `E69 0 `ui != % _ofs -> -> -> 512 `i `ui `ul -> -> -> 0 `i `l `ul 350  ]
 {
 "3682
 [; ;mcc_generated_files/fatfs/ff.c: 3682:      if ((sc = clst2sect(fs, clst)) == 0) {
-[e $ ! == = _sc ( _clst2sect (2 , _fs _clst -> -> -> 0 `i `l `ul 327  ]
+[e $ ! == = _sc ( _clst2sect (2 , _fs _clst -> -> -> 0 `i `l `ul 351  ]
 {
 "3683
 [; ;mcc_generated_files/fatfs/ff.c: 3683:       res = FR_INT_ERR;
-[e = _res . `E68 2 ]
+[e = _res . `E69 2 ]
 "3684
 [; ;mcc_generated_files/fatfs/ff.c: 3684:      } else {
 }
-[e $U 328  ]
-[e :U 327 ]
+[e $U 352  ]
+[e :U 351 ]
 {
 "3685
 [; ;mcc_generated_files/fatfs/ff.c: 3685:       fp->sect = sc + (DWORD)(ofs / ((UINT)512));
 [e = . *U _fp 5 + _sc / _ofs -> -> -> 512 `i `ui `ul ]
 "3687
 [; ;mcc_generated_files/fatfs/ff.c: 3687:       if (disk_read(fs->pdrv, fp->buf, fp->sect, 1) != RES_OK) res = FR_DISK_ERR;
-[e $ ! != -> ( _disk_read (4 , , , . *U _fs 1 &U . *U _fp 8 . *U _fp 5 -> -> 1 `i `ui `ui -> . `E209 0 `ui 329  ]
-[e = _res . `E68 1 ]
-[e :U 329 ]
+[e $ ! != -> ( _disk_read (4 , , , . *U _fs 1 &U . *U _fp 8 . *U _fp 5 -> -> 1 `i `ui `ui -> . `E210 0 `ui 353  ]
+[e = _res . `E69 1 ]
+[e :U 353 ]
 "3689
 [; ;mcc_generated_files/fatfs/ff.c: 3689:      }
 }
-[e :U 328 ]
+[e :U 352 ]
 "3690
 [; ;mcc_generated_files/fatfs/ff.c: 3690:     }
 }
-[e :U 326 ]
+[e :U 350 ]
 "3691
 [; ;mcc_generated_files/fatfs/ff.c: 3691:    }
 }
-[e :U 319 ]
+[e :U 343 ]
 "3693
 [; ;mcc_generated_files/fatfs/ff.c: 3693:   }
 }
-[e :U 318 ]
+[e :U 342 ]
 "3696
 [; ;mcc_generated_files/fatfs/ff.c: 3696:  }
 }
-[e :U 298 ]
+[e :U 322 ]
 "3698
 [; ;mcc_generated_files/fatfs/ff.c: 3698:  if (res != FR_OK) fp->obj.fs = 0;
-[e $ ! != -> _res `ui -> . `E68 0 `ui 330  ]
+[e $ ! != -> _res `ui -> . `E69 0 `ui 354  ]
 [e = . . *U _fp 0 0 -> -> 0 `i `*S1 ]
-[e :U 330 ]
+[e :U 354 ]
 "3700
 [; ;mcc_generated_files/fatfs/ff.c: 3700:  return res;
 [e ) _res ]
-[e $UE 296  ]
+[e $UE 320  ]
 "3701
 [; ;mcc_generated_files/fatfs/ff.c: 3701: }
-[e :UE 296 ]
+[e :UE 320 ]
 }
 "3710
 [; ;mcc_generated_files/fatfs/ff.c: 3710: FRESULT f_read (
-[v _f_read `(E68 ~T0 @X0 1 ef4`*S3`*v`ui`*ui ]
+[v _f_read `(E69 ~T0 @X0 1 ef4`*S3`*v`ui`*ui ]
 "3716
 [; ;mcc_generated_files/fatfs/ff.c: 3716: {
 {
@@ -3907,7 +4093,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "3717
 [; ;mcc_generated_files/fatfs/ff.c: 3717:  FRESULT res;
-[v _res `E68 ~T0 @X0 1 a ]
+[v _res `E69 ~T0 @X0 1 a ]
 "3718
 [; ;mcc_generated_files/fatfs/ff.c: 3718:  FATFS *fs;
 [v _fs `*S1 ~T0 @X0 1 a ]
@@ -3935,46 +4121,46 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _validate (2 , &U . *U _fp 0 &U _fs ]
 "3727
 [; ;mcc_generated_files/fatfs/ff.c: 3727:  if (res != FR_OK || (res = (FRESULT)fp->err) != FR_OK) return res;
-[e $ ! || != -> _res `ui -> . `E68 0 `ui != -> = _res -> . *U _fp 2 `E68 `ui -> . `E68 0 `ui 332  ]
+[e $ ! || != -> _res `ui -> . `E69 0 `ui != -> = _res -> . *U _fp 2 `E69 `ui -> . `E69 0 `ui 356  ]
 [e ) _res ]
-[e $UE 331  ]
-[e :U 332 ]
+[e $UE 355  ]
+[e :U 356 ]
 "3728
 [; ;mcc_generated_files/fatfs/ff.c: 3728:  if (!(fp->flag & 0x01)) return FR_DENIED;
-[e $ ! ! != & -> . *U _fp 1 `i -> 1 `i -> 0 `i 333  ]
-[e ) . `E68 7 ]
-[e $UE 331  ]
-[e :U 333 ]
+[e $ ! ! != & -> . *U _fp 1 `i -> 1 `i -> 0 `i 357  ]
+[e ) . `E69 7 ]
+[e $UE 355  ]
+[e :U 357 ]
 "3729
 [; ;mcc_generated_files/fatfs/ff.c: 3729:  remain = fp->obj.objsize - fp->fptr;
 [e = _remain - . . *U _fp 0 5 . *U _fp 3 ]
 "3730
 [; ;mcc_generated_files/fatfs/ff.c: 3730:  if (btr > remain) btr = (UINT)remain;
-[e $ ! > -> _btr `ul _remain 334  ]
+[e $ ! > -> _btr `ul _remain 358  ]
 [e = _btr -> _remain `ui ]
-[e :U 334 ]
+[e :U 358 ]
 "3732
 [; ;mcc_generated_files/fatfs/ff.c: 3732:  for ( ; btr;
 {
-[e $U 338  ]
-[e :U 335 ]
+[e $U 362  ]
+[e :U 359 ]
 "3733
 [; ;mcc_generated_files/fatfs/ff.c: 3733:   btr -= rcnt, *br += rcnt, rbuff += rcnt, fp->fptr += rcnt) {
 {
 "3734
 [; ;mcc_generated_files/fatfs/ff.c: 3734:   if (fp->fptr % ((UINT)512) == 0) {
-[e $ ! == % . *U _fp 3 -> -> -> 512 `i `ui `ul -> -> -> 0 `i `l `ul 339  ]
+[e $ ! == % . *U _fp 3 -> -> -> 512 `i `ui `ul -> -> -> 0 `i `l `ul 363  ]
 {
 "3735
 [; ;mcc_generated_files/fatfs/ff.c: 3735:    csect = (UINT)(fp->fptr / ((UINT)512) & (fs->csize - 1));
 [e = _csect -> & / . *U _fp 3 -> -> -> 512 `i `ui `ul -> - -> . *U _fs 7 `ui -> -> 1 `i `ui `ul `ui ]
 "3736
 [; ;mcc_generated_files/fatfs/ff.c: 3736:    if (csect == 0) {
-[e $ ! == _csect -> -> 0 `i `ui 340  ]
+[e $ ! == _csect -> -> 0 `i `ui 364  ]
 {
 "3737
 [; ;mcc_generated_files/fatfs/ff.c: 3737:     if (fp->fptr == 0) {
-[e $ ! == . *U _fp 3 -> -> -> 0 `i `l `ul 341  ]
+[e $ ! == . *U _fp 3 -> -> -> 0 `i `l `ul 365  ]
 {
 "3738
 [; ;mcc_generated_files/fatfs/ff.c: 3738:      clst = fp->obj.sclust;
@@ -3982,8 +4168,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3739
 [; ;mcc_generated_files/fatfs/ff.c: 3739:     } else {
 }
-[e $U 342  ]
-[e :U 341 ]
+[e $U 366  ]
+[e :U 365 ]
 {
 "3745
 [; ;mcc_generated_files/fatfs/ff.c: 3745:      {
@@ -3997,44 +4183,44 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3748
 [; ;mcc_generated_files/fatfs/ff.c: 3748:     }
 }
-[e :U 342 ]
+[e :U 366 ]
 "3749
 [; ;mcc_generated_files/fatfs/ff.c: 3749:     if (clst < 2) { fp->err = (BYTE)(FR_INT_ERR); return FR_INT_ERR; };
-[e $ ! < _clst -> -> -> 2 `i `l `ul 343  ]
+[e $ ! < _clst -> -> -> 2 `i `l `ul 367  ]
 {
-[e = . *U _fp 2 -> . `E68 2 `uc ]
-[e ) . `E68 2 ]
-[e $UE 331  ]
+[e = . *U _fp 2 -> . `E69 2 `uc ]
+[e ) . `E69 2 ]
+[e $UE 355  ]
 }
-[e :U 343 ]
+[e :U 367 ]
 "3750
 [; ;mcc_generated_files/fatfs/ff.c: 3750:     if (clst == 0xFFFFFFFF) { fp->err = (BYTE)(FR_DISK_ERR); return FR_DISK_ERR; };
-[e $ ! == _clst -> 4294967295 `ul 344  ]
+[e $ ! == _clst -> 4294967295 `ul 368  ]
 {
-[e = . *U _fp 2 -> . `E68 1 `uc ]
-[e ) . `E68 1 ]
-[e $UE 331  ]
+[e = . *U _fp 2 -> . `E69 1 `uc ]
+[e ) . `E69 1 ]
+[e $UE 355  ]
 }
-[e :U 344 ]
+[e :U 368 ]
 "3751
 [; ;mcc_generated_files/fatfs/ff.c: 3751:     fp->clust = clst;
 [e = . *U _fp 4 _clst ]
 "3752
 [; ;mcc_generated_files/fatfs/ff.c: 3752:    }
 }
-[e :U 340 ]
+[e :U 364 ]
 "3753
 [; ;mcc_generated_files/fatfs/ff.c: 3753:    sect = clst2sect(fs, fp->clust);
 [e = _sect ( _clst2sect (2 , _fs . *U _fp 4 ]
 "3754
 [; ;mcc_generated_files/fatfs/ff.c: 3754:    if (sect == 0) { fp->err = (BYTE)(FR_INT_ERR); return FR_INT_ERR; };
-[e $ ! == _sect -> -> -> 0 `i `l `ul 345  ]
+[e $ ! == _sect -> -> -> 0 `i `l `ul 369  ]
 {
-[e = . *U _fp 2 -> . `E68 2 `uc ]
-[e ) . `E68 2 ]
-[e $UE 331  ]
+[e = . *U _fp 2 -> . `E69 2 `uc ]
+[e ) . `E69 2 ]
+[e $UE 355  ]
 }
-[e :U 345 ]
+[e :U 369 ]
 "3755
 [; ;mcc_generated_files/fatfs/ff.c: 3755:    sect += csect;
 [e =+ _sect -> _csect `ul ]
@@ -4043,11 +4229,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _cc / _btr -> -> 512 `i `ui ]
 "3757
 [; ;mcc_generated_files/fatfs/ff.c: 3757:    if (cc > 0) {
-[e $ ! > _cc -> -> 0 `i `ui 346  ]
+[e $ ! > _cc -> -> 0 `i `ui 370  ]
 {
 "3758
 [; ;mcc_generated_files/fatfs/ff.c: 3758:     if (csect + cc > fs->csize) {
-[e $ ! > + _csect _cc -> . *U _fs 7 `ui 347  ]
+[e $ ! > + _csect _cc -> . *U _fs 7 `ui 371  ]
 {
 "3759
 [; ;mcc_generated_files/fatfs/ff.c: 3759:      cc = fs->csize - csect;
@@ -4055,19 +4241,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3760
 [; ;mcc_generated_files/fatfs/ff.c: 3760:     }
 }
-[e :U 347 ]
+[e :U 371 ]
 "3761
 [; ;mcc_generated_files/fatfs/ff.c: 3761:     if (disk_read(fs->pdrv, rbuff, sect, cc) != RES_OK) { fp->err = (BYTE)(FR_DISK_ERR); return FR_DISK_ERR; };
-[e $ ! != -> ( _disk_read (4 , , , . *U _fs 1 _rbuff _sect _cc `ui -> . `E209 0 `ui 348  ]
+[e $ ! != -> ( _disk_read (4 , , , . *U _fs 1 _rbuff _sect _cc `ui -> . `E210 0 `ui 372  ]
 {
-[e = . *U _fp 2 -> . `E68 1 `uc ]
-[e ) . `E68 1 ]
-[e $UE 331  ]
+[e = . *U _fp 2 -> . `E69 1 `uc ]
+[e ) . `E69 1 ]
+[e $UE 355  ]
 }
-[e :U 348 ]
+[e :U 372 ]
 "3768
 [; ;mcc_generated_files/fatfs/ff.c: 3768:     if ((fp->flag & 0x80) && fp->sect - sect < cc) {
-[e $ ! && != & -> . *U _fp 1 `i -> 128 `i -> 0 `i < - . *U _fp 5 _sect -> _cc `ul 349  ]
+[e $ ! && != & -> . *U _fp 1 `i -> 128 `i -> 0 `i < - . *U _fp 5 _sect -> _cc `ul 373  ]
 {
 "3769
 [; ;mcc_generated_files/fatfs/ff.c: 3769:      mem_cpy(rbuff + ((fp->sect - sect) * ((UINT)512)), fp->buf, ((UINT)512));
@@ -4075,92 +4261,92 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3770
 [; ;mcc_generated_files/fatfs/ff.c: 3770:     }
 }
-[e :U 349 ]
+[e :U 373 ]
 "3773
 [; ;mcc_generated_files/fatfs/ff.c: 3773:     rcnt = ((UINT)512) * cc;
 [e = _rcnt * -> -> 512 `i `ui _cc ]
 "3774
 [; ;mcc_generated_files/fatfs/ff.c: 3774:     continue;
-[e $U 337  ]
+[e $U 361  ]
 "3775
 [; ;mcc_generated_files/fatfs/ff.c: 3775:    }
 }
-[e :U 346 ]
+[e :U 370 ]
 "3777
 [; ;mcc_generated_files/fatfs/ff.c: 3777:    if (fp->sect != sect) {
-[e $ ! != . *U _fp 5 _sect 350  ]
+[e $ ! != . *U _fp 5 _sect 374  ]
 {
 "3779
 [; ;mcc_generated_files/fatfs/ff.c: 3779:     if (fp->flag & 0x80) {
-[e $ ! != & -> . *U _fp 1 `i -> 128 `i -> 0 `i 351  ]
+[e $ ! != & -> . *U _fp 1 `i -> 128 `i -> 0 `i 375  ]
 {
 "3780
 [; ;mcc_generated_files/fatfs/ff.c: 3780:      if (disk_write(fs->pdrv, fp->buf, fp->sect, 1) != RES_OK) { fp->err = (BYTE)(FR_DISK_ERR); return FR_DISK_ERR; };
-[e $ ! != -> ( _disk_write (4 , , , . *U _fs 1 -> &U . *U _fp 8 `*Cuc . *U _fp 5 -> -> 1 `i `ui `ui -> . `E209 0 `ui 352  ]
+[e $ ! != -> ( _disk_write (4 , , , . *U _fs 1 -> &U . *U _fp 8 `*Cuc . *U _fp 5 -> -> 1 `i `ui `ui -> . `E210 0 `ui 376  ]
 {
-[e = . *U _fp 2 -> . `E68 1 `uc ]
-[e ) . `E68 1 ]
-[e $UE 331  ]
+[e = . *U _fp 2 -> . `E69 1 `uc ]
+[e ) . `E69 1 ]
+[e $UE 355  ]
 }
-[e :U 352 ]
+[e :U 376 ]
 "3781
 [; ;mcc_generated_files/fatfs/ff.c: 3781:      fp->flag &= (BYTE)~0x80;
 [e =& . *U _fp 1 -> -> ~ -> 128 `i `uc `uc ]
 "3782
 [; ;mcc_generated_files/fatfs/ff.c: 3782:     }
 }
-[e :U 351 ]
+[e :U 375 ]
 "3784
 [; ;mcc_generated_files/fatfs/ff.c: 3784:     if (disk_read(fs->pdrv, fp->buf, sect, 1) != RES_OK) { fp->err = (BYTE)(FR_DISK_ERR); return FR_DISK_ERR; };
-[e $ ! != -> ( _disk_read (4 , , , . *U _fs 1 &U . *U _fp 8 _sect -> -> 1 `i `ui `ui -> . `E209 0 `ui 353  ]
+[e $ ! != -> ( _disk_read (4 , , , . *U _fs 1 &U . *U _fp 8 _sect -> -> 1 `i `ui `ui -> . `E210 0 `ui 377  ]
 {
-[e = . *U _fp 2 -> . `E68 1 `uc ]
-[e ) . `E68 1 ]
-[e $UE 331  ]
+[e = . *U _fp 2 -> . `E69 1 `uc ]
+[e ) . `E69 1 ]
+[e $UE 355  ]
 }
-[e :U 353 ]
+[e :U 377 ]
 "3785
 [; ;mcc_generated_files/fatfs/ff.c: 3785:    }
 }
-[e :U 350 ]
+[e :U 374 ]
 "3787
 [; ;mcc_generated_files/fatfs/ff.c: 3787:    fp->sect = sect;
 [e = . *U _fp 5 _sect ]
 "3788
 [; ;mcc_generated_files/fatfs/ff.c: 3788:   }
 }
-[e :U 339 ]
+[e :U 363 ]
 "3789
 [; ;mcc_generated_files/fatfs/ff.c: 3789:   rcnt = ((UINT)512) - (UINT)fp->fptr % ((UINT)512);
 [e = _rcnt - -> -> 512 `i `ui % -> . *U _fp 3 `ui -> -> 512 `i `ui ]
 "3790
 [; ;mcc_generated_files/fatfs/ff.c: 3790:   if (rcnt > btr) rcnt = btr;
-[e $ ! > _rcnt _btr 354  ]
+[e $ ! > _rcnt _btr 378  ]
 [e = _rcnt _btr ]
-[e :U 354 ]
+[e :U 378 ]
 "3795
 [; ;mcc_generated_files/fatfs/ff.c: 3795:   mem_cpy(rbuff, fp->buf + fp->fptr % ((UINT)512), rcnt);
 [e ( _mem_cpy (3 , , -> _rbuff `*v -> + &U . *U _fp 8 * -> % . *U _fp 3 -> -> -> 512 `i `ui `ul `ux -> -> # *U &U . *U _fp 8 `ui `ux `*Cv _rcnt ]
 "3797
 [; ;mcc_generated_files/fatfs/ff.c: 3797:  }
 }
-[e :U 337 ]
+[e :U 361 ]
 [e ; ; ; =- _btr _rcnt =+ *U _br _rcnt =+ _rbuff * -> _rcnt `ux -> -> # *U _rbuff `ui `ux =+ . *U _fp 3 -> _rcnt `ul ]
-[e :U 338 ]
-[e $ != _btr -> -> 0 `i `ui 335  ]
-[e :U 336 ]
+[e :U 362 ]
+[e $ != _btr -> -> 0 `i `ui 359  ]
+[e :U 360 ]
 }
 "3799
 [; ;mcc_generated_files/fatfs/ff.c: 3799:  return FR_OK;
-[e ) . `E68 0 ]
-[e $UE 331  ]
+[e ) . `E69 0 ]
+[e $UE 355  ]
 "3800
 [; ;mcc_generated_files/fatfs/ff.c: 3800: }
-[e :UE 331 ]
+[e :UE 355 ]
 }
 "3810
 [; ;mcc_generated_files/fatfs/ff.c: 3810: FRESULT f_write (
-[v _f_write `(E68 ~T0 @X0 1 ef4`*S3`*Cv`ui`*ui ]
+[v _f_write `(E69 ~T0 @X0 1 ef4`*S3`*Cv`ui`*ui ]
 "3816
 [; ;mcc_generated_files/fatfs/ff.c: 3816: {
 {
@@ -4182,7 +4368,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "3817
 [; ;mcc_generated_files/fatfs/ff.c: 3817:  FRESULT res;
-[v _res `E68 ~T0 @X0 1 a ]
+[v _res `E69 ~T0 @X0 1 a ]
 "3818
 [; ;mcc_generated_files/fatfs/ff.c: 3818:  FATFS *fs;
 [v _fs `*S1 ~T0 @X0 1 a ]
@@ -4207,19 +4393,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _validate (2 , &U . *U _fp 0 &U _fs ]
 "3826
 [; ;mcc_generated_files/fatfs/ff.c: 3826:  if (res != FR_OK || (res = (FRESULT)fp->err) != FR_OK) return res;
-[e $ ! || != -> _res `ui -> . `E68 0 `ui != -> = _res -> . *U _fp 2 `E68 `ui -> . `E68 0 `ui 356  ]
+[e $ ! || != -> _res `ui -> . `E69 0 `ui != -> = _res -> . *U _fp 2 `E69 `ui -> . `E69 0 `ui 380  ]
 [e ) _res ]
-[e $UE 355  ]
-[e :U 356 ]
+[e $UE 379  ]
+[e :U 380 ]
 "3827
 [; ;mcc_generated_files/fatfs/ff.c: 3827:  if (!(fp->flag & 0x02)) return FR_DENIED;
-[e $ ! ! != & -> . *U _fp 1 `i -> 2 `i -> 0 `i 357  ]
-[e ) . `E68 7 ]
-[e $UE 355  ]
-[e :U 357 ]
+[e $ ! ! != & -> . *U _fp 1 `i -> 2 `i -> 0 `i 381  ]
+[e ) . `E69 7 ]
+[e $UE 379  ]
+[e :U 381 ]
 "3830
 [; ;mcc_generated_files/fatfs/ff.c: 3830:  if ((!0 || fs->fs_type != 4) && (DWORD)(fp->fptr + btw) < (DWORD)fp->fptr) {
-[e $ ! && || ! != -> 0 `i -> 0 `i != -> . *U _fs 0 `i -> 4 `i < + . *U _fp 3 -> _btw `ul . *U _fp 3 358  ]
+[e $ ! && || ! != -> 0 `i -> 0 `i != -> . *U _fs 0 `i -> 4 `i < + . *U _fp 3 -> _btw `ul . *U _fp 3 382  ]
 {
 "3831
 [; ;mcc_generated_files/fatfs/ff.c: 3831:   btw = (UINT)(0xFFFFFFFF - (DWORD)fp->fptr);
@@ -4227,36 +4413,36 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3832
 [; ;mcc_generated_files/fatfs/ff.c: 3832:  }
 }
-[e :U 358 ]
+[e :U 382 ]
 "3834
 [; ;mcc_generated_files/fatfs/ff.c: 3834:  for ( ; btw;
 {
-[e $U 362  ]
-[e :U 359 ]
+[e $U 386  ]
+[e :U 383 ]
 "3835
 [; ;mcc_generated_files/fatfs/ff.c: 3835:   btw -= wcnt, *bw += wcnt, wbuff += wcnt, fp->fptr += wcnt, fp->obj.objsize = (fp->fptr > fp->obj.objsize) ? fp->fptr : fp->obj.objsize) {
 {
 "3836
 [; ;mcc_generated_files/fatfs/ff.c: 3836:   if (fp->fptr % ((UINT)512) == 0) {
-[e $ ! == % . *U _fp 3 -> -> -> 512 `i `ui `ul -> -> -> 0 `i `l `ul 363  ]
+[e $ ! == % . *U _fp 3 -> -> -> 512 `i `ui `ul -> -> -> 0 `i `l `ul 387  ]
 {
 "3837
 [; ;mcc_generated_files/fatfs/ff.c: 3837:    csect = (UINT)(fp->fptr / ((UINT)512)) & (fs->csize - 1);
 [e = _csect & -> / . *U _fp 3 -> -> -> 512 `i `ui `ul `ui - -> . *U _fs 7 `ui -> -> 1 `i `ui ]
 "3838
 [; ;mcc_generated_files/fatfs/ff.c: 3838:    if (csect == 0) {
-[e $ ! == _csect -> -> 0 `i `ui 364  ]
+[e $ ! == _csect -> -> 0 `i `ui 388  ]
 {
 "3839
 [; ;mcc_generated_files/fatfs/ff.c: 3839:     if (fp->fptr == 0) {
-[e $ ! == . *U _fp 3 -> -> -> 0 `i `l `ul 365  ]
+[e $ ! == . *U _fp 3 -> -> -> 0 `i `l `ul 389  ]
 {
 "3840
 [; ;mcc_generated_files/fatfs/ff.c: 3840:      clst = fp->obj.sclust;
 [e = _clst . . *U _fp 0 4 ]
 "3841
 [; ;mcc_generated_files/fatfs/ff.c: 3841:      if (clst == 0) {
-[e $ ! == _clst -> -> -> 0 `i `l `ul 366  ]
+[e $ ! == _clst -> -> -> 0 `i `l `ul 390  ]
 {
 "3842
 [; ;mcc_generated_files/fatfs/ff.c: 3842:       clst = create_chain(&fp->obj, 0);
@@ -4264,12 +4450,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3843
 [; ;mcc_generated_files/fatfs/ff.c: 3843:      }
 }
-[e :U 366 ]
+[e :U 390 ]
 "3844
 [; ;mcc_generated_files/fatfs/ff.c: 3844:     } else {
 }
-[e $U 367  ]
-[e :U 365 ]
+[e $U 391  ]
+[e :U 389 ]
 {
 "3850
 [; ;mcc_generated_files/fatfs/ff.c: 3850:      {
@@ -4283,74 +4469,74 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3853
 [; ;mcc_generated_files/fatfs/ff.c: 3853:     }
 }
-[e :U 367 ]
+[e :U 391 ]
 "3854
 [; ;mcc_generated_files/fatfs/ff.c: 3854:     if (clst == 0) break;
-[e $ ! == _clst -> -> -> 0 `i `l `ul 368  ]
-[e $U 360  ]
-[e :U 368 ]
+[e $ ! == _clst -> -> -> 0 `i `l `ul 392  ]
+[e $U 384  ]
+[e :U 392 ]
 "3855
 [; ;mcc_generated_files/fatfs/ff.c: 3855:     if (clst == 1) { fp->err = (BYTE)(FR_INT_ERR); return FR_INT_ERR; };
-[e $ ! == _clst -> -> -> 1 `i `l `ul 369  ]
+[e $ ! == _clst -> -> -> 1 `i `l `ul 393  ]
 {
-[e = . *U _fp 2 -> . `E68 2 `uc ]
-[e ) . `E68 2 ]
-[e $UE 355  ]
+[e = . *U _fp 2 -> . `E69 2 `uc ]
+[e ) . `E69 2 ]
+[e $UE 379  ]
 }
-[e :U 369 ]
+[e :U 393 ]
 "3856
 [; ;mcc_generated_files/fatfs/ff.c: 3856:     if (clst == 0xFFFFFFFF) { fp->err = (BYTE)(FR_DISK_ERR); return FR_DISK_ERR; };
-[e $ ! == _clst -> 4294967295 `ul 370  ]
+[e $ ! == _clst -> 4294967295 `ul 394  ]
 {
-[e = . *U _fp 2 -> . `E68 1 `uc ]
-[e ) . `E68 1 ]
-[e $UE 355  ]
+[e = . *U _fp 2 -> . `E69 1 `uc ]
+[e ) . `E69 1 ]
+[e $UE 379  ]
 }
-[e :U 370 ]
+[e :U 394 ]
 "3857
 [; ;mcc_generated_files/fatfs/ff.c: 3857:     fp->clust = clst;
 [e = . *U _fp 4 _clst ]
 "3858
 [; ;mcc_generated_files/fatfs/ff.c: 3858:     if (fp->obj.sclust == 0) fp->obj.sclust = clst;
-[e $ ! == . . *U _fp 0 4 -> -> -> 0 `i `l `ul 371  ]
+[e $ ! == . . *U _fp 0 4 -> -> -> 0 `i `l `ul 395  ]
 [e = . . *U _fp 0 4 _clst ]
-[e :U 371 ]
+[e :U 395 ]
 "3859
 [; ;mcc_generated_files/fatfs/ff.c: 3859:    }
 }
-[e :U 364 ]
+[e :U 388 ]
 "3863
 [; ;mcc_generated_files/fatfs/ff.c: 3863:    if (fp->flag & 0x80) {
-[e $ ! != & -> . *U _fp 1 `i -> 128 `i -> 0 `i 372  ]
+[e $ ! != & -> . *U _fp 1 `i -> 128 `i -> 0 `i 396  ]
 {
 "3864
 [; ;mcc_generated_files/fatfs/ff.c: 3864:     if (disk_write(fs->pdrv, fp->buf, fp->sect, 1) != RES_OK) { fp->err = (BYTE)(FR_DISK_ERR); return FR_DISK_ERR; };
-[e $ ! != -> ( _disk_write (4 , , , . *U _fs 1 -> &U . *U _fp 8 `*Cuc . *U _fp 5 -> -> 1 `i `ui `ui -> . `E209 0 `ui 373  ]
+[e $ ! != -> ( _disk_write (4 , , , . *U _fs 1 -> &U . *U _fp 8 `*Cuc . *U _fp 5 -> -> 1 `i `ui `ui -> . `E210 0 `ui 397  ]
 {
-[e = . *U _fp 2 -> . `E68 1 `uc ]
-[e ) . `E68 1 ]
-[e $UE 355  ]
+[e = . *U _fp 2 -> . `E69 1 `uc ]
+[e ) . `E69 1 ]
+[e $UE 379  ]
 }
-[e :U 373 ]
+[e :U 397 ]
 "3865
 [; ;mcc_generated_files/fatfs/ff.c: 3865:     fp->flag &= (BYTE)~0x80;
 [e =& . *U _fp 1 -> -> ~ -> 128 `i `uc `uc ]
 "3866
 [; ;mcc_generated_files/fatfs/ff.c: 3866:    }
 }
-[e :U 372 ]
+[e :U 396 ]
 "3868
 [; ;mcc_generated_files/fatfs/ff.c: 3868:    sect = clst2sect(fs, fp->clust);
 [e = _sect ( _clst2sect (2 , _fs . *U _fp 4 ]
 "3869
 [; ;mcc_generated_files/fatfs/ff.c: 3869:    if (sect == 0) { fp->err = (BYTE)(FR_INT_ERR); return FR_INT_ERR; };
-[e $ ! == _sect -> -> -> 0 `i `l `ul 374  ]
+[e $ ! == _sect -> -> -> 0 `i `l `ul 398  ]
 {
-[e = . *U _fp 2 -> . `E68 2 `uc ]
-[e ) . `E68 2 ]
-[e $UE 355  ]
+[e = . *U _fp 2 -> . `E69 2 `uc ]
+[e ) . `E69 2 ]
+[e $UE 379  ]
 }
-[e :U 374 ]
+[e :U 398 ]
 "3870
 [; ;mcc_generated_files/fatfs/ff.c: 3870:    sect += csect;
 [e =+ _sect -> _csect `ul ]
@@ -4359,11 +4545,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _cc / _btw -> -> 512 `i `ui ]
 "3872
 [; ;mcc_generated_files/fatfs/ff.c: 3872:    if (cc > 0) {
-[e $ ! > _cc -> -> 0 `i `ui 375  ]
+[e $ ! > _cc -> -> 0 `i `ui 399  ]
 {
 "3873
 [; ;mcc_generated_files/fatfs/ff.c: 3873:     if (csect + cc > fs->csize) {
-[e $ ! > + _csect _cc -> . *U _fs 7 `ui 376  ]
+[e $ ! > + _csect _cc -> . *U _fs 7 `ui 400  ]
 {
 "3874
 [; ;mcc_generated_files/fatfs/ff.c: 3874:      cc = fs->csize - csect;
@@ -4371,19 +4557,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3875
 [; ;mcc_generated_files/fatfs/ff.c: 3875:     }
 }
-[e :U 376 ]
+[e :U 400 ]
 "3876
 [; ;mcc_generated_files/fatfs/ff.c: 3876:     if (disk_write(fs->pdrv, wbuff, sect, cc) != RES_OK) { fp->err = (BYTE)(FR_DISK_ERR); return FR_DISK_ERR; };
-[e $ ! != -> ( _disk_write (4 , , , . *U _fs 1 _wbuff _sect _cc `ui -> . `E209 0 `ui 377  ]
+[e $ ! != -> ( _disk_write (4 , , , . *U _fs 1 _wbuff _sect _cc `ui -> . `E210 0 `ui 401  ]
 {
-[e = . *U _fp 2 -> . `E68 1 `uc ]
-[e ) . `E68 1 ]
-[e $UE 355  ]
+[e = . *U _fp 2 -> . `E69 1 `uc ]
+[e ) . `E69 1 ]
+[e $UE 379  ]
 }
-[e :U 377 ]
+[e :U 401 ]
 "3884
 [; ;mcc_generated_files/fatfs/ff.c: 3884:     if (fp->sect - sect < cc) {
-[e $ ! < - . *U _fp 5 _sect -> _cc `ul 378  ]
+[e $ ! < - . *U _fp 5 _sect -> _cc `ul 402  ]
 {
 "3885
 [; ;mcc_generated_files/fatfs/ff.c: 3885:      mem_cpy(fp->buf, wbuff + ((fp->sect - sect) * ((UINT)512)), ((UINT)512));
@@ -4394,49 +4580,49 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3887
 [; ;mcc_generated_files/fatfs/ff.c: 3887:     }
 }
-[e :U 378 ]
+[e :U 402 ]
 "3890
 [; ;mcc_generated_files/fatfs/ff.c: 3890:     wcnt = ((UINT)512) * cc;
 [e = _wcnt * -> -> 512 `i `ui _cc ]
 "3891
 [; ;mcc_generated_files/fatfs/ff.c: 3891:     continue;
-[e $U 361  ]
+[e $U 385  ]
 "3892
 [; ;mcc_generated_files/fatfs/ff.c: 3892:    }
 }
-[e :U 375 ]
+[e :U 399 ]
 "3899
 [; ;mcc_generated_files/fatfs/ff.c: 3899:    if (fp->sect != sect &&
-[e $ ! && && != . *U _fp 5 _sect < . *U _fp 3 . . *U _fp 0 5 != -> ( _disk_read (4 , , , . *U _fs 1 &U . *U _fp 8 _sect -> -> 1 `i `ui `ui -> . `E209 0 `ui 379  ]
+[e $ ! && && != . *U _fp 5 _sect < . *U _fp 3 . . *U _fp 0 5 != -> ( _disk_read (4 , , , . *U _fs 1 &U . *U _fp 8 _sect -> -> 1 `i `ui `ui -> . `E210 0 `ui 403  ]
 "3901
 [; ;mcc_generated_files/fatfs/ff.c: 3901:     disk_read(fs->pdrv, fp->buf, sect, 1) != RES_OK) {
 {
 "3902
 [; ;mcc_generated_files/fatfs/ff.c: 3902:      { fp->err = (BYTE)(FR_DISK_ERR); return FR_DISK_ERR; };
 {
-[e = . *U _fp 2 -> . `E68 1 `uc ]
-[e ) . `E68 1 ]
-[e $UE 355  ]
+[e = . *U _fp 2 -> . `E69 1 `uc ]
+[e ) . `E69 1 ]
+[e $UE 379  ]
 }
 "3903
 [; ;mcc_generated_files/fatfs/ff.c: 3903:    }
 }
-[e :U 379 ]
+[e :U 403 ]
 "3905
 [; ;mcc_generated_files/fatfs/ff.c: 3905:    fp->sect = sect;
 [e = . *U _fp 5 _sect ]
 "3906
 [; ;mcc_generated_files/fatfs/ff.c: 3906:   }
 }
-[e :U 363 ]
+[e :U 387 ]
 "3907
 [; ;mcc_generated_files/fatfs/ff.c: 3907:   wcnt = ((UINT)512) - (UINT)fp->fptr % ((UINT)512);
 [e = _wcnt - -> -> 512 `i `ui % -> . *U _fp 3 `ui -> -> 512 `i `ui ]
 "3908
 [; ;mcc_generated_files/fatfs/ff.c: 3908:   if (wcnt > btw) wcnt = btw;
-[e $ ! > _wcnt _btw 380  ]
+[e $ ! > _wcnt _btw 404  ]
 [e = _wcnt _btw ]
-[e :U 380 ]
+[e :U 404 ]
 "3914
 [; ;mcc_generated_files/fatfs/ff.c: 3914:   mem_cpy(fp->buf + fp->fptr % ((UINT)512), wbuff, wcnt);
 [e ( _mem_cpy (3 , , -> + &U . *U _fp 8 * -> % . *U _fp 3 -> -> -> 512 `i `ui `ul `ux -> -> # *U &U . *U _fp 8 `ui `ux `*v -> _wbuff `*Cv _wcnt ]
@@ -4446,26 +4632,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3917
 [; ;mcc_generated_files/fatfs/ff.c: 3917:  }
 }
-[e :U 361 ]
+[e :U 385 ]
 [e ; ; ; ; =- _btw _wcnt =+ *U _bw _wcnt =+ _wbuff * -> _wcnt `ux -> -> # *U _wbuff `ui `ux =+ . *U _fp 3 -> _wcnt `ul = . . *U _fp 0 5 ? > . *U _fp 3 . . *U _fp 0 5 : . *U _fp 3 . . *U _fp 0 5 ]
-[e :U 362 ]
-[e $ != _btw -> -> 0 `i `ui 359  ]
-[e :U 360 ]
+[e :U 386 ]
+[e $ != _btw -> -> 0 `i `ui 383  ]
+[e :U 384 ]
 }
 "3919
 [; ;mcc_generated_files/fatfs/ff.c: 3919:  fp->flag |= 0x40;
 [e =| . *U _fp 1 -> -> 64 `i `uc ]
 "3921
 [; ;mcc_generated_files/fatfs/ff.c: 3921:  return FR_OK;
-[e ) . `E68 0 ]
-[e $UE 355  ]
+[e ) . `E69 0 ]
+[e $UE 379  ]
 "3922
 [; ;mcc_generated_files/fatfs/ff.c: 3922: }
-[e :UE 355 ]
+[e :UE 379 ]
 }
 "3931
 [; ;mcc_generated_files/fatfs/ff.c: 3931: FRESULT f_sync (
-[v _f_sync `(E68 ~T0 @X0 1 ef1`*S3 ]
+[v _f_sync `(E69 ~T0 @X0 1 ef1`*S3 ]
 "3934
 [; ;mcc_generated_files/fatfs/ff.c: 3934: {
 {
@@ -4478,7 +4664,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "3935
 [; ;mcc_generated_files/fatfs/ff.c: 3935:  FRESULT res;
-[v _res `E68 ~T0 @X0 1 a ]
+[v _res `E69 ~T0 @X0 1 a ]
 "3936
 [; ;mcc_generated_files/fatfs/ff.c: 3936:  FATFS *fs;
 [v _fs `*S1 ~T0 @X0 1 a ]
@@ -4493,29 +4679,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _validate (2 , &U . *U _fp 0 &U _fs ]
 "3942
 [; ;mcc_generated_files/fatfs/ff.c: 3942:  if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 382  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 406  ]
 {
 "3943
 [; ;mcc_generated_files/fatfs/ff.c: 3943:   if (fp->flag & 0x40) {
-[e $ ! != & -> . *U _fp 1 `i -> 64 `i -> 0 `i 383  ]
+[e $ ! != & -> . *U _fp 1 `i -> 64 `i -> 0 `i 407  ]
 {
 "3945
 [; ;mcc_generated_files/fatfs/ff.c: 3945:    if (fp->flag & 0x80) {
-[e $ ! != & -> . *U _fp 1 `i -> 128 `i -> 0 `i 384  ]
+[e $ ! != & -> . *U _fp 1 `i -> 128 `i -> 0 `i 408  ]
 {
 "3946
 [; ;mcc_generated_files/fatfs/ff.c: 3946:     if (disk_write(fs->pdrv, fp->buf, fp->sect, 1) != RES_OK) return FR_DISK_ERR;
-[e $ ! != -> ( _disk_write (4 , , , . *U _fs 1 -> &U . *U _fp 8 `*Cuc . *U _fp 5 -> -> 1 `i `ui `ui -> . `E209 0 `ui 385  ]
-[e ) . `E68 1 ]
-[e $UE 381  ]
-[e :U 385 ]
+[e $ ! != -> ( _disk_write (4 , , , . *U _fs 1 -> &U . *U _fp 8 `*Cuc . *U _fp 5 -> -> 1 `i `ui `ui -> . `E210 0 `ui 409  ]
+[e ) . `E69 1 ]
+[e $UE 405  ]
+[e :U 409 ]
 "3947
 [; ;mcc_generated_files/fatfs/ff.c: 3947:     fp->flag &= (BYTE)~0x80;
 [e =& . *U _fp 1 -> -> ~ -> 128 `i `uc `uc ]
 "3948
 [; ;mcc_generated_files/fatfs/ff.c: 3948:    }
 }
-[e :U 384 ]
+[e :U 408 ]
 "3951
 [; ;mcc_generated_files/fatfs/ff.c: 3951:    tm = get_fattime();
 [e = _tm ( _get_fattime ..  ]
@@ -4527,7 +4713,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _move_window (2 , _fs . *U _fp 6 ]
 "3985
 [; ;mcc_generated_files/fatfs/ff.c: 3985:     if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 386  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 410  ]
 {
 "3986
 [; ;mcc_generated_files/fatfs/ff.c: 3986:      dir = fp->dir_ptr;
@@ -4559,29 +4745,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3995
 [; ;mcc_generated_files/fatfs/ff.c: 3995:     }
 }
-[e :U 386 ]
+[e :U 410 ]
 "3996
 [; ;mcc_generated_files/fatfs/ff.c: 3996:    }
 }
 "3997
 [; ;mcc_generated_files/fatfs/ff.c: 3997:   }
 }
-[e :U 383 ]
+[e :U 407 ]
 "3998
 [; ;mcc_generated_files/fatfs/ff.c: 3998:  }
 }
-[e :U 382 ]
+[e :U 406 ]
 "4000
 [; ;mcc_generated_files/fatfs/ff.c: 4000:  return res;
 [e ) _res ]
-[e $UE 381  ]
+[e $UE 405  ]
 "4001
 [; ;mcc_generated_files/fatfs/ff.c: 4001: }
-[e :UE 381 ]
+[e :UE 405 ]
 }
 "4012
 [; ;mcc_generated_files/fatfs/ff.c: 4012: FRESULT f_close (
-[v _f_close `(E68 ~T0 @X0 1 ef1`*S3 ]
+[v _f_close `(E69 ~T0 @X0 1 ef1`*S3 ]
 "4015
 [; ;mcc_generated_files/fatfs/ff.c: 4015: {
 {
@@ -4594,7 +4780,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "4016
 [; ;mcc_generated_files/fatfs/ff.c: 4016:  FRESULT res;
-[v _res `E68 ~T0 @X0 1 a ]
+[v _res `E69 ~T0 @X0 1 a ]
 "4017
 [; ;mcc_generated_files/fatfs/ff.c: 4017:  FATFS *fs;
 [v _fs `*S1 ~T0 @X0 1 a ]
@@ -4603,7 +4789,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _f_sync (1 _fp ]
 "4021
 [; ;mcc_generated_files/fatfs/ff.c: 4021:  if (res == FR_OK)
-[e $ ! == -> _res `ui -> . `E68 0 `ui 388  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 412  ]
 "4023
 [; ;mcc_generated_files/fatfs/ff.c: 4023:  {
 {
@@ -4612,7 +4798,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _validate (2 , &U . *U _fp 0 &U _fs ]
 "4025
 [; ;mcc_generated_files/fatfs/ff.c: 4025:   if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 389  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 413  ]
 {
 "4030
 [; ;mcc_generated_files/fatfs/ff.c: 4030:    fp->obj.fs = 0;
@@ -4620,22 +4806,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4035
 [; ;mcc_generated_files/fatfs/ff.c: 4035:   }
 }
-[e :U 389 ]
+[e :U 413 ]
 "4036
 [; ;mcc_generated_files/fatfs/ff.c: 4036:  }
 }
-[e :U 388 ]
+[e :U 412 ]
 "4037
 [; ;mcc_generated_files/fatfs/ff.c: 4037:  return res;
 [e ) _res ]
-[e $UE 387  ]
+[e $UE 411  ]
 "4038
 [; ;mcc_generated_files/fatfs/ff.c: 4038: }
-[e :UE 387 ]
+[e :UE 411 ]
 }
 "4048
 [; ;mcc_generated_files/fatfs/ff.c: 4048: FRESULT f_chdrive (
-[v _f_chdrive `(E68 ~T0 @X0 1 ef1`*Cuc ]
+[v _f_chdrive `(E69 ~T0 @X0 1 ef1`*Cuc ]
 "4051
 [; ;mcc_generated_files/fatfs/ff.c: 4051: {
 {
@@ -4654,24 +4840,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _vol ( _get_ldnumber (1 &U _path ]
 "4057
 [; ;mcc_generated_files/fatfs/ff.c: 4057:  if (vol < 0) return FR_INVALID_DRIVE;
-[e $ ! < _vol -> 0 `i 391  ]
-[e ) . `E68 11 ]
-[e $UE 390  ]
-[e :U 391 ]
+[e $ ! < _vol -> 0 `i 415  ]
+[e ) . `E69 11 ]
+[e $UE 414  ]
+[e :U 415 ]
 "4058
 [; ;mcc_generated_files/fatfs/ff.c: 4058:  CurrVol = (BYTE)vol;
 [e = _CurrVol -> _vol `uc ]
 "4060
 [; ;mcc_generated_files/fatfs/ff.c: 4060:  return FR_OK;
-[e ) . `E68 0 ]
-[e $UE 390  ]
+[e ) . `E69 0 ]
+[e $UE 414  ]
 "4061
 [; ;mcc_generated_files/fatfs/ff.c: 4061: }
-[e :UE 390 ]
+[e :UE 414 ]
 }
 "4065
 [; ;mcc_generated_files/fatfs/ff.c: 4065: FRESULT f_chdir (
-[v _f_chdir `(E68 ~T0 @X0 1 ef1`*Cuc ]
+[v _f_chdir `(E69 ~T0 @X0 1 ef1`*Cuc ]
 "4068
 [; ;mcc_generated_files/fatfs/ff.c: 4068: {
 {
@@ -4684,7 +4870,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "4072
 [; ;mcc_generated_files/fatfs/ff.c: 4072:  FRESULT res;
-[v _res `E68 ~T0 @X0 1 a ]
+[v _res `E69 ~T0 @X0 1 a ]
 "4073
 [; ;mcc_generated_files/fatfs/ff.c: 4073:  FFDIR dj;
 [v _dj `S4 ~T0 @X0 1 a ]
@@ -4696,7 +4882,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _find_volume (3 , , &U _path &U _fs -> -> 0 `i `uc ]
 "4080
 [; ;mcc_generated_files/fatfs/ff.c: 4080:  if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 393  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 417  ]
 {
 "4081
 [; ;mcc_generated_files/fatfs/ff.c: 4081:   dj.obj.fs = fs;
@@ -4706,11 +4892,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _follow_path (2 , &U _dj _path ]
 "4084
 [; ;mcc_generated_files/fatfs/ff.c: 4084:   if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 394  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 418  ]
 {
 "4085
 [; ;mcc_generated_files/fatfs/ff.c: 4085:    if (dj.fn[11] & 0x80) {
-[e $ ! != & -> *U + &U . _dj 5 * -> -> -> 11 `i `ui `ux -> -> # *U &U . _dj 5 `ui `ux `i -> 128 `i -> 0 `i 395  ]
+[e $ ! != & -> *U + &U . _dj 5 * -> -> -> 11 `i `ui `ux -> -> # *U &U . _dj 5 `ui `ux `i -> 128 `i -> 0 `i 419  ]
 {
 "4086
 [; ;mcc_generated_files/fatfs/ff.c: 4086:     fs->cdir = dj.obj.sclust;
@@ -4718,12 +4904,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4094
 [; ;mcc_generated_files/fatfs/ff.c: 4094:    } else {
 }
-[e $U 396  ]
-[e :U 395 ]
+[e $U 420  ]
+[e :U 419 ]
 {
 "4095
 [; ;mcc_generated_files/fatfs/ff.c: 4095:     if (dj.obj.attr & 0x10) {
-[e $ ! != & -> . . _dj 0 2 `i -> 16 `i -> 0 `i 397  ]
+[e $ ! != & -> . . _dj 0 2 `i -> 16 `i -> 0 `i 421  ]
 {
 "4104
 [; ;mcc_generated_files/fatfs/ff.c: 4104:      {
@@ -4737,44 +4923,261 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4107
 [; ;mcc_generated_files/fatfs/ff.c: 4107:     } else {
 }
-[e $U 398  ]
-[e :U 397 ]
+[e $U 422  ]
+[e :U 421 ]
 {
 "4108
 [; ;mcc_generated_files/fatfs/ff.c: 4108:      res = FR_NO_PATH;
-[e = _res . `E68 5 ]
+[e = _res . `E69 5 ]
 "4109
 [; ;mcc_generated_files/fatfs/ff.c: 4109:     }
 }
-[e :U 398 ]
+[e :U 422 ]
 "4110
 [; ;mcc_generated_files/fatfs/ff.c: 4110:    }
 }
-[e :U 396 ]
+[e :U 420 ]
 "4111
 [; ;mcc_generated_files/fatfs/ff.c: 4111:   }
 }
-[e :U 394 ]
+[e :U 418 ]
 "4113
 [; ;mcc_generated_files/fatfs/ff.c: 4113:   if (res == FR_NO_FILE) res = FR_NO_PATH;
-[e $ ! == -> _res `ui -> . `E68 4 `ui 399  ]
-[e = _res . `E68 5 ]
-[e :U 399 ]
+[e $ ! == -> _res `ui -> . `E69 4 `ui 423  ]
+[e = _res . `E69 5 ]
+[e :U 423 ]
 "4120
 [; ;mcc_generated_files/fatfs/ff.c: 4120:  }
 }
-[e :U 393 ]
+[e :U 417 ]
 "4122
 [; ;mcc_generated_files/fatfs/ff.c: 4122:  return res;
 [e ) _res ]
-[e $UE 392  ]
+[e $UE 416  ]
 "4123
 [; ;mcc_generated_files/fatfs/ff.c: 4123: }
-[e :UE 392 ]
+[e :UE 416 ]
+}
+"4127
+[; ;mcc_generated_files/fatfs/ff.c: 4127: FRESULT f_getcwd (
+[v _f_getcwd `(E69 ~T0 @X0 1 ef2`*uc`ui ]
+"4131
+[; ;mcc_generated_files/fatfs/ff.c: 4131: {
+{
+[e :U _f_getcwd ]
+"4128
+[; ;mcc_generated_files/fatfs/ff.c: 4128:  TCHAR* buff,
+[v _buff `*uc ~T0 @X0 1 r1 ]
+"4129
+[; ;mcc_generated_files/fatfs/ff.c: 4129:  UINT len
+[v _len `ui ~T0 @X0 1 r2 ]
+"4131
+[; ;mcc_generated_files/fatfs/ff.c: 4131: {
+[f ]
+"4132
+[; ;mcc_generated_files/fatfs/ff.c: 4132:  FRESULT res;
+[v _res `E69 ~T0 @X0 1 a ]
+"4133
+[; ;mcc_generated_files/fatfs/ff.c: 4133:  FFDIR dj;
+[v _dj `S4 ~T0 @X0 1 a ]
+"4134
+[; ;mcc_generated_files/fatfs/ff.c: 4134:  FATFS *fs;
+[v _fs `*S1 ~T0 @X0 1 a ]
+"4135
+[; ;mcc_generated_files/fatfs/ff.c: 4135:  UINT i, n;
+[v _i `ui ~T0 @X0 1 a ]
+[v _n `ui ~T0 @X0 1 a ]
+"4136
+[; ;mcc_generated_files/fatfs/ff.c: 4136:  DWORD ccl;
+[v _ccl `ul ~T0 @X0 1 a ]
+"4137
+[; ;mcc_generated_files/fatfs/ff.c: 4137:  TCHAR *tp = buff;
+[v _tp `*uc ~T0 @X0 1 a ]
+[e = _tp _buff ]
+"4144
+[; ;mcc_generated_files/fatfs/ff.c: 4144:  FILINFO fno;
+[v _fno `S5 ~T0 @X0 1 a ]
+"4149
+[; ;mcc_generated_files/fatfs/ff.c: 4149:  res = find_volume((const TCHAR**)&buff, &fs, 0);
+[e = _res ( _find_volume (3 , , -> &U _buff `**Cuc &U _fs -> -> 0 `i `uc ]
+"4150
+[; ;mcc_generated_files/fatfs/ff.c: 4150:  if (res == FR_OK) {
+[e $ ! == -> _res `ui -> . `E69 0 `ui 425  ]
+{
+"4151
+[; ;mcc_generated_files/fatfs/ff.c: 4151:   dj.obj.fs = fs;
+[e = . . _dj 0 0 _fs ]
+"4155
+[; ;mcc_generated_files/fatfs/ff.c: 4155:   i = len;
+[e = _i _len ]
+"4156
+[; ;mcc_generated_files/fatfs/ff.c: 4156:   if (!0 || fs->fs_type != 4) {
+[e $ ! || ! != -> 0 `i -> 0 `i != -> . *U _fs 0 `i -> 4 `i 426  ]
+{
+"4157
+[; ;mcc_generated_files/fatfs/ff.c: 4157:    dj.obj.sclust = fs->cdir;
+[e = . . _dj 0 4 . *U _fs 10 ]
+"4158
+[; ;mcc_generated_files/fatfs/ff.c: 4158:    while ((ccl = dj.obj.sclust) != 0) {
+[e $U 427  ]
+[e :U 428 ]
+{
+"4159
+[; ;mcc_generated_files/fatfs/ff.c: 4159:     res = dir_sdi(&dj, 1 * 32);
+[e = _res ( _dir_sdi (2 , &U _dj -> -> * -> 1 `i -> 32 `i `l `ul ]
+"4160
+[; ;mcc_generated_files/fatfs/ff.c: 4160:     if (res != FR_OK) break;
+[e $ ! != -> _res `ui -> . `E69 0 `ui 430  ]
+[e $U 429  ]
+[e :U 430 ]
+"4161
+[; ;mcc_generated_files/fatfs/ff.c: 4161:     res = move_window(fs, dj.sect);
+[e = _res ( _move_window (2 , _fs . _dj 3 ]
+"4162
+[; ;mcc_generated_files/fatfs/ff.c: 4162:     if (res != FR_OK) break;
+[e $ ! != -> _res `ui -> . `E69 0 `ui 431  ]
+[e $U 429  ]
+[e :U 431 ]
+"4163
+[; ;mcc_generated_files/fatfs/ff.c: 4163:     dj.obj.sclust = ld_clust(fs, dj.dir);
+[e = . . _dj 0 4 ( _ld_clust (2 , _fs -> . _dj 4 `*Cuc ]
+"4164
+[; ;mcc_generated_files/fatfs/ff.c: 4164:     res = dir_sdi(&dj, 0);
+[e = _res ( _dir_sdi (2 , &U _dj -> -> -> 0 `i `l `ul ]
+"4165
+[; ;mcc_generated_files/fatfs/ff.c: 4165:     if (res != FR_OK) break;
+[e $ ! != -> _res `ui -> . `E69 0 `ui 432  ]
+[e $U 429  ]
+[e :U 432 ]
+"4166
+[; ;mcc_generated_files/fatfs/ff.c: 4166:     do {
+[e :U 435 ]
+{
+"4167
+[; ;mcc_generated_files/fatfs/ff.c: 4167:      res = dir_read(&dj, 0);
+[e = _res ( _dir_read (2 , &U _dj -> 0 `i ]
+"4168
+[; ;mcc_generated_files/fatfs/ff.c: 4168:      if (res != FR_OK) break;
+[e $ ! != -> _res `ui -> . `E69 0 `ui 436  ]
+[e $U 434  ]
+[e :U 436 ]
+"4169
+[; ;mcc_generated_files/fatfs/ff.c: 4169:      if (ccl == ld_clust(fs, dj.dir)) break;
+[e $ ! == _ccl ( _ld_clust (2 , _fs -> . _dj 4 `*Cuc 437  ]
+[e $U 434  ]
+[e :U 437 ]
+"4170
+[; ;mcc_generated_files/fatfs/ff.c: 4170:      res = dir_next(&dj, 0);
+[e = _res ( _dir_next (2 , &U _dj -> 0 `i ]
+"4171
+[; ;mcc_generated_files/fatfs/ff.c: 4171:     } while (res == FR_OK);
+}
+[e $ == -> _res `ui -> . `E69 0 `ui 435  ]
+[e :U 434 ]
+"4172
+[; ;mcc_generated_files/fatfs/ff.c: 4172:     if (res == FR_NO_FILE) res = FR_INT_ERR;
+[e $ ! == -> _res `ui -> . `E69 4 `ui 438  ]
+[e = _res . `E69 2 ]
+[e :U 438 ]
+"4173
+[; ;mcc_generated_files/fatfs/ff.c: 4173:     if (res != FR_OK) break;
+[e $ ! != -> _res `ui -> . `E69 0 `ui 439  ]
+[e $U 429  ]
+[e :U 439 ]
+"4174
+[; ;mcc_generated_files/fatfs/ff.c: 4174:     get_fileinfo(&dj, &fno);
+[e ( _get_fileinfo (2 , &U _dj &U _fno ]
+"4175
+[; ;mcc_generated_files/fatfs/ff.c: 4175:     for (n = 0; fno.fname[n]; n++) ;
+{
+[e = _n -> -> 0 `i `ui ]
+[e $U 443  ]
+[e :U 440 ]
+[e ++ _n -> -> 1 `i `ui ]
+[e :U 443 ]
+[e $ != -> *U + &U . _fno 4 * -> _n `ux -> -> # *U &U . _fno 4 `ui `ux `i -> 0 `i 440  ]
+[e :U 441 ]
+}
+"4176
+[; ;mcc_generated_files/fatfs/ff.c: 4176:     if (i < n + 1) {
+[e $ ! < _i + _n -> -> 1 `i `ui 444  ]
+{
+"4177
+[; ;mcc_generated_files/fatfs/ff.c: 4177:      res = FR_NOT_ENOUGH_CORE; break;
+[e = _res . `E69 17 ]
+[e $U 429  ]
+"4178
+[; ;mcc_generated_files/fatfs/ff.c: 4178:     }
+}
+[e :U 444 ]
+"4179
+[; ;mcc_generated_files/fatfs/ff.c: 4179:     while (n) buff[--i] = fno.fname[--n];
+[e $U 445  ]
+[e :U 446 ]
+[e = *U + _buff * -> =- _i -> -> 1 `i `ui `ux -> -> # *U _buff `ui `ux *U + &U . _fno 4 * -> =- _n -> -> 1 `i `ui `ux -> -> # *U &U . _fno 4 `ui `ux ]
+[e :U 445 ]
+[e $ != _n -> -> 0 `i `ui 446  ]
+[e :U 447 ]
+"4180
+[; ;mcc_generated_files/fatfs/ff.c: 4180:     buff[--i] = '/';
+[e = *U + _buff * -> =- _i -> -> 1 `i `ui `ux -> -> # *U _buff `ui `ux -> -> 47 `ui `uc ]
+"4181
+[; ;mcc_generated_files/fatfs/ff.c: 4181:    }
+}
+[e :U 427 ]
+"4158
+[; ;mcc_generated_files/fatfs/ff.c: 4158:    while ((ccl = dj.obj.sclust) != 0) {
+[e $ != = _ccl . . _dj 0 4 -> -> -> 0 `i `l `ul 428  ]
+[e :U 429 ]
+"4182
+[; ;mcc_generated_files/fatfs/ff.c: 4182:   }
+}
+[e :U 426 ]
+"4183
+[; ;mcc_generated_files/fatfs/ff.c: 4183:   if (res == FR_OK) {
+[e $ ! == -> _res `ui -> . `E69 0 `ui 448  ]
+{
+"4184
+[; ;mcc_generated_files/fatfs/ff.c: 4184:    if (i == len) buff[--i] = '/';
+[e $ ! == _i _len 449  ]
+[e = *U + _buff * -> =- _i -> -> 1 `i `ui `ux -> -> # *U _buff `ui `ux -> -> 47 `ui `uc ]
+[e :U 449 ]
+"4205
+[; ;mcc_generated_files/fatfs/ff.c: 4205:    if (res == FR_OK) {
+[e $ ! == -> _res `ui -> . `E69 0 `ui 450  ]
+{
+"4206
+[; ;mcc_generated_files/fatfs/ff.c: 4206:     do *tp++ = buff[i++]; while (i < len);
+[e :U 453 ]
+[e = *U ++ _tp * -> -> 1 `i `x -> -> # *U _tp `i `x *U + _buff * -> ++ _i -> -> 1 `i `ui `ux -> -> # *U _buff `ui `ux ]
+[e $ < _i _len 453  ]
+[e :U 452 ]
+"4207
+[; ;mcc_generated_files/fatfs/ff.c: 4207:    }
+}
+[e :U 450 ]
+"4208
+[; ;mcc_generated_files/fatfs/ff.c: 4208:   }
+}
+[e :U 448 ]
+"4210
+[; ;mcc_generated_files/fatfs/ff.c: 4210:  }
+}
+[e :U 425 ]
+"4212
+[; ;mcc_generated_files/fatfs/ff.c: 4212:  *tp = 0;
+[e = *U _tp -> -> 0 `i `uc ]
+"4213
+[; ;mcc_generated_files/fatfs/ff.c: 4213:  return res;
+[e ) _res ]
+[e $UE 424  ]
+"4214
+[; ;mcc_generated_files/fatfs/ff.c: 4214: }
+[e :UE 424 ]
 }
 "4226
 [; ;mcc_generated_files/fatfs/ff.c: 4226: FRESULT f_lseek (
-[v _f_lseek `(E68 ~T0 @X0 1 ef2`*S3`ul ]
+[v _f_lseek `(E69 ~T0 @X0 1 ef2`*S3`ul ]
 "4230
 [; ;mcc_generated_files/fatfs/ff.c: 4230: {
 {
@@ -4790,7 +5193,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "4231
 [; ;mcc_generated_files/fatfs/ff.c: 4231:  FRESULT res;
-[v _res `E68 ~T0 @X0 1 a ]
+[v _res `E69 ~T0 @X0 1 a ]
 "4232
 [; ;mcc_generated_files/fatfs/ff.c: 4232:  FATFS *fs;
 [v _fs `*S1 ~T0 @X0 1 a ]
@@ -4807,21 +5210,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _validate (2 , &U . *U _fp 0 &U _fs ]
 "4240
 [; ;mcc_generated_files/fatfs/ff.c: 4240:  if (res == FR_OK) res = (FRESULT)fp->err;
-[e $ ! == -> _res `ui -> . `E68 0 `ui 401  ]
-[e = _res -> . *U _fp 2 `E68 ]
-[e :U 401 ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 455  ]
+[e = _res -> . *U _fp 2 `E69 ]
+[e :U 455 ]
 "4246
 [; ;mcc_generated_files/fatfs/ff.c: 4246:  if (res != FR_OK) return res;
-[e $ ! != -> _res `ui -> . `E68 0 `ui 402  ]
+[e $ ! != -> _res `ui -> . `E69 0 `ui 456  ]
 [e ) _res ]
-[e $UE 400  ]
-[e :U 402 ]
+[e $UE 454  ]
+[e :U 456 ]
 "4301
 [; ;mcc_generated_files/fatfs/ff.c: 4301:  {
 {
 "4305
 [; ;mcc_generated_files/fatfs/ff.c: 4305:   if (ofs > fp->obj.objsize && (0 || !(fp->flag & 0x02))) {
-[e $ ! && > _ofs . . *U _fp 0 5 || != -> 0 `i -> 0 `i ! != & -> . *U _fp 1 `i -> 2 `i -> 0 `i 403  ]
+[e $ ! && > _ofs . . *U _fp 0 5 || != -> 0 `i -> 0 `i ! != & -> . *U _fp 1 `i -> 2 `i -> 0 `i 457  ]
 {
 "4306
 [; ;mcc_generated_files/fatfs/ff.c: 4306:    ofs = fp->obj.objsize;
@@ -4829,7 +5232,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4307
 [; ;mcc_generated_files/fatfs/ff.c: 4307:   }
 }
-[e :U 403 ]
+[e :U 457 ]
 "4308
 [; ;mcc_generated_files/fatfs/ff.c: 4308:   ifptr = fp->fptr;
 [e = _ifptr . *U _fp 3 ]
@@ -4838,14 +5241,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . *U _fp 3 = _nsect -> -> -> 0 `i `l `ul ]
 "4310
 [; ;mcc_generated_files/fatfs/ff.c: 4310:   if (ofs > 0) {
-[e $ ! > _ofs -> -> -> 0 `i `l `ul 404  ]
+[e $ ! > _ofs -> -> -> 0 `i `l `ul 458  ]
 {
 "4311
 [; ;mcc_generated_files/fatfs/ff.c: 4311:    bcs = (DWORD)fs->csize * ((UINT)512);
 [e = _bcs * -> . *U _fs 7 `ul -> -> -> 512 `i `ui `ul ]
 "4312
 [; ;mcc_generated_files/fatfs/ff.c: 4312:    if (ifptr > 0 &&
-[e $ ! && > _ifptr -> -> -> 0 `i `l `ul >= / - _ofs -> -> -> 1 `i `l `ul _bcs / - _ifptr -> -> -> 1 `i `l `ul _bcs 405  ]
+[e $ ! && > _ifptr -> -> -> 0 `i `l `ul >= / - _ofs -> -> -> 1 `i `l `ul _bcs / - _ifptr -> -> -> 1 `i `l `ul _bcs 459  ]
 "4313
 [; ;mcc_generated_files/fatfs/ff.c: 4313:     (ofs - 1) / bcs >= (ifptr - 1) / bcs) {
 {
@@ -4861,59 +5264,59 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4317
 [; ;mcc_generated_files/fatfs/ff.c: 4317:    } else {
 }
-[e $U 406  ]
-[e :U 405 ]
+[e $U 460  ]
+[e :U 459 ]
 {
 "4318
 [; ;mcc_generated_files/fatfs/ff.c: 4318:     clst = fp->obj.sclust;
 [e = _clst . . *U _fp 0 4 ]
 "4320
 [; ;mcc_generated_files/fatfs/ff.c: 4320:     if (clst == 0) {
-[e $ ! == _clst -> -> -> 0 `i `l `ul 407  ]
+[e $ ! == _clst -> -> -> 0 `i `l `ul 461  ]
 {
 "4321
 [; ;mcc_generated_files/fatfs/ff.c: 4321:      clst = create_chain(&fp->obj, 0);
 [e = _clst ( _create_chain (2 , &U . *U _fp 0 -> -> -> 0 `i `l `ul ]
 "4322
 [; ;mcc_generated_files/fatfs/ff.c: 4322:      if (clst == 1) { fp->err = (BYTE)(FR_INT_ERR); return FR_INT_ERR; };
-[e $ ! == _clst -> -> -> 1 `i `l `ul 408  ]
+[e $ ! == _clst -> -> -> 1 `i `l `ul 462  ]
 {
-[e = . *U _fp 2 -> . `E68 2 `uc ]
-[e ) . `E68 2 ]
-[e $UE 400  ]
+[e = . *U _fp 2 -> . `E69 2 `uc ]
+[e ) . `E69 2 ]
+[e $UE 454  ]
 }
-[e :U 408 ]
+[e :U 462 ]
 "4323
 [; ;mcc_generated_files/fatfs/ff.c: 4323:      if (clst == 0xFFFFFFFF) { fp->err = (BYTE)(FR_DISK_ERR); return FR_DISK_ERR; };
-[e $ ! == _clst -> 4294967295 `ul 409  ]
+[e $ ! == _clst -> 4294967295 `ul 463  ]
 {
-[e = . *U _fp 2 -> . `E68 1 `uc ]
-[e ) . `E68 1 ]
-[e $UE 400  ]
+[e = . *U _fp 2 -> . `E69 1 `uc ]
+[e ) . `E69 1 ]
+[e $UE 454  ]
 }
-[e :U 409 ]
+[e :U 463 ]
 "4324
 [; ;mcc_generated_files/fatfs/ff.c: 4324:      fp->obj.sclust = clst;
 [e = . . *U _fp 0 4 _clst ]
 "4325
 [; ;mcc_generated_files/fatfs/ff.c: 4325:     }
 }
-[e :U 407 ]
+[e :U 461 ]
 "4327
 [; ;mcc_generated_files/fatfs/ff.c: 4327:     fp->clust = clst;
 [e = . *U _fp 4 _clst ]
 "4328
 [; ;mcc_generated_files/fatfs/ff.c: 4328:    }
 }
-[e :U 406 ]
+[e :U 460 ]
 "4329
 [; ;mcc_generated_files/fatfs/ff.c: 4329:    if (clst != 0) {
-[e $ ! != _clst -> -> -> 0 `i `l `ul 410  ]
+[e $ ! != _clst -> -> -> 0 `i `l `ul 464  ]
 {
 "4330
 [; ;mcc_generated_files/fatfs/ff.c: 4330:     while (ofs > bcs) {
-[e $U 411  ]
-[e :U 412 ]
+[e $U 465  ]
+[e :U 466 ]
 {
 "4331
 [; ;mcc_generated_files/fatfs/ff.c: 4331:      ofs -= bcs; fp->fptr += bcs;
@@ -4921,11 +5324,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e =+ . *U _fp 3 _bcs ]
 "4333
 [; ;mcc_generated_files/fatfs/ff.c: 4333:      if (fp->flag & 0x02) {
-[e $ ! != & -> . *U _fp 1 `i -> 2 `i -> 0 `i 414  ]
+[e $ ! != & -> . *U _fp 1 `i -> 2 `i -> 0 `i 468  ]
 {
 "4334
 [; ;mcc_generated_files/fatfs/ff.c: 4334:       if (0 && fp->fptr > fp->obj.objsize) {
-[e $ ! && != -> 0 `i -> 0 `i > . *U _fp 3 . . *U _fp 0 5 415  ]
+[e $ ! && != -> 0 `i -> 0 `i > . *U _fp 3 . . *U _fp 0 5 469  ]
 {
 "4335
 [; ;mcc_generated_files/fatfs/ff.c: 4335:        fp->obj.objsize = fp->fptr;
@@ -4936,27 +5339,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4337
 [; ;mcc_generated_files/fatfs/ff.c: 4337:       }
 }
-[e :U 415 ]
+[e :U 469 ]
 "4338
 [; ;mcc_generated_files/fatfs/ff.c: 4338:       clst = create_chain(&fp->obj, clst);
 [e = _clst ( _create_chain (2 , &U . *U _fp 0 _clst ]
 "4339
 [; ;mcc_generated_files/fatfs/ff.c: 4339:       if (clst == 0) {
-[e $ ! == _clst -> -> -> 0 `i `l `ul 416  ]
+[e $ ! == _clst -> -> -> 0 `i `l `ul 470  ]
 {
 "4340
 [; ;mcc_generated_files/fatfs/ff.c: 4340:        ofs = 0; break;
 [e = _ofs -> -> -> 0 `i `l `ul ]
-[e $U 413  ]
+[e $U 467  ]
 "4341
 [; ;mcc_generated_files/fatfs/ff.c: 4341:       }
 }
-[e :U 416 ]
+[e :U 470 ]
 "4342
 [; ;mcc_generated_files/fatfs/ff.c: 4342:      } else
 }
-[e $U 417  ]
-[e :U 414 ]
+[e $U 471  ]
+[e :U 468 ]
 "4344
 [; ;mcc_generated_files/fatfs/ff.c: 4344:      {
 {
@@ -4966,73 +5369,73 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4346
 [; ;mcc_generated_files/fatfs/ff.c: 4346:      }
 }
-[e :U 417 ]
+[e :U 471 ]
 "4347
 [; ;mcc_generated_files/fatfs/ff.c: 4347:      if (clst == 0xFFFFFFFF) { fp->err = (BYTE)(FR_DISK_ERR); return FR_DISK_ERR; };
-[e $ ! == _clst -> 4294967295 `ul 418  ]
+[e $ ! == _clst -> 4294967295 `ul 472  ]
 {
-[e = . *U _fp 2 -> . `E68 1 `uc ]
-[e ) . `E68 1 ]
-[e $UE 400  ]
+[e = . *U _fp 2 -> . `E69 1 `uc ]
+[e ) . `E69 1 ]
+[e $UE 454  ]
 }
-[e :U 418 ]
+[e :U 472 ]
 "4348
 [; ;mcc_generated_files/fatfs/ff.c: 4348:      if (clst <= 1 || clst >= fs->n_fatent) { fp->err = (BYTE)(FR_INT_ERR); return FR_INT_ERR; };
-[e $ ! || <= _clst -> -> -> 1 `i `l `ul >= _clst . *U _fs 11 419  ]
+[e $ ! || <= _clst -> -> -> 1 `i `l `ul >= _clst . *U _fs 11 473  ]
 {
-[e = . *U _fp 2 -> . `E68 2 `uc ]
-[e ) . `E68 2 ]
-[e $UE 400  ]
+[e = . *U _fp 2 -> . `E69 2 `uc ]
+[e ) . `E69 2 ]
+[e $UE 454  ]
 }
-[e :U 419 ]
+[e :U 473 ]
 "4349
 [; ;mcc_generated_files/fatfs/ff.c: 4349:      fp->clust = clst;
 [e = . *U _fp 4 _clst ]
 "4350
 [; ;mcc_generated_files/fatfs/ff.c: 4350:     }
 }
-[e :U 411 ]
+[e :U 465 ]
 "4330
 [; ;mcc_generated_files/fatfs/ff.c: 4330:     while (ofs > bcs) {
-[e $ > _ofs _bcs 412  ]
-[e :U 413 ]
+[e $ > _ofs _bcs 466  ]
+[e :U 467 ]
 "4351
 [; ;mcc_generated_files/fatfs/ff.c: 4351:     fp->fptr += ofs;
 [e =+ . *U _fp 3 _ofs ]
 "4352
 [; ;mcc_generated_files/fatfs/ff.c: 4352:     if (ofs % ((UINT)512)) {
-[e $ ! != % _ofs -> -> -> 512 `i `ui `ul -> -> -> 0 `i `l `ul 420  ]
+[e $ ! != % _ofs -> -> -> 512 `i `ui `ul -> -> -> 0 `i `l `ul 474  ]
 {
 "4353
 [; ;mcc_generated_files/fatfs/ff.c: 4353:      nsect = clst2sect(fs, clst);
 [e = _nsect ( _clst2sect (2 , _fs _clst ]
 "4354
 [; ;mcc_generated_files/fatfs/ff.c: 4354:      if (nsect == 0) { fp->err = (BYTE)(FR_INT_ERR); return FR_INT_ERR; };
-[e $ ! == _nsect -> -> -> 0 `i `l `ul 421  ]
+[e $ ! == _nsect -> -> -> 0 `i `l `ul 475  ]
 {
-[e = . *U _fp 2 -> . `E68 2 `uc ]
-[e ) . `E68 2 ]
-[e $UE 400  ]
+[e = . *U _fp 2 -> . `E69 2 `uc ]
+[e ) . `E69 2 ]
+[e $UE 454  ]
 }
-[e :U 421 ]
+[e :U 475 ]
 "4355
 [; ;mcc_generated_files/fatfs/ff.c: 4355:      nsect += (DWORD)(ofs / ((UINT)512));
 [e =+ _nsect / _ofs -> -> -> 512 `i `ui `ul ]
 "4356
 [; ;mcc_generated_files/fatfs/ff.c: 4356:     }
 }
-[e :U 420 ]
+[e :U 474 ]
 "4357
 [; ;mcc_generated_files/fatfs/ff.c: 4357:    }
 }
-[e :U 410 ]
+[e :U 464 ]
 "4358
 [; ;mcc_generated_files/fatfs/ff.c: 4358:   }
 }
-[e :U 404 ]
+[e :U 458 ]
 "4359
 [; ;mcc_generated_files/fatfs/ff.c: 4359:   if (!0 && fp->fptr > fp->obj.objsize) {
-[e $ ! && ! != -> 0 `i -> 0 `i > . *U _fp 3 . . *U _fp 0 5 422  ]
+[e $ ! && ! != -> 0 `i -> 0 `i > . *U _fp 3 . . *U _fp 0 5 476  ]
 {
 "4360
 [; ;mcc_generated_files/fatfs/ff.c: 4360:    fp->obj.objsize = fp->fptr;
@@ -5043,61 +5446,61 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4362
 [; ;mcc_generated_files/fatfs/ff.c: 4362:   }
 }
-[e :U 422 ]
+[e :U 476 ]
 "4363
 [; ;mcc_generated_files/fatfs/ff.c: 4363:   if (fp->fptr % ((UINT)512) && nsect != fp->sect) {
-[e $ ! && != % . *U _fp 3 -> -> -> 512 `i `ui `ul -> -> -> 0 `i `l `ul != _nsect . *U _fp 5 423  ]
+[e $ ! && != % . *U _fp 3 -> -> -> 512 `i `ui `ul -> -> -> 0 `i `l `ul != _nsect . *U _fp 5 477  ]
 {
 "4366
 [; ;mcc_generated_files/fatfs/ff.c: 4366:    if (fp->flag & 0x80) {
-[e $ ! != & -> . *U _fp 1 `i -> 128 `i -> 0 `i 424  ]
+[e $ ! != & -> . *U _fp 1 `i -> 128 `i -> 0 `i 478  ]
 {
 "4367
 [; ;mcc_generated_files/fatfs/ff.c: 4367:     if (disk_write(fs->pdrv, fp->buf, fp->sect, 1) != RES_OK) { fp->err = (BYTE)(FR_DISK_ERR); return FR_DISK_ERR; };
-[e $ ! != -> ( _disk_write (4 , , , . *U _fs 1 -> &U . *U _fp 8 `*Cuc . *U _fp 5 -> -> 1 `i `ui `ui -> . `E209 0 `ui 425  ]
+[e $ ! != -> ( _disk_write (4 , , , . *U _fs 1 -> &U . *U _fp 8 `*Cuc . *U _fp 5 -> -> 1 `i `ui `ui -> . `E210 0 `ui 479  ]
 {
-[e = . *U _fp 2 -> . `E68 1 `uc ]
-[e ) . `E68 1 ]
-[e $UE 400  ]
+[e = . *U _fp 2 -> . `E69 1 `uc ]
+[e ) . `E69 1 ]
+[e $UE 454  ]
 }
-[e :U 425 ]
+[e :U 479 ]
 "4368
 [; ;mcc_generated_files/fatfs/ff.c: 4368:     fp->flag &= (BYTE)~0x80;
 [e =& . *U _fp 1 -> -> ~ -> 128 `i `uc `uc ]
 "4369
 [; ;mcc_generated_files/fatfs/ff.c: 4369:    }
 }
-[e :U 424 ]
+[e :U 478 ]
 "4371
 [; ;mcc_generated_files/fatfs/ff.c: 4371:    if (disk_read(fs->pdrv, fp->buf, nsect, 1) != RES_OK) { fp->err = (BYTE)(FR_DISK_ERR); return FR_DISK_ERR; };
-[e $ ! != -> ( _disk_read (4 , , , . *U _fs 1 &U . *U _fp 8 _nsect -> -> 1 `i `ui `ui -> . `E209 0 `ui 426  ]
+[e $ ! != -> ( _disk_read (4 , , , . *U _fs 1 &U . *U _fp 8 _nsect -> -> 1 `i `ui `ui -> . `E210 0 `ui 480  ]
 {
-[e = . *U _fp 2 -> . `E68 1 `uc ]
-[e ) . `E68 1 ]
-[e $UE 400  ]
+[e = . *U _fp 2 -> . `E69 1 `uc ]
+[e ) . `E69 1 ]
+[e $UE 454  ]
 }
-[e :U 426 ]
+[e :U 480 ]
 "4373
 [; ;mcc_generated_files/fatfs/ff.c: 4373:    fp->sect = nsect;
 [e = . *U _fp 5 _nsect ]
 "4374
 [; ;mcc_generated_files/fatfs/ff.c: 4374:   }
 }
-[e :U 423 ]
+[e :U 477 ]
 "4375
 [; ;mcc_generated_files/fatfs/ff.c: 4375:  }
 }
 "4377
 [; ;mcc_generated_files/fatfs/ff.c: 4377:  return res;
 [e ) _res ]
-[e $UE 400  ]
+[e $UE 454  ]
 "4378
 [; ;mcc_generated_files/fatfs/ff.c: 4378: }
-[e :UE 400 ]
+[e :UE 454 ]
 }
 "4387
 [; ;mcc_generated_files/fatfs/ff.c: 4387: FRESULT f_opendir (
-[v _f_opendir `(E68 ~T0 @X0 1 ef2`*S4`*Cuc ]
+[v _f_opendir `(E69 ~T0 @X0 1 ef2`*S4`*Cuc ]
 "4391
 [; ;mcc_generated_files/fatfs/ff.c: 4391: {
 {
@@ -5113,22 +5516,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "4392
 [; ;mcc_generated_files/fatfs/ff.c: 4392:  FRESULT res;
-[v _res `E68 ~T0 @X0 1 a ]
+[v _res `E69 ~T0 @X0 1 a ]
 "4393
 [; ;mcc_generated_files/fatfs/ff.c: 4393:  FATFS *fs;
 [v _fs `*S1 ~T0 @X0 1 a ]
 "4397
 [; ;mcc_generated_files/fatfs/ff.c: 4397:  if (!dp) return FR_INVALID_OBJECT;
-[e $ ! ! != _dp -> -> 0 `i `*S4 428  ]
-[e ) . `E68 9 ]
-[e $UE 427  ]
-[e :U 428 ]
+[e $ ! ! != _dp -> -> 0 `i `*S4 482  ]
+[e ) . `E69 9 ]
+[e $UE 481  ]
+[e :U 482 ]
 "4400
 [; ;mcc_generated_files/fatfs/ff.c: 4400:  res = find_volume(&path, &fs, 0);
 [e = _res ( _find_volume (3 , , &U _path &U _fs -> -> 0 `i `uc ]
 "4401
 [; ;mcc_generated_files/fatfs/ff.c: 4401:  if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 429  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 483  ]
 {
 "4402
 [; ;mcc_generated_files/fatfs/ff.c: 4402:   dp->obj.fs = fs;
@@ -5138,15 +5541,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _follow_path (2 , _dp _path ]
 "4405
 [; ;mcc_generated_files/fatfs/ff.c: 4405:   if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 430  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 484  ]
 {
 "4406
 [; ;mcc_generated_files/fatfs/ff.c: 4406:    if (!(dp->fn[11] & 0x80)) {
-[e $ ! ! != & -> *U + &U . *U _dp 5 * -> -> -> 11 `i `ui `ux -> -> # *U &U . *U _dp 5 `ui `ux `i -> 128 `i -> 0 `i 431  ]
+[e $ ! ! != & -> *U + &U . *U _dp 5 * -> -> -> 11 `i `ui `ux -> -> # *U &U . *U _dp 5 `ui `ux `i -> 128 `i -> 0 `i 485  ]
 {
 "4407
 [; ;mcc_generated_files/fatfs/ff.c: 4407:     if (dp->obj.attr & 0x10) {
-[e $ ! != & -> . . *U _dp 0 2 `i -> 16 `i -> 0 `i 432  ]
+[e $ ! != & -> . . *U _dp 0 2 `i -> 16 `i -> 0 `i 486  ]
 {
 "4416
 [; ;mcc_generated_files/fatfs/ff.c: 4416:      {
@@ -5160,23 +5563,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4419
 [; ;mcc_generated_files/fatfs/ff.c: 4419:     } else {
 }
-[e $U 433  ]
-[e :U 432 ]
+[e $U 487  ]
+[e :U 486 ]
 {
 "4420
 [; ;mcc_generated_files/fatfs/ff.c: 4420:      res = FR_NO_PATH;
-[e = _res . `E68 5 ]
+[e = _res . `E69 5 ]
 "4421
 [; ;mcc_generated_files/fatfs/ff.c: 4421:     }
 }
-[e :U 433 ]
+[e :U 487 ]
 "4422
 [; ;mcc_generated_files/fatfs/ff.c: 4422:    }
 }
-[e :U 431 ]
+[e :U 485 ]
 "4423
 [; ;mcc_generated_files/fatfs/ff.c: 4423:    if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 434  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 488  ]
 {
 "4424
 [; ;mcc_generated_files/fatfs/ff.c: 4424:     dp->obj.id = fs->id;
@@ -5187,36 +5590,36 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4436
 [; ;mcc_generated_files/fatfs/ff.c: 4436:    }
 }
-[e :U 434 ]
+[e :U 488 ]
 "4437
 [; ;mcc_generated_files/fatfs/ff.c: 4437:   }
 }
-[e :U 430 ]
+[e :U 484 ]
 "4439
 [; ;mcc_generated_files/fatfs/ff.c: 4439:   if (res == FR_NO_FILE) res = FR_NO_PATH;
-[e $ ! == -> _res `ui -> . `E68 4 `ui 435  ]
-[e = _res . `E68 5 ]
-[e :U 435 ]
+[e $ ! == -> _res `ui -> . `E69 4 `ui 489  ]
+[e = _res . `E69 5 ]
+[e :U 489 ]
 "4440
 [; ;mcc_generated_files/fatfs/ff.c: 4440:  }
 }
-[e :U 429 ]
+[e :U 483 ]
 "4441
 [; ;mcc_generated_files/fatfs/ff.c: 4441:  if (res != FR_OK) dp->obj.fs = 0;
-[e $ ! != -> _res `ui -> . `E68 0 `ui 436  ]
+[e $ ! != -> _res `ui -> . `E69 0 `ui 490  ]
 [e = . . *U _dp 0 0 -> -> 0 `i `*S1 ]
-[e :U 436 ]
+[e :U 490 ]
 "4443
 [; ;mcc_generated_files/fatfs/ff.c: 4443:  return res;
 [e ) _res ]
-[e $UE 427  ]
+[e $UE 481  ]
 "4444
 [; ;mcc_generated_files/fatfs/ff.c: 4444: }
-[e :UE 427 ]
+[e :UE 481 ]
 }
 "4453
 [; ;mcc_generated_files/fatfs/ff.c: 4453: FRESULT f_closedir (
-[v _f_closedir `(E68 ~T0 @X0 1 ef1`*S4 ]
+[v _f_closedir `(E69 ~T0 @X0 1 ef1`*S4 ]
 "4456
 [; ;mcc_generated_files/fatfs/ff.c: 4456: {
 {
@@ -5229,7 +5632,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "4457
 [; ;mcc_generated_files/fatfs/ff.c: 4457:  FRESULT res;
-[v _res `E68 ~T0 @X0 1 a ]
+[v _res `E69 ~T0 @X0 1 a ]
 "4458
 [; ;mcc_generated_files/fatfs/ff.c: 4458:  FATFS *fs;
 [v _fs `*S1 ~T0 @X0 1 a ]
@@ -5238,7 +5641,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _validate (2 , &U . *U _dp 0 &U _fs ]
 "4462
 [; ;mcc_generated_files/fatfs/ff.c: 4462:  if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 438  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 492  ]
 {
 "4467
 [; ;mcc_generated_files/fatfs/ff.c: 4467:   dp->obj.fs = 0;
@@ -5246,18 +5649,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4472
 [; ;mcc_generated_files/fatfs/ff.c: 4472:  }
 }
-[e :U 438 ]
+[e :U 492 ]
 "4473
 [; ;mcc_generated_files/fatfs/ff.c: 4473:  return res;
 [e ) _res ]
-[e $UE 437  ]
+[e $UE 491  ]
 "4474
 [; ;mcc_generated_files/fatfs/ff.c: 4474: }
-[e :UE 437 ]
+[e :UE 491 ]
 }
 "4483
 [; ;mcc_generated_files/fatfs/ff.c: 4483: FRESULT f_readdir (
-[v _f_readdir `(E68 ~T0 @X0 1 ef2`*S4`*S5 ]
+[v _f_readdir `(E69 ~T0 @X0 1 ef2`*S4`*S5 ]
 "4487
 [; ;mcc_generated_files/fatfs/ff.c: 4487: {
 {
@@ -5273,7 +5676,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "4488
 [; ;mcc_generated_files/fatfs/ff.c: 4488:  FRESULT res;
-[v _res `E68 ~T0 @X0 1 a ]
+[v _res `E69 ~T0 @X0 1 a ]
 "4489
 [; ;mcc_generated_files/fatfs/ff.c: 4489:  FATFS *fs;
 [v _fs `*S1 ~T0 @X0 1 a ]
@@ -5282,11 +5685,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _validate (2 , &U . *U _dp 0 &U _fs ]
 "4494
 [; ;mcc_generated_files/fatfs/ff.c: 4494:  if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 440  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 494  ]
 {
 "4495
 [; ;mcc_generated_files/fatfs/ff.c: 4495:   if (!fno) {
-[e $ ! ! != _fno -> -> 0 `i `*S5 441  ]
+[e $ ! ! != _fno -> -> 0 `i `*S5 495  ]
 {
 "4496
 [; ;mcc_generated_files/fatfs/ff.c: 4496:    res = dir_sdi(dp, 0);
@@ -5294,20 +5697,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4497
 [; ;mcc_generated_files/fatfs/ff.c: 4497:   } else {
 }
-[e $U 442  ]
-[e :U 441 ]
+[e $U 496  ]
+[e :U 495 ]
 {
 "4499
 [; ;mcc_generated_files/fatfs/ff.c: 4499:    res = dir_read(dp, 0);
 [e = _res ( _dir_read (2 , _dp -> 0 `i ]
 "4500
 [; ;mcc_generated_files/fatfs/ff.c: 4500:    if (res == FR_NO_FILE) res = FR_OK;
-[e $ ! == -> _res `ui -> . `E68 4 `ui 443  ]
-[e = _res . `E68 0 ]
-[e :U 443 ]
+[e $ ! == -> _res `ui -> . `E69 4 `ui 497  ]
+[e = _res . `E69 0 ]
+[e :U 497 ]
 "4501
 [; ;mcc_generated_files/fatfs/ff.c: 4501:    if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 444  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 498  ]
 {
 "4502
 [; ;mcc_generated_files/fatfs/ff.c: 4502:     get_fileinfo(dp, fno);
@@ -5317,32 +5720,133 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _dir_next (2 , _dp -> 0 `i ]
 "4504
 [; ;mcc_generated_files/fatfs/ff.c: 4504:     if (res == FR_NO_FILE) res = FR_OK;
-[e $ ! == -> _res `ui -> . `E68 4 `ui 445  ]
-[e = _res . `E68 0 ]
-[e :U 445 ]
+[e $ ! == -> _res `ui -> . `E69 4 `ui 499  ]
+[e = _res . `E69 0 ]
+[e :U 499 ]
 "4505
 [; ;mcc_generated_files/fatfs/ff.c: 4505:    }
 }
-[e :U 444 ]
+[e :U 498 ]
 "4507
 [; ;mcc_generated_files/fatfs/ff.c: 4507:   }
 }
-[e :U 442 ]
+[e :U 496 ]
 "4508
 [; ;mcc_generated_files/fatfs/ff.c: 4508:  }
 }
-[e :U 440 ]
+[e :U 494 ]
 "4509
 [; ;mcc_generated_files/fatfs/ff.c: 4509:  return res;
 [e ) _res ]
-[e $UE 439  ]
+[e $UE 493  ]
 "4510
 [; ;mcc_generated_files/fatfs/ff.c: 4510: }
-[e :UE 439 ]
+[e :UE 493 ]
+}
+"4519
+[; ;mcc_generated_files/fatfs/ff.c: 4519: FRESULT f_findnext (
+[v _f_findnext `(E69 ~T0 @X0 1 ef2`*S4`*S5 ]
+"4523
+[; ;mcc_generated_files/fatfs/ff.c: 4523: {
+{
+[e :U _f_findnext ]
+"4520
+[; ;mcc_generated_files/fatfs/ff.c: 4520:  FFDIR* dp,
+[v _dp `*S4 ~T0 @X0 1 r1 ]
+"4521
+[; ;mcc_generated_files/fatfs/ff.c: 4521:  FILINFO* fno
+[v _fno `*S5 ~T0 @X0 1 r2 ]
+"4523
+[; ;mcc_generated_files/fatfs/ff.c: 4523: {
+[f ]
+"4524
+[; ;mcc_generated_files/fatfs/ff.c: 4524:  FRESULT res;
+[v _res `E69 ~T0 @X0 1 a ]
+"4527
+[; ;mcc_generated_files/fatfs/ff.c: 4527:  for (;;) {
+{
+[e :U 501 ]
+{
+"4528
+[; ;mcc_generated_files/fatfs/ff.c: 4528:   res = f_readdir(dp, fno);
+[e = _res ( _f_readdir (2 , _dp _fno ]
+"4529
+[; ;mcc_generated_files/fatfs/ff.c: 4529:   if (res != FR_OK || !fno || !fno->fname[0]) break;
+[e $ ! || || != -> _res `ui -> . `E69 0 `ui ! != _fno -> -> 0 `i `*S5 ! != -> *U + &U . *U _fno 4 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _fno 4 `ui `ux `i -> 0 `i 504  ]
+[e $U 502  ]
+[e :U 504 ]
+"4530
+[; ;mcc_generated_files/fatfs/ff.c: 4530:   if (pattern_matching(dp->pat, fno->fname, 0, 0)) break;
+[e $ ! != ( _pattern_matching (4 , , , . *U _dp 6 -> &U . *U _fno 4 `*Cuc -> 0 `i -> 0 `i -> 0 `i 505  ]
+[e $U 502  ]
+[e :U 505 ]
+"4534
+[; ;mcc_generated_files/fatfs/ff.c: 4534:  }
+}
+[e $U 501  ]
+[e :U 502 ]
+}
+"4535
+[; ;mcc_generated_files/fatfs/ff.c: 4535:  return res;
+[e ) _res ]
+[e $UE 500  ]
+"4536
+[; ;mcc_generated_files/fatfs/ff.c: 4536: }
+[e :UE 500 ]
+}
+"4544
+[; ;mcc_generated_files/fatfs/ff.c: 4544: FRESULT f_findfirst (
+[v _f_findfirst `(E69 ~T0 @X0 1 ef4`*S4`*S5`*Cuc`*Cuc ]
+"4550
+[; ;mcc_generated_files/fatfs/ff.c: 4550: {
+{
+[e :U _f_findfirst ]
+"4545
+[; ;mcc_generated_files/fatfs/ff.c: 4545:  FFDIR* dp,
+[v _dp `*S4 ~T0 @X0 1 r1 ]
+"4546
+[; ;mcc_generated_files/fatfs/ff.c: 4546:  FILINFO* fno,
+[v _fno `*S5 ~T0 @X0 1 r2 ]
+"4547
+[; ;mcc_generated_files/fatfs/ff.c: 4547:  const TCHAR* path,
+[v _path `*Cuc ~T0 @X0 1 r3 ]
+"4548
+[; ;mcc_generated_files/fatfs/ff.c: 4548:  const TCHAR* pattern
+[v _pattern `*Cuc ~T0 @X0 1 r4 ]
+"4550
+[; ;mcc_generated_files/fatfs/ff.c: 4550: {
+[f ]
+"4551
+[; ;mcc_generated_files/fatfs/ff.c: 4551:  FRESULT res;
+[v _res `E69 ~T0 @X0 1 a ]
+"4554
+[; ;mcc_generated_files/fatfs/ff.c: 4554:  dp->pat = pattern;
+[e = . *U _dp 6 _pattern ]
+"4555
+[; ;mcc_generated_files/fatfs/ff.c: 4555:  res = f_opendir(dp, path);
+[e = _res ( _f_opendir (2 , _dp _path ]
+"4556
+[; ;mcc_generated_files/fatfs/ff.c: 4556:  if (res == FR_OK) {
+[e $ ! == -> _res `ui -> . `E69 0 `ui 507  ]
+{
+"4557
+[; ;mcc_generated_files/fatfs/ff.c: 4557:   res = f_findnext(dp, fno);
+[e = _res ( _f_findnext (2 , _dp _fno ]
+"4558
+[; ;mcc_generated_files/fatfs/ff.c: 4558:  }
+}
+[e :U 507 ]
+"4559
+[; ;mcc_generated_files/fatfs/ff.c: 4559:  return res;
+[e ) _res ]
+[e $UE 506  ]
+"4560
+[; ;mcc_generated_files/fatfs/ff.c: 4560: }
+[e :UE 506 ]
 }
 "4571
 [; ;mcc_generated_files/fatfs/ff.c: 4571: FRESULT f_stat (
-[v _f_stat `(E68 ~T0 @X0 1 ef2`*Cuc`*S5 ]
+[v _f_stat `(E69 ~T0 @X0 1 ef2`*Cuc`*S5 ]
 "4575
 [; ;mcc_generated_files/fatfs/ff.c: 4575: {
 {
@@ -5358,7 +5862,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "4576
 [; ;mcc_generated_files/fatfs/ff.c: 4576:  FRESULT res;
-[v _res `E68 ~T0 @X0 1 a ]
+[v _res `E69 ~T0 @X0 1 a ]
 "4577
 [; ;mcc_generated_files/fatfs/ff.c: 4577:  FFDIR dj;
 [v _dj `S4 ~T0 @X0 1 a ]
@@ -5367,56 +5871,56 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _find_volume (3 , , &U _path &U . . _dj 0 0 -> -> 0 `i `uc ]
 "4583
 [; ;mcc_generated_files/fatfs/ff.c: 4583:  if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 447  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 509  ]
 {
 "4585
 [; ;mcc_generated_files/fatfs/ff.c: 4585:   res = follow_path(&dj, path);
 [e = _res ( _follow_path (2 , &U _dj _path ]
 "4586
 [; ;mcc_generated_files/fatfs/ff.c: 4586:   if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 448  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 510  ]
 {
 "4587
 [; ;mcc_generated_files/fatfs/ff.c: 4587:    if (dj.fn[11] & 0x80) {
-[e $ ! != & -> *U + &U . _dj 5 * -> -> -> 11 `i `ui `ux -> -> # *U &U . _dj 5 `ui `ux `i -> 128 `i -> 0 `i 449  ]
+[e $ ! != & -> *U + &U . _dj 5 * -> -> -> 11 `i `ui `ux -> -> # *U &U . _dj 5 `ui `ux `i -> 128 `i -> 0 `i 511  ]
 {
 "4588
 [; ;mcc_generated_files/fatfs/ff.c: 4588:     res = FR_INVALID_NAME;
-[e = _res . `E68 6 ]
+[e = _res . `E69 6 ]
 "4589
 [; ;mcc_generated_files/fatfs/ff.c: 4589:    } else {
 }
-[e $U 450  ]
-[e :U 449 ]
+[e $U 512  ]
+[e :U 511 ]
 {
 "4590
 [; ;mcc_generated_files/fatfs/ff.c: 4590:     if (fno) get_fileinfo(&dj, fno);
-[e $ ! != _fno -> -> 0 `i `*S5 451  ]
+[e $ ! != _fno -> -> 0 `i `*S5 513  ]
 [e ( _get_fileinfo (2 , &U _dj _fno ]
-[e :U 451 ]
+[e :U 513 ]
 "4591
 [; ;mcc_generated_files/fatfs/ff.c: 4591:    }
 }
-[e :U 450 ]
+[e :U 512 ]
 "4592
 [; ;mcc_generated_files/fatfs/ff.c: 4592:   }
 }
-[e :U 448 ]
+[e :U 510 ]
 "4594
 [; ;mcc_generated_files/fatfs/ff.c: 4594:  }
 }
-[e :U 447 ]
+[e :U 509 ]
 "4596
 [; ;mcc_generated_files/fatfs/ff.c: 4596:  return res;
 [e ) _res ]
-[e $UE 446  ]
+[e $UE 508  ]
 "4597
 [; ;mcc_generated_files/fatfs/ff.c: 4597: }
-[e :UE 446 ]
+[e :UE 508 ]
 }
 "4606
 [; ;mcc_generated_files/fatfs/ff.c: 4606: FRESULT f_getfree (
-[v _f_getfree `(E68 ~T0 @X0 1 ef3`*Cuc`*ul`**S1 ]
+[v _f_getfree `(E69 ~T0 @X0 1 ef3`*Cuc`*ul`**S1 ]
 "4611
 [; ;mcc_generated_files/fatfs/ff.c: 4611: {
 {
@@ -5435,7 +5939,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "4612
 [; ;mcc_generated_files/fatfs/ff.c: 4612:  FRESULT res;
-[v _res `E68 ~T0 @X0 1 a ]
+[v _res `E69 ~T0 @X0 1 a ]
 "4613
 [; ;mcc_generated_files/fatfs/ff.c: 4613:  FATFS *fs;
 [v _fs `*S1 ~T0 @X0 1 a ]
@@ -5456,14 +5960,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _find_volume (3 , , &U _path &U _fs -> -> 0 `i `uc ]
 "4621
 [; ;mcc_generated_files/fatfs/ff.c: 4621:  if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 453  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 515  ]
 {
 "4622
 [; ;mcc_generated_files/fatfs/ff.c: 4622:   *fatfs = fs;
 [e = *U _fatfs _fs ]
 "4624
 [; ;mcc_generated_files/fatfs/ff.c: 4624:   if (fs->free_clst <= fs->n_fatent - 2) {
-[e $ ! <= . *U _fs 9 - . *U _fs 11 -> -> -> 2 `i `l `ul 454  ]
+[e $ ! <= . *U _fs 9 - . *U _fs 11 -> -> -> 2 `i `l `ul 516  ]
 {
 "4625
 [; ;mcc_generated_files/fatfs/ff.c: 4625:    *nclst = fs->free_clst;
@@ -5471,15 +5975,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4626
 [; ;mcc_generated_files/fatfs/ff.c: 4626:   } else {
 }
-[e $U 455  ]
-[e :U 454 ]
+[e $U 517  ]
+[e :U 516 ]
 {
 "4628
 [; ;mcc_generated_files/fatfs/ff.c: 4628:    nfree = 0;
 [e = _nfree -> -> -> 0 `i `l `ul ]
 "4629
 [; ;mcc_generated_files/fatfs/ff.c: 4629:    if (fs->fs_type == 1) {
-[e $ ! == -> . *U _fs 0 `i -> 1 `i 456  ]
+[e $ ! == -> . *U _fs 0 `i -> 1 `i 518  ]
 {
 "4630
 [; ;mcc_generated_files/fatfs/ff.c: 4630:     clst = 2; obj.fs = fs;
@@ -5487,42 +5991,42 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . _obj 0 _fs ]
 "4631
 [; ;mcc_generated_files/fatfs/ff.c: 4631:     do {
-[e :U 459 ]
+[e :U 521 ]
 {
 "4632
 [; ;mcc_generated_files/fatfs/ff.c: 4632:      stat = get_fat(&obj, clst);
 [e = _stat ( _get_fat (2 , &U _obj _clst ]
 "4633
 [; ;mcc_generated_files/fatfs/ff.c: 4633:      if (stat == 0xFFFFFFFF) { res = FR_DISK_ERR; break; }
-[e $ ! == _stat -> 4294967295 `ul 460  ]
+[e $ ! == _stat -> 4294967295 `ul 522  ]
 {
-[e = _res . `E68 1 ]
-[e $U 458  ]
+[e = _res . `E69 1 ]
+[e $U 520  ]
 }
-[e :U 460 ]
+[e :U 522 ]
 "4634
 [; ;mcc_generated_files/fatfs/ff.c: 4634:      if (stat == 1) { res = FR_INT_ERR; break; }
-[e $ ! == _stat -> -> -> 1 `i `l `ul 461  ]
+[e $ ! == _stat -> -> -> 1 `i `l `ul 523  ]
 {
-[e = _res . `E68 2 ]
-[e $U 458  ]
+[e = _res . `E69 2 ]
+[e $U 520  ]
 }
-[e :U 461 ]
+[e :U 523 ]
 "4635
 [; ;mcc_generated_files/fatfs/ff.c: 4635:      if (stat == 0) nfree++;
-[e $ ! == _stat -> -> -> 0 `i `l `ul 462  ]
+[e $ ! == _stat -> -> -> 0 `i `l `ul 524  ]
 [e ++ _nfree -> -> -> 1 `i `l `ul ]
-[e :U 462 ]
+[e :U 524 ]
 "4636
 [; ;mcc_generated_files/fatfs/ff.c: 4636:     } while (++clst < fs->n_fatent);
 }
-[e $ < =+ _clst -> -> -> 1 `i `l `ul . *U _fs 11 459  ]
-[e :U 458 ]
+[e $ < =+ _clst -> -> -> 1 `i `l `ul . *U _fs 11 521  ]
+[e :U 520 ]
 "4637
 [; ;mcc_generated_files/fatfs/ff.c: 4637:    } else {
 }
-[e $U 463  ]
-[e :U 456 ]
+[e $U 525  ]
+[e :U 518 ]
 {
 "4659
 [; ;mcc_generated_files/fatfs/ff.c: 4659:     {
@@ -5538,69 +6042,69 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _i -> -> 0 `i `ui ]
 "4663
 [; ;mcc_generated_files/fatfs/ff.c: 4663:      do {
-[e :U 466 ]
+[e :U 528 ]
 {
 "4664
 [; ;mcc_generated_files/fatfs/ff.c: 4664:       if (i == 0) {
-[e $ ! == _i -> -> 0 `i `ui 467  ]
+[e $ ! == _i -> -> 0 `i `ui 529  ]
 {
 "4665
 [; ;mcc_generated_files/fatfs/ff.c: 4665:        res = move_window(fs, sect++);
 [e = _res ( _move_window (2 , _fs ++ _sect -> -> -> 1 `i `l `ul ]
 "4666
 [; ;mcc_generated_files/fatfs/ff.c: 4666:        if (res != FR_OK) break;
-[e $ ! != -> _res `ui -> . `E68 0 `ui 468  ]
-[e $U 465  ]
-[e :U 468 ]
+[e $ ! != -> _res `ui -> . `E69 0 `ui 530  ]
+[e $U 527  ]
+[e :U 530 ]
 "4667
 [; ;mcc_generated_files/fatfs/ff.c: 4667:       }
 }
-[e :U 467 ]
+[e :U 529 ]
 "4668
 [; ;mcc_generated_files/fatfs/ff.c: 4668:       if (fs->fs_type == 2) {
-[e $ ! == -> . *U _fs 0 `i -> 2 `i 469  ]
+[e $ ! == -> . *U _fs 0 `i -> 2 `i 531  ]
 {
 "4669
 [; ;mcc_generated_files/fatfs/ff.c: 4669:        if (ld_word(fs->win + i) == 0) nfree++;
-[e $ ! == -> ( _ld_word (1 -> + &U . *U _fs 18 * -> _i `ux -> -> # *U &U . *U _fs 18 `ui `ux `*Cuc `ui -> -> 0 `i `ui 470  ]
+[e $ ! == -> ( _ld_word (1 -> + &U . *U _fs 18 * -> _i `ux -> -> # *U &U . *U _fs 18 `ui `ux `*Cuc `ui -> -> 0 `i `ui 532  ]
 [e ++ _nfree -> -> -> 1 `i `l `ul ]
-[e :U 470 ]
+[e :U 532 ]
 "4670
 [; ;mcc_generated_files/fatfs/ff.c: 4670:        i += 2;
 [e =+ _i -> -> 2 `i `ui ]
 "4671
 [; ;mcc_generated_files/fatfs/ff.c: 4671:       } else {
 }
-[e $U 471  ]
-[e :U 469 ]
+[e $U 533  ]
+[e :U 531 ]
 {
 "4672
 [; ;mcc_generated_files/fatfs/ff.c: 4672:        if ((ld_dword(fs->win + i) & 0x0FFFFFFF) == 0) nfree++;
-[e $ ! == & ( _ld_dword (1 -> + &U . *U _fs 18 * -> _i `ux -> -> # *U &U . *U _fs 18 `ui `ux `*Cuc -> -> 268435455 `l `ul -> -> -> 0 `i `l `ul 472  ]
+[e $ ! == & ( _ld_dword (1 -> + &U . *U _fs 18 * -> _i `ux -> -> # *U &U . *U _fs 18 `ui `ux `*Cuc -> -> 268435455 `l `ul -> -> -> 0 `i `l `ul 534  ]
 [e ++ _nfree -> -> -> 1 `i `l `ul ]
-[e :U 472 ]
+[e :U 534 ]
 "4673
 [; ;mcc_generated_files/fatfs/ff.c: 4673:        i += 4;
 [e =+ _i -> -> 4 `i `ui ]
 "4674
 [; ;mcc_generated_files/fatfs/ff.c: 4674:       }
 }
-[e :U 471 ]
+[e :U 533 ]
 "4675
 [; ;mcc_generated_files/fatfs/ff.c: 4675:       i %= ((UINT)512);
 [e =% _i -> -> 512 `i `ui ]
 "4676
 [; ;mcc_generated_files/fatfs/ff.c: 4676:      } while (--clst);
 }
-[e $ != =- _clst -> -> -> 1 `i `l `ul -> -> -> 0 `i `l `ul 466  ]
-[e :U 465 ]
+[e $ != =- _clst -> -> -> 1 `i `l `ul -> -> -> 0 `i `l `ul 528  ]
+[e :U 527 ]
 "4677
 [; ;mcc_generated_files/fatfs/ff.c: 4677:     }
 }
 "4678
 [; ;mcc_generated_files/fatfs/ff.c: 4678:    }
 }
-[e :U 463 ]
+[e :U 525 ]
 "4679
 [; ;mcc_generated_files/fatfs/ff.c: 4679:    *nclst = nfree;
 [e = *U _nclst _nfree ]
@@ -5613,22 +6117,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4682
 [; ;mcc_generated_files/fatfs/ff.c: 4682:   }
 }
-[e :U 455 ]
+[e :U 517 ]
 "4683
 [; ;mcc_generated_files/fatfs/ff.c: 4683:  }
 }
-[e :U 453 ]
+[e :U 515 ]
 "4685
 [; ;mcc_generated_files/fatfs/ff.c: 4685:  return res;
 [e ) _res ]
-[e $UE 452  ]
+[e $UE 514  ]
 "4686
 [; ;mcc_generated_files/fatfs/ff.c: 4686: }
-[e :UE 452 ]
+[e :UE 514 ]
 }
 "4695
 [; ;mcc_generated_files/fatfs/ff.c: 4695: FRESULT f_truncate (
-[v _f_truncate `(E68 ~T0 @X0 1 ef1`*S3 ]
+[v _f_truncate `(E69 ~T0 @X0 1 ef1`*S3 ]
 "4698
 [; ;mcc_generated_files/fatfs/ff.c: 4698: {
 {
@@ -5641,7 +6145,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "4699
 [; ;mcc_generated_files/fatfs/ff.c: 4699:  FRESULT res;
-[v _res `E68 ~T0 @X0 1 a ]
+[v _res `E69 ~T0 @X0 1 a ]
 "4700
 [; ;mcc_generated_files/fatfs/ff.c: 4700:  FATFS *fs;
 [v _fs `*S1 ~T0 @X0 1 a ]
@@ -5653,23 +6157,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _validate (2 , &U . *U _fp 0 &U _fs ]
 "4705
 [; ;mcc_generated_files/fatfs/ff.c: 4705:  if (res != FR_OK || (res = (FRESULT)fp->err) != FR_OK) return res;
-[e $ ! || != -> _res `ui -> . `E68 0 `ui != -> = _res -> . *U _fp 2 `E68 `ui -> . `E68 0 `ui 474  ]
+[e $ ! || != -> _res `ui -> . `E69 0 `ui != -> = _res -> . *U _fp 2 `E69 `ui -> . `E69 0 `ui 536  ]
 [e ) _res ]
-[e $UE 473  ]
-[e :U 474 ]
+[e $UE 535  ]
+[e :U 536 ]
 "4706
 [; ;mcc_generated_files/fatfs/ff.c: 4706:  if (!(fp->flag & 0x02)) return FR_DENIED;
-[e $ ! ! != & -> . *U _fp 1 `i -> 2 `i -> 0 `i 475  ]
-[e ) . `E68 7 ]
-[e $UE 473  ]
-[e :U 475 ]
+[e $ ! ! != & -> . *U _fp 1 `i -> 2 `i -> 0 `i 537  ]
+[e ) . `E69 7 ]
+[e $UE 535  ]
+[e :U 537 ]
 "4708
 [; ;mcc_generated_files/fatfs/ff.c: 4708:  if (fp->fptr < fp->obj.objsize) {
-[e $ ! < . *U _fp 3 . . *U _fp 0 5 476  ]
+[e $ ! < . *U _fp 3 . . *U _fp 0 5 538  ]
 {
 "4709
 [; ;mcc_generated_files/fatfs/ff.c: 4709:   if (fp->fptr == 0) {
-[e $ ! == . *U _fp 3 -> -> -> 0 `i `l `ul 477  ]
+[e $ ! == . *U _fp 3 -> -> -> 0 `i `l `ul 539  ]
 {
 "4710
 [; ;mcc_generated_files/fatfs/ff.c: 4710:    res = remove_chain(&fp->obj, fp->obj.sclust, 0);
@@ -5680,28 +6184,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4712
 [; ;mcc_generated_files/fatfs/ff.c: 4712:   } else {
 }
-[e $U 478  ]
-[e :U 477 ]
+[e $U 540  ]
+[e :U 539 ]
 {
 "4713
 [; ;mcc_generated_files/fatfs/ff.c: 4713:    ncl = get_fat(&fp->obj, fp->clust);
 [e = _ncl ( _get_fat (2 , &U . *U _fp 0 . *U _fp 4 ]
 "4714
 [; ;mcc_generated_files/fatfs/ff.c: 4714:    res = FR_OK;
-[e = _res . `E68 0 ]
+[e = _res . `E69 0 ]
 "4715
 [; ;mcc_generated_files/fatfs/ff.c: 4715:    if (ncl == 0xFFFFFFFF) res = FR_DISK_ERR;
-[e $ ! == _ncl -> 4294967295 `ul 479  ]
-[e = _res . `E68 1 ]
-[e :U 479 ]
+[e $ ! == _ncl -> 4294967295 `ul 541  ]
+[e = _res . `E69 1 ]
+[e :U 541 ]
 "4716
 [; ;mcc_generated_files/fatfs/ff.c: 4716:    if (ncl == 1) res = FR_INT_ERR;
-[e $ ! == _ncl -> -> -> 1 `i `l `ul 480  ]
-[e = _res . `E68 2 ]
-[e :U 480 ]
+[e $ ! == _ncl -> -> -> 1 `i `l `ul 542  ]
+[e = _res . `E69 2 ]
+[e :U 542 ]
 "4717
 [; ;mcc_generated_files/fatfs/ff.c: 4717:    if (res == FR_OK && ncl < fs->n_fatent) {
-[e $ ! && == -> _res `ui -> . `E68 0 `ui < _ncl . *U _fs 11 481  ]
+[e $ ! && == -> _res `ui -> . `E69 0 `ui < _ncl . *U _fs 11 543  ]
 {
 "4718
 [; ;mcc_generated_files/fatfs/ff.c: 4718:     res = remove_chain(&fp->obj, ncl, fp->clust);
@@ -5709,11 +6213,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4719
 [; ;mcc_generated_files/fatfs/ff.c: 4719:    }
 }
-[e :U 481 ]
+[e :U 543 ]
 "4720
 [; ;mcc_generated_files/fatfs/ff.c: 4720:   }
 }
-[e :U 478 ]
+[e :U 540 ]
 "4721
 [; ;mcc_generated_files/fatfs/ff.c: 4721:   fp->obj.objsize = fp->fptr;
 [e = . . *U _fp 0 5 . *U _fp 3 ]
@@ -5722,20 +6226,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e =| . *U _fp 1 -> -> 64 `i `uc ]
 "4724
 [; ;mcc_generated_files/fatfs/ff.c: 4724:   if (res == FR_OK && (fp->flag & 0x80)) {
-[e $ ! && == -> _res `ui -> . `E68 0 `ui != & -> . *U _fp 1 `i -> 128 `i -> 0 `i 482  ]
+[e $ ! && == -> _res `ui -> . `E69 0 `ui != & -> . *U _fp 1 `i -> 128 `i -> 0 `i 544  ]
 {
 "4725
 [; ;mcc_generated_files/fatfs/ff.c: 4725:    if (disk_write(fs->pdrv, fp->buf, fp->sect, 1) != RES_OK) {
-[e $ ! != -> ( _disk_write (4 , , , . *U _fs 1 -> &U . *U _fp 8 `*Cuc . *U _fp 5 -> -> 1 `i `ui `ui -> . `E209 0 `ui 483  ]
+[e $ ! != -> ( _disk_write (4 , , , . *U _fs 1 -> &U . *U _fp 8 `*Cuc . *U _fp 5 -> -> 1 `i `ui `ui -> . `E210 0 `ui 545  ]
 {
 "4726
 [; ;mcc_generated_files/fatfs/ff.c: 4726:     res = FR_DISK_ERR;
-[e = _res . `E68 1 ]
+[e = _res . `E69 1 ]
 "4727
 [; ;mcc_generated_files/fatfs/ff.c: 4727:    } else {
 }
-[e $U 484  ]
-[e :U 483 ]
+[e $U 546  ]
+[e :U 545 ]
 {
 "4728
 [; ;mcc_generated_files/fatfs/ff.c: 4728:     fp->flag &= (BYTE)~0x80;
@@ -5743,35 +6247,35 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4729
 [; ;mcc_generated_files/fatfs/ff.c: 4729:    }
 }
-[e :U 484 ]
+[e :U 546 ]
 "4730
 [; ;mcc_generated_files/fatfs/ff.c: 4730:   }
 }
-[e :U 482 ]
+[e :U 544 ]
 "4732
 [; ;mcc_generated_files/fatfs/ff.c: 4732:   if (res != FR_OK) { fp->err = (BYTE)(res); return res; };
-[e $ ! != -> _res `ui -> . `E68 0 `ui 485  ]
+[e $ ! != -> _res `ui -> . `E69 0 `ui 547  ]
 {
 [e = . *U _fp 2 -> _res `uc ]
 [e ) _res ]
-[e $UE 473  ]
+[e $UE 535  ]
 }
-[e :U 485 ]
+[e :U 547 ]
 "4733
 [; ;mcc_generated_files/fatfs/ff.c: 4733:  }
 }
-[e :U 476 ]
+[e :U 538 ]
 "4735
 [; ;mcc_generated_files/fatfs/ff.c: 4735:  return res;
 [e ) _res ]
-[e $UE 473  ]
+[e $UE 535  ]
 "4736
 [; ;mcc_generated_files/fatfs/ff.c: 4736: }
-[e :UE 473 ]
+[e :UE 535 ]
 }
 "4745
 [; ;mcc_generated_files/fatfs/ff.c: 4745: FRESULT f_unlink (
-[v _f_unlink `(E68 ~T0 @X0 1 ef1`*Cuc ]
+[v _f_unlink `(E69 ~T0 @X0 1 ef1`*Cuc ]
 "4748
 [; ;mcc_generated_files/fatfs/ff.c: 4748: {
 {
@@ -5784,7 +6288,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "4749
 [; ;mcc_generated_files/fatfs/ff.c: 4749:  FRESULT res;
-[v _res `E68 ~T0 @X0 1 a ]
+[v _res `E69 ~T0 @X0 1 a ]
 "4750
 [; ;mcc_generated_files/fatfs/ff.c: 4750:  FFDIR dj, sdj;
 [v _dj `S4 ~T0 @X0 1 a ]
@@ -5801,7 +6305,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _find_volume (3 , , &U _path &U _fs -> -> 2 `i `uc ]
 "4761
 [; ;mcc_generated_files/fatfs/ff.c: 4761:  if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 487  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 549  ]
 {
 "4762
 [; ;mcc_generated_files/fatfs/ff.c: 4762:   dj.obj.fs = fs;
@@ -5810,51 +6314,51 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mcc_generated_files/fatfs/ff.c: 4764:   res = follow_path(&dj, path);
 [e = _res ( _follow_path (2 , &U _dj _path ]
 "4765
-[; ;mcc_generated_files/fatfs/ff.c: 4765:   if (1 && res == FR_OK && (dj.fn[11] & 0x20)) {
-[e $ ! && && != -> 1 `i -> 0 `i == -> _res `ui -> . `E68 0 `ui != & -> *U + &U . _dj 5 * -> -> -> 11 `i `ui `ux -> -> # *U &U . _dj 5 `ui `ux `i -> 32 `i -> 0 `i 488  ]
+[; ;mcc_generated_files/fatfs/ff.c: 4765:   if (2 && res == FR_OK && (dj.fn[11] & 0x20)) {
+[e $ ! && && != -> 2 `i -> 0 `i == -> _res `ui -> . `E69 0 `ui != & -> *U + &U . _dj 5 * -> -> -> 11 `i `ui `ux -> -> # *U &U . _dj 5 `ui `ux `i -> 32 `i -> 0 `i 550  ]
 {
 "4766
 [; ;mcc_generated_files/fatfs/ff.c: 4766:    res = FR_INVALID_NAME;
-[e = _res . `E68 6 ]
+[e = _res . `E69 6 ]
 "4767
 [; ;mcc_generated_files/fatfs/ff.c: 4767:   }
 }
-[e :U 488 ]
+[e :U 550 ]
 "4771
 [; ;mcc_generated_files/fatfs/ff.c: 4771:   if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 489  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 551  ]
 {
 "4772
 [; ;mcc_generated_files/fatfs/ff.c: 4772:    if (dj.fn[11] & 0x80) {
-[e $ ! != & -> *U + &U . _dj 5 * -> -> -> 11 `i `ui `ux -> -> # *U &U . _dj 5 `ui `ux `i -> 128 `i -> 0 `i 490  ]
+[e $ ! != & -> *U + &U . _dj 5 * -> -> -> 11 `i `ui `ux -> -> # *U &U . _dj 5 `ui `ux `i -> 128 `i -> 0 `i 552  ]
 {
 "4773
 [; ;mcc_generated_files/fatfs/ff.c: 4773:     res = FR_INVALID_NAME;
-[e = _res . `E68 6 ]
+[e = _res . `E69 6 ]
 "4774
 [; ;mcc_generated_files/fatfs/ff.c: 4774:    } else {
 }
-[e $U 491  ]
-[e :U 490 ]
+[e $U 553  ]
+[e :U 552 ]
 {
 "4775
 [; ;mcc_generated_files/fatfs/ff.c: 4775:     if (dj.obj.attr & 0x01) {
-[e $ ! != & -> . . _dj 0 2 `i -> 1 `i -> 0 `i 492  ]
+[e $ ! != & -> . . _dj 0 2 `i -> 1 `i -> 0 `i 554  ]
 {
 "4776
 [; ;mcc_generated_files/fatfs/ff.c: 4776:      res = FR_DENIED;
-[e = _res . `E68 7 ]
+[e = _res . `E69 7 ]
 "4777
 [; ;mcc_generated_files/fatfs/ff.c: 4777:     }
 }
-[e :U 492 ]
+[e :U 554 ]
 "4778
 [; ;mcc_generated_files/fatfs/ff.c: 4778:    }
 }
-[e :U 491 ]
+[e :U 553 ]
 "4779
 [; ;mcc_generated_files/fatfs/ff.c: 4779:    if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 493  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 555  ]
 {
 "4787
 [; ;mcc_generated_files/fatfs/ff.c: 4787:     {
@@ -5867,20 +6371,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "4790
 [; ;mcc_generated_files/fatfs/ff.c: 4790:     if (dj.obj.attr & 0x10) {
-[e $ ! != & -> . . _dj 0 2 `i -> 16 `i -> 0 `i 494  ]
+[e $ ! != & -> . . _dj 0 2 `i -> 16 `i -> 0 `i 556  ]
 {
 "4792
 [; ;mcc_generated_files/fatfs/ff.c: 4792:      if (dclst == fs->cdir) {
-[e $ ! == _dclst . *U _fs 10 495  ]
+[e $ ! == _dclst . *U _fs 10 557  ]
 {
 "4793
 [; ;mcc_generated_files/fatfs/ff.c: 4793:       res = FR_DENIED;
-[e = _res . `E68 7 ]
+[e = _res . `E69 7 ]
 "4794
 [; ;mcc_generated_files/fatfs/ff.c: 4794:      } else
 }
-[e $U 496  ]
-[e :U 495 ]
+[e $U 558  ]
+[e :U 557 ]
 "4796
 [; ;mcc_generated_files/fatfs/ff.c: 4796:      {
 {
@@ -5895,47 +6399,47 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _dir_sdi (2 , &U _sdj -> -> -> 0 `i `l `ul ]
 "4806
 [; ;mcc_generated_files/fatfs/ff.c: 4806:       if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 497  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 559  ]
 {
 "4807
 [; ;mcc_generated_files/fatfs/ff.c: 4807:        res = dir_read(&sdj, 0);
 [e = _res ( _dir_read (2 , &U _sdj -> 0 `i ]
 "4808
 [; ;mcc_generated_files/fatfs/ff.c: 4808:        if (res == FR_OK) res = FR_DENIED;
-[e $ ! == -> _res `ui -> . `E68 0 `ui 498  ]
-[e = _res . `E68 7 ]
-[e :U 498 ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 560  ]
+[e = _res . `E69 7 ]
+[e :U 560 ]
 "4809
 [; ;mcc_generated_files/fatfs/ff.c: 4809:        if (res == FR_NO_FILE) res = FR_OK;
-[e $ ! == -> _res `ui -> . `E68 4 `ui 499  ]
-[e = _res . `E68 0 ]
-[e :U 499 ]
+[e $ ! == -> _res `ui -> . `E69 4 `ui 561  ]
+[e = _res . `E69 0 ]
+[e :U 561 ]
 "4810
 [; ;mcc_generated_files/fatfs/ff.c: 4810:       }
 }
-[e :U 497 ]
+[e :U 559 ]
 "4811
 [; ;mcc_generated_files/fatfs/ff.c: 4811:      }
 }
-[e :U 496 ]
+[e :U 558 ]
 "4812
 [; ;mcc_generated_files/fatfs/ff.c: 4812:     }
 }
-[e :U 494 ]
+[e :U 556 ]
 "4813
 [; ;mcc_generated_files/fatfs/ff.c: 4813:    }
 }
-[e :U 493 ]
+[e :U 555 ]
 "4814
 [; ;mcc_generated_files/fatfs/ff.c: 4814:    if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 500  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 562  ]
 {
 "4815
 [; ;mcc_generated_files/fatfs/ff.c: 4815:     res = dir_remove(&dj);
 [e = _res ( _dir_remove (1 &U _dj ]
 "4816
 [; ;mcc_generated_files/fatfs/ff.c: 4816:     if (res == FR_OK && dclst != 0) {
-[e $ ! && == -> _res `ui -> . `E68 0 `ui != _dclst -> -> -> 0 `i `l `ul 501  ]
+[e $ ! && == -> _res `ui -> . `E69 0 `ui != _dclst -> -> -> 0 `i `l `ul 563  ]
 {
 "4820
 [; ;mcc_generated_files/fatfs/ff.c: 4820:      res = remove_chain(&dj.obj, dclst, 0);
@@ -5943,35 +6447,35 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4822
 [; ;mcc_generated_files/fatfs/ff.c: 4822:     }
 }
-[e :U 501 ]
+[e :U 563 ]
 "4823
 [; ;mcc_generated_files/fatfs/ff.c: 4823:     if (res == FR_OK) res = sync_fs(fs);
-[e $ ! == -> _res `ui -> . `E68 0 `ui 502  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 564  ]
 [e = _res ( _sync_fs (1 _fs ]
-[e :U 502 ]
+[e :U 564 ]
 "4824
 [; ;mcc_generated_files/fatfs/ff.c: 4824:    }
 }
-[e :U 500 ]
+[e :U 562 ]
 "4825
 [; ;mcc_generated_files/fatfs/ff.c: 4825:   }
 }
-[e :U 489 ]
+[e :U 551 ]
 "4827
 [; ;mcc_generated_files/fatfs/ff.c: 4827:  }
 }
-[e :U 487 ]
+[e :U 549 ]
 "4829
 [; ;mcc_generated_files/fatfs/ff.c: 4829:  return res;
 [e ) _res ]
-[e $UE 486  ]
+[e $UE 548  ]
 "4830
 [; ;mcc_generated_files/fatfs/ff.c: 4830: }
-[e :UE 486 ]
+[e :UE 548 ]
 }
 "4839
 [; ;mcc_generated_files/fatfs/ff.c: 4839: FRESULT f_mkdir (
-[v _f_mkdir `(E68 ~T0 @X0 1 ef1`*Cuc ]
+[v _f_mkdir `(E69 ~T0 @X0 1 ef1`*Cuc ]
 "4842
 [; ;mcc_generated_files/fatfs/ff.c: 4842: {
 {
@@ -5984,7 +6488,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "4843
 [; ;mcc_generated_files/fatfs/ff.c: 4843:  FRESULT res;
-[v _res `E68 ~T0 @X0 1 a ]
+[v _res `E69 ~T0 @X0 1 a ]
 "4844
 [; ;mcc_generated_files/fatfs/ff.c: 4844:  FFDIR dj;
 [v _dj `S4 ~T0 @X0 1 a ]
@@ -6004,7 +6508,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _find_volume (3 , , &U _path &U _fs -> -> 2 `i `uc ]
 "4853
 [; ;mcc_generated_files/fatfs/ff.c: 4853:  if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 504  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 566  ]
 {
 "4854
 [; ;mcc_generated_files/fatfs/ff.c: 4854:   dj.obj.fs = fs;
@@ -6014,23 +6518,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _follow_path (2 , &U _dj _path ]
 "4857
 [; ;mcc_generated_files/fatfs/ff.c: 4857:   if (res == FR_OK) res = FR_EXIST;
-[e $ ! == -> _res `ui -> . `E68 0 `ui 505  ]
-[e = _res . `E68 8 ]
-[e :U 505 ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 567  ]
+[e = _res . `E69 8 ]
+[e :U 567 ]
 "4858
-[; ;mcc_generated_files/fatfs/ff.c: 4858:   if (1 && res == FR_NO_FILE && (dj.fn[11] & 0x20)) {
-[e $ ! && && != -> 1 `i -> 0 `i == -> _res `ui -> . `E68 4 `ui != & -> *U + &U . _dj 5 * -> -> -> 11 `i `ui `ux -> -> # *U &U . _dj 5 `ui `ux `i -> 32 `i -> 0 `i 506  ]
+[; ;mcc_generated_files/fatfs/ff.c: 4858:   if (2 && res == FR_NO_FILE && (dj.fn[11] & 0x20)) {
+[e $ ! && && != -> 2 `i -> 0 `i == -> _res `ui -> . `E69 4 `ui != & -> *U + &U . _dj 5 * -> -> -> 11 `i `ui `ux -> -> # *U &U . _dj 5 `ui `ux `i -> 32 `i -> 0 `i 568  ]
 {
 "4859
 [; ;mcc_generated_files/fatfs/ff.c: 4859:    res = FR_INVALID_NAME;
-[e = _res . `E68 6 ]
+[e = _res . `E69 6 ]
 "4860
 [; ;mcc_generated_files/fatfs/ff.c: 4860:   }
 }
-[e :U 506 ]
+[e :U 568 ]
 "4861
 [; ;mcc_generated_files/fatfs/ff.c: 4861:   if (res == FR_NO_FILE) {
-[e $ ! == -> _res `ui -> . `E68 4 `ui 507  ]
+[e $ ! == -> _res `ui -> . `E69 4 `ui 569  ]
 {
 "4862
 [; ;mcc_generated_files/fatfs/ff.c: 4862:    dcl = create_chain(&dj.obj, 0);
@@ -6040,40 +6544,40 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _dj 0 5 * -> . *U _fs 7 `ul -> -> -> 512 `i `ui `ul ]
 "4864
 [; ;mcc_generated_files/fatfs/ff.c: 4864:    res = FR_OK;
-[e = _res . `E68 0 ]
+[e = _res . `E69 0 ]
 "4865
 [; ;mcc_generated_files/fatfs/ff.c: 4865:    if (dcl == 0) res = FR_DENIED;
-[e $ ! == _dcl -> -> -> 0 `i `l `ul 508  ]
-[e = _res . `E68 7 ]
-[e :U 508 ]
+[e $ ! == _dcl -> -> -> 0 `i `l `ul 570  ]
+[e = _res . `E69 7 ]
+[e :U 570 ]
 "4866
 [; ;mcc_generated_files/fatfs/ff.c: 4866:    if (dcl == 1) res = FR_INT_ERR;
-[e $ ! == _dcl -> -> -> 1 `i `l `ul 509  ]
-[e = _res . `E68 2 ]
-[e :U 509 ]
+[e $ ! == _dcl -> -> -> 1 `i `l `ul 571  ]
+[e = _res . `E69 2 ]
+[e :U 571 ]
 "4867
 [; ;mcc_generated_files/fatfs/ff.c: 4867:    if (dcl == 0xFFFFFFFF) res = FR_DISK_ERR;
-[e $ ! == _dcl -> 4294967295 `ul 510  ]
-[e = _res . `E68 1 ]
-[e :U 510 ]
+[e $ ! == _dcl -> 4294967295 `ul 572  ]
+[e = _res . `E69 1 ]
+[e :U 572 ]
 "4868
 [; ;mcc_generated_files/fatfs/ff.c: 4868:    if (res == FR_OK) res = sync_window(fs);
-[e $ ! == -> _res `ui -> . `E68 0 `ui 511  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 573  ]
 [e = _res ( _sync_window (1 _fs ]
-[e :U 511 ]
+[e :U 573 ]
 "4869
 [; ;mcc_generated_files/fatfs/ff.c: 4869:    tm = get_fattime();
 [e = _tm ( _get_fattime ..  ]
 "4870
 [; ;mcc_generated_files/fatfs/ff.c: 4870:    if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 512  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 574  ]
 {
 "4871
 [; ;mcc_generated_files/fatfs/ff.c: 4871:     res = dir_clear(fs, dcl);
 [e = _res ( _dir_clear (2 , _fs _dcl ]
 "4872
 [; ;mcc_generated_files/fatfs/ff.c: 4872:     if (res == FR_OK && (!0 || fs->fs_type != 4)) {
-[e $ ! && == -> _res `ui -> . `E68 0 `ui || ! != -> 0 `i -> 0 `i != -> . *U _fs 0 `i -> 4 `i 513  ]
+[e $ ! && == -> _res `ui -> . `E69 0 `ui || ! != -> 0 `i -> 0 `i != -> . *U _fs 0 `i -> 4 `i 575  ]
 {
 "4873
 [; ;mcc_generated_files/fatfs/ff.c: 4873:      dir = fs->win;
@@ -6109,14 +6613,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4883
 [; ;mcc_generated_files/fatfs/ff.c: 4883:     }
 }
-[e :U 513 ]
+[e :U 575 ]
 "4884
 [; ;mcc_generated_files/fatfs/ff.c: 4884:    }
 }
-[e :U 512 ]
+[e :U 574 ]
 "4885
 [; ;mcc_generated_files/fatfs/ff.c: 4885:    if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 514  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 576  ]
 {
 "4886
 [; ;mcc_generated_files/fatfs/ff.c: 4886:     res = dir_register(&dj);
@@ -6124,10 +6628,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4887
 [; ;mcc_generated_files/fatfs/ff.c: 4887:    }
 }
-[e :U 514 ]
+[e :U 576 ]
 "4888
 [; ;mcc_generated_files/fatfs/ff.c: 4888:    if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 515  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 577  ]
 {
 "4900
 [; ;mcc_generated_files/fatfs/ff.c: 4900:     {
@@ -6152,7 +6656,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "4907
 [; ;mcc_generated_files/fatfs/ff.c: 4907:     if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 516  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 578  ]
 {
 "4908
 [; ;mcc_generated_files/fatfs/ff.c: 4908:      res = sync_fs(fs);
@@ -6160,12 +6664,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4909
 [; ;mcc_generated_files/fatfs/ff.c: 4909:     }
 }
-[e :U 516 ]
+[e :U 578 ]
 "4910
 [; ;mcc_generated_files/fatfs/ff.c: 4910:    } else {
 }
-[e $U 517  ]
-[e :U 515 ]
+[e $U 579  ]
+[e :U 577 ]
 {
 "4911
 [; ;mcc_generated_files/fatfs/ff.c: 4911:     remove_chain(&dj.obj, dcl, 0);
@@ -6173,26 +6677,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4912
 [; ;mcc_generated_files/fatfs/ff.c: 4912:    }
 }
-[e :U 517 ]
+[e :U 579 ]
 "4913
 [; ;mcc_generated_files/fatfs/ff.c: 4913:   }
 }
-[e :U 507 ]
+[e :U 569 ]
 "4915
 [; ;mcc_generated_files/fatfs/ff.c: 4915:  }
 }
-[e :U 504 ]
+[e :U 566 ]
 "4917
 [; ;mcc_generated_files/fatfs/ff.c: 4917:  return res;
 [e ) _res ]
-[e $UE 503  ]
+[e $UE 565  ]
 "4918
 [; ;mcc_generated_files/fatfs/ff.c: 4918: }
-[e :UE 503 ]
+[e :UE 565 ]
 }
 "4927
 [; ;mcc_generated_files/fatfs/ff.c: 4927: FRESULT f_rename (
-[v _f_rename `(E68 ~T0 @X0 1 ef2`*Cuc`*Cuc ]
+[v _f_rename `(E69 ~T0 @X0 1 ef2`*Cuc`*Cuc ]
 "4931
 [; ;mcc_generated_files/fatfs/ff.c: 4931: {
 {
@@ -6208,7 +6712,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "4932
 [; ;mcc_generated_files/fatfs/ff.c: 4932:  FRESULT res;
-[v _res `E68 ~T0 @X0 1 a ]
+[v _res `E69 ~T0 @X0 1 a ]
 "4933
 [; ;mcc_generated_files/fatfs/ff.c: 4933:  FFDIR djo, djn;
 [v _djo `S4 ~T0 @X0 1 a ]
@@ -6231,7 +6735,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _find_volume (3 , , &U _path_old &U _fs -> -> 2 `i `uc ]
 "4942
 [; ;mcc_generated_files/fatfs/ff.c: 4942:  if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 519  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 581  ]
 {
 "4943
 [; ;mcc_generated_files/fatfs/ff.c: 4943:   djo.obj.fs = fs;
@@ -6241,12 +6745,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _follow_path (2 , &U _djo _path_old ]
 "4946
 [; ;mcc_generated_files/fatfs/ff.c: 4946:   if (res == FR_OK && (djo.fn[11] & (0x20 | 0x80))) res = FR_INVALID_NAME;
-[e $ ! && == -> _res `ui -> . `E68 0 `ui != & -> *U + &U . _djo 5 * -> -> -> 11 `i `ui `ux -> -> # *U &U . _djo 5 `ui `ux `i | -> 32 `i -> 128 `i -> 0 `i 520  ]
-[e = _res . `E68 6 ]
-[e :U 520 ]
+[e $ ! && == -> _res `ui -> . `E69 0 `ui != & -> *U + &U . _djo 5 * -> -> -> 11 `i `ui `ux -> -> # *U &U . _djo 5 `ui `ux `i | -> 32 `i -> 128 `i -> 0 `i 582  ]
+[e = _res . `E69 6 ]
+[e :U 582 ]
 "4952
 [; ;mcc_generated_files/fatfs/ff.c: 4952:   if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 521  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 583  ]
 {
 "4979
 [; ;mcc_generated_files/fatfs/ff.c: 4979:    {
@@ -6262,25 +6766,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _follow_path (2 , &U _djn _path_new ]
 "4983
 [; ;mcc_generated_files/fatfs/ff.c: 4983:     if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 522  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 584  ]
 {
 "4984
 [; ;mcc_generated_files/fatfs/ff.c: 4984:      res = (djn.obj.sclust == djo.obj.sclust && djn.dptr == djo.dptr) ? FR_NO_FILE : FR_EXIST;
-[e = _res -> ? && == . . _djn 0 4 . . _djo 0 4 == . _djn 1 . _djo 1 : . `E68 4 . `E68 8 `E68 ]
+[e = _res -> ? && == . . _djn 0 4 . . _djo 0 4 == . _djn 1 . _djo 1 : . `E69 4 . `E69 8 `E69 ]
 "4985
 [; ;mcc_generated_files/fatfs/ff.c: 4985:     }
 }
-[e :U 522 ]
+[e :U 584 ]
 "4986
 [; ;mcc_generated_files/fatfs/ff.c: 4986:     if (res == FR_NO_FILE) {
-[e $ ! == -> _res `ui -> . `E68 4 `ui 523  ]
+[e $ ! == -> _res `ui -> . `E69 4 `ui 585  ]
 {
 "4987
 [; ;mcc_generated_files/fatfs/ff.c: 4987:      res = dir_register(&djn);
 [e = _res ( _dir_register (1 &U _djn ]
 "4988
 [; ;mcc_generated_files/fatfs/ff.c: 4988:      if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 524  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 586  ]
 {
 "4989
 [; ;mcc_generated_files/fatfs/ff.c: 4989:       dir = djn.dir;
@@ -6293,31 +6797,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = *U + _dir * -> -> 11 `i `x -> -> # *U _dir `i `x *U + &U _buf * -> -> -> 11 `i `ui `ux -> -> # *U &U _buf `ui `ux ]
 "4992
 [; ;mcc_generated_files/fatfs/ff.c: 4992:       if (!(dir[11] & 0x10)) dir[11] |= 0x20;
-[e $ ! ! != & -> *U + _dir * -> -> 11 `i `x -> -> # *U _dir `i `x `i -> 16 `i -> 0 `i 525  ]
+[e $ ! ! != & -> *U + _dir * -> -> 11 `i `x -> -> # *U _dir `i `x `i -> 16 `i -> 0 `i 587  ]
 [e =| *U + _dir * -> -> 11 `i `x -> -> # *U _dir `i `x -> -> 32 `i `uc ]
-[e :U 525 ]
+[e :U 587 ]
 "4993
 [; ;mcc_generated_files/fatfs/ff.c: 4993:       fs->wflag = 1;
 [e = . *U _fs 3 -> -> 1 `i `uc ]
 "4994
 [; ;mcc_generated_files/fatfs/ff.c: 4994:       if ((dir[11] & 0x10) && djo.obj.sclust != djn.obj.sclust) {
-[e $ ! && != & -> *U + _dir * -> -> 11 `i `x -> -> # *U _dir `i `x `i -> 16 `i -> 0 `i != . . _djo 0 4 . . _djn 0 4 526  ]
+[e $ ! && != & -> *U + _dir * -> -> 11 `i `x -> -> # *U _dir `i `x `i -> 16 `i -> 0 `i != . . _djo 0 4 . . _djn 0 4 588  ]
 {
 "4995
 [; ;mcc_generated_files/fatfs/ff.c: 4995:        dw = clst2sect(fs, ld_clust(fs, dir));
 [e = _dw ( _clst2sect (2 , _fs ( _ld_clust (2 , _fs -> _dir `*Cuc ]
 "4996
 [; ;mcc_generated_files/fatfs/ff.c: 4996:        if (dw == 0) {
-[e $ ! == _dw -> -> -> 0 `i `l `ul 527  ]
+[e $ ! == _dw -> -> -> 0 `i `l `ul 589  ]
 {
 "4997
 [; ;mcc_generated_files/fatfs/ff.c: 4997:         res = FR_INT_ERR;
-[e = _res . `E68 2 ]
+[e = _res . `E69 2 ]
 "4998
 [; ;mcc_generated_files/fatfs/ff.c: 4998:        } else {
 }
-[e $U 528  ]
-[e :U 527 ]
+[e $U 590  ]
+[e :U 589 ]
 {
 "5000
 [; ;mcc_generated_files/fatfs/ff.c: 5000:         res = move_window(fs, dw);
@@ -6327,7 +6831,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _dir + &U . *U _fs 18 * -> * -> 32 `i -> 1 `i `x -> -> # *U &U . *U _fs 18 `i `x ]
 "5002
 [; ;mcc_generated_files/fatfs/ff.c: 5002:         if (res == FR_OK && dir[1] == '.') {
-[e $ ! && == -> _res `ui -> . `E68 0 `ui == -> *U + _dir * -> -> 1 `i `x -> -> # *U _dir `i `x `ui -> 46 `ui 529  ]
+[e $ ! && == -> _res `ui -> . `E69 0 `ui == -> *U + _dir * -> -> 1 `i `x -> -> # *U _dir `i `x `ui -> 46 `ui 591  ]
 {
 "5003
 [; ;mcc_generated_files/fatfs/ff.c: 5003:          st_clust(fs, dir, djn.obj.sclust);
@@ -6338,36 +6842,36 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5005
 [; ;mcc_generated_files/fatfs/ff.c: 5005:         }
 }
-[e :U 529 ]
+[e :U 591 ]
 "5006
 [; ;mcc_generated_files/fatfs/ff.c: 5006:        }
 }
-[e :U 528 ]
+[e :U 590 ]
 "5007
 [; ;mcc_generated_files/fatfs/ff.c: 5007:       }
 }
-[e :U 526 ]
+[e :U 588 ]
 "5008
 [; ;mcc_generated_files/fatfs/ff.c: 5008:      }
 }
-[e :U 524 ]
+[e :U 586 ]
 "5009
 [; ;mcc_generated_files/fatfs/ff.c: 5009:     }
 }
-[e :U 523 ]
+[e :U 585 ]
 "5010
 [; ;mcc_generated_files/fatfs/ff.c: 5010:    }
 }
 "5011
 [; ;mcc_generated_files/fatfs/ff.c: 5011:    if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 530  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 592  ]
 {
 "5012
 [; ;mcc_generated_files/fatfs/ff.c: 5012:     res = dir_remove(&djo);
 [e = _res ( _dir_remove (1 &U _djo ]
 "5013
 [; ;mcc_generated_files/fatfs/ff.c: 5013:     if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 531  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 593  ]
 {
 "5014
 [; ;mcc_generated_files/fatfs/ff.c: 5014:      res = sync_fs(fs);
@@ -6375,30 +6879,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5015
 [; ;mcc_generated_files/fatfs/ff.c: 5015:     }
 }
-[e :U 531 ]
+[e :U 593 ]
 "5016
 [; ;mcc_generated_files/fatfs/ff.c: 5016:    }
 }
-[e :U 530 ]
+[e :U 592 ]
 "5018
 [; ;mcc_generated_files/fatfs/ff.c: 5018:   }
 }
-[e :U 521 ]
+[e :U 583 ]
 "5020
 [; ;mcc_generated_files/fatfs/ff.c: 5020:  }
 }
-[e :U 519 ]
+[e :U 581 ]
 "5022
 [; ;mcc_generated_files/fatfs/ff.c: 5022:  return res;
 [e ) _res ]
-[e $UE 518  ]
+[e $UE 580  ]
 "5023
 [; ;mcc_generated_files/fatfs/ff.c: 5023: }
-[e :UE 518 ]
+[e :UE 580 ]
 }
 "5131
 [; ;mcc_generated_files/fatfs/ff.c: 5131: FRESULT f_getlabel (
-[v _f_getlabel `(E68 ~T0 @X0 1 ef3`*Cuc`*uc`*ul ]
+[v _f_getlabel `(E69 ~T0 @X0 1 ef3`*Cuc`*uc`*ul ]
 "5136
 [; ;mcc_generated_files/fatfs/ff.c: 5136: {
 {
@@ -6417,7 +6921,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "5137
 [; ;mcc_generated_files/fatfs/ff.c: 5137:  FRESULT res;
-[v _res `E68 ~T0 @X0 1 a ]
+[v _res `E69 ~T0 @X0 1 a ]
 "5138
 [; ;mcc_generated_files/fatfs/ff.c: 5138:  FFDIR dj;
 [v _dj `S4 ~T0 @X0 1 a ]
@@ -6436,7 +6940,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _find_volume (3 , , &U _path &U _fs -> -> 0 `i `uc ]
 "5147
 [; ;mcc_generated_files/fatfs/ff.c: 5147:  if (res == FR_OK && label) {
-[e $ ! && == -> _res `ui -> . `E68 0 `ui != _label -> -> 0 `i `*uc 533  ]
+[e $ ! && == -> _res `ui -> . `E69 0 `ui != _label -> -> 0 `i `*uc 595  ]
 {
 "5148
 [; ;mcc_generated_files/fatfs/ff.c: 5148:   dj.obj.fs = fs; dj.obj.sclust = 0;
@@ -6447,14 +6951,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _dir_sdi (2 , &U _dj -> -> -> 0 `i `l `ul ]
 "5150
 [; ;mcc_generated_files/fatfs/ff.c: 5150:   if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 534  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 596  ]
 {
 "5151
 [; ;mcc_generated_files/fatfs/ff.c: 5151:     res = dir_read(&dj, 1);
 [e = _res ( _dir_read (2 , &U _dj -> 1 `i ]
 "5152
 [; ;mcc_generated_files/fatfs/ff.c: 5152:     if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 535  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 597  ]
 {
 "5171
 [; ;mcc_generated_files/fatfs/ff.c: 5171:     {
@@ -6464,8 +6968,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _si = _di -> -> 0 `i `ui ]
 "5173
 [; ;mcc_generated_files/fatfs/ff.c: 5173:      while (si < 11) {
-[e $U 536  ]
-[e :U 537 ]
+[e $U 598  ]
+[e :U 599 ]
 {
 "5174
 [; ;mcc_generated_files/fatfs/ff.c: 5174:       wc = dj.dir[si++];
@@ -6476,123 +6980,123 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5184
 [; ;mcc_generated_files/fatfs/ff.c: 5184:      }
 }
-[e :U 536 ]
+[e :U 598 ]
 "5173
 [; ;mcc_generated_files/fatfs/ff.c: 5173:      while (si < 11) {
-[e $ < _si -> -> 11 `i `ui 537  ]
-[e :U 538 ]
+[e $ < _si -> -> 11 `i `ui 599  ]
+[e :U 600 ]
 "5185
 [; ;mcc_generated_files/fatfs/ff.c: 5185:      do {
-[e :U 541 ]
+[e :U 603 ]
 {
 "5186
 [; ;mcc_generated_files/fatfs/ff.c: 5186:       label[di] = 0;
 [e = *U + _label * -> _di `ux -> -> # *U _label `ui `ux -> -> 0 `i `uc ]
 "5187
 [; ;mcc_generated_files/fatfs/ff.c: 5187:       if (di == 0) break;
-[e $ ! == _di -> -> 0 `i `ui 542  ]
-[e $U 540  ]
-[e :U 542 ]
+[e $ ! == _di -> -> 0 `i `ui 604  ]
+[e $U 602  ]
+[e :U 604 ]
 "5188
 [; ;mcc_generated_files/fatfs/ff.c: 5188:      } while (label[--di] == ' ');
 }
-[e $ == -> *U + _label * -> =- _di -> -> 1 `i `ui `ux -> -> # *U _label `ui `ux `ui -> 32 `ui 541  ]
-[e :U 540 ]
+[e $ == -> *U + _label * -> =- _di -> -> 1 `i `ui `ux -> -> # *U _label `ui `ux `ui -> 32 `ui 603  ]
+[e :U 602 ]
 "5189
 [; ;mcc_generated_files/fatfs/ff.c: 5189:     }
 }
 "5190
 [; ;mcc_generated_files/fatfs/ff.c: 5190:    }
 }
-[e :U 535 ]
+[e :U 597 ]
 "5191
 [; ;mcc_generated_files/fatfs/ff.c: 5191:   }
 }
-[e :U 534 ]
+[e :U 596 ]
 "5192
 [; ;mcc_generated_files/fatfs/ff.c: 5192:   if (res == FR_NO_FILE) {
-[e $ ! == -> _res `ui -> . `E68 4 `ui 543  ]
+[e $ ! == -> _res `ui -> . `E69 4 `ui 605  ]
 {
 "5193
 [; ;mcc_generated_files/fatfs/ff.c: 5193:    label[0] = 0;
 [e = *U + _label * -> -> 0 `i `x -> -> # *U _label `i `x -> -> 0 `i `uc ]
 "5194
 [; ;mcc_generated_files/fatfs/ff.c: 5194:    res = FR_OK;
-[e = _res . `E68 0 ]
+[e = _res . `E69 0 ]
 "5195
 [; ;mcc_generated_files/fatfs/ff.c: 5195:   }
 }
-[e :U 543 ]
+[e :U 605 ]
 "5196
 [; ;mcc_generated_files/fatfs/ff.c: 5196:  }
 }
-[e :U 533 ]
+[e :U 595 ]
 "5199
 [; ;mcc_generated_files/fatfs/ff.c: 5199:  if (res == FR_OK && vsn) {
-[e $ ! && == -> _res `ui -> . `E68 0 `ui != _vsn -> -> 0 `i `*ul 544  ]
+[e $ ! && == -> _res `ui -> . `E69 0 `ui != _vsn -> -> 0 `i `*ul 606  ]
 {
 "5200
 [; ;mcc_generated_files/fatfs/ff.c: 5200:   res = move_window(fs, fs->volbase);
 [e = _res ( _move_window (2 , _fs . *U _fs 13 ]
 "5201
 [; ;mcc_generated_files/fatfs/ff.c: 5201:   if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 545  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 607  ]
 {
 "5202
 [; ;mcc_generated_files/fatfs/ff.c: 5202:    switch (fs->fs_type) {
-[e $U 547  ]
+[e $U 609  ]
 {
 "5203
 [; ;mcc_generated_files/fatfs/ff.c: 5203:    case 4:
-[e :U 548 ]
+[e :U 610 ]
 "5204
 [; ;mcc_generated_files/fatfs/ff.c: 5204:     di = 100; break;
 [e = _di -> -> 100 `i `ui ]
-[e $U 546  ]
+[e $U 608  ]
 "5206
 [; ;mcc_generated_files/fatfs/ff.c: 5206:    case 3:
-[e :U 549 ]
+[e :U 611 ]
 "5207
 [; ;mcc_generated_files/fatfs/ff.c: 5207:     di = 67; break;
 [e = _di -> -> 67 `i `ui ]
-[e $U 546  ]
+[e $U 608  ]
 "5209
 [; ;mcc_generated_files/fatfs/ff.c: 5209:    default:
-[e :U 550 ]
+[e :U 612 ]
 "5210
 [; ;mcc_generated_files/fatfs/ff.c: 5210:     di = 39;
 [e = _di -> -> 39 `i `ui ]
 "5211
 [; ;mcc_generated_files/fatfs/ff.c: 5211:    }
 }
-[e $U 546  ]
-[e :U 547 ]
-[e [\ -> . *U _fs 0 `i , $ -> 4 `i 548
- , $ -> 3 `i 549
- 550 ]
-[e :U 546 ]
+[e $U 608  ]
+[e :U 609 ]
+[e [\ -> . *U _fs 0 `i , $ -> 4 `i 610
+ , $ -> 3 `i 611
+ 612 ]
+[e :U 608 ]
 "5212
 [; ;mcc_generated_files/fatfs/ff.c: 5212:    *vsn = ld_dword(fs->win + di);
 [e = *U _vsn ( _ld_dword (1 -> + &U . *U _fs 18 * -> _di `ux -> -> # *U &U . *U _fs 18 `ui `ux `*Cuc ]
 "5213
 [; ;mcc_generated_files/fatfs/ff.c: 5213:   }
 }
-[e :U 545 ]
+[e :U 607 ]
 "5214
 [; ;mcc_generated_files/fatfs/ff.c: 5214:  }
 }
-[e :U 544 ]
+[e :U 606 ]
 "5216
 [; ;mcc_generated_files/fatfs/ff.c: 5216:  return res;
 [e ) _res ]
-[e $UE 532  ]
+[e $UE 594  ]
 "5217
 [; ;mcc_generated_files/fatfs/ff.c: 5217: }
-[e :UE 532 ]
+[e :UE 594 ]
 }
 "5226
 [; ;mcc_generated_files/fatfs/ff.c: 5226: FRESULT f_setlabel (
-[v _f_setlabel `(E68 ~T0 @X0 1 ef1`*Cuc ]
+[v _f_setlabel `(E69 ~T0 @X0 1 ef1`*Cuc ]
 "5229
 [; ;mcc_generated_files/fatfs/ff.c: 5229: {
 {
@@ -6605,7 +7109,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "5230
 [; ;mcc_generated_files/fatfs/ff.c: 5230:  FRESULT res;
-[v _res `E68 ~T0 @X0 1 a ]
+[v _res `E69 ~T0 @X0 1 a ]
 "5231
 [; ;mcc_generated_files/fatfs/ff.c: 5231:  FFDIR dj;
 [v _dj `S4 ~T0 @X0 1 a ]
@@ -6623,8 +7127,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _wc `us ~T0 @X0 1 a ]
 "5236
 [; ;mcc_generated_files/fatfs/ff.c: 5236:  static const char badchr[] = "+.,;=[]/\\\"*:<>\?|\x7F";
-[v F579 `Cuc ~T0 @X0 -> 18 `i s badchr ]
-[i F579
+[v F615 `Cuc ~T0 @X0 -> 18 `i s badchr ]
+[i F615
 :U ..
 -> 43 `c
 -> 46 `c
@@ -6651,10 +7155,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _find_volume (3 , , &U _label &U _fs -> -> 2 `i `uc ]
 "5243
 [; ;mcc_generated_files/fatfs/ff.c: 5243:  if (res != FR_OK) return res;
-[e $ ! != -> _res `ui -> . `E68 0 `ui 552  ]
+[e $ ! != -> _res `ui -> . `E69 0 `ui 614  ]
 [e ) _res ]
-[e $UE 551  ]
-[e :U 552 ]
+[e $UE 613  ]
+[e :U 614 ]
 "5265
 [; ;mcc_generated_files/fatfs/ff.c: 5265:  {
 {
@@ -6666,69 +7170,69 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _di -> -> 0 `i `ui ]
 "5268
 [; ;mcc_generated_files/fatfs/ff.c: 5268:   while ((UINT)*label >= ' ') {
-[e $U 553  ]
-[e :U 554 ]
+[e $U 615  ]
+[e :U 616 ]
 {
 "5273
 [; ;mcc_generated_files/fatfs/ff.c: 5273:    wc = (BYTE)*label++;
 [e = _wc -> -> *U ++ _label * -> -> 1 `i `x -> -> # *U _label `i `x `uc `us ]
 "5274
 [; ;mcc_generated_files/fatfs/ff.c: 5274:    if (dbc_1st((BYTE)wc)) wc = dbc_2nd((BYTE)*label) ? wc << 8 | (BYTE)*label++ : 0;
-[e $ ! != ( _dbc_1st (1 -> _wc `uc -> 0 `i 556  ]
+[e $ ! != ( _dbc_1st (1 -> _wc `uc -> 0 `i 618  ]
 [e = _wc -> ? != ( _dbc_2nd (1 -> *U _label `uc -> 0 `i : | << -> _wc `ui -> 8 `i -> -> *U ++ _label * -> -> 1 `i `x -> -> # *U _label `i `x `uc `ui -> -> 0 `i `ui `us ]
-[e :U 556 ]
+[e :U 618 ]
 "5275
 [; ;mcc_generated_files/fatfs/ff.c: 5275:    if (((wc) >= 'a' && (wc) <= 'z')) wc -= 0x20;
-[e $ ! && >= -> _wc `ui -> 97 `ui <= -> _wc `ui -> 122 `ui 557  ]
+[e $ ! && >= -> _wc `ui -> 97 `ui <= -> _wc `ui -> 122 `ui 619  ]
 [e =- _wc -> -> 32 `i `us ]
-[e :U 557 ]
+[e :U 619 ]
 "5279
 [; ;mcc_generated_files/fatfs/ff.c: 5279:    if (wc >= 0x80) wc = ExCvt[wc - 0x80];
-[e $ ! >= -> _wc `ui -> -> 128 `i `ui 558  ]
+[e $ ! >= -> _wc `ui -> -> 128 `i `ui 620  ]
 [e = _wc -> *U + &U _ExCvt * -> - -> _wc `ui -> -> 128 `i `ui `ux -> -> # *U &U _ExCvt `ui `ux `us ]
-[e :U 558 ]
+[e :U 620 ]
 "5282
 [; ;mcc_generated_files/fatfs/ff.c: 5282:    if (wc == 0 || chk_chr(badchr + 0, (int)wc) || di >= (UINT)((wc >= 0x100) ? 10 : 11)) {
-[e $ ! || || == -> _wc `ui -> -> 0 `i `ui != ( _chk_chr (2 , + &U F579 * -> -> 0 `i `x -> -> # *U &U F579 `i `x -> _wc `i -> 0 `i >= _di -> ? >= -> _wc `ui -> -> 256 `i `ui : -> 10 `i -> 11 `i `ui 559  ]
+[e $ ! || || == -> _wc `ui -> -> 0 `i `ui != ( _chk_chr (2 , + &U F615 * -> -> 0 `i `x -> -> # *U &U F615 `i `x -> _wc `i -> 0 `i >= _di -> ? >= -> _wc `ui -> -> 256 `i `ui : -> 10 `i -> 11 `i `ui 621  ]
 {
 "5283
 [; ;mcc_generated_files/fatfs/ff.c: 5283:     return FR_INVALID_NAME;
-[e ) . `E68 6 ]
-[e $UE 551  ]
+[e ) . `E69 6 ]
+[e $UE 613  ]
 "5284
 [; ;mcc_generated_files/fatfs/ff.c: 5284:    }
 }
-[e :U 559 ]
+[e :U 621 ]
 "5285
 [; ;mcc_generated_files/fatfs/ff.c: 5285:    if (wc >= 0x100) dirvn[di++] = (BYTE)(wc >> 8);
-[e $ ! >= -> _wc `ui -> -> 256 `i `ui 560  ]
+[e $ ! >= -> _wc `ui -> -> 256 `i `ui 622  ]
 [e = *U + &U _dirvn * -> ++ _di -> -> 1 `i `ui `ux -> -> # *U &U _dirvn `ui `ux -> >> -> _wc `ui -> 8 `i `uc ]
-[e :U 560 ]
+[e :U 622 ]
 "5286
 [; ;mcc_generated_files/fatfs/ff.c: 5286:    dirvn[di++] = (BYTE)wc;
 [e = *U + &U _dirvn * -> ++ _di -> -> 1 `i `ui `ux -> -> # *U &U _dirvn `ui `ux -> _wc `uc ]
 "5287
 [; ;mcc_generated_files/fatfs/ff.c: 5287:   }
 }
-[e :U 553 ]
+[e :U 615 ]
 "5268
 [; ;mcc_generated_files/fatfs/ff.c: 5268:   while ((UINT)*label >= ' ') {
-[e $ >= -> *U _label `ui -> 32 `ui 554  ]
-[e :U 555 ]
+[e $ >= -> *U _label `ui -> 32 `ui 616  ]
+[e :U 617 ]
 "5288
 [; ;mcc_generated_files/fatfs/ff.c: 5288:   if (dirvn[0] == 0xE5) return FR_INVALID_NAME;
-[e $ ! == -> *U + &U _dirvn * -> -> -> 0 `i `ui `ux -> -> # *U &U _dirvn `ui `ux `i -> 229 `i 561  ]
-[e ) . `E68 6 ]
-[e $UE 551  ]
-[e :U 561 ]
+[e $ ! == -> *U + &U _dirvn * -> -> -> 0 `i `ui `ux -> -> # *U &U _dirvn `ui `ux `i -> 229 `i 623  ]
+[e ) . `E69 6 ]
+[e $UE 613  ]
+[e :U 623 ]
 "5289
 [; ;mcc_generated_files/fatfs/ff.c: 5289:   while (di && dirvn[di - 1] == ' ') di--;
-[e $U 562  ]
-[e :U 563 ]
+[e $U 624  ]
+[e :U 625 ]
 [e -- _di -> -> 1 `i `ui ]
-[e :U 562 ]
-[e $ && != _di -> -> 0 `i `ui == -> *U + &U _dirvn * -> - _di -> -> 1 `i `ui `ux -> -> # *U &U _dirvn `ui `ux `ui -> 32 `ui 563  ]
-[e :U 564 ]
+[e :U 624 ]
+[e $ && != _di -> -> 0 `i `ui == -> *U + &U _dirvn * -> - _di -> -> 1 `i `ui `ux -> -> # *U &U _dirvn `ui `ux `ui -> 32 `ui 625  ]
+[e :U 626 ]
 "5290
 [; ;mcc_generated_files/fatfs/ff.c: 5290:  }
 }
@@ -6741,18 +7245,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _res ( _dir_sdi (2 , &U _dj -> -> -> 0 `i `l `ul ]
 "5295
 [; ;mcc_generated_files/fatfs/ff.c: 5295:  if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 565  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 627  ]
 {
 "5296
 [; ;mcc_generated_files/fatfs/ff.c: 5296:   res = dir_read(&dj, 1);
 [e = _res ( _dir_read (2 , &U _dj -> 1 `i ]
 "5297
 [; ;mcc_generated_files/fatfs/ff.c: 5297:   if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 566  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 628  ]
 {
 "5298
 [; ;mcc_generated_files/fatfs/ff.c: 5298:    if (0 && fs->fs_type == 4) {
-[e $ ! && != -> 0 `i -> 0 `i == -> . *U _fs 0 `i -> 4 `i 567  ]
+[e $ ! && != -> 0 `i -> 0 `i == -> . *U _fs 0 `i -> 4 `i 629  ]
 {
 "5299
 [; ;mcc_generated_files/fatfs/ff.c: 5299:     dj.dir[1] = (BYTE)di;
@@ -6763,12 +7267,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5301
 [; ;mcc_generated_files/fatfs/ff.c: 5301:    } else {
 }
-[e $U 568  ]
-[e :U 567 ]
+[e $U 630  ]
+[e :U 629 ]
 {
 "5302
 [; ;mcc_generated_files/fatfs/ff.c: 5302:     if (di != 0) {
-[e $ ! != _di -> -> 0 `i `ui 569  ]
+[e $ ! != _di -> -> 0 `i `ui 631  ]
 {
 "5303
 [; ;mcc_generated_files/fatfs/ff.c: 5303:      mem_cpy(dj.dir, dirvn, 11);
@@ -6776,8 +7280,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5304
 [; ;mcc_generated_files/fatfs/ff.c: 5304:     } else {
 }
-[e $U 570  ]
-[e :U 569 ]
+[e $U 632  ]
+[e :U 631 ]
 {
 "5305
 [; ;mcc_generated_files/fatfs/ff.c: 5305:      dj.dir[0] = 0xE5;
@@ -6785,11 +7289,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5306
 [; ;mcc_generated_files/fatfs/ff.c: 5306:     }
 }
-[e :U 570 ]
+[e :U 632 ]
 "5307
 [; ;mcc_generated_files/fatfs/ff.c: 5307:    }
 }
-[e :U 568 ]
+[e :U 630 ]
 "5308
 [; ;mcc_generated_files/fatfs/ff.c: 5308:    fs->wflag = 1;
 [e = . *U _fs 3 -> -> 1 `i `uc ]
@@ -6799,33 +7303,33 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5310
 [; ;mcc_generated_files/fatfs/ff.c: 5310:   } else {
 }
-[e $U 571  ]
-[e :U 566 ]
+[e $U 633  ]
+[e :U 628 ]
 {
 "5311
 [; ;mcc_generated_files/fatfs/ff.c: 5311:    if (res == FR_NO_FILE) {
-[e $ ! == -> _res `ui -> . `E68 4 `ui 572  ]
+[e $ ! == -> _res `ui -> . `E69 4 `ui 634  ]
 {
 "5312
 [; ;mcc_generated_files/fatfs/ff.c: 5312:     res = FR_OK;
-[e = _res . `E68 0 ]
+[e = _res . `E69 0 ]
 "5313
 [; ;mcc_generated_files/fatfs/ff.c: 5313:     if (di != 0) {
-[e $ ! != _di -> -> 0 `i `ui 573  ]
+[e $ ! != _di -> -> 0 `i `ui 635  ]
 {
 "5314
 [; ;mcc_generated_files/fatfs/ff.c: 5314:      res = dir_alloc(&dj, 1);
 [e = _res ( _dir_alloc (2 , &U _dj -> -> 1 `i `ui ]
 "5315
 [; ;mcc_generated_files/fatfs/ff.c: 5315:      if (res == FR_OK) {
-[e $ ! == -> _res `ui -> . `E68 0 `ui 574  ]
+[e $ ! == -> _res `ui -> . `E69 0 `ui 636  ]
 {
 "5316
 [; ;mcc_generated_files/fatfs/ff.c: 5316:       mem_set(dj.dir, 0, 32);
 [e ( _mem_set (3 , , -> . _dj 4 `*v -> 0 `i -> -> 32 `i `ui ]
 "5317
 [; ;mcc_generated_files/fatfs/ff.c: 5317:       if (0 && fs->fs_type == 4) {
-[e $ ! && != -> 0 `i -> 0 `i == -> . *U _fs 0 `i -> 4 `i 575  ]
+[e $ ! && != -> 0 `i -> 0 `i == -> . *U _fs 0 `i -> 4 `i 637  ]
 {
 "5318
 [; ;mcc_generated_files/fatfs/ff.c: 5318:        dj.dir[0] = 0x83;
@@ -6839,8 +7343,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5321
 [; ;mcc_generated_files/fatfs/ff.c: 5321:       } else {
 }
-[e $U 576  ]
-[e :U 575 ]
+[e $U 638  ]
+[e :U 637 ]
 {
 "5322
 [; ;mcc_generated_files/fatfs/ff.c: 5322:        dj.dir[11] = 0x08;
@@ -6851,7 +7355,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5324
 [; ;mcc_generated_files/fatfs/ff.c: 5324:       }
 }
-[e :U 576 ]
+[e :U 638 ]
 "5325
 [; ;mcc_generated_files/fatfs/ff.c: 5325:       fs->wflag = 1;
 [e = . *U _fs 3 -> -> 1 `i `uc ]
@@ -6861,30 +7365,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5327
 [; ;mcc_generated_files/fatfs/ff.c: 5327:      }
 }
-[e :U 574 ]
+[e :U 636 ]
 "5328
 [; ;mcc_generated_files/fatfs/ff.c: 5328:     }
 }
-[e :U 573 ]
+[e :U 635 ]
 "5329
 [; ;mcc_generated_files/fatfs/ff.c: 5329:    }
 }
-[e :U 572 ]
+[e :U 634 ]
 "5330
 [; ;mcc_generated_files/fatfs/ff.c: 5330:   }
 }
-[e :U 571 ]
+[e :U 633 ]
 "5331
 [; ;mcc_generated_files/fatfs/ff.c: 5331:  }
 }
-[e :U 565 ]
+[e :U 627 ]
 "5333
 [; ;mcc_generated_files/fatfs/ff.c: 5333:  return res;
 [e ) _res ]
-[e $UE 551  ]
+[e $UE 613  ]
 "5334
 [; ;mcc_generated_files/fatfs/ff.c: 5334: }
-[e :UE 551 ]
+[e :UE 613 ]
 }
 [a 1C 34 42 43 44 58 59 60 61 62 63 91 93 124 127 0 ]
 [a 2C 34 42 43 44 58 59 60 61 62 63 91 93 124 127 0 ]

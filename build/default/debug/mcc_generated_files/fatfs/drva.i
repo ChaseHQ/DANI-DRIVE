@@ -16021,10 +16021,18 @@ unsigned char __t3rd16on(void);
 # 50 "mcc_generated_files/fatfs/../mcc.h" 2
 
 # 1 "mcc_generated_files/fatfs/../pin_manager.h" 1
-# 178 "mcc_generated_files/fatfs/../pin_manager.h"
+# 378 "mcc_generated_files/fatfs/../pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 190 "mcc_generated_files/fatfs/../pin_manager.h"
+# 390 "mcc_generated_files/fatfs/../pin_manager.h"
 void PIN_MANAGER_IOC(void);
+# 403 "mcc_generated_files/fatfs/../pin_manager.h"
+void IOCCF1_ISR(void);
+# 426 "mcc_generated_files/fatfs/../pin_manager.h"
+void IOCCF1_SetInterruptHandler(void (* InterruptHandler)(void));
+# 450 "mcc_generated_files/fatfs/../pin_manager.h"
+extern void (*IOCCF1_InterruptHandler)(void);
+# 474 "mcc_generated_files/fatfs/../pin_manager.h"
+void IOCCF1_DefaultInterruptHandler(void);
 # 51 "mcc_generated_files/fatfs/../mcc.h" 2
 
 
@@ -16414,7 +16422,7 @@ typedef struct {
 
 
 
-
+ const TCHAR* pat;
 
 } FFDIR;
 
@@ -16781,15 +16789,14 @@ _Bool DRVA_IsWriteProtected(void)
 
 uint16_t DRVA_GetSectorSize(void)
 {
-
     return 512;
 }
 
-uint32_t DRVA_GetSectorCount(void)
-{
 
-    return 0;
-}
+
+
+
+
 
 _Bool DRVA_SectorRead(uint32_t sector_address, uint8_t* buffer, uint16_t sector_count)
 {

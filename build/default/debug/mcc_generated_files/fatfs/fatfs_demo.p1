@@ -16,20 +16,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _DRVA_IsMediaPresent `(a ~T0 @X0 0 ef ]
 "39 mcc_generated_files/fatfs/fatfs_demo.c
 [; ;mcc_generated_files/fatfs/fatfs_demo.c: 39:     if (f_mount(&drive,"0:",1) == FR_OK)
-[c E68 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 .. ]
-[n E68 . FR_OK FR_DISK_ERR FR_INT_ERR FR_NOT_READY FR_NO_FILE FR_NO_PATH FR_INVALID_NAME FR_DENIED FR_EXIST FR_INVALID_OBJECT FR_WRITE_PROTECTED FR_INVALID_DRIVE FR_NOT_ENABLED FR_NO_FILESYSTEM FR_MKFS_ABORTED FR_TIMEOUT FR_LOCKED FR_NOT_ENOUGH_CORE FR_TOO_MANY_OPEN_FILES FR_INVALID_PARAMETER  ]
+[c E69 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 .. ]
+[n E69 . FR_OK FR_DISK_ERR FR_INT_ERR FR_NOT_READY FR_NO_FILE FR_NO_PATH FR_INVALID_NAME FR_DENIED FR_EXIST FR_INVALID_OBJECT FR_WRITE_PROTECTED FR_INVALID_DRIVE FR_NOT_ENABLED FR_NO_FILESYSTEM FR_MKFS_ABORTED FR_TIMEOUT FR_LOCKED FR_NOT_ENOUGH_CORE FR_TOO_MANY_OPEN_FILES FR_INVALID_PARAMETER  ]
 "280 mcc_generated_files/fatfs/ff.h
 [; ;mcc_generated_files/fatfs/ff.h: 280: FRESULT f_mount (FATFS* fs, const TCHAR* path, BYTE opt);
-[v _f_mount `(E68 ~T0 @X0 0 ef3`*S1`*Cuc`uc ]
+[v _f_mount `(E69 ~T0 @X0 0 ef3`*S1`*Cuc`uc ]
 "254
 [; ;mcc_generated_files/fatfs/ff.h: 254: FRESULT f_open (FIL* fp, const TCHAR* path, BYTE mode);
-[v _f_open `(E68 ~T0 @X0 0 ef3`*S3`*Cuc`uc ]
+[v _f_open `(E69 ~T0 @X0 0 ef3`*S3`*Cuc`uc ]
 "257
 [; ;mcc_generated_files/fatfs/ff.h: 257: FRESULT f_write (FIL* fp, const void* buff, UINT btw, UINT* bw);
-[v _f_write `(E68 ~T0 @X0 0 ef4`*S3`*Cv`ui`*ui ]
+[v _f_write `(E69 ~T0 @X0 0 ef4`*S3`*Cv`ui`*ui ]
 "255
 [; ;mcc_generated_files/fatfs/ff.h: 255: FRESULT f_close (FIL* fp);
-[v _f_close `(E68 ~T0 @X0 0 ef1`*S3 ]
+[v _f_close `(E69 ~T0 @X0 0 ef1`*S3 ]
 "27 mcc_generated_files/fatfs/fatfs_demo.c
 [; ;mcc_generated_files/fatfs/fatfs_demo.c: 27: static FATFS drive;
 [v _drive `S1 ~T0 @X0 1 s ]
@@ -47,8 +47,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "32
 [; ;mcc_generated_files/fatfs/fatfs_demo.c: 32:     UINT actualLength;
 [v _actualLength `ui ~T0 @X0 1 a ]
-[v F261 `uc ~T0 @X0 -> 13 `i s ]
-[i F261
+[v F262 `uc ~T0 @X0 -> 13 `i s ]
+[i F262
 :U ..
 "33
 [; ;mcc_generated_files/fatfs/fatfs_demo.c: 33:     char data[] = "Hello World!";
@@ -68,7 +68,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _data `uc ~T0 @X0 -> 13 `i a ]
-[e = _data F261 ]
+[e = _data F262 ]
 "34
 [; ;mcc_generated_files/fatfs/fatfs_demo.c: 34:     if( DRVA_IsMediaPresent() == 0)
 [e $ ! == -> ( _DRVA_IsMediaPresent ..  `i -> 0 `i 7  ]
@@ -84,13 +84,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 7 ]
 "39
 [; ;mcc_generated_files/fatfs/fatfs_demo.c: 39:     if (f_mount(&drive,"0:",1) == FR_OK)
-[e $ ! == -> ( _f_mount (3 , , &U _drive :s 1C -> -> 1 `i `uc `ui -> . `E68 0 `ui 8  ]
+[e $ ! == -> ( _f_mount (3 , , &U _drive :s 1C -> -> 1 `i `uc `ui -> . `E69 0 `ui 8  ]
 "40
 [; ;mcc_generated_files/fatfs/fatfs_demo.c: 40:     {
 {
 "41
 [; ;mcc_generated_files/fatfs/fatfs_demo.c: 41:         if (f_open(&file, "HELLO.TXT", 0x02 | 0x04 ) == FR_OK)
-[e $ ! == -> ( _f_open (3 , , &U _file :s 2C -> | -> 2 `i -> 4 `i `uc `ui -> . `E68 0 `ui 9  ]
+[e $ ! == -> ( _f_open (3 , , &U _file :s 2C -> | -> 2 `i -> 4 `i `uc `ui -> . `E69 0 `ui 9  ]
 "42
 [; ;mcc_generated_files/fatfs/fatfs_demo.c: 42:         {
 {

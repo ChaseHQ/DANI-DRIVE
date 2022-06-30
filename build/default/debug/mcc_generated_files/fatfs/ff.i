@@ -126,7 +126,7 @@ typedef struct {
 
 
 
-
+ const TCHAR* pat;
 
 } FFDIR;
 
@@ -959,6 +959,62 @@ static void get_fileinfo (
  fno->ftime = ld_word(dp->dir + 22 + 0);
  fno->fdate = ld_word(dp->dir + 22 + 2);
 }
+# 2740 "mcc_generated_files/fatfs/ff.c"
+static DWORD get_achar (
+ const TCHAR** ptr
+)
+{
+ DWORD chr;
+# 2753 "mcc_generated_files/fatfs/ff.c"
+ chr = (BYTE)*(*ptr)++;
+ if (((chr) >= 'a' && (chr) <= 'z')) chr -= 0x20;
+
+
+
+ if (chr >= 0x80) chr = ExCvt[chr - 0x80];
+# 2767 "mcc_generated_files/fatfs/ff.c"
+ return chr;
+}
+
+
+static int pattern_matching (
+ const TCHAR* pat,
+ const TCHAR* nam,
+ int skip,
+ int inf
+)
+{
+ const TCHAR *pp, *np;
+ DWORD pc, nc;
+ int nm, nx;
+
+
+ while (skip--) {
+  if (!get_achar(&nam)) return 0;
+ }
+ if (*pat == 0 && inf) return 1;
+
+ do {
+  pp = pat; np = nam;
+  for (;;) {
+   if (*pp == '?' || *pp == '*') {
+    nm = nx = 0;
+    do {
+     if (*pp++ == '?') nm++; else nx = 1;
+    } while (*pp == '?' || *pp == '*');
+    if (pattern_matching(pp, np, nm, nx)) return 1;
+    nc = *np; break;
+   }
+   pc = get_achar(&pp);
+   nc = get_achar(&np);
+   if (pc != nc) break;
+   if (pc == 0) return 1;
+  }
+  get_achar(&nam);
+ } while (inf && nc);
+
+ return 0;
+}
 # 2818 "mcc_generated_files/fatfs/ff.c"
 static FRESULT create_name (
  FFDIR* dp,
@@ -1061,7 +1117,7 @@ static FRESULT follow_path (
    ns = dp->fn[11];
    if (res != FR_OK) {
     if (res == FR_NO_FILE) {
-     if (1 && (ns & 0x20)) {
+     if (2 && (ns & 0x20)) {
       if (!(ns & 0x04)) continue;
       dp->fn[11] = 0x80;
       res = FR_OK;
@@ -1864,6 +1920,78 @@ FRESULT f_chdir (
 
  return res;
 }
+
+
+
+FRESULT f_getcwd (
+ TCHAR* buff,
+ UINT len
+)
+{
+ FRESULT res;
+ FFDIR dj;
+ FATFS *fs;
+ UINT i, n;
+ DWORD ccl;
+ TCHAR *tp = buff;
+
+
+
+
+
+
+ FILINFO fno;
+
+
+
+
+ res = find_volume((const TCHAR**)&buff, &fs, 0);
+ if (res == FR_OK) {
+  dj.obj.fs = fs;
+                 ;
+
+
+  i = len;
+  if (!0 || fs->fs_type != 4) {
+   dj.obj.sclust = fs->cdir;
+   while ((ccl = dj.obj.sclust) != 0) {
+    res = dir_sdi(&dj, 1 * 32);
+    if (res != FR_OK) break;
+    res = move_window(fs, dj.sect);
+    if (res != FR_OK) break;
+    dj.obj.sclust = ld_clust(fs, dj.dir);
+    res = dir_sdi(&dj, 0);
+    if (res != FR_OK) break;
+    do {
+     res = dir_read(&dj, 0);
+     if (res != FR_OK) break;
+     if (ccl == ld_clust(fs, dj.dir)) break;
+     res = dir_next(&dj, 0);
+    } while (res == FR_OK);
+    if (res == FR_NO_FILE) res = FR_INT_ERR;
+    if (res != FR_OK) break;
+    get_fileinfo(&dj, &fno);
+    for (n = 0; fno.fname[n]; n++) ;
+    if (i < n + 1) {
+     res = FR_NOT_ENOUGH_CORE; break;
+    }
+    while (n) buff[--i] = fno.fname[--n];
+    buff[--i] = '/';
+   }
+  }
+  if (res == FR_OK) {
+   if (i == len) buff[--i] = '/';
+# 4205 "mcc_generated_files/fatfs/ff.c"
+   if (res == FR_OK) {
+    do *tp++ = buff[i++]; while (i < len);
+   }
+  }
+               ;
+ }
+
+ *tp = 0;
+ return res;
+}
 # 4226 "mcc_generated_files/fatfs/ff.c"
 FRESULT f_lseek (
  FIL* fp,
@@ -2060,6 +2188,49 @@ FRESULT f_readdir (
  }
  return res;
 }
+# 4519 "mcc_generated_files/fatfs/ff.c"
+FRESULT f_findnext (
+ FFDIR* dp,
+ FILINFO* fno
+)
+{
+ FRESULT res;
+
+
+ for (;;) {
+  res = f_readdir(dp, fno);
+  if (res != FR_OK || !fno || !fno->fname[0]) break;
+  if (pattern_matching(dp->pat, fno->fname, 0, 0)) break;
+
+
+
+ }
+ return res;
+}
+
+
+
+
+
+
+
+FRESULT f_findfirst (
+ FFDIR* dp,
+ FILINFO* fno,
+ const TCHAR* path,
+ const TCHAR* pattern
+)
+{
+ FRESULT res;
+
+
+ dp->pat = pattern;
+ res = f_opendir(dp, path);
+ if (res == FR_OK) {
+  res = f_findnext(dp, fno);
+ }
+ return res;
+}
 # 4571 "mcc_generated_files/fatfs/ff.c"
 FRESULT f_stat (
  const TCHAR* path,
@@ -2214,7 +2385,7 @@ FRESULT f_unlink (
   dj.obj.fs = fs;
                  ;
   res = follow_path(&dj, path);
-  if (1 && res == FR_OK && (dj.fn[11] & 0x20)) {
+  if (2 && res == FR_OK && (dj.fn[11] & 0x20)) {
    res = FR_INVALID_NAME;
   }
 
@@ -2300,7 +2471,7 @@ FRESULT f_mkdir (
                  ;
   res = follow_path(&dj, path);
   if (res == FR_OK) res = FR_EXIST;
-  if (1 && res == FR_NO_FILE && (dj.fn[11] & 0x20)) {
+  if (2 && res == FR_NO_FILE && (dj.fn[11] & 0x20)) {
    res = FR_INVALID_NAME;
   }
   if (res == FR_NO_FILE) {

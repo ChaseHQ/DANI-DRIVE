@@ -45,6 +45,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "297 mcc_generated_files/tmr0.h
 [; ;mcc_generated_files/tmr0.h: 297: void TMR0_ISR(void);
 [v _TMR0_ISR `(v ~T0 @X0 0 ef ]
+"390 mcc_generated_files/pin_manager.h
+[; ;mcc_generated_files/pin_manager.h: 390: void PIN_MANAGER_IOC(void);
+[v _PIN_MANAGER_IOC `(v ~T0 @X0 0 ef ]
 "55 C:/Users/Craig Vella/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f27k40.h
 [; ;C:/Users/Craig Vella/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f27k40.h: 55: __asm("RX2PPS equ 0E8Dh");
 [; <" RX2PPS equ 0E8Dh ;# ">
@@ -1391,16 +1394,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1448  ]
 "65
-[; ;mcc_generated_files/interrupt_manager.c: 65:     else
+[; ;mcc_generated_files/interrupt_manager.c: 65:     else if(PIE0bits.IOCIE == 1 && PIR0bits.IOCIF == 1)
 [e :U 1447 ]
+[e $ ! && == -> . . _PIE0bits 0 4 `i -> 1 `i == -> . . _PIR0bits 0 4 `i -> 1 `i 1449  ]
 "66
 [; ;mcc_generated_files/interrupt_manager.c: 66:     {
 {
+"67
+[; ;mcc_generated_files/interrupt_manager.c: 67:         PIN_MANAGER_IOC();
+[e ( _PIN_MANAGER_IOC ..  ]
 "68
 [; ;mcc_generated_files/interrupt_manager.c: 68:     }
 }
-[e :U 1448 ]
+[e $U 1450  ]
 "69
-[; ;mcc_generated_files/interrupt_manager.c: 69: }
+[; ;mcc_generated_files/interrupt_manager.c: 69:     else
+[e :U 1449 ]
+"70
+[; ;mcc_generated_files/interrupt_manager.c: 70:     {
+{
+"72
+[; ;mcc_generated_files/interrupt_manager.c: 72:     }
+}
+[e :U 1450 ]
+[e :U 1448 ]
+"73
+[; ;mcc_generated_files/interrupt_manager.c: 73: }
 [e :UE 1446 ]
 }

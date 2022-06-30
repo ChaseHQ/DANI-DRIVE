@@ -16021,10 +16021,18 @@ unsigned char __t3rd16on(void);
 # 50 "mcc_generated_files/fatfs/../mcc.h" 2
 
 # 1 "mcc_generated_files/fatfs/../pin_manager.h" 1
-# 178 "mcc_generated_files/fatfs/../pin_manager.h"
+# 378 "mcc_generated_files/fatfs/../pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 190 "mcc_generated_files/fatfs/../pin_manager.h"
+# 390 "mcc_generated_files/fatfs/../pin_manager.h"
 void PIN_MANAGER_IOC(void);
+# 403 "mcc_generated_files/fatfs/../pin_manager.h"
+void IOCCF1_ISR(void);
+# 426 "mcc_generated_files/fatfs/../pin_manager.h"
+void IOCCF1_SetInterruptHandler(void (* InterruptHandler)(void));
+# 450 "mcc_generated_files/fatfs/../pin_manager.h"
+extern void (*IOCCF1_InterruptHandler)(void);
+# 474 "mcc_generated_files/fatfs/../pin_manager.h"
+void IOCCF1_DefaultInterruptHandler(void);
 # 51 "mcc_generated_files/fatfs/../mcc.h" 2
 
 
