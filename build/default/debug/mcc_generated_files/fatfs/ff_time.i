@@ -16236,14 +16236,6 @@ unsigned char __t3rd16on(void);
 void PIN_MANAGER_Initialize (void);
 # 390 "./mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
-# 403 "./mcc_generated_files/pin_manager.h"
-void IOCCF1_ISR(void);
-# 426 "./mcc_generated_files/pin_manager.h"
-void IOCCF1_SetInterruptHandler(void (* InterruptHandler)(void));
-# 450 "./mcc_generated_files/pin_manager.h"
-extern void (*IOCCF1_InterruptHandler)(void);
-# 474 "./mcc_generated_files/pin_manager.h"
-void IOCCF1_DefaultInterruptHandler(void);
 # 51 "./mcc_generated_files/mcc.h" 2
 
 
@@ -16627,7 +16619,7 @@ struct tm *getdate (const char *);
 
 
 
-void SetClock(uint8_t year, uint8_t month, uint8_t dayOfMonth, uint8_t dayOfWeek, uint8_t hour, uint8_t minute, uint8_t second);
+void SetClock(size_t year, uint8_t month, uint8_t dayOfMonth, uint8_t dayOfWeek, uint8_t hour, uint8_t minute, uint8_t second);
 struct tm ReadClock();
 # 63 "mcc_generated_files/fatfs/ff_time.c" 2
 

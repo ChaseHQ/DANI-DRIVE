@@ -22,55 +22,36 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29 ./mcc_generated_files/fatfs/drva.h
 [; ;./mcc_generated_files/fatfs/drva.h: 29: _Bool DRVA_IsMediaPresent(void);
 [v _DRVA_IsMediaPresent `(a ~T0 @X0 0 ef ]
-"20 main.c
-[; ;main.c: 20:         if (f_mount(&drive,"0:",1) == FR_OK)
-[c E10085 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 .. ]
-[n E10085 . FR_OK FR_DISK_ERR FR_INT_ERR FR_NOT_READY FR_NO_FILE FR_NO_PATH FR_INVALID_NAME FR_DENIED FR_EXIST FR_INVALID_OBJECT FR_WRITE_PROTECTED FR_INVALID_DRIVE FR_NOT_ENABLED FR_NO_FILESYSTEM FR_MKFS_ABORTED FR_TIMEOUT FR_LOCKED FR_NOT_ENOUGH_CORE FR_TOO_MANY_OPEN_FILES FR_INVALID_PARAMETER  ]
+"16 main.c
+[; ;main.c: 16:         if (f_mount(&drive,"0:",1) == FR_OK)
+[c E10077 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 .. ]
+[n E10077 . FR_OK FR_DISK_ERR FR_INT_ERR FR_NOT_READY FR_NO_FILE FR_NO_PATH FR_INVALID_NAME FR_DENIED FR_EXIST FR_INVALID_OBJECT FR_WRITE_PROTECTED FR_INVALID_DRIVE FR_NOT_ENABLED FR_NO_FILESYSTEM FR_MKFS_ABORTED FR_TIMEOUT FR_LOCKED FR_NOT_ENOUGH_CORE FR_TOO_MANY_OPEN_FILES FR_INVALID_PARAMETER  ]
 "280 ./mcc_generated_files/fatfs/ff.h
 [; ;./mcc_generated_files/fatfs/ff.h: 280: FRESULT f_mount (FATFS* fs, const TCHAR* path, BYTE opt);
-[v _f_mount `(E10085 ~T0 @X0 0 ef3`*S1440`*Cuc`uc ]
+[v _f_mount `(E10077 ~T0 @X0 0 ef3`*S1440`*Cuc`uc ]
 "254
 [; ;./mcc_generated_files/fatfs/ff.h: 254: FRESULT f_open (FIL* fp, const TCHAR* path, BYTE mode);
-[v _f_open `(E10085 ~T0 @X0 0 ef3`*S1442`*Cuc`uc ]
+[v _f_open `(E10077 ~T0 @X0 0 ef3`*S1442`*Cuc`uc ]
 "257
 [; ;./mcc_generated_files/fatfs/ff.h: 257: FRESULT f_write (FIL* fp, const void* buff, UINT btw, UINT* bw);
-[v _f_write `(E10085 ~T0 @X0 0 ef4`*S1442`*Cv`ui`*ui ]
+[v _f_write `(E10077 ~T0 @X0 0 ef4`*S1442`*Cv`ui`*ui ]
 "255
 [; ;./mcc_generated_files/fatfs/ff.h: 255: FRESULT f_close (FIL* fp);
-[v _f_close `(E10085 ~T0 @X0 0 ef1`*S1442 ]
+[v _f_close `(E10077 ~T0 @X0 0 ef1`*S1442 ]
 "8 C:/Users/Craig Vella/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\builtins.h
 [v ___nop `(v ~T0 @X0 0 ef ]
 [p i ___nop ]
-"15694 C:/Users/Craig Vella/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f27k40.h
-[; ;C:/Users/Craig Vella/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f27k40.h: 15694:     struct {
-[s S792 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S792 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
-"15704
-[; ;C:/Users/Craig Vella/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f27k40.h: 15704:     struct {
-[s S793 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S793 . LC0 LC1 LC2 LC3 LC4 LC5 LC6 LC7 ]
-"15693
-[; ;C:/Users/Craig Vella/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f27k40.h: 15693: typedef union {
-[u S791 `S792 1 `S793 1 ]
-[n S791 . . . ]
-"15715
-[; ;C:/Users/Craig Vella/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f27k40.h: 15715: extern volatile LATCbits_t LATCbits __attribute__((address(0xF85)));
-[v _LATCbits `VS791 ~T0 @X0 0 e@3973 ]
 [p mainexit ]
 "74 ./mcc_generated_files/mcc.h
 [; ;./mcc_generated_files/mcc.h: 74: void SYSTEM_Initialize(void);
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
-[v F10012 `(v ~T0 @X0 0 tf ]
+[v F10004 `(v ~T0 @X0 0 tf ]
 "333 ./mcc_generated_files/tmr0.h
 [; ;./mcc_generated_files/tmr0.h: 333:  void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
-[v _TMR0_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F10012 ]
+[v _TMR0_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F10004 ]
 "40 ./mcc_generated_files/fatfs/drva.h
 [; ;./mcc_generated_files/fatfs/drva.h: 40: void DRVA_TMR_ms(void);
 [v _DRVA_TMR_ms `(v ~T0 @X0 0 ef ]
-[v F9582 `(v ~T0 @X0 0 tf ]
-"426 ./mcc_generated_files/pin_manager.h
-[; ;./mcc_generated_files/pin_manager.h: 426: void IOCCF1_SetInterruptHandler(void (* InterruptHandler)(void));
-[v _IOCCF1_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F9582 ]
 "26395 C:/Users/Craig Vella/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f27k40.h
 [; ;C:/Users/Craig Vella/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f27k40.h: 26395:     struct {
 [s S1408 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -93,6 +74,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "135 ./mcc_generated_files/tmr0.h
 [; ;./mcc_generated_files/tmr0.h: 135: void TMR0_StartTimer(void);
 [v _TMR0_StartTimer `(v ~T0 @X0 0 ef ]
+"19 ./rtcdrv.h
+[; ;./rtcdrv.h: 19: void rtcdrv_poll(void);
+[v _rtcdrv_poll `(v ~T0 @X0 0 ef ]
 "55 C:/Users/Craig Vella/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f27k40.h
 [; ;C:/Users/Craig Vella/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f27k40.h: 55: __asm("RX2PPS equ 0E8Dh");
 [; <" RX2PPS equ 0E8Dh ;# ">
@@ -1401,32 +1385,32 @@ Version 4.0 HI-TECH Software Intermediate Code
 "26838
 [; ;C:/Users/Craig Vella/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f27k40.h: 26838: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"9 main.c
-[; ;main.c: 9:     FATFS drive;
+"5 main.c
+[; ;main.c: 5:     FATFS drive;
 [v _drive `S1440 ~T0 @X0 1 e ]
-"10
-[; ;main.c: 10:     FIL file;
+"6
+[; ;main.c: 6:     FIL file;
 [v _file `S1442 ~T0 @X0 1 e ]
-"11
-[; ;main.c: 11:     FFDIR dir;
+"7
+[; ;main.c: 7:     FFDIR dir;
 [v _dir `S1443 ~T0 @X0 1 e ]
-"12
-[; ;main.c: 12:     FILINFO fno;
+"8
+[; ;main.c: 8:     FILINFO fno;
 [v _fno `S1444 ~T0 @X0 1 e ]
-"14
-[; ;main.c: 14: void DiskTest() {
+"10
+[; ;main.c: 10: void DiskTest() {
 [v _DiskTest `(v ~T0 @X0 1 ef ]
 {
 [e :U _DiskTest ]
 [f ]
-"15
-[; ;main.c: 15:     UINT actualLength;
+"11
+[; ;main.c: 11:     UINT actualLength;
 [v _actualLength `ui ~T0 @X0 1 a ]
-[v F10576 `uc ~T0 @X0 -> 13 `i s ]
-[i F10576
+[v F10412 `uc ~T0 @X0 -> 13 `i s ]
+[i F10412
 :U ..
-"16
-[; ;main.c: 16:     char data[] = "Hello World!";
+"12
+[; ;main.c: 12:     char data[] = "Hello World!";
 -> 72 `c
 -> 101 `c
 -> 108 `c
@@ -1443,150 +1427,107 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _data `uc ~T0 @X0 -> 13 `i a ]
-[e = _data F10576 ]
+[e = _data F10412 ]
+"14
+[; ;main.c: 14:     if (DRVA_IsMediaPresent()) {
+[e $ ! != -> ( _DRVA_IsMediaPresent ..  `i -> 0 `i 1453  ]
+{
+"16
+[; ;main.c: 16:         if (f_mount(&drive,"0:",1) == FR_OK)
+[e $ ! == -> ( _f_mount (3 , , &U _drive :s 1C -> -> 1 `i `uc `ui -> . `E10077 0 `ui 1454  ]
+"17
+[; ;main.c: 17:         {
+{
 "18
-[; ;main.c: 18:     if (DRVA_IsMediaPresent()) {
-[e $ ! != -> ( _DRVA_IsMediaPresent ..  `i -> 0 `i 1451  ]
+[; ;main.c: 18:             if (f_open(&file, "another.txt", 0x02 | 0x04 ) == FR_OK)
+[e $ ! == -> ( _f_open (3 , , &U _file :s 2C -> | -> 2 `i -> 4 `i `uc `ui -> . `E10077 0 `ui 1455  ]
+"19
+[; ;main.c: 19:             {
 {
 "20
-[; ;main.c: 20:         if (f_mount(&drive,"0:",1) == FR_OK)
-[e $ ! == -> ( _f_mount (3 , , &U _drive :s 1C -> -> 1 `i `uc `ui -> . `E10085 0 `ui 1452  ]
-"21
-[; ;main.c: 21:         {
-{
-"22
-[; ;main.c: 22:             if (f_open(&file, "another.txt", 0x02 | 0x04 ) == FR_OK)
-[e $ ! == -> ( _f_open (3 , , &U _file :s 2C -> | -> 2 `i -> 4 `i `uc `ui -> . `E10085 0 `ui 1453  ]
-"23
-[; ;main.c: 23:             {
-{
-"24
-[; ;main.c: 24:                 f_write(&file, data, sizeof(data)-1, &actualLength );
+[; ;main.c: 20:                 f_write(&file, data, sizeof(data)-1, &actualLength );
 [e ( _f_write (4 , , , &U _file -> &U _data `*Cv - -> # _data `ui -> -> 1 `i `ui &U _actualLength ]
-"25
-[; ;main.c: 25:                 f_close(&file);
+"21
+[; ;main.c: 21:                 f_close(&file);
 [e ( _f_close (1 &U _file ]
-"26
-[; ;main.c: 26:             }
+"22
+[; ;main.c: 22:             }
+}
+[e :U 1455 ]
+"28
+[; ;main.c: 28:             f_mount(0,"0:",0);
+[e ( _f_mount (3 , , -> -> 0 `i `*S1440 :s 3C -> -> 0 `i `uc ]
+"29
+[; ;main.c: 29:         }
+}
+[e :U 1454 ]
+"30
+[; ;main.c: 30:         __nop();
+[e ( ___nop ..  ]
+"31
+[; ;main.c: 31:     }
 }
 [e :U 1453 ]
 "32
-[; ;main.c: 32:             f_mount(0,"0:",0);
-[e ( _f_mount (3 , , -> -> 0 `i `*S1440 :s 3C -> -> 0 `i `uc ]
-"33
-[; ;main.c: 33:         }
-}
-[e :U 1452 ]
-"34
-[; ;main.c: 34:         __nop();
-[e ( ___nop ..  ]
-"35
-[; ;main.c: 35:     }
-}
-[e :U 1451 ]
-"36
-[; ;main.c: 36: }
-[e :UE 1450 ]
-}
-"38
-[; ;main.c: 38: void CA2IOC(void) {
-[v _CA2IOC `(v ~T0 @X0 1 ef ]
-{
-[e :U _CA2IOC ]
-[f ]
-"39
-[; ;main.c: 39:     for (int x = 0; x < 500; ++x) __nop();;
-{
-[v _x `i ~T0 @X0 1 a ]
-[e = _x -> 0 `i ]
-[e $ < _x -> 500 `i 1455  ]
-[e $U 1456  ]
-[e :U 1455 ]
-[e ( ___nop ..  ]
-[e =+ _x -> 1 `i ]
-[e $ < _x -> 500 `i 1455  ]
-[e :U 1456 ]
-}
-"40
-[; ;main.c: 40:     do { LATCbits.LATC0 = 0; } while(0);
-[e :U 1460 ]
-{
-[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
-}
-[e :U 1459 ]
-"41
-[; ;main.c: 41:     for (int x = 0; x < 500; ++x) __nop();;
-{
-[v _x `i ~T0 @X0 1 a ]
-[e = _x -> 0 `i ]
-[e $ < _x -> 500 `i 1461  ]
-[e $U 1462  ]
-[e :U 1461 ]
-[e ( ___nop ..  ]
-[e =+ _x -> 1 `i ]
-[e $ < _x -> 500 `i 1461  ]
-[e :U 1462 ]
-}
-"42
-[; ;main.c: 42:     do { LATCbits.LATC0 = 1; } while(0);
-[e :U 1466 ]
-{
-[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
-}
-[e :U 1465 ]
-"43
-[; ;main.c: 43: }
-[e :UE 1454 ]
+[; ;main.c: 32: }
+[e :UE 1452 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"45
-[; ;main.c: 45: void main(void)
+"34
+[; ;main.c: 34: void main(void)
 [v _main `(v ~T0 @X0 1 ef ]
-"46
-[; ;main.c: 46: {
+"35
+[; ;main.c: 35: {
 {
 [e :U _main ]
 [f ]
-"48
-[; ;main.c: 48:     for (int x = 0; x < 30000; ++x) __nop();;
+"37
+[; ;main.c: 37:     for (int x = 0; x < 30000; ++x) __nop();;
 {
 [v _x `i ~T0 @X0 1 a ]
 [e = _x -> 0 `i ]
-[e $ < _x -> 30000 `i 1468  ]
-[e $U 1469  ]
-[e :U 1468 ]
+[e $ < _x -> 30000 `i 1457  ]
+[e $U 1458  ]
+[e :U 1457 ]
 [e ( ___nop ..  ]
 [e =+ _x -> 1 `i ]
-[e $ < _x -> 30000 `i 1468  ]
-[e :U 1469 ]
+[e $ < _x -> 30000 `i 1457  ]
+[e :U 1458 ]
 }
-"50
-[; ;main.c: 50:     SYSTEM_Initialize();
+"39
+[; ;main.c: 39:     SYSTEM_Initialize();
 [e ( _SYSTEM_Initialize ..  ]
-"52
-[; ;main.c: 52:     TMR0_SetInterruptHandler(DRVA_TMR_ms);
+"41
+[; ;main.c: 41:     TMR0_SetInterruptHandler(DRVA_TMR_ms);
 [e ( _TMR0_SetInterruptHandler (1 &U _DRVA_TMR_ms ]
-"53
-[; ;main.c: 53:     IOCCF1_SetInterruptHandler(CA2IOC);
-[e ( _IOCCF1_SetInterruptHandler (1 &U _CA2IOC ]
-"54
-[; ;main.c: 54:     (INTCONbits.GIE = 1);
+"42
+[; ;main.c: 42:     (INTCONbits.GIE = 1);
 [e = . . _INTCONbits 1 2 -> -> 1 `i `uc ]
-"55
-[; ;main.c: 55:     (INTCONbits.PEIE = 1);
+"43
+[; ;main.c: 43:     (INTCONbits.PEIE = 1);
 [e = . . _INTCONbits 1 1 -> -> 1 `i `uc ]
-"56
-[; ;main.c: 56:     TMR0_StartTimer();
+"44
+[; ;main.c: 44:     TMR0_StartTimer();
 [e ( _TMR0_StartTimer ..  ]
-"61
-[; ;main.c: 61:     while (1);
-[e :U 1472 ]
-[e :U 1471 ]
-[e $U 1472  ]
-[e :U 1473 ]
-"62
-[; ;main.c: 62: }
-[e :UE 1467 ]
+"46
+[; ;main.c: 46:     DiskTest();
+[e ( _DiskTest ..  ]
+"48
+[; ;main.c: 48:     while(1) {
+[e :U 1461 ]
+{
+"49
+[; ;main.c: 49:         rtcdrv_poll();
+[e ( _rtcdrv_poll ..  ]
+"50
+[; ;main.c: 50:     }
+}
+[e :U 1460 ]
+[e $U 1461  ]
+[e :U 1462 ]
+"51
+[; ;main.c: 51: }
+[e :UE 1456 ]
 }
 [a 2C 97 110 111 116 104 101 114 46 116 120 116 0 ]
 [a 1C 48 58 0 ]

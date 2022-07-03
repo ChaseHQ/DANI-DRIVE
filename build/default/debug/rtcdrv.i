@@ -1,4 +1,4 @@
-# 1 "mcc_generated_files/pin_manager.c"
+# 1 "rtcdrv.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,10 +6,15 @@
 # 1 "<built-in>" 2
 # 1 "C:/Users/Craig Vella/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "mcc_generated_files/pin_manager.c" 2
-# 49 "mcc_generated_files/pin_manager.c"
-# 1 "mcc_generated_files/pin_manager.h" 1
-# 54 "mcc_generated_files/pin_manager.h"
+# 1 "rtcdrv.c" 2
+# 1 "./rtcdrv.h" 1
+
+
+
+
+
+# 1 "./mcc_generated_files/mcc.h" 1
+# 49 "./mcc_generated_files/mcc.h"
 # 1 "C:/Users/Craig Vella/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/Craig Vella/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -16004,90 +16009,838 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Users/Craig Vella/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\\pic\\include\\xc.h" 2 3
-# 54 "mcc_generated_files/pin_manager.h" 2
-# 378 "mcc_generated_files/pin_manager.h"
+# 49 "./mcc_generated_files/mcc.h" 2
+
+# 1 "./mcc_generated_files/device_config.h" 1
+# 50 "./mcc_generated_files/mcc.h" 2
+
+# 1 "./mcc_generated_files/pin_manager.h" 1
+# 378 "./mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 390 "mcc_generated_files/pin_manager.h"
+# 390 "./mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
-# 49 "mcc_generated_files/pin_manager.c" 2
+# 51 "./mcc_generated_files/mcc.h" 2
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdbool.h" 1 3
+# 53 "./mcc_generated_files/mcc.h" 2
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\conio.h" 1 3
 
 
 
 
 
 
-void PIN_MANAGER_Initialize(void)
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 1 3
+# 24 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 1 3
+
+
+
+
+
+typedef void * va_list[1];
+
+
+
+
+typedef void * __isoc_va_list[1];
+# 137 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long ssize_t;
+# 246 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long long off_t;
+# 399 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef struct _IO_FILE FILE;
+# 24 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 2 3
+# 52 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 3
+typedef union _G_fpos64_t {
+ char __opaque[16];
+ double __align;
+} fpos_t;
+
+extern FILE *const stdin;
+extern FILE *const stdout;
+extern FILE *const stderr;
+
+
+
+
+
+FILE *fopen(const char *restrict, const char *restrict);
+FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
+int fclose(FILE *);
+
+int remove(const char *);
+int rename(const char *, const char *);
+
+int feof(FILE *);
+int ferror(FILE *);
+int fflush(FILE *);
+void clearerr(FILE *);
+
+int fseek(FILE *, long, int);
+long ftell(FILE *);
+void rewind(FILE *);
+
+int fgetpos(FILE *restrict, fpos_t *restrict);
+int fsetpos(FILE *, const fpos_t *);
+
+size_t fread(void *restrict, size_t, size_t, FILE *restrict);
+size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
+
+int fgetc(FILE *);
+int getc(FILE *);
+int getchar(void);
+int ungetc(int, FILE *);
+
+int fputc(int, FILE *);
+int putc(int, FILE *);
+int putchar(int);
+
+char *fgets(char *restrict, int, FILE *restrict);
+
+char *gets(char *);
+
+
+int fputs(const char *restrict, FILE *restrict);
+int puts(const char *);
+
+__attribute__((__format__(__printf__, 1, 2)))
+int printf(const char *restrict, ...);
+__attribute__((__format__(__printf__, 2, 3)))
+int fprintf(FILE *restrict, const char *restrict, ...);
+__attribute__((__format__(__printf__, 2, 3)))
+int sprintf(char *restrict, const char *restrict, ...);
+__attribute__((__format__(__printf__, 3, 4)))
+int snprintf(char *restrict, size_t, const char *restrict, ...);
+
+__attribute__((__format__(__printf__, 1, 0)))
+int vprintf(const char *restrict, __isoc_va_list);
+int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__printf__, 2, 0)))
+int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__printf__, 3, 0)))
+int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
+
+__attribute__((__format__(__scanf__, 1, 2)))
+int scanf(const char *restrict, ...);
+__attribute__((__format__(__scanf__, 2, 3)))
+int fscanf(FILE *restrict, const char *restrict, ...);
+__attribute__((__format__(__scanf__, 2, 3)))
+int sscanf(const char *restrict, const char *restrict, ...);
+
+__attribute__((__format__(__scanf__, 1, 0)))
+int vscanf(const char *restrict, __isoc_va_list);
+int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__scanf__, 2, 0)))
+int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
+
+void perror(const char *);
+
+int setvbuf(FILE *restrict, char *restrict, int, size_t);
+void setbuf(FILE *restrict, char *restrict);
+
+char *tmpnam(char *);
+FILE *tmpfile(void);
+
+
+
+
+FILE *fmemopen(void *restrict, size_t, const char *restrict);
+FILE *open_memstream(char **, size_t *);
+FILE *fdopen(int, const char *);
+FILE *popen(const char *, const char *);
+int pclose(FILE *);
+int fileno(FILE *);
+int fseeko(FILE *, off_t, int);
+off_t ftello(FILE *);
+int dprintf(int, const char *restrict, ...);
+int vdprintf(int, const char *restrict, __isoc_va_list);
+void flockfile(FILE *);
+int ftrylockfile(FILE *);
+void funlockfile(FILE *);
+int getc_unlocked(FILE *);
+int getchar_unlocked(void);
+int putc_unlocked(int, FILE *);
+int putchar_unlocked(int);
+ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
+ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
+int renameat(int, const char *, int, const char *);
+char *ctermid(char *);
+
+
+
+
+
+
+
+char *tempnam(const char *, const char *);
+# 7 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\conio.h" 2 3
+# 54 "./mcc_generated_files/mcc.h" 2
+
+# 1 "./mcc_generated_files/interrupt_manager.h" 1
+# 110 "./mcc_generated_files/interrupt_manager.h"
+void INTERRUPT_Initialize (void);
+# 55 "./mcc_generated_files/mcc.h" 2
+
+# 1 "./mcc_generated_files/spi2.h" 1
+# 59 "./mcc_generated_files/spi2.h"
+typedef enum {
+    SPI2_DEFAULT, SPI2_FAST
+} spi2_modes_t;
+
+void SPI2_Initialize(void);
+_Bool SPI2_Open(spi2_modes_t spi2UniqueConfiguration);
+void SPI2_Close(void);
+uint8_t SPI2_ExchangeByte(uint8_t data);
+void SPI2_ExchangeBlock(void *block, size_t blockSize);
+void SPI2_WriteBlock(void *block, size_t blockSize);
+void SPI2_ReadBlock(void *block, size_t blockSize);
+void SPI2_WriteByte(uint8_t byte);
+uint8_t SPI2_ReadByte(void);
+# 56 "./mcc_generated_files/mcc.h" 2
+
+# 1 "./mcc_generated_files/i2c1_master.h" 1
+# 58 "./mcc_generated_files/i2c1_master.h"
+typedef enum {
+    I2C1_NOERR,
+    I2C1_BUSY,
+    I2C1_FAIL
+
+
+} i2c1_error_t;
+
+typedef enum
 {
+    I2C1_STOP=1,
+    I2C1_RESTART_READ,
+    I2C1_RESTART_WRITE,
+    I2C1_CONTINUE,
+    I2C1_RESET_LINK
+} i2c1_operations_t;
+
+typedef uint8_t i2c1_address_t;
+typedef i2c1_operations_t (*i2c1_callback_t)(void *funPtr);
 
 
-
-    LATA = 0x00;
-    LATB = 0x10;
-    LATC = 0x19;
-
-
-
-
-    TRISA = 0xFF;
-    TRISB = 0xE5;
-    TRISC = 0xFE;
-
-
-
-
-    ANSELC = 0xE4;
-    ANSELB = 0xC1;
-    ANSELA = 0x00;
-
-
-
-
-    WPUE = 0x00;
-    WPUB = 0x00;
-    WPUA = 0x00;
-    WPUC = 0x00;
-
-
-
-
-    ODCONA = 0x00;
-    ODCONB = 0x00;
-    ODCONC = 0x00;
-
-
-
-
-    SLRCONA = 0xFF;
-    SLRCONB = 0xFF;
-    SLRCONC = 0xFF;
-
-
-
-
-    INLVLA = 0xFF;
-    INLVLB = 0xFF;
-    INLVLC = 0xFF;
-    INLVLE = 0x08;
+i2c1_operations_t I2C1_CallbackReturnStop(void *funPtr);
+i2c1_operations_t I2C1_CallbackReturnReset(void *funPtr);
+i2c1_operations_t I2C1_CallbackRestartWrite(void *funPtr);
+i2c1_operations_t I2C1_CallbackRestartRead(void *funPtr);
 
 
 
 
 
 
+void I2C1_Initialize(void);
+# 101 "./mcc_generated_files/i2c1_master.h"
+i2c1_error_t I2C1_Open(i2c1_address_t address);
+# 111 "./mcc_generated_files/i2c1_master.h"
+i2c1_error_t I2C1_Close(void);
+# 123 "./mcc_generated_files/i2c1_master.h"
+i2c1_error_t I2C1_MasterOperation(_Bool read);
 
-    PIE0bits.IOCIE = 1;
 
 
-    SSP2DATPPS = 0x0A;
-    SSP1CLKPPS = 0x13;
-    RB1PPS = 0x11;
-    RC3PPS = 0x0F;
-    RC4PPS = 0x10;
-    RB3PPS = 0x12;
-    SSP1DATPPS = 0x14;
-    SSP2CLKPPS = 0x09;
+
+i2c1_error_t I2C1_MasterWrite(void);
+
+
+
+
+i2c1_error_t I2C1_MasterRead(void);
+# 142 "./mcc_generated_files/i2c1_master.h"
+void I2C1_SetTimeout(uint8_t timeOut);
+# 152 "./mcc_generated_files/i2c1_master.h"
+void I2C1_SetBuffer(void *buffer, size_t bufferSize);
+# 164 "./mcc_generated_files/i2c1_master.h"
+void I2C1_SetDataCompleteCallback(i2c1_callback_t cb, void *ptr);
+# 174 "./mcc_generated_files/i2c1_master.h"
+void I2C1_SetWriteCollisionCallback(i2c1_callback_t cb, void *ptr);
+# 184 "./mcc_generated_files/i2c1_master.h"
+void I2C1_SetAddressNackCallback(i2c1_callback_t cb, void *ptr);
+# 194 "./mcc_generated_files/i2c1_master.h"
+void I2C1_SetDataNackCallback(i2c1_callback_t cb, void *ptr);
+# 204 "./mcc_generated_files/i2c1_master.h"
+void I2C1_SetTimeoutCallback(i2c1_callback_t cb, void *ptr);
+# 57 "./mcc_generated_files/mcc.h" 2
+
+# 1 "./mcc_generated_files/tmr0.h" 1
+# 106 "./mcc_generated_files/tmr0.h"
+void TMR0_Initialize(void);
+# 135 "./mcc_generated_files/tmr0.h"
+void TMR0_StartTimer(void);
+# 167 "./mcc_generated_files/tmr0.h"
+void TMR0_StopTimer(void);
+# 202 "./mcc_generated_files/tmr0.h"
+uint8_t TMR0_ReadTimer(void);
+# 241 "./mcc_generated_files/tmr0.h"
+void TMR0_WriteTimer(uint8_t timerVal);
+# 278 "./mcc_generated_files/tmr0.h"
+void TMR0_Reload(uint8_t periodVal);
+# 297 "./mcc_generated_files/tmr0.h"
+void TMR0_ISR(void);
+# 315 "./mcc_generated_files/tmr0.h"
+void TMR0_CallBack(void);
+# 333 "./mcc_generated_files/tmr0.h"
+ void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
+# 351 "./mcc_generated_files/tmr0.h"
+extern void (*TMR0_InterruptHandler)(void);
+# 369 "./mcc_generated_files/tmr0.h"
+void TMR0_DefaultInterruptHandler(void);
+# 58 "./mcc_generated_files/mcc.h" 2
+
+# 1 "./mcc_generated_files/fatfs/ff.h" 1
+# 29 "./mcc_generated_files/fatfs/ff.h"
+# 1 "./mcc_generated_files/fatfs/integer.h" 1
+# 16 "./mcc_generated_files/fatfs/integer.h"
+typedef int INT;
+typedef unsigned int UINT;
+
+
+typedef unsigned char BYTE;
+
+
+typedef short SHORT;
+typedef unsigned short WORD;
+typedef unsigned short WCHAR;
+
+
+typedef long LONG;
+typedef unsigned long DWORD;
+
+
+typedef unsigned long long QWORD;
+# 29 "./mcc_generated_files/fatfs/ff.h" 2
+
+# 1 "./mcc_generated_files/fatfs/ffconf.h" 1
+# 30 "./mcc_generated_files/fatfs/ff.h" 2
+# 76 "./mcc_generated_files/fatfs/ff.h"
+typedef char TCHAR;
+# 90 "./mcc_generated_files/fatfs/ff.h"
+typedef DWORD FSIZE_t;
+
+
+
+
+
+
+typedef struct {
+ BYTE fs_type;
+ BYTE pdrv;
+ BYTE n_fats;
+ BYTE wflag;
+ BYTE fsi_flag;
+ WORD id;
+ WORD n_rootdir;
+ WORD csize;
+# 119 "./mcc_generated_files/fatfs/ff.h"
+ DWORD last_clst;
+ DWORD free_clst;
+
+
+ DWORD cdir;
+
+
+
+
+
+
+ DWORD n_fatent;
+ DWORD fsize;
+ DWORD volbase;
+ DWORD fatbase;
+ DWORD dirbase;
+ DWORD database;
+ DWORD winsect;
+ BYTE win[512];
+} FATFS;
+
+
+
+
+
+typedef struct {
+ FATFS* fs;
+ WORD id;
+ BYTE attr;
+ BYTE stat;
+ DWORD sclust;
+ FSIZE_t objsize;
+# 161 "./mcc_generated_files/fatfs/ff.h"
+} FFOBJID;
+
+
+
+
+
+typedef struct {
+ FFOBJID obj;
+ BYTE flag;
+ BYTE err;
+ FSIZE_t fptr;
+ DWORD clust;
+ DWORD sect;
+
+ DWORD dir_sect;
+ BYTE* dir_ptr;
+
+
+
+
+
+ BYTE buf[512];
+
+} FIL;
+
+
+
+
+
+typedef struct {
+ FFOBJID obj;
+ DWORD dptr;
+ DWORD clust;
+ DWORD sect;
+ BYTE* dir;
+ BYTE fn[12];
+
+
+
+
+ const TCHAR* pat;
+
+} FFDIR;
+
+
+
+
+
+typedef struct {
+ FSIZE_t fsize;
+ WORD fdate;
+ WORD ftime;
+ BYTE fattrib;
+
+
+
+
+ TCHAR fname[12 + 1];
+
+} FILINFO;
+
+
+
+
+
+typedef enum {
+ FR_OK = 0,
+ FR_DISK_ERR,
+ FR_INT_ERR,
+ FR_NOT_READY,
+ FR_NO_FILE,
+ FR_NO_PATH,
+ FR_INVALID_NAME,
+ FR_DENIED,
+ FR_EXIST,
+ FR_INVALID_OBJECT,
+ FR_WRITE_PROTECTED,
+ FR_INVALID_DRIVE,
+ FR_NOT_ENABLED,
+ FR_NO_FILESYSTEM,
+ FR_MKFS_ABORTED,
+ FR_TIMEOUT,
+ FR_LOCKED,
+ FR_NOT_ENOUGH_CORE,
+ FR_TOO_MANY_OPEN_FILES,
+ FR_INVALID_PARAMETER
+} FRESULT;
+
+
+
+
+
+
+FRESULT f_open (FIL* fp, const TCHAR* path, BYTE mode);
+FRESULT f_close (FIL* fp);
+FRESULT f_read (FIL* fp, void* buff, UINT btr, UINT* br);
+FRESULT f_write (FIL* fp, const void* buff, UINT btw, UINT* bw);
+FRESULT f_lseek (FIL* fp, FSIZE_t ofs);
+FRESULT f_truncate (FIL* fp);
+FRESULT f_sync (FIL* fp);
+FRESULT f_opendir (FFDIR* dp, const TCHAR* path);
+FRESULT f_closedir (FFDIR* dp);
+FRESULT f_readdir (FFDIR* dp, FILINFO* fno);
+FRESULT f_findfirst (FFDIR* dp, FILINFO* fno, const TCHAR* path, const TCHAR* pattern);
+FRESULT f_findnext (FFDIR* dp, FILINFO* fno);
+FRESULT f_mkdir (const TCHAR* path);
+FRESULT f_unlink (const TCHAR* path);
+FRESULT f_rename (const TCHAR* path_old, const TCHAR* path_new);
+FRESULT f_stat (const TCHAR* path, FILINFO* fno);
+FRESULT f_chmod (const TCHAR* path, BYTE attr, BYTE mask);
+FRESULT f_utime (const TCHAR* path, const FILINFO* fno);
+FRESULT f_chdir (const TCHAR* path);
+FRESULT f_chdrive (const TCHAR* path);
+FRESULT f_getcwd (TCHAR* buff, UINT len);
+FRESULT f_getfree (const TCHAR* path, DWORD* nclst, FATFS** fatfs);
+FRESULT f_getlabel (const TCHAR* path, TCHAR* label, DWORD* vsn);
+FRESULT f_setlabel (const TCHAR* label);
+FRESULT f_forward (FIL* fp, UINT(*func)(const BYTE*,UINT), UINT btf, UINT* bf);
+FRESULT f_expand (FIL* fp, FSIZE_t szf, BYTE opt);
+FRESULT f_mount (FATFS* fs, const TCHAR* path, BYTE opt);
+FRESULT f_mkfs (const TCHAR* path, BYTE opt, DWORD au, void* work, UINT len);
+FRESULT f_fdisk (BYTE pdrv, const DWORD* szt, void* work);
+FRESULT f_setcp (WORD cp);
+int f_putc (TCHAR c, FIL* fp);
+int f_puts (const TCHAR* str, FIL* cp);
+int f_printf (FIL* fp, const TCHAR* str, ...);
+TCHAR* f_gets (TCHAR* buff, int len, FIL* fp);
+# 310 "./mcc_generated_files/fatfs/ff.h"
+DWORD get_fattime (void);
+# 59 "./mcc_generated_files/mcc.h" 2
+# 74 "./mcc_generated_files/mcc.h"
+void SYSTEM_Initialize(void);
+# 87 "./mcc_generated_files/mcc.h"
+void OSCILLATOR_Initialize(void);
+# 100 "./mcc_generated_files/mcc.h"
+void PMD_Initialize(void);
+# 6 "./rtcdrv.h" 2
+
+# 1 "./rtc.h" 1
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\time.h" 1 3
+# 33 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\time.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 76 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long long time_t;
+# 293 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef void * timer_t;
+
+
+
+
+typedef int clockid_t;
+
+
+
+
+typedef unsigned long clock_t;
+# 313 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+struct timespec { time_t tv_sec; long tv_nsec; };
+
+
+
+
+
+typedef int pid_t;
+# 411 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef struct __locale_struct * locale_t;
+# 33 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\time.h" 2 3
+
+
+
+
+
+
+
+struct tm {
+ int tm_sec;
+ int tm_min;
+ int tm_hour;
+ int tm_mday;
+ int tm_mon;
+ int tm_year;
+ int tm_wday;
+ int tm_yday;
+ int tm_isdst;
+ long __tm_gmtoff;
+ const char *__tm_zone;
+};
+
+clock_t clock (void);
+time_t time (time_t *);
+double difftime (time_t, time_t);
+time_t mktime (struct tm *);
+size_t strftime (char *restrict, size_t, const char *restrict, const struct tm *restrict);
+struct tm *gmtime (const time_t *);
+struct tm *localtime (const time_t *);
+char *asctime (const struct tm *);
+char *ctime (const time_t *);
+int timespec_get(struct timespec *, int);
+# 73 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\time.h" 3
+size_t strftime_l (char * restrict, size_t, const char * restrict, const struct tm * restrict, locale_t);
+
+struct tm *gmtime_r (const time_t *restrict, struct tm *restrict);
+struct tm *localtime_r (const time_t *restrict, struct tm *restrict);
+char *asctime_r (const struct tm *restrict, char *restrict);
+char *ctime_r (const time_t *, char *);
+
+void tzset (void);
+
+struct itimerspec {
+ struct timespec it_interval;
+ struct timespec it_value;
+};
+# 102 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\time.h" 3
+int nanosleep (const struct timespec *, struct timespec *);
+int clock_getres (clockid_t, struct timespec *);
+int clock_gettime (clockid_t, struct timespec *);
+int clock_settime (clockid_t, const struct timespec *);
+int clock_nanosleep (clockid_t, int, const struct timespec *, struct timespec *);
+int clock_getcpuclockid (pid_t, clockid_t *);
+
+struct sigevent;
+int timer_create (clockid_t, struct sigevent *restrict, timer_t *restrict);
+int timer_delete (timer_t);
+int timer_settime (timer_t, int, const struct itimerspec *restrict, struct itimerspec *restrict);
+int timer_gettime (timer_t, struct itimerspec *);
+int timer_getoverrun (timer_t);
+
+extern char *tzname[2];
+
+
+
+
+
+char *strptime (const char *restrict, const char *restrict, struct tm *restrict);
+extern int daylight;
+extern long timezone;
+extern int getdate_err;
+struct tm *getdate (const char *);
+# 5 "./rtc.h" 2
+
+
+
+void SetClock(size_t year, uint8_t month, uint8_t dayOfMonth, uint8_t dayOfWeek, uint8_t hour, uint8_t minute, uint8_t second);
+struct tm ReadClock();
+# 7 "./rtcdrv.h" 2
+
+# 1 "./mcc_generated_files/fatfs/drva.h" 1
+# 29 "./mcc_generated_files/fatfs/drva.h"
+_Bool DRVA_IsMediaPresent(void);
+_Bool DRVA_MediaInitialize(void);
+_Bool DRVA_IsMediaInitialized(void);
+
+_Bool DRVA_IsWriteProtected(void);
+uint16_t DRVA_GetSectorSize(void);
+uint32_t DRVA_GetSectorCount(void);
+
+_Bool DRVA_SectorRead(uint32_t sector_address, uint8_t* buffer, uint16_t sector_count);
+_Bool DRVA_SectorWrite(uint32_t sector_address, const uint8_t* buffer, uint16_t sector_count);
+
+void DRVA_TMR_ms(void);
+# 8 "./rtcdrv.h" 2
+
+
+typedef union RTCDRV_DATA_ {
+    struct {
+        BYTE argCount : 3;
+        BYTE cmd : 4;
+        BYTE rtc : 1;
+    } data_part;
+    BYTE data;
+} RTCDRV_DATA;
+
+void rtcdrv_poll(void);
+# 1 "rtcdrv.c" 2
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 1 3
+# 25 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 25 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 2 3
+
+
+void *memcpy (void *restrict, const void *restrict, size_t);
+void *memmove (void *, const void *, size_t);
+void *memset (void *, int, size_t);
+int memcmp (const void *, const void *, size_t);
+void *memchr (const void *, int, size_t);
+
+char *strcpy (char *restrict, const char *restrict);
+char *strncpy (char *restrict, const char *restrict, size_t);
+
+char *strcat (char *restrict, const char *restrict);
+char *strncat (char *restrict, const char *restrict, size_t);
+
+int strcmp (const char *, const char *);
+int strncmp (const char *, const char *, size_t);
+
+int strcoll (const char *, const char *);
+size_t strxfrm (char *restrict, const char *restrict, size_t);
+
+char *strchr (const char *, int);
+char *strrchr (const char *, int);
+
+size_t strcspn (const char *, const char *);
+size_t strspn (const char *, const char *);
+char *strpbrk (const char *, const char *);
+char *strstr (const char *, const char *);
+char *strtok (char *restrict, const char *restrict);
+
+size_t strlen (const char *);
+
+char *strerror (int);
+# 65 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 3
+char *strtok_r (char *restrict, const char *restrict, char **restrict);
+int strerror_r (int, char *, size_t);
+char *stpcpy(char *restrict, const char *restrict);
+char *stpncpy(char *restrict, const char *restrict, size_t);
+size_t strnlen (const char *, size_t);
+char *strdup (const char *);
+char *strndup (const char *, size_t);
+char *strsignal(int);
+char *strerror_l (int, locale_t);
+int strcoll_l (const char *, const char *, locale_t);
+size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
+
+
+
+
+void *memccpy (void *restrict, const void *restrict, int, size_t);
+# 2 "rtcdrv.c" 2
+# 15 "rtcdrv.c"
+FATFS drive;
+FIL file;
+FFDIR dir;
+FILINFO fno;
+FATFS *fs;
+
+void sendBuffer(char * buff, unsigned int size) {
+    TRISA = 0x00;
+    int i = 0;
+    while (i < size) {
+        PORTA = buff[i++];
+        for (int x = 0; x < 500; ++x) __nop();;do { LATCbits.LATC0 = 0; } while(0);for (int x = 0; x < 500; ++x) __nop();;do { LATCbits.LATC0 = 1; } while(0);;
+        while (PORTCbits.RC1);
+    }
+    for (int x = 0; x < 500; ++x) __nop();;do { LATCbits.LATC0 = 0; } while(0);for (int x = 0; x < 500; ++x) __nop();;do { LATCbits.LATC0 = 1; } while(0);;
 }
 
-void PIN_MANAGER_IOC(void)
-{
+void sendBufferLen(size_t bufferLen) {
+    char outbuff[2] = {bufferLen, bufferLen >> 8};
+    sendBuffer(outbuff, 2);
+}
+
+void getBuffer(size_t bufferSize, BYTE * buffer) {
+    TRISA = 0xFF;
+    int i = 0;
+    while (i < bufferSize) {
+        while (PORTCbits.RC1);
+        buffer[i++] = PORTA;
+        for (int x = 0; x < 500; ++x) __nop();;do { LATCbits.LATC0 = 0; } while(0);for (int x = 0; x < 500; ++x) __nop();;do { LATCbits.LATC0 = 1; } while(0);;
+    }
+}
+
+void getArgs(size_t argsCount, BYTE * buffer) {
+    return getBuffer(argsCount, buffer);
+}
+
+void rtcGetAClk() {
+    struct tm t = ReadClock();
+    char * bufferOut = asctime(&t);
+    size_t outSize = strlen(bufferOut)+1;
+    bufferOut[(--outSize)-1] = 0;
+    sendBufferLen(outSize);
+    sendBuffer(bufferOut, outSize);
+}
+
+void rtcGetClk() {
+    struct tm t = ReadClock();
+    BYTE bufferOut[8] = {(t.tm_year+1900)/100, (t.tm_year+1900) - (((t.tm_year+1900) / 1000) * 1000), t.tm_mon+1, t.tm_mday, t.tm_wday+1, t.tm_hour, t.tm_min, t.tm_sec};
+    sendBufferLen(8);
+    sendBuffer(bufferOut,8);
+}
+
+void rtcSetClk(BYTE argCount) {
+    BYTE * argBuffer = (BYTE *)malloc(argCount);
+    getArgs(argCount,argBuffer);
+    BYTE * buffer = (BYTE *)malloc(argBuffer[0]);
+    getBuffer(argBuffer[0],buffer);
+    size_t year = (buffer[0]*100)+buffer[1];
+    SetClock(year,buffer[2],buffer[3],buffer[4],buffer[5],buffer[6],buffer[7]);
+    free(argBuffer);
+    free(buffer);
+}
+
+void processRTC(BYTE cmd, BYTE argCount) {
+    switch(cmd) {
+        case 0b0000:
+            rtcGetAClk();
+            break;
+        case 0b0001:
+            rtcGetClk();
+            break;
+        case 0b1000:
+            rtcSetClk(argCount);
+            break;
+    }
+}
+
+void drvGetDir() {
+    if (DRVA_IsMediaPresent() && (f_mount(&drive,"0:",1) == FR_OK)) {
+
+        char buffer[256] = {};
+        char driveLabel[34] = {};
+        size_t fileCount = 0;
+        DWORD fre_clust, fre_sect, tot_sect;
+
+        f_opendir(&dir, "");
+        do {
+            fileCount++;
+            f_readdir(&dir, &fno);
+        } while (fno.fname[0]);
+        f_readdir((&dir), 0);
+
+        sendBufferLen(fileCount+2);
+        f_getlabel("",driveLabel,0);
+        sprintf(buffer,"Volume - %s", driveLabel);
+        sendBuffer(buffer,strlen(buffer));
+        do {
+            memset(buffer,0,256);
+            f_readdir(&dir, &fno);
+            sprintf(buffer,"%s ~%u",fno.fname,fno.fsize);
+            sendBuffer(buffer,strlen(buffer));
+        } while (fno.fname[0]);
+        memset(buffer,0,256);
+        f_getfree("", &fre_clust, &fs);
+        tot_sect = (fs->n_fatent - 2) * fs->csize;
+        fre_sect = fre_clust * fs->csize;
+        sprintf(buffer, "%10lu/%10lu KiB",fre_sect / 2, tot_sect / 2);
+        sendBuffer(buffer,strlen(buffer));
+
+        f_mount(0,"0:",0);
+    } else {
+        sendBufferLen(0);
+    }
+}
+
+void processDRV(BYTE cmd, BYTE argCount) {
+    switch (cmd) {
+        case 0b0000:
+            drvGetDir();
+            break;
+    }
+}
+
+void rtcdrv_poll(void) {
+    if (!PORTCbits.RC1) {
+
+        RTCDRV_DATA d;
+        d.data = PORTA;
+        for (int x = 0; x < 500; ++x) __nop();;do { LATCbits.LATC0 = 0; } while(0);for (int x = 0; x < 500; ++x) __nop();;do { LATCbits.LATC0 = 1; } while(0);;
+
+        if (d.data_part.rtc) {
+
+            processRTC(d.data_part.cmd, d.data_part.argCount);
+        } else {
+
+            processDRV(d.data_part.cmd, d.data_part.argCount);
+        }
+        TRISA = 0xFF;
+    }
 }

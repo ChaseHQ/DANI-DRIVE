@@ -40,11 +40,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _PORTBbits `VS809 ~T0 @X0 0 e@3982 ]
 "209 mcc_generated_files/fatfs/drva.c
 [; ;mcc_generated_files/fatfs/drva.c: 209:     SPI2_Open(SPI2_DEFAULT);
-[c E9907 0 1 .. ]
-[n E9907 . SPI2_DEFAULT SPI2_FAST  ]
+[c E9899 0 1 .. ]
+[n E9899 . SPI2_DEFAULT SPI2_FAST  ]
 "64 mcc_generated_files/fatfs/../spi2.h
 [; ;mcc_generated_files/fatfs/../spi2.h: 64: _Bool SPI2_Open(spi2_modes_t spi2UniqueConfiguration);
-[v _SPI2_Open `(a ~T0 @X0 0 ef1`E9907 ]
+[v _SPI2_Open `(a ~T0 @X0 0 ef1`E9899 ]
 "65
 [; ;mcc_generated_files/fatfs/../spi2.h: 65: void SPI2_Close(void);
 [v _SPI2_Close `(v ~T0 @X0 0 ef ]
@@ -1833,7 +1833,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _ocr `uc ~T0 @X0 -> 4 `i a ]
 "209
 [; ;mcc_generated_files/fatfs/drva.c: 209:     SPI2_Open(SPI2_DEFAULT);
-[e ( _SPI2_Open (1 . `E9907 0 ]
+[e ( _SPI2_Open (1 . `E9899 0 ]
 "210
 [; ;mcc_generated_files/fatfs/drva.c: 210:     for (n = 10; n; n--) SPI2_ExchangeByte(0xFF);
 {

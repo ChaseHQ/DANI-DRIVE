@@ -18,7 +18,7 @@ I2C1_CONTINUE 4
 I2C1_RESET_LINK 5
 ]
 "209 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/fatfs/drva.c
-[e E9907 . `uc
+[e E9899 . `uc
 SPI2_DEFAULT 0
 SPI2_FAST 1
 ]
@@ -134,33 +134,27 @@ I2C1_NULL 5
 SPI2_DEFAULT 0
 SPI2_FAST 1
 ]
-"20 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\main.c
-[e E10085 . `uc
-FR_OK 0
-FR_DISK_ERR 1
-FR_INT_ERR 2
-FR_NOT_READY 3
-FR_NO_FILE 4
-FR_NO_PATH 5
-FR_INVALID_NAME 6
-FR_DENIED 7
-FR_EXIST 8
-FR_INVALID_OBJECT 9
-FR_WRITE_PROTECTED 10
-FR_INVALID_DRIVE 11
-FR_NOT_ENABLED 12
-FR_NO_FILESYSTEM 13
-FR_MKFS_ABORTED 14
-FR_TIMEOUT 15
-FR_LOCKED 16
-FR_NOT_ENOUGH_CORE 17
-FR_TOO_MANY_OPEN_FILES 18
-FR_INVALID_PARAMETER 19
+"22 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X/rtcdrv.h
+[e E10405 RTCDRV_MODE_ `uc
+RECV 0
+SEND 1
+]
+[e E10390 RTCDRV_MODE_ `uc
+RECV 0
+SEND 1
 ]
 "7 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\__lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\asctime.c
+[v _put2d put2d `(v  1 s 1 put2d ]
+"19
+[v _asctime asctime `(*.39uc  1 e 2 0 ]
 "7 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
+"7 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+"14 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\expand_heap.c
+[v ___expand_heap __expand_heap `(*.39v  1 e 2 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
 "62 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\float.c
@@ -173,6 +167,12 @@ FR_INVALID_PARAMETER 19
 [v ___ftmul __ftmul `(f  1 e 4 0 ]
 "19 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\ftsub.c
 [v ___ftsub __ftsub `(f  1 e 4 0 ]
+"19 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\lite_free.c
+[v ___simple_search_fl __simple_search_fl `(*.39v  1 e 2 0 ]
+"67
+[v _free free `(v  1 e 1 0 ]
+"16 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\lite_malloc.c
+[v _malloc malloc `(*.39v  1 e 2 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "245
@@ -181,13 +181,15 @@ FR_INVALID_PARAMETER 19
 [v ___fldiv __fldiv `(d  1 e 4 0 ]
 "8 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\strlen.c
+[v _strlen strlen `(ui  1 e 2 0 ]
+"15 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
 "15 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"38 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\main.c
-[v _CA2IOC CA2IOC `(v  1 e 1 0 ]
-"45
+"34 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\main.c
 [v _main main `(v  1 e 1 0 ]
 "63 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/examples/i2c1_master_example.c
 [v _I2C1_Read1ByteRegister I2C1_Read1ByteRegister `(uc  1 e 1 0 ]
@@ -441,16 +443,10 @@ FR_INVALID_PARAMETER 19
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
 "75
 [v _PMD_Initialize PMD_Initialize `(v  1 e 1 0 ]
-"57 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/pin_manager.c
+"55 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
-"140
+"127
 [v _PIN_MANAGER_IOC PIN_MANAGER_IOC `(v  1 e 1 0 ]
-"152
-[v _IOCCF1_ISR IOCCF1_ISR `(v  1 e 1 0 ]
-"167
-[v _IOCCF1_SetInterruptHandler IOCCF1_SetInterruptHandler `(v  1 e 1 0 ]
-"174
-[v _IOCCF1_DefaultInterruptHandler IOCCF1_DefaultInterruptHandler `(v  1 e 1 0 ]
 "62 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/spi2.c
 [v _SPI2_Initialize SPI2_Initialize `(v  1 e 1 0 ]
 "77
@@ -475,10 +471,34 @@ FR_INVALID_PARAMETER 19
 [v _TMR0_SetInterruptHandler TMR0_SetInterruptHandler `(v  1 e 1 0 ]
 "146
 [v _TMR0_DefaultInterruptHandler TMR0_DefaultInterruptHandler `(v  1 e 1 0 ]
+"4 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\rtc.c
+[v _SetClock SetClock `(v  1 e 1 0 ]
 "40 C:\Program Files\Microchip\xc8\v2.36\pic\include\c99\time.h
 [s S2566 tm 24 `i 1 tm_sec 2 0 `i 1 tm_min 2 2 `i 1 tm_hour 2 4 `i 1 tm_mday 2 6 `i 1 tm_mon 2 8 `i 1 tm_year 2 10 `i 1 tm_wday 2 12 `i 1 tm_yday 2 14 `i 1 tm_isdst 2 16 `l 1 __tm_gmtoff 4 18 `*.2Cuc 1 __tm_zone 2 22 ]
 "33 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\rtc.c
 [v _ReadClock ReadClock `(S2566  1 e 24 0 ]
+"13 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\rtcdrv.c
+[v _sendBuffer sendBuffer `(v  1 e 1 0 ]
+"24
+[v _sendBufferLen sendBufferLen `(v  1 e 1 0 ]
+"29
+[v _getBuffer getBuffer `(v  1 e 1 0 ]
+"39
+[v _getArgs getArgs `(v  1 e 1 0 ]
+"43
+[v _rtcGetAClk rtcGetAClk `(v  1 e 1 0 ]
+"52
+[v _rtcGetClk rtcGetClk `(v  1 e 1 0 ]
+"59
+[v _rtcSetClk rtcSetClk `(v  1 e 1 0 ]
+"69
+[v _processRTC processRTC `(v  1 e 1 0 ]
+"83
+[v _processDRV processDRV `(v  1 e 1 0 ]
+"87
+[v _rtcdrv_poll rtcdrv_poll `(v  1 e 1 0 ]
+"22 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X/rtcdrv.h
+[v _RTCDRV_MODE RTCDRV_MODE `VEE10405  1 e 1 0 ]
 "153 C:/Users/Craig Vella/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f27k40.h
 [v _SSP2CLKPPS SSP2CLKPPS `VEuc  1 e 1 @3727 ]
 "187
@@ -491,19 +511,19 @@ FR_INVALID_PARAMETER 19
 [v _SSP2STAT SSP2STAT `VEuc  1 e 1 @3733 ]
 "919
 [v _SSP2CON1 SSP2CON1 `VEuc  1 e 1 @3734 ]
-[s S2937 . 1 `uc 1 SSPM 1 0 :4:0 
+[s S2822 . 1 `uc 1 SSPM 1 0 :4:0 
 `uc 1 CKP 1 0 :1:4 
 `uc 1 SSPEN 1 0 :1:5 
 `uc 1 SSPOV 1 0 :1:6 
 `uc 1 WCOL 1 0 :1:7 
 ]
 "949
-[s S2943 . 1 `uc 1 SSPM0 1 0 :1:0 
+[s S2828 . 1 `uc 1 SSPM0 1 0 :1:0 
 `uc 1 SSPM1 1 0 :1:1 
 `uc 1 SSPM2 1 0 :1:2 
 `uc 1 SSPM3 1 0 :1:3 
 ]
-[s S3764 . 1 `uc 1 SSPM02 1 0 :1:0 
+[s S3654 . 1 `uc 1 SSPM02 1 0 :1:0 
 `uc 1 SSPM12 1 0 :1:1 
 `uc 1 SSPM22 1 0 :1:2 
 `uc 1 SSPM32 1 0 :1:3 
@@ -512,15 +532,15 @@ FR_INVALID_PARAMETER 19
 `uc 1 SSPOV2 1 0 :1:6 
 `uc 1 WCOL2 1 0 :1:7 
 ]
-[u S3773 . 1 `S2937 1 . 1 0 `S2943 1 . 1 0 `S3764 1 . 1 0 ]
-[v _SSP2CON1bits SSP2CON1bits `VES3773  1 e 1 @3734 ]
+[u S3663 . 1 `S2822 1 . 1 0 `S2828 1 . 1 0 `S3654 1 . 1 0 ]
+[v _SSP2CON1bits SSP2CON1bits `VES3663  1 e 1 @3734 ]
 "1039
 [v _SSP2CON2 SSP2CON2 `VEuc  1 e 1 @3735 ]
 "3792
 [v _SSP1CLKPPS SSP1CLKPPS `VEuc  1 e 1 @3767 ]
 "3858
 [v _SSP1DATPPS SSP1DATPPS `VEuc  1 e 1 @3768 ]
-[s S2743 . 1 `uc 1 INT0IE 1 0 :1:0 
+[s S2669 . 1 `uc 1 INT0IE 1 0 :1:0 
 `uc 1 INT1IE 1 0 :1:1 
 `uc 1 INT2IE 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -528,9 +548,9 @@ FR_INVALID_PARAMETER 19
 `uc 1 TMR0IE 1 0 :1:5 
 ]
 "4401
-[u S2750 . 1 `S2743 1 . 1 0 ]
-[v _PIE0bits PIE0bits `VES2750  1 e 1 @3778 ]
-[s S3491 . 1 `uc 1 SSP1IE 1 0 :1:0 
+[u S2676 . 1 `S2669 1 . 1 0 ]
+[v _PIE0bits PIE0bits `VES2676  1 e 1 @3778 ]
+[s S3376 . 1 `uc 1 SSP1IE 1 0 :1:0 
 `uc 1 BCL1IE 1 0 :1:1 
 `uc 1 SSP2IE 1 0 :1:2 
 `uc 1 BCL2IE 1 0 :1:3 
@@ -540,20 +560,20 @@ FR_INVALID_PARAMETER 19
 `uc 1 RC2IE 1 0 :1:7 
 ]
 "4557
-[s S3500 . 1 `uc 1 RXB0IE 1 0 :1:0 
+[s S3385 . 1 `uc 1 RXB0IE 1 0 :1:0 
 `uc 1 RXB1IE 1 0 :1:1 
 `uc 1 TXB0IE 1 0 :1:2 
 `uc 1 TXB1IE 1 0 :1:3 
 `uc 1 TXB2IE 1 0 :1:4 
 ]
-[s S3506 . 1 `uc 1 . 1 0 :1:0 
+[s S3391 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RXBNIE 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 TXBNIE 1 0 :1:4 
 ]
-[u S3511 . 1 `S3491 1 . 1 0 `S3500 1 . 1 0 `S3506 1 . 1 0 ]
-[v _PIE3bits PIE3bits `VES3511  1 e 1 @3781 ]
-[s S3864 . 1 `uc 1 INT0IF 1 0 :1:0 
+[u S3396 . 1 `S3376 1 . 1 0 `S3385 1 . 1 0 `S3391 1 . 1 0 ]
+[v _PIE3bits PIE3bits `VES3396  1 e 1 @3781 ]
+[s S3754 . 1 `uc 1 INT0IF 1 0 :1:0 
 `uc 1 INT1IF 1 0 :1:1 
 `uc 1 INT2IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -561,9 +581,9 @@ FR_INVALID_PARAMETER 19
 `uc 1 TMR0IF 1 0 :1:5 
 ]
 "4807
-[u S3871 . 1 `S3864 1 . 1 0 ]
-[v _PIR0bits PIR0bits `VES3871  1 e 1 @3786 ]
-[s S3198 . 1 `uc 1 SSP1IF 1 0 :1:0 
+[u S3761 . 1 `S3754 1 . 1 0 ]
+[v _PIR0bits PIR0bits `VES3761  1 e 1 @3786 ]
+[s S3083 . 1 `uc 1 SSP1IF 1 0 :1:0 
 `uc 1 BCL1IF 1 0 :1:1 
 `uc 1 SSP2IF 1 0 :1:2 
 `uc 1 BCL2IF 1 0 :1:3 
@@ -573,13 +593,13 @@ FR_INVALID_PARAMETER 19
 `uc 1 RC2IF 1 0 :1:7 
 ]
 "4956
-[s S3207 . 1 `uc 1 . 1 0 :1:0 
+[s S3092 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RXBNIF 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 TXBNIF 1 0 :1:4 
 ]
-[u S3212 . 1 `S3198 1 . 1 0 `S3207 1 . 1 0 ]
-[v _PIR3bits PIR3bits `VES3212  1 e 1 @3789 ]
+[u S3097 . 1 `S3083 1 . 1 0 `S3092 1 . 1 0 ]
+[v _PIR3bits PIR3bits `VES3097  1 e 1 @3789 ]
 "5744
 [v _OSCCON1 OSCCON1 `VEuc  1 e 1 @3800 ]
 "5884
@@ -630,42 +650,6 @@ FR_INVALID_PARAMETER 19
 [v _WPUB WPUB `VEuc  1 e 1 @3864 ]
 "8535
 [v _ANSELB ANSELB `VEuc  1 e 1 @3865 ]
-[s S2670 . 1 `uc 1 IOCCF0 1 0 :1:0 
-`uc 1 IOCCF1 1 0 :1:1 
-`uc 1 IOCCF2 1 0 :1:2 
-`uc 1 IOCCF3 1 0 :1:3 
-`uc 1 IOCCF4 1 0 :1:4 
-`uc 1 IOCCF5 1 0 :1:5 
-`uc 1 IOCCF6 1 0 :1:6 
-`uc 1 IOCCF7 1 0 :1:7 
-]
-"8614
-[u S2679 . 1 `S2670 1 . 1 0 ]
-[v _IOCCFbits IOCCFbits `VES2679  1 e 1 @3866 ]
-[s S2691 . 1 `uc 1 IOCCN0 1 0 :1:0 
-`uc 1 IOCCN1 1 0 :1:1 
-`uc 1 IOCCN2 1 0 :1:2 
-`uc 1 IOCCN3 1 0 :1:3 
-`uc 1 IOCCN4 1 0 :1:4 
-`uc 1 IOCCN5 1 0 :1:5 
-`uc 1 IOCCN6 1 0 :1:6 
-`uc 1 IOCCN7 1 0 :1:7 
-]
-"8676
-[u S2700 . 1 `S2691 1 . 1 0 ]
-[v _IOCCNbits IOCCNbits `VES2700  1 e 1 @3867 ]
-[s S2712 . 1 `uc 1 IOCCP0 1 0 :1:0 
-`uc 1 IOCCP1 1 0 :1:1 
-`uc 1 IOCCP2 1 0 :1:2 
-`uc 1 IOCCP3 1 0 :1:3 
-`uc 1 IOCCP4 1 0 :1:4 
-`uc 1 IOCCP5 1 0 :1:5 
-`uc 1 IOCCP6 1 0 :1:6 
-`uc 1 IOCCP7 1 0 :1:7 
-]
-"8738
-[u S2721 . 1 `S2712 1 . 1 0 ]
-[v _IOCCPbits IOCCPbits `VES2721  1 e 1 @3868 ]
 "8783
 [v _INLVLC INLVLC `VEuc  1 e 1 @3869 ]
 "8845
@@ -707,7 +691,7 @@ FR_INVALID_PARAMETER 19
 [v _LATBbits LATBbits `VES178  1 e 1 @3972 ]
 "15688
 [v _LATC LATC `VEuc  1 e 1 @3973 ]
-[s S4117 . 1 `uc 1 LATC0 1 0 :1:0 
+[s S4041 . 1 `uc 1 LATC0 1 0 :1:0 
 `uc 1 LATC1 1 0 :1:1 
 `uc 1 LATC2 1 0 :1:2 
 `uc 1 LATC3 1 0 :1:3 
@@ -717,7 +701,7 @@ FR_INVALID_PARAMETER 19
 `uc 1 LATC7 1 0 :1:7 
 ]
 "15715
-[s S4126 . 1 `uc 1 LC0 1 0 :1:0 
+[s S4050 . 1 `uc 1 LC0 1 0 :1:0 
 `uc 1 LC1 1 0 :1:1 
 `uc 1 LC2 1 0 :1:2 
 `uc 1 LC3 1 0 :1:3 
@@ -726,13 +710,13 @@ FR_INVALID_PARAMETER 19
 `uc 1 LC6 1 0 :1:6 
 `uc 1 LC7 1 0 :1:7 
 ]
-[u S4135 . 1 `S4117 1 . 1 0 `S4126 1 . 1 0 ]
-[v _LATCbits LATCbits `VES4135  1 e 1 @3973 ]
+[u S4059 . 1 `S4041 1 . 1 0 `S4050 1 . 1 0 ]
+[v _LATCbits LATCbits `VES4059  1 e 1 @3973 ]
 "15800
 [v _TRISA TRISA `VEuc  1 e 1 @3976 ]
 "15922
 [v _TRISB TRISB `VEuc  1 e 1 @3977 ]
-[s S3732 . 1 `uc 1 TRISB0 1 0 :1:0 
+[s S3622 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -742,10 +726,12 @@ FR_INVALID_PARAMETER 19
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "15944
-[u S3741 . 1 `S3732 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES3741  1 e 1 @3977 ]
+[u S3631 . 1 `S3622 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES3631  1 e 1 @3977 ]
 "16044
 [v _TRISC TRISC `VEuc  1 e 1 @3978 ]
+"16166
+[v _PORTA PORTA `VEuc  1 e 1 @3981 ]
 [s S212 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
@@ -761,20 +747,39 @@ FR_INVALID_PARAMETER 19
 ]
 [u S224 . 1 `S212 1 . 1 0 `S221 1 . 1 0 ]
 [v _PORTBbits PORTBbits `VES224  1 e 1 @3982 ]
+[s S4081 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+"16347
+[s S4090 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 CCP2 1 0 :1:1 
+`uc 1 PA1 1 0 :1:2 
+]
+[s S4094 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 PA2 1 0 :1:1 
+]
+[u S4097 . 1 `S4081 1 . 1 0 `S4090 1 . 1 0 `S4094 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES4097  1 e 1 @3983 ]
 "16641
 [v _SSP1BUF SSP1BUF `VEuc  1 e 1 @3986 ]
 "16661
 [v _SSP1ADD SSP1ADD `VEuc  1 e 1 @3987 ]
 "16851
 [v _SSP1STAT SSP1STAT `VEuc  1 e 1 @3989 ]
-[s S3230 . 1 `uc 1 . 1 0 :2:0 
+[s S3115 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_NOT_W 1 0 :1:2 
 ]
 "17000
-[s S3233 . 1 `uc 1 . 1 0 :5:0 
+[s S3118 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 D_NOT_A 1 0 :1:5 
 ]
-[s S3236 . 1 `uc 1 BF 1 0 :1:0 
+[s S3121 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -783,39 +788,39 @@ FR_INVALID_PARAMETER 19
 `uc 1 CKE 1 0 :1:6 
 `uc 1 SMP 1 0 :1:7 
 ]
-[s S3245 . 1 `uc 1 . 1 0 :2:0 
+[s S3130 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A 1 0 :1:5 
 ]
-[s S3250 . 1 `uc 1 . 1 0 :2:0 
+[s S3135 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA 1 0 :1:5 
 ]
-[s S3255 . 1 `uc 1 . 1 0 :2:0 
+[s S3140 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_WRITE 1 0 :1:2 
 ]
-[s S3258 . 1 `uc 1 . 1 0 :5:0 
+[s S3143 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_ADDRESS 1 0 :1:5 
 ]
-[s S3261 . 1 `uc 1 . 1 0 :2:0 
+[s S3146 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS 1 0 :1:5 
 ]
-[s S3266 . 1 `uc 1 . 1 0 :2:0 
+[s S3151 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 READ_WRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 DATA_ADDRESS 1 0 :1:5 
 ]
-[s S3271 . 1 `uc 1 . 1 0 :2:0 
+[s S3156 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 I2C_READ 1 0 :1:2 
 `uc 1 I2C_START 1 0 :1:3 
 `uc 1 I2C_STOP 1 0 :1:4 
 `uc 1 I2C_DAT 1 0 :1:5 
 ]
-[s S3277 . 1 `uc 1 BF1 1 0 :1:0 
+[s S3162 . 1 `uc 1 BF1 1 0 :1:0 
 `uc 1 UA1 1 0 :1:1 
 `uc 1 R 1 0 :1:2 
 `uc 1 START 1 0 :1:3 
@@ -824,73 +829,73 @@ FR_INVALID_PARAMETER 19
 `uc 1 CKE1 1 0 :1:6 
 `uc 1 SMP1 1 0 :1:7 
 ]
-[s S3286 . 1 `uc 1 . 1 0 :2:0 
+[s S3171 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 RW 1 0 :1:2 
 `uc 1 START1 1 0 :1:3 
 `uc 1 STOP1 1 0 :1:4 
 `uc 1 DA 1 0 :1:5 
 ]
-[s S3292 . 1 `uc 1 . 1 0 :2:0 
+[s S3177 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 RW1 1 0 :1:2 
 `uc 1 I2C_START1 1 0 :1:3 
 `uc 1 I2C_STOP2 1 0 :1:4 
 `uc 1 DA1 1 0 :1:5 
 ]
-[s S3298 . 1 `uc 1 . 1 0 :2:0 
+[s S3183 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 I2C_READ1 1 0 :1:2 
 `uc 1 S2 1 0 :1:3 
 `uc 1 P2 1 0 :1:4 
 `uc 1 DATA_ADDRESS1 1 0 :1:5 
 ]
-[s S3304 . 1 `uc 1 . 1 0 :2:0 
+[s S3189 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 READ_WRITE1 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A1 1 0 :1:5 
 ]
-[s S3309 . 1 `uc 1 . 1 0 :5:0 
+[s S3194 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 D_NOT_A1 1 0 :1:5 
 ]
-[s S3312 . 1 `uc 1 . 1 0 :2:0 
+[s S3197 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W1 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_nA1 1 0 :1:5 
 ]
-[s S3317 . 1 `uc 1 . 1 0 :2:0 
+[s S3202 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_NOT_W1 1 0 :1:2 
 ]
-[s S3320 . 1 `uc 1 . 1 0 :2:0 
+[s S3205 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_nW1 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 I2C_DAT1 1 0 :1:5 
 ]
-[s S3325 . 1 `uc 1 . 1 0 :2:0 
+[s S3210 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_W2 1 0 :1:2 
 ]
-[s S3328 . 1 `uc 1 . 1 0 :5:0 
+[s S3213 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_A2 1 0 :1:5 
 ]
-[s S3331 . 1 `uc 1 . 1 0 :2:0 
+[s S3216 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA2 1 0 :1:5 
 ]
-[s S3336 . 1 `uc 1 . 1 0 :2:0 
+[s S3221 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_WRITE1 1 0 :1:2 
 ]
-[s S3339 . 1 `uc 1 . 1 0 :5:0 
+[s S3224 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_ADDRESS1 1 0 :1:5 
 ]
-[s S3342 . 1 `uc 1 . 1 0 :2:0 
+[s S3227 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE1 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS1 1 0 :1:5 
 ]
-[u S3347 . 1 `S3230 1 . 1 0 `S3233 1 . 1 0 `S3236 1 . 1 0 `S3245 1 . 1 0 `S3250 1 . 1 0 `S3255 1 . 1 0 `S3258 1 . 1 0 `S3261 1 . 1 0 `S3266 1 . 1 0 `S3271 1 . 1 0 `S3277 1 . 1 0 `S3286 1 . 1 0 `S3292 1 . 1 0 `S3298 1 . 1 0 `S3304 1 . 1 0 `S3309 1 . 1 0 `S3312 1 . 1 0 `S3317 1 . 1 0 `S3320 1 . 1 0 `S3325 1 . 1 0 `S3328 1 . 1 0 `S3331 1 . 1 0 `S3336 1 . 1 0 `S3339 1 . 1 0 `S3342 1 . 1 0 ]
-[v _SSP1STATbits SSP1STATbits `VES3347  1 e 1 @3989 ]
+[u S3232 . 1 `S3115 1 . 1 0 `S3118 1 . 1 0 `S3121 1 . 1 0 `S3130 1 . 1 0 `S3135 1 . 1 0 `S3140 1 . 1 0 `S3143 1 . 1 0 `S3146 1 . 1 0 `S3151 1 . 1 0 `S3156 1 . 1 0 `S3162 1 . 1 0 `S3171 1 . 1 0 `S3177 1 . 1 0 `S3183 1 . 1 0 `S3189 1 . 1 0 `S3194 1 . 1 0 `S3197 1 . 1 0 `S3202 1 . 1 0 `S3205 1 . 1 0 `S3210 1 . 1 0 `S3213 1 . 1 0 `S3216 1 . 1 0 `S3221 1 . 1 0 `S3224 1 . 1 0 `S3227 1 . 1 0 ]
+[v _SSP1STATbits SSP1STATbits `VES3232  1 e 1 @3989 ]
 "17305
 [v _SSP1CON1 SSP1CON1 `VEuc  1 e 1 @3990 ]
 "17335
-[s S2948 . 1 `uc 1 SSPM01 1 0 :1:0 
+[s S2833 . 1 `uc 1 SSPM01 1 0 :1:0 
 `uc 1 SSPM11 1 0 :1:1 
 `uc 1 SSPM21 1 0 :1:2 
 `uc 1 SSPM31 1 0 :1:3 
@@ -899,11 +904,11 @@ FR_INVALID_PARAMETER 19
 `uc 1 SSPOV1 1 0 :1:6 
 `uc 1 WCOL1 1 0 :1:7 
 ]
-[u S2957 . 1 `S2937 1 . 1 0 `S2943 1 . 1 0 `S2948 1 . 1 0 ]
-[v _SSP1CON1bits SSP1CON1bits `VES2957  1 e 1 @3990 ]
+[u S2842 . 1 `S2822 1 . 1 0 `S2828 1 . 1 0 `S2833 1 . 1 0 ]
+[v _SSP1CON1bits SSP1CON1bits `VES2842  1 e 1 @3990 ]
 "17425
 [v _SSP1CON2 SSP1CON2 `VEuc  1 e 1 @3991 ]
-[s S3121 . 1 `uc 1 SEN 1 0 :1:0 
+[s S3006 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -913,17 +918,17 @@ FR_INVALID_PARAMETER 19
 `uc 1 GCEN 1 0 :1:7 
 ]
 "17472
-[s S3130 . 1 `uc 1 . 1 0 :1:0 
+[s S3015 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 ADMSK 1 0 :5:1 
 ]
-[s S3133 . 1 `uc 1 . 1 0 :1:0 
+[s S3018 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 ADMSK1 1 0 :1:1 
 `uc 1 ADMSK2 1 0 :1:2 
 `uc 1 ADMSK3 1 0 :1:3 
 `uc 1 ADMSK4 1 0 :1:4 
 `uc 1 ADMSK5 1 0 :1:5 
 ]
-[s S3140 . 1 `uc 1 SEN1 1 0 :1:0 
+[s S3025 . 1 `uc 1 SEN1 1 0 :1:0 
 `uc 1 ADMSK11 1 0 :1:1 
 `uc 1 ADMSK21 1 0 :1:2 
 `uc 1 ADMSK31 1 0 :1:3 
@@ -932,15 +937,15 @@ FR_INVALID_PARAMETER 19
 `uc 1 ACKSTAT1 1 0 :1:6 
 `uc 1 GCEN1 1 0 :1:7 
 ]
-[s S3149 . 1 `uc 1 . 1 0 :1:0 
+[s S3034 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RSEN1 1 0 :1:1 
 `uc 1 PEN1 1 0 :1:2 
 `uc 1 RCEN1 1 0 :1:3 
 `uc 1 ADMSK41 1 0 :1:4 
 `uc 1 ADMSK51 1 0 :1:5 
 ]
-[u S3156 . 1 `S3121 1 . 1 0 `S3130 1 . 1 0 `S3133 1 . 1 0 `S3140 1 . 1 0 `S3149 1 . 1 0 ]
-[v _SSP1CON2bits SSP1CON2bits `VES3156  1 e 1 @3991 ]
+[u S3041 . 1 `S3006 1 . 1 0 `S3015 1 . 1 0 `S3018 1 . 1 0 `S3025 1 . 1 0 `S3034 1 . 1 0 ]
+[v _SSP1CON2bits SSP1CON2bits `VES3041  1 e 1 @3991 ]
 "17612
 [v _SSP1CON3 SSP1CON3 `VEuc  1 e 1 @3992 ]
 "25105
@@ -949,23 +954,23 @@ FR_INVALID_PARAMETER 19
 [v _TMR0H TMR0H `VEuc  1 e 1 @4052 ]
 "25497
 [v _T0CON0 T0CON0 `VEuc  1 e 1 @4053 ]
-[s S3902 . 1 `uc 1 T0OUTPS 1 0 :4:0 
+[s S3792 . 1 `uc 1 T0OUTPS 1 0 :4:0 
 `uc 1 T016BIT 1 0 :1:4 
 `uc 1 T0OUT 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 T0EN 1 0 :1:7 
 ]
 "25517
-[s S3908 . 1 `uc 1 T0OUTPS0 1 0 :1:0 
+[s S3798 . 1 `uc 1 T0OUTPS0 1 0 :1:0 
 `uc 1 T0OUTPS1 1 0 :1:1 
 `uc 1 T0OUTPS2 1 0 :1:2 
 `uc 1 T0OUTPS3 1 0 :1:3 
 ]
-[u S3913 . 1 `S3902 1 . 1 0 `S3908 1 . 1 0 ]
-[v _T0CON0bits T0CON0bits `VES3913  1 e 1 @4053 ]
+[u S3803 . 1 `S3792 1 . 1 0 `S3798 1 . 1 0 ]
+[v _T0CON0bits T0CON0bits `VES3803  1 e 1 @4053 ]
 "25562
 [v _T0CON1 T0CON1 `VEuc  1 e 1 @4054 ]
-[s S3962 . 1 `uc 1 INT0EDG 1 0 :1:0 
+[s S3852 . 1 `uc 1 INT0EDG 1 0 :1:0 
 `uc 1 INT1EDG 1 0 :1:1 
 `uc 1 INT2EDG 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
@@ -974,23 +979,27 @@ FR_INVALID_PARAMETER 19
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "26415
-[s S3970 . 1 `uc 1 . 1 0 :6:0 
+[s S3860 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S3974 . 1 `uc 1 . 1 0 :6:0 
+[s S3864 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S3978 . 1 `S3962 1 . 1 0 `S3970 1 . 1 0 `S3974 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES3978  1 e 1 @4082 ]
-[s S324 . 563 `uc 1 fs_type 1 0 `uc 1 pdrv 1 1 `uc 1 n_fats 1 2 `uc 1 wflag 1 3 `uc 1 fsi_flag 1 4 `us 1 id 2 5 `us 1 n_rootdir 2 7 `us 1 csize 2 9 `ul 1 last_clst 4 11 `ul 1 free_clst 4 15 `ul 1 cdir 4 19 `ul 1 n_fatent 4 23 `ul 1 fsize 4 27 `ul 1 volbase 4 31 `ul 1 fatbase 4 35 `ul 1 dirbase 4 39 `ul 1 database 4 43 `ul 1 winsect 4 47 `[512]uc 1 win 512 51 ]
-"9 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\main.c
-[v _drive drive `S324  1 e 563 0 ]
-"10
-[s S394 . 14 `*.39S324 1 fs 2 0 `us 1 id 2 2 `uc 1 attr 1 4 `uc 1 stat 1 5 `ul 1 sclust 4 6 `ul 1 objsize 4 10 ]
-[s S425 . 546 `S394 1 obj 14 0 `uc 1 flag 1 14 `uc 1 err 1 15 `ul 1 fptr 4 16 `ul 1 clust 4 20 `ul 1 sect 4 24 `ul 1 dir_sect 4 28 `*.39uc 1 dir_ptr 2 32 `[512]uc 1 buf 512 34 ]
-[v _file file `S425  1 e 546 0 ]
+[u S3868 . 1 `S3852 1 . 1 0 `S3860 1 . 1 0 `S3864 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES3868  1 e 1 @4082 ]
+"3 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\errno.c
+[v _errno errno `i  1 e 2 0 ]
+"7 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\expand_heap.c
+[v ___heap_hi __heap_hi `[0]uc  1 e 0 0 ]
+[v ___heap_lo __heap_lo `[0]uc  1 e 0 0 ]
+"12
+[v _brkp brkp `*.39uc  1 s 2 brkp ]
+"17 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\lite_free.c
+[u S4732 . 3 `*.2S4734 1 next 3 0 `[1]uc 1 space 1 0 ]
+[s S4734 chunk 5 `ui 1 size 2 0 `S4732 1 . 3 2 ]
+[v ___freelist __freelist `*.39S4734  1 e 2 0 ]
 "8 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/fatfs/drva.c
 [v _DiskInitialized DiskInitialized `VEa  1 s 1 DiskInitialized ]
 "9
@@ -1000,10 +1009,13 @@ FR_INVALID_PARAMETER 19
 [v _Timer2 Timer2 `VEui  1 s 2 Timer2 ]
 "11
 [v _CardType CardType `ui  1 s 2 CardType ]
+[s S324 . 563 `uc 1 fs_type 1 0 `uc 1 pdrv 1 1 `uc 1 n_fats 1 2 `uc 1 wflag 1 3 `uc 1 fsi_flag 1 4 `us 1 id 2 5 `us 1 n_rootdir 2 7 `us 1 csize 2 9 `ul 1 last_clst 4 11 `ul 1 free_clst 4 15 `ul 1 cdir 4 19 `ul 1 n_fatent 4 23 `ul 1 fsize 4 27 `ul 1 volbase 4 31 `ul 1 fatbase 4 35 `ul 1 dirbase 4 39 `ul 1 database 4 43 `ul 1 winsect 4 47 `[512]uc 1 win 512 51 ]
 "27 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/fatfs/fatfs_demo.c
-[v _drive@fatfs_demo$F2478 drive `S324  1 s 563 drive ]
+[v _drive drive `S324  1 s 563 drive ]
 "28
-[v _file@fatfs_demo$F2498 file `S425  1 s 546 file ]
+[s S394 . 14 `*.39S324 1 fs 2 0 `us 1 id 2 2 `uc 1 attr 1 4 `uc 1 stat 1 5 `ul 1 sclust 4 6 `ul 1 objsize 4 10 ]
+[s S425 . 546 `S394 1 obj 14 0 `uc 1 flag 1 14 `uc 1 err 1 15 `ul 1 fptr 4 16 `ul 1 clust 4 20 `ul 1 sect 4 24 `ul 1 dir_sect 4 28 `*.39uc 1 dir_ptr 2 32 `[512]uc 1 buf 512 34 ]
+[v _file file `S425  1 s 546 file ]
 "431 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/fatfs/ff.c
 [v _FatFs FatFs `[1]*.39S324  1 s 2 FatFs ]
 "432
@@ -1014,24 +1026,638 @@ FR_INVALID_PARAMETER 19
 [v _ExCvt ExCvt `C[128]uc  1 s 128 ExCvt ]
 "147 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/i2c1_master.c
 [v _i2c1_fsmStateTable i2c1_fsmStateTable `C[16]*.38(E9968  1 e 48 0 ]
-[s S2910 . 42 `[6]*.38(E360 1 callbackTable 18 0 `[6]*.39v 1 callbackPayload 12 18 `us 1 time_out 2 30 `us 1 time_out_value 2 32 `uc 1 address 1 34 `*.39uc 1 data_ptr 2 35 `ui 1 data_length 2 37 `E9968 1 state 1 39 `E355 1 error 1 40 `uc 1 addressNackCheck 1 41 :1:0 
+[s S2795 . 42 `[6]*.38(E360 1 callbackTable 18 0 `[6]*.39v 1 callbackPayload 12 18 `us 1 time_out 2 30 `us 1 time_out_value 2 32 `uc 1 address 1 34 `*.39uc 1 data_ptr 2 35 `ui 1 data_length 2 37 `E9968 1 state 1 39 `E355 1 error 1 40 `uc 1 addressNackCheck 1 41 :1:0 
 `uc 1 busy 1 41 :1:1 
 `uc 1 inUse 1 41 :1:2 
 `uc 1 bufferFree 1 41 :1:3 
 ]
 "166
-[v _I2C1_Status I2C1_Status `S2910  1 e 42 0 ]
-"54 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/pin_manager.c
-[v _IOCCF1_InterruptHandler IOCCF1_InterruptHandler `*.38(v  1 e 3 0 ]
-[s S3720 . 4 `uc 1 con1 1 0 `uc 1 stat 1 1 `uc 1 add 1 2 `uc 1 operation 1 3 ]
+[v _I2C1_Status I2C1_Status `S2795  1 e 42 0 ]
+[s S3610 . 4 `uc 1 con1 1 0 `uc 1 stat 1 1 `uc 1 add 1 2 `uc 1 operation 1 3 ]
 "58 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/spi2.c
-[v _spi2_configuration spi2_configuration `C[2]S3720  1 s 8 spi2_configuration ]
+[v _spi2_configuration spi2_configuration `C[2]S3610  1 s 8 spi2_configuration ]
 "59 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/tmr0.c
 [v _TMR0_InterruptHandler TMR0_InterruptHandler `*.38(v  1 e 3 0 ]
-"45 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\main.c
+"34 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"61
+"49
+} 0
+"87 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\rtcdrv.c
+[v _rtcdrv_poll rtcdrv_poll `(v  1 e 1 0 ]
+{
+"92
+[v rtcdrv_poll@x_4253 x `i  1 a 2 38 ]
+[v rtcdrv_poll@x x `i  1 a 2 36 ]
+[s S4152 . 1 `uc 1 argCount 1 0 :3:0 
+`uc 1 cmd 1 0 :4:3 
+`uc 1 rtc 1 0 :1:7 
+]
+"90
+[u S4156 RTCDRV_DATA_ 1 `S4152 1 data_part 1 0 `uc 1 data 1 0 ]
+[v rtcdrv_poll@d d `S4156  1 a 1 40 ]
+"103
+} 0
+"69
+[v _processRTC processRTC `(v  1 e 1 0 ]
+{
+[v processRTC@cmd cmd `uc  1 a 1 wreg ]
+[v processRTC@cmd cmd `uc  1 a 1 wreg ]
+[v processRTC@argCount argCount `uc  1 p 1 32 ]
+[v processRTC@cmd cmd `uc  1 a 1 35 ]
+"81
+} 0
+"59
+[v _rtcSetClk rtcSetClk `(v  1 e 1 0 ]
+{
+[v rtcSetClk@argCount argCount `uc  1 a 1 wreg ]
+"62
+[v rtcSetClk@buffer buffer `*.39uc  1 a 2 53 ]
+"60
+[v rtcSetClk@argBuffer argBuffer `*.39uc  1 a 2 51 ]
+"59
+[v rtcSetClk@argCount argCount `uc  1 a 1 wreg ]
+[v rtcSetClk@argCount argCount `uc  1 a 1 50 ]
+"67
+} 0
+"16 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\lite_malloc.c
+[v _malloc malloc `(*.39v  1 e 2 0 ]
+{
+"55
+[v malloc@sz sz `*.39ui  1 a 2 30 ]
+"42
+[v malloc@new new `*.39uc  1 a 2 34 ]
+"41
+[v malloc@m m `ui  1 a 2 28 ]
+"20
+[v malloc@p p `*.39v  1 a 2 32 ]
+"16
+[v malloc@n n `ui  1 p 2 24 ]
+"18
+[v malloc@cur cur `*.39uc  1 s 2 cur ]
+[v malloc@end end `*.39uc  1 s 2 end ]
+"19
+[v malloc@lock lock `VE[2]i  1 s 4 lock ]
+"64
+} 0
+"19 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\lite_free.c
+[v ___simple_search_fl __simple_search_fl `(*.39v  1 e 2 0 ]
+{
+"50
+[u S4732 . 3 `*.2S4734 1 next 3 0 `[1]uc 1 space 1 0 ]
+[s S4734 chunk 5 `ui 1 size 2 0 `S4732 1 . 3 2 ]
+[v ___simple_search_fl@split split `*.39S4734  1 a 2 14 ]
+"53
+[v ___simple_search_fl@remaining_size remaining_size `ui  1 a 2 10 ]
+"45
+[u S4732 . 3 `*.2S4734 1 next 3 0 `[1]uc 1 space 1 0 ]
+[s S4734 chunk 5 `ui 1 size 2 0 `S4732 1 . 3 2 ]
+[v ___simple_search_fl@next next `*.39S4734  1 a 2 18 ]
+"20
+[u S4732 . 3 `*.2S4734 1 next 3 0 `[1]uc 1 space 1 0 ]
+[s S4734 chunk 5 `ui 1 size 2 0 `S4732 1 . 3 2 ]
+[v ___simple_search_fl@best best `*.39S4734  1 a 2 22 ]
+"23
+[v ___simple_search_fl@c c `*.39S4734  1 a 2 20 ]
+"22
+[v ___simple_search_fl@last last `*.39S4734  1 a 2 16 ]
+"21
+[v ___simple_search_fl@best_last best_last `*.39S4734  1 a 2 12 ]
+"19
+[v ___simple_search_fl@n n `ui  1 p 2 4 ]
+"65
+} 0
+"14 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\expand_heap.c
+[v ___expand_heap __expand_heap `(*.39v  1 e 2 0 ]
+{
+"17
+[v ___expand_heap@new_brkp new_brkp `*.39uc  1 a 2 10 ]
+"16
+[v ___expand_heap@n n `ui  1 a 2 8 ]
+"14
+[v ___expand_heap@pn pn `*.39ui  1 p 2 4 ]
+"32
+} 0
+"39 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\rtcdrv.c
+[v _getArgs getArgs `(v  1 e 1 0 ]
+{
+[v getArgs@argsCount argsCount `ui  1 p 2 14 ]
+[v getArgs@buffer buffer `*.39uc  1 p 2 16 ]
+"41
+} 0
+"29
+[v _getBuffer getBuffer `(v  1 e 1 0 ]
+{
+"35
+[v getBuffer@x_4194 x `i  1 a 2 12 ]
+[v getBuffer@x x `i  1 a 2 10 ]
+"31
+[v getBuffer@i i `i  1 a 2 8 ]
+"29
+[v getBuffer@bufferSize bufferSize `ui  1 p 2 4 ]
+[v getBuffer@buffer buffer `*.39uc  1 p 2 6 ]
+"37
+} 0
+"67 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\lite_free.c
+[v _free free `(v  1 e 1 0 ]
+{
+"68
+[u S4732 . 3 `*.2S4734 1 next 3 0 `[1]uc 1 space 1 0 ]
+[s S4734 chunk 5 `ui 1 size 2 0 `S4732 1 . 3 2 ]
+[v free@c c `*.39S4734  1 a 2 12 ]
+"69
+[v free@cptr cptr `*.39uc  1 a 2 10 ]
+"67
+[v free@ptr ptr `*.39v  1 p 2 4 ]
+"94
+} 0
+"4 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\rtc.c
+[v _SetClock SetClock `(v  1 e 1 0 ]
+{
+[v SetClock@year year `uc  1 a 1 wreg ]
+"15
+[v SetClock@yearTPlace yearTPlace `uc  1 a 1 48 ]
+"13
+[v SetClock@monthTPlace monthTPlace `uc  1 a 1 47 ]
+"11
+[v SetClock@dayOMTPlace dayOMTPlace `uc  1 a 1 46 ]
+"9
+[v SetClock@hourTPlace hourTPlace `uc  1 a 1 45 ]
+"7
+[v SetClock@minTPlace minTPlace `uc  1 a 1 44 ]
+"5
+[v SetClock@secTPlace secTPlace `uc  1 a 1 43 ]
+"23
+[v SetClock@yearToWrite yearToWrite `uc  1 a 1 41 ]
+"22
+[v SetClock@monthToWrite monthToWrite `uc  1 a 1 40 ]
+"21
+[v SetClock@dayOfMonthToWrite dayOfMonthToWrite `uc  1 a 1 39 ]
+"20
+[v SetClock@hourToWrite hourToWrite `uc  1 a 1 38 ]
+"19
+[v SetClock@minToWrite minToWrite `uc  1 a 1 37 ]
+"18
+[v SetClock@secToWrite secToWrite `uc  1 a 1 36 ]
+"16
+[v SetClock@yearOPlace yearOPlace `uc  1 a 1 35 ]
+"14
+[v SetClock@monthOPlace monthOPlace `uc  1 a 1 34 ]
+"12
+[v SetClock@dayOMOPlace dayOMOPlace `uc  1 a 1 33 ]
+"10
+[v SetClock@hourOPlace hourOPlace `uc  1 a 1 32 ]
+"8
+[v SetClock@minOPlace minOPlace `uc  1 a 1 31 ]
+"6
+[v SetClock@secOPlace secOPlace `uc  1 a 1 30 ]
+"4
+[v SetClock@year year `uc  1 a 1 wreg ]
+[v SetClock@month month `uc  1 p 1 24 ]
+[v SetClock@dayOfMonth dayOfMonth `uc  1 p 1 25 ]
+[v SetClock@dayOfWeek dayOfWeek `uc  1 p 1 26 ]
+[v SetClock@hour hour `uc  1 p 1 27 ]
+[v SetClock@minute minute `uc  1 p 1 28 ]
+[v SetClock@second second `uc  1 p 1 29 ]
+[v SetClock@year year `uc  1 a 1 42 ]
+"31
+} 0
+"91 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/examples/i2c1_master_example.c
+[v _I2C1_Write1ByteRegister I2C1_Write1ByteRegister `(v  1 e 1 0 ]
+{
+[v I2C1_Write1ByteRegister@address address `uc  1 a 1 wreg ]
+[v I2C1_Write1ByteRegister@address address `uc  1 a 1 wreg ]
+[v I2C1_Write1ByteRegister@reg reg `uc  1 p 1 21 ]
+[v I2C1_Write1ByteRegister@data data `uc  1 p 1 22 ]
+[v I2C1_Write1ByteRegister@address address `uc  1 a 1 23 ]
+"99
+} 0
+"52 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\rtcdrv.c
+[v _rtcGetClk rtcGetClk `(v  1 e 1 0 ]
+{
+[s S2566 tm 24 `i 1 tm_sec 2 0 `i 1 tm_min 2 2 `i 1 tm_hour 2 4 `i 1 tm_mday 2 6 `i 1 tm_mon 2 8 `i 1 tm_year 2 10 `i 1 tm_wday 2 12 `i 1 tm_yday 2 14 `i 1 tm_isdst 2 16 `l 1 __tm_gmtoff 4 18 `*.2Cuc 1 __tm_zone 2 22 ]
+"53
+[v rtcGetClk@t t `S2566  1 a 24 8 ]
+"54
+[v rtcGetClk@bufferOut bufferOut `[8]uc  1 a 8 0 ]
+"57
+} 0
+"43
+[v _rtcGetAClk rtcGetAClk `(v  1 e 1 0 ]
+{
+[s S2566 tm 24 `i 1 tm_sec 2 0 `i 1 tm_min 2 2 `i 1 tm_hour 2 4 `i 1 tm_mday 2 6 `i 1 tm_mon 2 8 `i 1 tm_year 2 10 `i 1 tm_wday 2 12 `i 1 tm_yday 2 14 `i 1 tm_isdst 2 16 `l 1 __tm_gmtoff 4 18 `*.2Cuc 1 __tm_zone 2 22 ]
+"44
+[v rtcGetAClk@t t `S2566  1 a 24 4 ]
+"46
+[v rtcGetAClk@outSize outSize `ui  1 a 2 2 ]
+"45
+[v rtcGetAClk@bufferOut bufferOut `*.39uc  1 a 2 0 ]
+"50
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\strlen.c
+[v _strlen strlen `(ui  1 e 2 0 ]
+{
+"7
+[v strlen@a a `*.39Cuc  1 a 2 6 ]
+"5
+[v strlen@s s `*.39Cuc  1 p 2 4 ]
+"12
+} 0
+"24 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\rtcdrv.c
+[v _sendBufferLen sendBufferLen `(v  1 e 1 0 ]
+{
+"25
+[v sendBufferLen@outbuff outbuff `[2]uc  1 a 2 20 ]
+"24
+[v sendBufferLen@bufferLen bufferLen `ui  1 p 2 18 ]
+"27
+} 0
+"13
+[v _sendBuffer sendBuffer `(v  1 e 1 0 ]
+{
+"18
+[v sendBuffer@x_4173 x `i  1 a 2 12 ]
+[v sendBuffer@x x `i  1 a 2 10 ]
+"21
+[v sendBuffer@x_4183 x `i  1 a 2 16 ]
+[v sendBuffer@x_4182 x `i  1 a 2 14 ]
+"15
+[v sendBuffer@i i `i  1 a 2 8 ]
+"13
+[v sendBuffer@buff buff `*.39uc  1 p 2 4 ]
+[v sendBuffer@size size `ui  1 p 2 6 ]
+"22
+} 0
+"19 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\asctime.c
+[v _asctime asctime `(*.39uc  1 e 2 0 ]
+{
+"22
+[v asctime@cp cp `*.39uc  1 a 2 23 ]
+"21
+[v asctime@s s `*.32Cuc  1 a 2 21 ]
+[s S2566 tm 24 `i 1 tm_sec 2 0 `i 1 tm_min 2 2 `i 1 tm_hour 2 4 `i 1 tm_mday 2 6 `i 1 tm_mon 2 8 `i 1 tm_year 2 10 `i 1 tm_wday 2 12 `i 1 tm_yday 2 14 `i 1 tm_isdst 2 16 `l 1 __tm_gmtoff 4 18 `*.2Cuc 1 __tm_zone 2 22 ]
+"19
+[v asctime@tim tim `*.39CS2566  1 p 2 17 ]
+"23
+[v asctime@buf buf `[27]uc  1 s 27 buf ]
+"43
+} 0
+"8
+[v _put2d put2d `(v  1 s 1 put2d ]
+{
+[v put2d@cp cp `*.39uc  1 p 2 12 ]
+[v put2d@i i `uc  1 p 1 14 ]
+[v put2d@cl cl `uc  1 p 1 15 ]
+[v put2d@ct ct `uc  1 p 1 16 ]
+"16
+} 0
+"7 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+{
+"10
+[v ___awmod@sign sign `uc  1 a 1 9 ]
+[v ___awmod@counter counter `uc  1 a 1 8 ]
+"7
+[v ___awmod@dividend dividend `i  1 p 2 4 ]
+[v ___awmod@divisor divisor `i  1 p 2 6 ]
+"34
+} 0
+"7 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"10
+[v ___awdiv@quotient quotient `i  1 a 2 10 ]
+"11
+[v ___awdiv@sign sign `uc  1 a 1 9 ]
+[v ___awdiv@counter counter `uc  1 a 1 8 ]
+"7
+[v ___awdiv@dividend dividend `i  1 p 2 4 ]
+[v ___awdiv@divisor divisor `i  1 p 2 6 ]
+"41
+} 0
+"15 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 8 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 4 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 6 ]
+"53
+} 0
+"40 C:\Program Files\Microchip\xc8\v2.36\pic\include\c99\time.h
+[s S2566 tm 24 `i 1 tm_sec 2 0 `i 1 tm_min 2 2 `i 1 tm_hour 2 4 `i 1 tm_mday 2 6 `i 1 tm_mon 2 8 `i 1 tm_year 2 10 `i 1 tm_wday 2 12 `i 1 tm_yday 2 14 `i 1 tm_isdst 2 16 `l 1 __tm_gmtoff 4 18 `*.2Cuc 1 __tm_zone 2 22 ]
+"33 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\rtc.c
+[v _ReadClock ReadClock `(S2566  1 e 24 0 ]
+{
+"42
+[v ReadClock@t t `S2566  1 a 24 59 ]
+"34
+[v ReadClock@year year `uc  1 a 1 58 ]
+[v ReadClock@month month `uc  1 a 1 57 ]
+[v ReadClock@day day `uc  1 a 1 56 ]
+[v ReadClock@hour hour `uc  1 a 1 55 ]
+[v ReadClock@min min `uc  1 a 1 54 ]
+[v ReadClock@sec sec `uc  1 a 1 53 ]
+[v ReadClock@weekday weekday `uc  1 a 1 52 ]
+"51
+} 0
+"63 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/examples/i2c1_master_example.c
+[v _I2C1_Read1ByteRegister I2C1_Read1ByteRegister `(uc  1 e 1 0 ]
+{
+[v I2C1_Read1ByteRegister@address address `uc  1 a 1 wreg ]
+"65
+[v I2C1_Read1ByteRegister@returnValue returnValue `uc  1 a 1 23 ]
+"63
+[v I2C1_Read1ByteRegister@address address `uc  1 a 1 wreg ]
+[v I2C1_Read1ByteRegister@reg reg `uc  1 p 1 21 ]
+"65
+[v I2C1_Read1ByteRegister@address address `uc  1 a 1 22 ]
+"75
+} 0
+"285 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/i2c1_master.c
+[v _I2C1_SetAddressNackCallback I2C1_SetAddressNackCallback `(v  1 e 1 0 ]
+{
+[v I2C1_SetAddressNackCallback@cb cb `*.38(E360  1 p 3 10 ]
+[v I2C1_SetAddressNackCallback@ptr ptr `*.2v  1 p 2 13 ]
+"288
+} 0
+"178
+[v _I2C1_Open I2C1_Open `(E355  1 e 1 0 ]
+{
+[v I2C1_Open@address address `uc  1 a 1 wreg ]
+"180
+[v I2C1_Open@returnValue returnValue `E355  1 a 1 5 ]
+"178
+[v I2C1_Open@address address `uc  1 a 1 wreg ]
+"180
+[v I2C1_Open@address address `uc  1 a 1 4 ]
+"209
+} 0
+"545
+[v _I2C1_MasterOpen I2C1_MasterOpen `T(a  1 s 1 I2C1_MasterOpen ]
+{
+"557
+} 0
+"253
+[v _I2C1_MasterWrite I2C1_MasterWrite `(E355  1 e 1 0 ]
+{
+"256
+} 0
+"226
+[v _I2C1_MasterOperation I2C1_MasterOperation `(E355  1 e 1 0 ]
+{
+[v I2C1_MasterOperation@read read `a  1 a 1 wreg ]
+"228
+[v I2C1_MasterOperation@returnValue returnValue `E355  1 a 1 20 ]
+"226
+[v I2C1_MasterOperation@read read `a  1 a 1 wreg ]
+"228
+[v I2C1_MasterOperation@read read `a  1 a 1 19 ]
+"246
+} 0
+"314
+[v _I2C1_Poller I2C1_Poller `(v  1 s 1 I2C1_Poller ]
+{
+"321
+} 0
+"652
+[v _I2C1_MasterWaitForEvent I2C1_MasterWaitForEvent `T(v  1 s 1 I2C1_MasterWaitForEvent ]
+{
+"661
+} 0
+"323
+[v _I2C1_MasterFsm I2C1_MasterFsm `T(v  1 s 1 I2C1_MasterFsm ]
+{
+"332
+} 0
+"502
+[v _I2C1_DO_ADDRESS_NACK I2C1_DO_ADDRESS_NACK `(E9968  1 s 1 I2C1_DO_ADDRESS_NACK ]
+{
+"514
+} 0
+"496
+[v _I2C1_DO_RESET I2C1_DO_RESET `(E9968  1 s 1 I2C1_DO_RESET ]
+{
+"501
+} 0
+"490
+[v _I2C1_DO_RX_NACK_RESTART I2C1_DO_RX_NACK_RESTART `(E9968  1 s 1 I2C1_DO_RX_NACK_RESTART ]
+{
+"494
+} 0
+"484
+[v _I2C1_DO_RX_NACK_STOP I2C1_DO_RX_NACK_STOP `(E9968  1 s 1 I2C1_DO_RX_NACK_STOP ]
+{
+"488
+} 0
+"477
+[v _I2C1_DO_RX_ACK I2C1_DO_RX_ACK `(E9968  1 s 1 I2C1_DO_RX_ACK ]
+{
+"481
+} 0
+"471
+[v _I2C1_DO_SEND_STOP I2C1_DO_SEND_STOP `(E9968  1 s 1 I2C1_DO_SEND_STOP ]
+{
+"475
+} 0
+"465
+[v _I2C1_DO_SEND_RESTART I2C1_DO_SEND_RESTART `(E9968  1 s 1 I2C1_DO_SEND_RESTART ]
+{
+"469
+} 0
+"458
+[v _I2C1_DO_SEND_RESTART_WRITE I2C1_DO_SEND_RESTART_WRITE `(E9968  1 s 1 I2C1_DO_SEND_RESTART_WRITE ]
+{
+"462
+} 0
+"452
+[v _I2C1_DO_SEND_RESTART_READ I2C1_DO_SEND_RESTART_READ `(E9968  1 s 1 I2C1_DO_SEND_RESTART_READ ]
+{
+"456
+} 0
+"404
+[v _I2C1_DO_RCEN I2C1_DO_RCEN `(E9968  1 s 1 I2C1_DO_RCEN ]
+{
+"409
+} 0
+"380
+[v _I2C1_DO_RX I2C1_DO_RX `(E9968  1 s 1 I2C1_DO_RX ]
+{
+"402
+} 0
+"356
+[v _I2C1_DO_TX I2C1_DO_TX `(E9968  1 s 1 I2C1_DO_TX ]
+{
+"378
+} 0
+"349
+[v _I2C1_DO_SEND_ADR_WRITE I2C1_DO_SEND_ADR_WRITE `(E9968  1 s 1 I2C1_DO_SEND_ADR_WRITE ]
+{
+"354
+} 0
+"342
+[v _I2C1_DO_SEND_ADR_READ I2C1_DO_SEND_ADR_READ `(E9968  1 s 1 I2C1_DO_SEND_ADR_READ ]
+{
+"347
+} 0
+"335
+[v _I2C1_DO_IDLE I2C1_DO_IDLE `(E9968  1 s 1 I2C1_DO_IDLE ]
+{
+"340
+} 0
+"411
+[v _I2C1_DO_TX_EMPTY I2C1_DO_TX_EMPTY `(E9968  1 s 1 I2C1_DO_TX_EMPTY ]
+{
+"426
+} 0
+"647
+[v _I2C1_MasterSetIrq I2C1_MasterSetIrq `T(v  1 s 1 I2C1_MasterSetIrq ]
+{
+"650
+} 0
+"600
+[v _I2C1_MasterIsNack I2C1_MasterIsNack `T(a  1 s 1 I2C1_MasterIsNack ]
+{
+"603
+} 0
+"570
+[v _I2C1_MasterSendTxData I2C1_MasterSendTxData `T(v  1 s 1 I2C1_MasterSendTxData ]
+{
+[v I2C1_MasterSendTxData@data data `uc  1 a 1 wreg ]
+[v I2C1_MasterSendTxData@data data `uc  1 a 1 wreg ]
+"572
+[v I2C1_MasterSendTxData@data data `uc  1 a 1 4 ]
+"573
+} 0
+"605
+[v _I2C1_MasterSendAck I2C1_MasterSendAck `T(v  1 s 1 I2C1_MasterSendAck ]
+{
+"609
+} 0
+"565
+[v _I2C1_MasterGetRxData I2C1_MasterGetRxData `T(uc  1 s 1 I2C1_MasterGetRxData ]
+{
+"568
+} 0
+"611
+[v _I2C1_MasterSendNack I2C1_MasterSendNack `T(v  1 s 1 I2C1_MasterSendNack ]
+{
+"615
+} 0
+"585
+[v _I2C1_MasterStartRx I2C1_MasterStartRx `T(v  1 s 1 I2C1_MasterStartRx ]
+{
+"588
+} 0
+"527
+[v _I2C1_CallbackReturnReset I2C1_CallbackReturnReset `(E360  1 e 1 0 ]
+{
+[v I2C1_CallbackReturnReset@funPtr funPtr `*.39v  1 p 2 15 ]
+"530
+} 0
+"522
+[v _I2C1_CallbackReturnStop I2C1_CallbackReturnStop `(E360  1 e 1 0 ]
+{
+"525
+} 0
+"170 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/examples/i2c1_master_example.c
+[v _rdBlkRegCompleteHandler rdBlkRegCompleteHandler `(E360  1 s 1 rdBlkRegCompleteHandler ]
+{
+[v rdBlkRegCompleteHandler@ptr ptr `*.39v  1 p 2 15 ]
+"175
+} 0
+"156
+[v _wr1RegCompleteHandler wr1RegCompleteHandler `(E360  1 s 1 wr1RegCompleteHandler ]
+{
+[v wr1RegCompleteHandler@ptr ptr `*.39v  1 p 2 15 ]
+"161
+} 0
+"149
+[v _rd2RegCompleteHandler rd2RegCompleteHandler `(E360  1 s 1 rd2RegCompleteHandler ]
+{
+[v rd2RegCompleteHandler@ptr ptr `*.39v  1 p 2 15 ]
+"154
+} 0
+"142
+[v _rd1RegCompleteHandler rd1RegCompleteHandler `(E360  1 s 1 rd1RegCompleteHandler ]
+{
+[v rd1RegCompleteHandler@ptr ptr `*.39v  1 p 2 15 ]
+"147
+} 0
+"163
+[v _wr2RegCompleteHandler wr2RegCompleteHandler `(E360  1 s 1 wr2RegCompleteHandler ]
+{
+[v wr2RegCompleteHandler@ptr ptr `*.39v  1 p 2 15 ]
+"168
+} 0
+"275 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/i2c1_master.c
+[v _I2C1_SetDataCompleteCallback I2C1_SetDataCompleteCallback `(v  1 e 1 0 ]
+{
+[v I2C1_SetDataCompleteCallback@cb cb `*.38(E360  1 p 3 10 ]
+[v I2C1_SetDataCompleteCallback@ptr ptr `*.39v  1 p 2 13 ]
+"278
+} 0
+"300
+[v _I2C1_SetCallback I2C1_SetCallback `(v  1 s 1 I2C1_SetCallback ]
+{
+[v I2C1_SetCallback@idx idx `E9986  1 a 1 wreg ]
+[v I2C1_SetCallback@idx idx `E9986  1 a 1 wreg ]
+[v I2C1_SetCallback@cb cb `*.38(E360  1 p 3 4 ]
+[v I2C1_SetCallback@ptr ptr `*.39v  1 p 2 7 ]
+"302
+[v I2C1_SetCallback@idx idx `E9986  1 a 1 9 ]
+"312
+} 0
+"265
+[v _I2C1_SetBuffer I2C1_SetBuffer `(v  1 e 1 0 ]
+{
+[v I2C1_SetBuffer@buffer buffer `*.39v  1 p 2 4 ]
+[v I2C1_SetBuffer@bufferSize bufferSize `ui  1 p 2 6 ]
+"273
+} 0
+"595
+[v _I2C1_MasterStop I2C1_MasterStop `T(v  1 s 1 I2C1_MasterStop ]
+{
+"598
+} 0
+"575
+[v _I2C1_MasterEnableRestart I2C1_MasterEnableRestart `T(v  1 s 1 I2C1_MasterEnableRestart ]
+{
+"578
+} 0
+"590
+[v _I2C1_MasterStart I2C1_MasterStart `T(v  1 s 1 I2C1_MasterStart ]
+{
+"593
+} 0
+"211
+[v _I2C1_Close I2C1_Close `(E355  1 e 1 0 ]
+{
+"213
+[v I2C1_Close@returnValue returnValue `E355  1 a 1 4 ]
+"224
+} 0
+"637
+[v _I2C1_MasterDisableIrq I2C1_MasterDisableIrq `T(v  1 s 1 I2C1_MasterDisableIrq ]
+{
+"640
+} 0
+"559
+[v _I2C1_MasterClose I2C1_MasterClose `T(v  1 s 1 I2C1_MasterClose ]
+{
+"563
+} 0
+"642
+[v _I2C1_MasterClearIrq I2C1_MasterClearIrq `T(v  1 s 1 I2C1_MasterClearIrq ]
+{
+"645
+} 0
+"83 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\rtcdrv.c
+[v _processDRV processDRV `(v  1 e 1 0 ]
+{
+[v processDRV@argCount argCount `uc  1 p 1 4 ]
+"85
 } 0
 "87 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/tmr0.c
 [v _TMR0_StartTimer TMR0_StartTimer `(v  1 e 1 0 ]
@@ -1051,7 +1677,7 @@ FR_INVALID_PARAMETER 19
 "142
 [v _TMR0_SetInterruptHandler TMR0_SetInterruptHandler `(v  1 e 1 0 ]
 {
-[v TMR0_SetInterruptHandler@InterruptHandler InterruptHandler `*.38(v  1 p 3 0 ]
+[v TMR0_SetInterruptHandler@InterruptHandler InterruptHandler `*.38(v  1 p 3 4 ]
 "144
 } 0
 "62 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/spi2.c
@@ -1064,16 +1690,10 @@ FR_INVALID_PARAMETER 19
 {
 "89
 } 0
-"57 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/pin_manager.c
+"55 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
 {
-"138
-} 0
-"167
-[v _IOCCF1_SetInterruptHandler IOCCF1_SetInterruptHandler `(v  1 e 1 0 ]
-{
-[v IOCCF1_SetInterruptHandler@InterruptHandler InterruptHandler `*.38(v  1 p 3 0 ]
-"169
+"125
 } 0
 "61 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/mcc.c
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
@@ -1117,25 +1737,8 @@ FR_INVALID_PARAMETER 19
 {
 "149
 } 0
-"140 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/pin_manager.c
+"127 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_IOC PIN_MANAGER_IOC `(v  1 e 1 0 ]
 {
-"147
-} 0
-"152
-[v _IOCCF1_ISR IOCCF1_ISR `(v  1 e 1 0 ]
-{
-"162
-} 0
-"38 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\main.c
-[v _CA2IOC CA2IOC `(v  1 e 1 0 ]
-{
-"41
-[v CA2IOC@x x `i  1 a 2 0 ]
-"43
-} 0
-"174 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/pin_manager.c
-[v _IOCCF1_DefaultInterruptHandler IOCCF1_DefaultInterruptHandler `(v  1 e 1 0 ]
-{
-"177
+"129
 } 0

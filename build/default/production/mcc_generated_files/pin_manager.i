@@ -16009,21 +16009,11 @@ unsigned char __t3rd16on(void);
 void PIN_MANAGER_Initialize (void);
 # 390 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
-# 403 "mcc_generated_files/pin_manager.h"
-void IOCCF1_ISR(void);
-# 426 "mcc_generated_files/pin_manager.h"
-void IOCCF1_SetInterruptHandler(void (* InterruptHandler)(void));
-# 450 "mcc_generated_files/pin_manager.h"
-extern void (*IOCCF1_InterruptHandler)(void);
-# 474 "mcc_generated_files/pin_manager.h"
-void IOCCF1_DefaultInterruptHandler(void);
 # 49 "mcc_generated_files/pin_manager.c" 2
 
 
 
 
-
-void (*IOCCF1_InterruptHandler)(void);
 
 
 void PIN_MANAGER_Initialize(void)
@@ -16055,7 +16045,7 @@ void PIN_MANAGER_Initialize(void)
     WPUE = 0x00;
     WPUB = 0x00;
     WPUA = 0x00;
-    WPUC = 0x03;
+    WPUC = 0x00;
 
 
 
@@ -16084,17 +16074,6 @@ void PIN_MANAGER_Initialize(void)
 
 
 
-    IOCCFbits.IOCCF1 = 0;
-
-    IOCCNbits.IOCCN1 = 1;
-
-    IOCCPbits.IOCCP1 = 0;
-
-
-
-
-    IOCCF1_SetInterruptHandler(IOCCF1_DefaultInterruptHandler);
-
 
     PIE0bits.IOCIE = 1;
 
@@ -16111,39 +16090,4 @@ void PIN_MANAGER_Initialize(void)
 
 void PIN_MANAGER_IOC(void)
 {
-
-    if(IOCCFbits.IOCCF1 == 1)
-    {
-        IOCCF1_ISR();
-    }
-}
-
-
-
-
-void IOCCF1_ISR(void) {
-
-
-
-
-    if(IOCCF1_InterruptHandler)
-    {
-        IOCCF1_InterruptHandler();
-    }
-    IOCCFbits.IOCCF1 = 0;
-}
-
-
-
-
-void IOCCF1_SetInterruptHandler(void (* InterruptHandler)(void)){
-    IOCCF1_InterruptHandler = InterruptHandler;
-}
-
-
-
-
-void IOCCF1_DefaultInterruptHandler(void){
-
-
 }

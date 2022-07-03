@@ -1,10 +1,6 @@
 #include "mcc_generated_files/mcc.h"
-#include <string.h>
-#include "mcc_generated_files/fatfs/ff.h"
 #include "mcc_generated_files/fatfs/drva.h"
-#include "rtc.h"
-
-#define delay(wait) for (int x = 0; x < wait; ++x) NOP();
+#include "rtcdrv.h"
 
     FATFS drive;
     FIL file;
@@ -35,13 +31,6 @@ void DiskTest() {
     }
 }
 
-void CA2IOC(void) {
-    delay(500);
-    CA1_SetLow();
-    delay(500);
-    CA1_SetHigh();
-}
-
 void main(void)
 {
 #ifdef __DEBUG
@@ -50,14 +39,14 @@ void main(void)
     SYSTEM_Initialize();
     
     TMR0_SetInterruptHandler(DRVA_TMR_ms);
-    IOCCF1_SetInterruptHandler(CA2IOC);
     INTERRUPT_GlobalInterruptEnable();
     INTERRUPT_PeripheralInterruptEnable();
     TMR0_StartTimer();
     
-    //DiskTest();
+    DiskTest();
     
-
-    while (1);
+    while(1) {
+        rtcdrv_poll();
+    }
 }
 
