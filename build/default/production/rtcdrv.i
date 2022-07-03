@@ -16616,9 +16616,25 @@ struct tm *getdate (const char *);
 
 
 
-void SetClock(uint8_t year, uint8_t month, uint8_t dayOfMonth, uint8_t dayOfWeek, uint8_t hour, uint8_t minute, uint8_t second);
+void SetClock(size_t year, uint8_t month, uint8_t dayOfMonth, uint8_t dayOfWeek, uint8_t hour, uint8_t minute, uint8_t second);
 struct tm ReadClock();
 # 7 "./rtcdrv.h" 2
+
+# 1 "./mcc_generated_files/fatfs/drva.h" 1
+# 29 "./mcc_generated_files/fatfs/drva.h"
+_Bool DRVA_IsMediaPresent(void);
+_Bool DRVA_MediaInitialize(void);
+_Bool DRVA_IsMediaInitialized(void);
+
+_Bool DRVA_IsWriteProtected(void);
+uint16_t DRVA_GetSectorSize(void);
+uint32_t DRVA_GetSectorCount(void);
+
+_Bool DRVA_SectorRead(uint32_t sector_address, uint8_t* buffer, uint16_t sector_count);
+_Bool DRVA_SectorWrite(uint32_t sector_address, const uint8_t* buffer, uint16_t sector_count);
+
+void DRVA_TMR_ms(void);
+# 8 "./rtcdrv.h" 2
 
 
 typedef union RTCDRV_DATA_ {
@@ -16630,11 +16646,6 @@ typedef union RTCDRV_DATA_ {
     BYTE data;
 } RTCDRV_DATA;
 
-enum RTCDRV_MODE_ {
-    RECV, SEND
-};
-
-volatile enum RTCDRV_MODE_ RTCDRV_MODE = RECV;
 void rtcdrv_poll(void);
 # 1 "rtcdrv.c" 2
 
@@ -16692,7 +16703,13 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
 # 2 "rtcdrv.c" 2
-# 13 "rtcdrv.c"
+# 15 "rtcdrv.c"
+FATFS drive;
+FIL file;
+FFDIR dir;
+FILINFO fno;
+FATFS *fs;
+
 void sendBuffer(char * buff, unsigned int size) {
     TRISA = 0x00;
     int i = 0;
@@ -16744,7 +16761,8 @@ void rtcSetClk(BYTE argCount) {
     getArgs(argCount,argBuffer);
     BYTE * buffer = (BYTE *)malloc(argBuffer[0]);
     getBuffer(argBuffer[0],buffer);
-    SetClock((size_t)(((size_t)buffer[0]*100)+buffer[1]),buffer[2],buffer[3],buffer[4],buffer[5],buffer[6],buffer[7]);
+    size_t year = (buffer[0]*100)+buffer[1];
+    SetClock(year,buffer[2],buffer[3],buffer[4],buffer[5],buffer[6],buffer[7]);
     free(argBuffer);
     free(buffer);
 }
@@ -16753,18 +16771,68 @@ void processRTC(BYTE cmd, BYTE argCount) {
     switch(cmd) {
         case 0b0000:
             rtcGetAClk();
-        break;
+            break;
         case 0b0001:
             rtcGetClk();
-        break;
+            break;
         case 0b1000:
             rtcSetClk(argCount);
             break;
     }
 }
 
-void processDRV(BYTE cmd, BYTE argCount) {
+void drvGetDir() {
+    if (DRVA_IsMediaPresent() && (f_mount(&drive,"0:",1) == FR_OK)) {
 
+        char buffer[256] = {};
+        char driveLabel[34] = {};
+        size_t fileCount = 0;
+        DWORD fre_clust, fre_sect, tot_sect;
+
+        f_opendir(&dir, "");
+        do {
+            f_readdir(&dir, &fno);
+            if (!fno.fname[0]) continue;
+            if (!fno.fsize) continue;
+            fileCount++;
+        } while (fno.fname[0]);
+        f_readdir((&dir), 0);
+
+        sendBufferLen(fileCount+6);
+        sendBuffer("",1);
+        f_getlabel("",driveLabel,0);
+        sprintf(buffer,"*Volume - %s*", driveLabel);
+        sendBuffer(buffer,strlen(buffer)+1);
+        sendBuffer("",1);
+        do {
+            f_readdir(&dir, &fno);
+            if (!fno.fname[0]) continue;
+            if (!fno.fsize) continue;
+            memset(buffer,0,256);
+            sprintf(buffer,"%12s - %u bytes",fno.fname,fno.fsize);
+            sendBuffer(buffer,strlen(buffer)+1);
+        } while (fno.fname[0]);
+        sendBuffer("",1);
+        memset(buffer,0,256);
+        f_getfree("", &fre_clust, &fs);
+        tot_sect = (fs->n_fatent - 2) * fs->csize;
+        fre_sect = fre_clust * fs->csize;
+        sprintf(buffer, "%lu KiB free",fre_sect / 2);
+        sendBuffer(buffer,strlen(buffer)+1);
+        sendBuffer("",1);
+
+        f_mount(0,"0:",0);
+    } else {
+        sendBufferLen(0);
+    }
+}
+
+void processDRV(BYTE cmd, BYTE argCount) {
+    switch (cmd) {
+        case 0b0000:
+            drvGetDir();
+            break;
+    }
 }
 
 void rtcdrv_poll(void) {

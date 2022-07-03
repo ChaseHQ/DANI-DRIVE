@@ -16791,27 +16791,33 @@ void drvGetDir() {
 
         f_opendir(&dir, "");
         do {
-            fileCount++;
             f_readdir(&dir, &fno);
+            if (!fno.fname[0]) continue;
+            if (!fno.fsize) continue;
+            fileCount++;
         } while (fno.fname[0]);
         f_readdir((&dir), 0);
 
-        sendBufferLen(fileCount+2);
+        sendBufferLen(fileCount+4);
         f_getlabel("",driveLabel,0);
-        sprintf(buffer,"Volume - %s", driveLabel);
-        sendBuffer(buffer,strlen(buffer));
+        sprintf(buffer,"*Volume - %s*", driveLabel);
+        sendBuffer(buffer,strlen(buffer)+1);
+        sendBuffer("",1);
         do {
-            memset(buffer,0,256);
             f_readdir(&dir, &fno);
-            sprintf(buffer,"%s ~%u",fno.fname,fno.fsize);
-            sendBuffer(buffer,strlen(buffer));
+            if (!fno.fname[0]) continue;
+            if (!fno.fsize) continue;
+            memset(buffer,0,256);
+            sprintf(buffer,"%12s %10u",fno.fname,fno.fsize);
+            sendBuffer(buffer,strlen(buffer)+1);
         } while (fno.fname[0]);
+        sendBuffer("",1);
         memset(buffer,0,256);
         f_getfree("", &fre_clust, &fs);
         tot_sect = (fs->n_fatent - 2) * fs->csize;
         fre_sect = fre_clust * fs->csize;
-        sprintf(buffer, "%10lu/%10lu KiB",fre_sect / 2, tot_sect / 2);
-        sendBuffer(buffer,strlen(buffer));
+        sprintf(buffer, "%lu/%lu KiB",fre_sect / 2, tot_sect / 2);
+        sendBuffer(buffer,strlen(buffer)+1);
 
         f_mount(0,"0:",0);
     } else {

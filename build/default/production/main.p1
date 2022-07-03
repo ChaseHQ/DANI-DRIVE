@@ -1,8 +1,4 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"22 ./rtcdrv.h
-[; ;./rtcdrv.h: 22: volatile enum RTCDRV_MODE_ RTCDRV_MODE = RECV;
-[c E10405 0 1 .. ]
-[n E10405 RTCDRV_MODE_ RECV SEND  ]
 [p mainexit ]
 "74 ./mcc_generated_files/mcc.h
 [; ;./mcc_generated_files/mcc.h: 74: void SYSTEM_Initialize(void);
@@ -36,8 +32,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "135 ./mcc_generated_files/tmr0.h
 [; ;./mcc_generated_files/tmr0.h: 135: void TMR0_StartTimer(void);
 [v _TMR0_StartTimer `(v ~T0 @X0 0 ef ]
-"23 ./rtcdrv.h
-[; ;./rtcdrv.h: 23: void rtcdrv_poll(void);
+"19 ./rtcdrv.h
+[; ;./rtcdrv.h: 19: void rtcdrv_poll(void);
 [v _rtcdrv_poll `(v ~T0 @X0 0 ef ]
 "55 C:/Users/Craig Vella/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f27k40.h
 [; ;C:/Users/Craig Vella/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f27k40.h: 55: __asm("RX2PPS equ 0E8Dh");
@@ -1347,12 +1343,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "26838
 [; ;C:/Users/Craig Vella/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f27k40.h: 26838: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"22 ./rtcdrv.h
-[; ;./rtcdrv.h: 22: volatile enum RTCDRV_MODE_ RTCDRV_MODE = RECV;
-[v _RTCDRV_MODE `VE10405 ~T0 @X0 1 e ]
-[i _RTCDRV_MODE
-. `E10405 0
-]
 [v $root$_main `(v ~T0 @X0 0 e ]
 "34 main.c
 [; ;main.c: 34: void main(void)
@@ -1377,20 +1367,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "44
 [; ;main.c: 44:     TMR0_StartTimer();
 [e ( _TMR0_StartTimer ..  ]
-"46
-[; ;main.c: 46:     while(1) {
+"48
+[; ;main.c: 48:     while(1) {
 [e :U 1454 ]
 {
-"47
-[; ;main.c: 47:         rtcdrv_poll();
+"49
+[; ;main.c: 49:         rtcdrv_poll();
 [e ( _rtcdrv_poll ..  ]
-"48
-[; ;main.c: 48:     }
+"50
+[; ;main.c: 50:     }
 }
 [e :U 1453 ]
 [e $U 1454  ]
 [e :U 1455 ]
-"49
-[; ;main.c: 49: }
+"51
+[; ;main.c: 51: }
 [e :UE 1452 ]
 }

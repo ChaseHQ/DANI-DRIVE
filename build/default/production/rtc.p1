@@ -1318,11 +1318,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Users/Craig Vella/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f27k40.h: 26838: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "4 rtc.c
-[; ;rtc.c: 4: void SetClock(uint8_t year, uint8_t month, uint8_t dayOfMonth, uint8_t dayOfWeek, uint8_t hour, uint8_t minute, uint8_t second) {
-[v _SetClock `(v ~T0 @X0 1 ef7`uc`uc`uc`uc`uc`uc`uc ]
+[; ;rtc.c: 4: void SetClock(size_t year, uint8_t month, uint8_t dayOfMonth, uint8_t dayOfWeek, uint8_t hour, uint8_t minute, uint8_t second) {
+[v _SetClock `(v ~T0 @X0 1 ef7`ui`uc`uc`uc`uc`uc`uc ]
 {
 [e :U _SetClock ]
-[v _year `uc ~T0 @X0 1 r1 ]
+[v _year `ui ~T0 @X0 1 r1 ]
 [v _month `uc ~T0 @X0 1 r2 ]
 [v _dayOfMonth `uc ~T0 @X0 1 r3 ]
 [v _dayOfWeek `uc ~T0 @X0 1 r4 ]
@@ -1331,110 +1331,113 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _second `uc ~T0 @X0 1 r7 ]
 [f ]
 "5
-[; ;rtc.c: 5:     uint8_t secTPlace = (second / 10);
+[; ;rtc.c: 5:     year -= 2000;
+[e =- _year -> -> 2000 `i `ui ]
+"6
+[; ;rtc.c: 6:     uint8_t secTPlace = (second / 10);
 [v _secTPlace `uc ~T0 @X0 1 a ]
 [e = _secTPlace -> / -> _second `i -> 10 `i `uc ]
-"6
-[; ;rtc.c: 6:     uint8_t secOPlace = second - (secTPlace * 10);
+"7
+[; ;rtc.c: 7:     uint8_t secOPlace = second - (secTPlace * 10);
 [v _secOPlace `uc ~T0 @X0 1 a ]
 [e = _secOPlace -> - -> _second `i * -> _secTPlace `i -> 10 `i `uc ]
-"7
-[; ;rtc.c: 7:     uint8_t minTPlace = (minute / 10);
+"8
+[; ;rtc.c: 8:     uint8_t minTPlace = (minute / 10);
 [v _minTPlace `uc ~T0 @X0 1 a ]
 [e = _minTPlace -> / -> _minute `i -> 10 `i `uc ]
-"8
-[; ;rtc.c: 8:     uint8_t minOPlace = minute - (minTPlace * 10);
+"9
+[; ;rtc.c: 9:     uint8_t minOPlace = minute - (minTPlace * 10);
 [v _minOPlace `uc ~T0 @X0 1 a ]
 [e = _minOPlace -> - -> _minute `i * -> _minTPlace `i -> 10 `i `uc ]
-"9
-[; ;rtc.c: 9:     uint8_t hourTPlace = (hour / 10);
+"10
+[; ;rtc.c: 10:     uint8_t hourTPlace = (hour / 10);
 [v _hourTPlace `uc ~T0 @X0 1 a ]
 [e = _hourTPlace -> / -> _hour `i -> 10 `i `uc ]
-"10
-[; ;rtc.c: 10:     uint8_t hourOPlace = hour - (hourTPlace * 10);
+"11
+[; ;rtc.c: 11:     uint8_t hourOPlace = hour - (hourTPlace * 10);
 [v _hourOPlace `uc ~T0 @X0 1 a ]
 [e = _hourOPlace -> - -> _hour `i * -> _hourTPlace `i -> 10 `i `uc ]
-"11
-[; ;rtc.c: 11:     uint8_t dayOMTPlace = (dayOfMonth / 10);
+"12
+[; ;rtc.c: 12:     uint8_t dayOMTPlace = (dayOfMonth / 10);
 [v _dayOMTPlace `uc ~T0 @X0 1 a ]
 [e = _dayOMTPlace -> / -> _dayOfMonth `i -> 10 `i `uc ]
-"12
-[; ;rtc.c: 12:     uint8_t dayOMOPlace = dayOfMonth - (dayOMTPlace * 10);
+"13
+[; ;rtc.c: 13:     uint8_t dayOMOPlace = dayOfMonth - (dayOMTPlace * 10);
 [v _dayOMOPlace `uc ~T0 @X0 1 a ]
 [e = _dayOMOPlace -> - -> _dayOfMonth `i * -> _dayOMTPlace `i -> 10 `i `uc ]
-"13
-[; ;rtc.c: 13:     uint8_t monthTPlace = (month / 10);
+"14
+[; ;rtc.c: 14:     uint8_t monthTPlace = (month / 10);
 [v _monthTPlace `uc ~T0 @X0 1 a ]
 [e = _monthTPlace -> / -> _month `i -> 10 `i `uc ]
-"14
-[; ;rtc.c: 14:     uint8_t monthOPlace = month - (monthTPlace * 10);
+"15
+[; ;rtc.c: 15:     uint8_t monthOPlace = month - (monthTPlace * 10);
 [v _monthOPlace `uc ~T0 @X0 1 a ]
 [e = _monthOPlace -> - -> _month `i * -> _monthTPlace `i -> 10 `i `uc ]
-"15
-[; ;rtc.c: 15:     uint8_t yearTPlace = (year / 10);
-[v _yearTPlace `uc ~T0 @X0 1 a ]
-[e = _yearTPlace -> / -> _year `i -> 10 `i `uc ]
 "16
-[; ;rtc.c: 16:     uint8_t yearOPlace = year - (yearTPlace * 10);
+[; ;rtc.c: 16:     uint8_t yearTPlace = (year / 10);
+[v _yearTPlace `uc ~T0 @X0 1 a ]
+[e = _yearTPlace -> / _year -> -> 10 `i `ui `uc ]
+"17
+[; ;rtc.c: 17:     uint8_t yearOPlace = year - (yearTPlace * 10);
 [v _yearOPlace `uc ~T0 @X0 1 a ]
-[e = _yearOPlace -> - -> _year `i * -> _yearTPlace `i -> 10 `i `uc ]
-"18
-[; ;rtc.c: 18:     uint8_t secToWrite = (secTPlace << 4) | secOPlace;
+[e = _yearOPlace -> - _year -> * -> _yearTPlace `i -> 10 `i `ui `uc ]
+"19
+[; ;rtc.c: 19:     uint8_t secToWrite = (secTPlace << 4) | secOPlace;
 [v _secToWrite `uc ~T0 @X0 1 a ]
 [e = _secToWrite -> | << -> _secTPlace `i -> 4 `i -> _secOPlace `i `uc ]
-"19
-[; ;rtc.c: 19:     uint8_t minToWrite = (minTPlace << 4) | minOPlace;
+"20
+[; ;rtc.c: 20:     uint8_t minToWrite = (minTPlace << 4) | minOPlace;
 [v _minToWrite `uc ~T0 @X0 1 a ]
 [e = _minToWrite -> | << -> _minTPlace `i -> 4 `i -> _minOPlace `i `uc ]
-"20
-[; ;rtc.c: 20:     uint8_t hourToWrite = (hourTPlace << 4) | hourOPlace;
+"21
+[; ;rtc.c: 21:     uint8_t hourToWrite = (hourTPlace << 4) | hourOPlace;
 [v _hourToWrite `uc ~T0 @X0 1 a ]
 [e = _hourToWrite -> | << -> _hourTPlace `i -> 4 `i -> _hourOPlace `i `uc ]
-"21
-[; ;rtc.c: 21:     uint8_t dayOfMonthToWrite = (dayOMTPlace << 4) | dayOMOPlace;
+"22
+[; ;rtc.c: 22:     uint8_t dayOfMonthToWrite = (dayOMTPlace << 4) | dayOMOPlace;
 [v _dayOfMonthToWrite `uc ~T0 @X0 1 a ]
 [e = _dayOfMonthToWrite -> | << -> _dayOMTPlace `i -> 4 `i -> _dayOMOPlace `i `uc ]
-"22
-[; ;rtc.c: 22:     uint8_t monthToWrite = (monthTPlace << 4) | monthOPlace;
+"23
+[; ;rtc.c: 23:     uint8_t monthToWrite = (monthTPlace << 4) | monthOPlace;
 [v _monthToWrite `uc ~T0 @X0 1 a ]
 [e = _monthToWrite -> | << -> _monthTPlace `i -> 4 `i -> _monthOPlace `i `uc ]
-"23
-[; ;rtc.c: 23:     uint8_t yearToWrite = (yearTPlace << 4) | yearOPlace;
+"24
+[; ;rtc.c: 24:     uint8_t yearToWrite = (yearTPlace << 4) | yearOPlace;
 [v _yearToWrite `uc ~T0 @X0 1 a ]
 [e = _yearToWrite -> | << -> _yearTPlace `i -> 4 `i -> _yearOPlace `i `uc ]
-"24
-[; ;rtc.c: 24:     I2C1_Write1ByteRegister(0b1101000,0x00, secToWrite);
-[e ( _I2C1_Write1ByteRegister (3 , , -> -> 104 `i `uc -> -> 0 `i `uc _secToWrite ]
 "25
-[; ;rtc.c: 25:     I2C1_Write1ByteRegister(0b1101000,0x01, minToWrite);
-[e ( _I2C1_Write1ByteRegister (3 , , -> -> 104 `i `uc -> -> 1 `i `uc _minToWrite ]
+[; ;rtc.c: 25:     I2C1_Write1ByteRegister(0b1101000,0x00, secToWrite);
+[e ( _I2C1_Write1ByteRegister (3 , , -> -> 104 `i `uc -> -> 0 `i `uc _secToWrite ]
 "26
-[; ;rtc.c: 26:     I2C1_Write1ByteRegister(0b1101000,0x02, hourToWrite);
-[e ( _I2C1_Write1ByteRegister (3 , , -> -> 104 `i `uc -> -> 2 `i `uc _hourToWrite ]
+[; ;rtc.c: 26:     I2C1_Write1ByteRegister(0b1101000,0x01, minToWrite);
+[e ( _I2C1_Write1ByteRegister (3 , , -> -> 104 `i `uc -> -> 1 `i `uc _minToWrite ]
 "27
-[; ;rtc.c: 27:     I2C1_Write1ByteRegister(0b1101000,0x03, dayOfWeek);
-[e ( _I2C1_Write1ByteRegister (3 , , -> -> 104 `i `uc -> -> 3 `i `uc _dayOfWeek ]
+[; ;rtc.c: 27:     I2C1_Write1ByteRegister(0b1101000,0x02, hourToWrite);
+[e ( _I2C1_Write1ByteRegister (3 , , -> -> 104 `i `uc -> -> 2 `i `uc _hourToWrite ]
 "28
-[; ;rtc.c: 28:     I2C1_Write1ByteRegister(0b1101000,0x04, dayOfMonthToWrite);
-[e ( _I2C1_Write1ByteRegister (3 , , -> -> 104 `i `uc -> -> 4 `i `uc _dayOfMonthToWrite ]
+[; ;rtc.c: 28:     I2C1_Write1ByteRegister(0b1101000,0x03, dayOfWeek);
+[e ( _I2C1_Write1ByteRegister (3 , , -> -> 104 `i `uc -> -> 3 `i `uc _dayOfWeek ]
 "29
-[; ;rtc.c: 29:     I2C1_Write1ByteRegister(0b1101000,0x05, monthToWrite);
-[e ( _I2C1_Write1ByteRegister (3 , , -> -> 104 `i `uc -> -> 5 `i `uc _monthToWrite ]
+[; ;rtc.c: 29:     I2C1_Write1ByteRegister(0b1101000,0x04, dayOfMonthToWrite);
+[e ( _I2C1_Write1ByteRegister (3 , , -> -> 104 `i `uc -> -> 4 `i `uc _dayOfMonthToWrite ]
 "30
-[; ;rtc.c: 30:     I2C1_Write1ByteRegister(0b1101000,0x06, yearToWrite);
-[e ( _I2C1_Write1ByteRegister (3 , , -> -> 104 `i `uc -> -> 6 `i `uc _yearToWrite ]
+[; ;rtc.c: 30:     I2C1_Write1ByteRegister(0b1101000,0x05, monthToWrite);
+[e ( _I2C1_Write1ByteRegister (3 , , -> -> 104 `i `uc -> -> 5 `i `uc _monthToWrite ]
 "31
-[; ;rtc.c: 31: }
+[; ;rtc.c: 31:     I2C1_Write1ByteRegister(0b1101000,0x06, yearToWrite);
+[e ( _I2C1_Write1ByteRegister (3 , , -> -> 104 `i `uc -> -> 6 `i `uc _yearToWrite ]
+"32
+[; ;rtc.c: 32: }
 [e :UE 1450 ]
 }
-"33
-[; ;rtc.c: 33: struct tm ReadClock() {
+"34
+[; ;rtc.c: 34: struct tm ReadClock() {
 [v _ReadClock `(S1447 ~T0 @X0 1 ef ]
 {
 [e :U _ReadClock ]
 [f ]
-"34
-[; ;rtc.c: 34:     uint8_t sec, min, hour, weekday, day, month, year;
+"35
+[; ;rtc.c: 35:     uint8_t sec, min, hour, weekday, day, month, year;
 [v _sec `uc ~T0 @X0 1 a ]
 [v _min `uc ~T0 @X0 1 a ]
 [v _hour `uc ~T0 @X0 1 a ]
@@ -1442,56 +1445,56 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _day `uc ~T0 @X0 1 a ]
 [v _month `uc ~T0 @X0 1 a ]
 [v _year `uc ~T0 @X0 1 a ]
-"35
-[; ;rtc.c: 35:     sec = I2C1_Read1ByteRegister(0b1101000,0x00);
-[e = _sec ( _I2C1_Read1ByteRegister (2 , -> -> 104 `i `uc -> -> 0 `i `uc ]
 "36
-[; ;rtc.c: 36:     min = I2C1_Read1ByteRegister(0b1101000,0x01);
-[e = _min ( _I2C1_Read1ByteRegister (2 , -> -> 104 `i `uc -> -> 1 `i `uc ]
+[; ;rtc.c: 36:     sec = I2C1_Read1ByteRegister(0b1101000,0x00);
+[e = _sec ( _I2C1_Read1ByteRegister (2 , -> -> 104 `i `uc -> -> 0 `i `uc ]
 "37
-[; ;rtc.c: 37:     hour = I2C1_Read1ByteRegister(0b1101000,0x02);
-[e = _hour ( _I2C1_Read1ByteRegister (2 , -> -> 104 `i `uc -> -> 2 `i `uc ]
+[; ;rtc.c: 37:     min = I2C1_Read1ByteRegister(0b1101000,0x01);
+[e = _min ( _I2C1_Read1ByteRegister (2 , -> -> 104 `i `uc -> -> 1 `i `uc ]
 "38
-[; ;rtc.c: 38:     weekday = I2C1_Read1ByteRegister(0b1101000,0x03);
-[e = _weekday ( _I2C1_Read1ByteRegister (2 , -> -> 104 `i `uc -> -> 3 `i `uc ]
+[; ;rtc.c: 38:     hour = I2C1_Read1ByteRegister(0b1101000,0x02);
+[e = _hour ( _I2C1_Read1ByteRegister (2 , -> -> 104 `i `uc -> -> 2 `i `uc ]
 "39
-[; ;rtc.c: 39:     day = I2C1_Read1ByteRegister(0b1101000,0x04);
-[e = _day ( _I2C1_Read1ByteRegister (2 , -> -> 104 `i `uc -> -> 4 `i `uc ]
+[; ;rtc.c: 39:     weekday = I2C1_Read1ByteRegister(0b1101000,0x03);
+[e = _weekday ( _I2C1_Read1ByteRegister (2 , -> -> 104 `i `uc -> -> 3 `i `uc ]
 "40
-[; ;rtc.c: 40:     month = I2C1_Read1ByteRegister(0b1101000,0x05);
-[e = _month ( _I2C1_Read1ByteRegister (2 , -> -> 104 `i `uc -> -> 5 `i `uc ]
+[; ;rtc.c: 40:     day = I2C1_Read1ByteRegister(0b1101000,0x04);
+[e = _day ( _I2C1_Read1ByteRegister (2 , -> -> 104 `i `uc -> -> 4 `i `uc ]
 "41
-[; ;rtc.c: 41:     year = I2C1_Read1ByteRegister(0b1101000,0x06);
-[e = _year ( _I2C1_Read1ByteRegister (2 , -> -> 104 `i `uc -> -> 6 `i `uc ]
+[; ;rtc.c: 41:     month = I2C1_Read1ByteRegister(0b1101000,0x05);
+[e = _month ( _I2C1_Read1ByteRegister (2 , -> -> 104 `i `uc -> -> 5 `i `uc ]
 "42
-[; ;rtc.c: 42:     struct tm t;
-[v _t `S1447 ~T0 @X0 1 a ]
+[; ;rtc.c: 42:     year = I2C1_Read1ByteRegister(0b1101000,0x06);
+[e = _year ( _I2C1_Read1ByteRegister (2 , -> -> 104 `i `uc -> -> 6 `i `uc ]
 "43
-[; ;rtc.c: 43:     t.tm_sec = ((sec & 0x70) >> 4)*10 + (sec & 0x0F);
-[e = . _t 0 + * >> & -> _sec `i -> 112 `i -> 4 `i -> 10 `i & -> _sec `i -> 15 `i ]
+[; ;rtc.c: 43:     struct tm t;
+[v _t `S1447 ~T0 @X0 1 a ]
 "44
-[; ;rtc.c: 44:     t.tm_min = ((min & 0x70) >> 4)*10 + (min & 0x0F);
-[e = . _t 1 + * >> & -> _min `i -> 112 `i -> 4 `i -> 10 `i & -> _min `i -> 15 `i ]
+[; ;rtc.c: 44:     t.tm_sec = ((sec & 0x70) >> 4)*10 + (sec & 0x0F);
+[e = . _t 0 + * >> & -> _sec `i -> 112 `i -> 4 `i -> 10 `i & -> _sec `i -> 15 `i ]
 "45
-[; ;rtc.c: 45:     t.tm_hour = ((hour & 0x30) >> 4)*10 + (hour & 0x0F);
-[e = . _t 2 + * >> & -> _hour `i -> 48 `i -> 4 `i -> 10 `i & -> _hour `i -> 15 `i ]
+[; ;rtc.c: 45:     t.tm_min = ((min & 0x70) >> 4)*10 + (min & 0x0F);
+[e = . _t 1 + * >> & -> _min `i -> 112 `i -> 4 `i -> 10 `i & -> _min `i -> 15 `i ]
 "46
-[; ;rtc.c: 46:     t.tm_wday = (weekday & 0x07) - 1;
-[e = . _t 6 - & -> _weekday `i -> 7 `i -> 1 `i ]
+[; ;rtc.c: 46:     t.tm_hour = ((hour & 0x30) >> 4)*10 + (hour & 0x0F);
+[e = . _t 2 + * >> & -> _hour `i -> 48 `i -> 4 `i -> 10 `i & -> _hour `i -> 15 `i ]
 "47
-[; ;rtc.c: 47:     t.tm_mday = ((day & 0x30) >> 4)*10 + (day & 0x0F);
-[e = . _t 3 + * >> & -> _day `i -> 48 `i -> 4 `i -> 10 `i & -> _day `i -> 15 `i ]
+[; ;rtc.c: 47:     t.tm_wday = (weekday & 0x07) - 1;
+[e = . _t 6 - & -> _weekday `i -> 7 `i -> 1 `i ]
 "48
-[; ;rtc.c: 48:     t.tm_mon = (((month & 0x70) >> 4)*10 + (month & 0x0F)) - 1;
-[e = . _t 4 - + * >> & -> _month `i -> 112 `i -> 4 `i -> 10 `i & -> _month `i -> 15 `i -> 1 `i ]
+[; ;rtc.c: 48:     t.tm_mday = ((day & 0x30) >> 4)*10 + (day & 0x0F);
+[e = . _t 3 + * >> & -> _day `i -> 48 `i -> 4 `i -> 10 `i & -> _day `i -> 15 `i ]
 "49
-[; ;rtc.c: 49:     t.tm_year = (((year & 0xF0) >> 4)*10 + (year & 0x0F)) + 100;
-[e = . _t 5 + + * >> & -> _year `i -> 240 `i -> 4 `i -> 10 `i & -> _year `i -> 15 `i -> 100 `i ]
+[; ;rtc.c: 49:     t.tm_mon = (((month & 0x70) >> 4)*10 + (month & 0x0F)) - 1;
+[e = . _t 4 - + * >> & -> _month `i -> 112 `i -> 4 `i -> 10 `i & -> _month `i -> 15 `i -> 1 `i ]
 "50
-[; ;rtc.c: 50:     return t;
+[; ;rtc.c: 50:     t.tm_year = (((year & 0xF0) >> 4)*10 + (year & 0x0F)) + 100;
+[e = . _t 5 + + * >> & -> _year `i -> 240 `i -> 4 `i -> 10 `i & -> _year `i -> 15 `i -> 100 `i ]
+"51
+[; ;rtc.c: 51:     return t;
 [e ) _t ]
 [e $UE 1451  ]
-"51
-[; ;rtc.c: 51: }
+"52
+[; ;rtc.c: 52: }
 [e :UE 1451 ]
 }

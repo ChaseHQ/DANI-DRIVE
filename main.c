@@ -2,12 +2,12 @@
 #include "mcc_generated_files/fatfs/drva.h"
 #include "rtcdrv.h"
 
-    FATFS drive;
+/*    FATFS drive;
     FIL file;
     FFDIR dir;
-    FILINFO fno;
+    FILINFO fno;*/
 
-void DiskTest() {
+/*void DiskTest() {
     UINT actualLength;
     char data[] = "Hello World!";
 
@@ -23,13 +23,13 @@ void DiskTest() {
             /*f_opendir(&dir,"");
             do {
                 f_readdir(&dir, &fno);
-            } while (fno.fname[0]);*/
+            } while (fno.fname[0]);
             
             f_mount(0,"0:",0);
         }
         NOP();
     }
-}
+}*/
 
 void main(void)
 {
@@ -43,7 +43,7 @@ void main(void)
     INTERRUPT_PeripheralInterruptEnable();
     TMR0_StartTimer();
     
-    DiskTest();
+    //DiskTest();
     
     while(1) {
         rtcdrv_poll();

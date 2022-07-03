@@ -16609,7 +16609,7 @@ struct tm *getdate (const char *);
 
 
 
-void SetClock(uint8_t year, uint8_t month, uint8_t dayOfMonth, uint8_t dayOfWeek, uint8_t hour, uint8_t minute, uint8_t second);
+void SetClock(size_t year, uint8_t month, uint8_t dayOfMonth, uint8_t dayOfWeek, uint8_t hour, uint8_t minute, uint8_t second);
 struct tm ReadClock();
 # 1 "rtc.c" 2
 
@@ -16625,7 +16625,8 @@ void I2C1_ReadDataBlock(i2c1_address_t address, uint8_t reg, uint8_t *data, size
 # 2 "rtc.c" 2
 
 
-void SetClock(uint8_t year, uint8_t month, uint8_t dayOfMonth, uint8_t dayOfWeek, uint8_t hour, uint8_t minute, uint8_t second) {
+void SetClock(size_t year, uint8_t month, uint8_t dayOfMonth, uint8_t dayOfWeek, uint8_t hour, uint8_t minute, uint8_t second) {
+    year -= 2000;
     uint8_t secTPlace = (second / 10);
     uint8_t secOPlace = second - (secTPlace * 10);
     uint8_t minTPlace = (minute / 10);

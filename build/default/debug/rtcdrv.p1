@@ -1876,210 +1876,240 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 1517 ]
 {
 "102
-[; ;rtcdrv.c: 102:             fileCount++;
-[e ++ _fileCount -> -> 1 `i `ui ]
-"103
-[; ;rtcdrv.c: 103:             f_readdir(&dir, &fno);
+[; ;rtcdrv.c: 102:             f_readdir(&dir, &fno);
 [e ( _f_readdir (2 , &U _dir &U _fno ]
+"103
+[; ;rtcdrv.c: 103:             if (!fno.fname[0]) continue;
+[e $ ! ! != -> *U + &U . _fno 4 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _fno 4 `ui `ux `i -> 0 `i 1518  ]
+[e $U 1515  ]
+[e :U 1518 ]
 "104
-[; ;rtcdrv.c: 104:         } while (fno.fname[0]);
+[; ;rtcdrv.c: 104:             if (!fno.fsize) continue;
+[e $ ! ! != . _fno 0 -> -> -> 0 `i `l `ul 1519  ]
+[e $U 1515  ]
+[e :U 1519 ]
+"105
+[; ;rtcdrv.c: 105:             fileCount++;
+[e ++ _fileCount -> -> 1 `i `ui ]
+"106
+[; ;rtcdrv.c: 106:         } while (fno.fname[0]);
 }
+[e :U 1515 ]
 [e $ != -> *U + &U . _fno 4 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _fno 4 `ui `ux `i -> 0 `i 1517  ]
 [e :U 1516 ]
-"105
-[; ;rtcdrv.c: 105:         f_readdir((&dir), 0);
-[e ( _f_readdir (2 , &U _dir -> -> 0 `i `*S1444 ]
 "107
-[; ;rtcdrv.c: 107:         sendBufferLen(fileCount+2);
-[e ( _sendBufferLen (1 + _fileCount -> -> 2 `i `ui ]
-"108
-[; ;rtcdrv.c: 108:         f_getlabel("",driveLabel,0);
-[e ( _f_getlabel (3 , , :s 3C &U _driveLabel -> -> 0 `i `*ul ]
+[; ;rtcdrv.c: 107:         f_readdir((&dir), 0);
+[e ( _f_readdir (2 , &U _dir -> -> 0 `i `*S1444 ]
 "109
-[; ;rtcdrv.c: 109:         sprintf(buffer,"Volume - %s", driveLabel);
-[e ( _sprintf (1 , (. , &U _buffer :s 4C &U _driveLabel ]
+[; ;rtcdrv.c: 109:         sendBufferLen(fileCount+4);
+[e ( _sendBufferLen (1 + _fileCount -> -> 4 `i `ui ]
 "110
-[; ;rtcdrv.c: 110:         sendBuffer(buffer,strlen(buffer));
-[e ( _sendBuffer (2 , &U _buffer ( _strlen (1 -> &U _buffer `*Cuc ]
+[; ;rtcdrv.c: 110:         f_getlabel("",driveLabel,0);
+[e ( _f_getlabel (3 , , :s 3C &U _driveLabel -> -> 0 `i `*ul ]
 "111
-[; ;rtcdrv.c: 111:         do {
-[e :U 1520 ]
-{
+[; ;rtcdrv.c: 111:         sprintf(buffer,"*Volume - %s*", driveLabel);
+[e ( _sprintf (1 , (. , &U _buffer :s 4C &U _driveLabel ]
 "112
-[; ;rtcdrv.c: 112:             memset(buffer,0,256);
-[e ( _memset (3 , , -> &U _buffer `*v -> 0 `i -> -> 256 `i `ui ]
+[; ;rtcdrv.c: 112:         sendBuffer(buffer,strlen(buffer)+1);
+[e ( _sendBuffer (2 , &U _buffer + ( _strlen (1 -> &U _buffer `*Cuc -> -> 1 `i `ui ]
 "113
-[; ;rtcdrv.c: 113:             f_readdir(&dir, &fno);
-[e ( _f_readdir (2 , &U _dir &U _fno ]
+[; ;rtcdrv.c: 113:         sendBuffer("",1);
+[e ( _sendBuffer (2 , :s 5C -> -> 1 `i `ui ]
 "114
-[; ;rtcdrv.c: 114:             sprintf(buffer,"%s ~%u",fno.fname,fno.fsize);
-[e ( _sprintf (1 , , (. , &U _buffer :s 5C &U . _fno 4 . _fno 0 ]
+[; ;rtcdrv.c: 114:         do {
+[e :U 1522 ]
+{
 "115
-[; ;rtcdrv.c: 115:             sendBuffer(buffer,strlen(buffer));
-[e ( _sendBuffer (2 , &U _buffer ( _strlen (1 -> &U _buffer `*Cuc ]
+[; ;rtcdrv.c: 115:             f_readdir(&dir, &fno);
+[e ( _f_readdir (2 , &U _dir &U _fno ]
 "116
-[; ;rtcdrv.c: 116:         } while (fno.fname[0]);
-}
-[e $ != -> *U + &U . _fno 4 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _fno 4 `ui `ux `i -> 0 `i 1520  ]
-[e :U 1519 ]
+[; ;rtcdrv.c: 116:             if (!fno.fname[0]) continue;
+[e $ ! ! != -> *U + &U . _fno 4 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _fno 4 `ui `ux `i -> 0 `i 1523  ]
+[e $U 1520  ]
+[e :U 1523 ]
 "117
-[; ;rtcdrv.c: 117:         memset(buffer,0,256);
-[e ( _memset (3 , , -> &U _buffer `*v -> 0 `i -> -> 256 `i `ui ]
+[; ;rtcdrv.c: 117:             if (!fno.fsize) continue;
+[e $ ! ! != . _fno 0 -> -> -> 0 `i `l `ul 1524  ]
+[e $U 1520  ]
+[e :U 1524 ]
 "118
-[; ;rtcdrv.c: 118:         f_getfree("", &fre_clust, &fs);
-[e ( _f_getfree (3 , , :s 6C &U _fre_clust &U _fs ]
+[; ;rtcdrv.c: 118:             memset(buffer,0,256);
+[e ( _memset (3 , , -> &U _buffer `*v -> 0 `i -> -> 256 `i `ui ]
 "119
-[; ;rtcdrv.c: 119:         tot_sect = (fs->n_fatent - 2) * fs->csize;
-[e = _tot_sect * - . *U _fs 11 -> -> -> 2 `i `l `ul -> . *U _fs 7 `ul ]
+[; ;rtcdrv.c: 119:             sprintf(buffer,"%12s %10u",fno.fname,fno.fsize);
+[e ( _sprintf (1 , , (. , &U _buffer :s 6C &U . _fno 4 . _fno 0 ]
 "120
-[; ;rtcdrv.c: 120:         fre_sect = fre_clust * fs->csize;
-[e = _fre_sect * _fre_clust -> . *U _fs 7 `ul ]
+[; ;rtcdrv.c: 120:             sendBuffer(buffer,strlen(buffer)+1);
+[e ( _sendBuffer (2 , &U _buffer + ( _strlen (1 -> &U _buffer `*Cuc -> -> 1 `i `ui ]
 "121
-[; ;rtcdrv.c: 121:         sprintf(buffer, "%10lu/%10lu KiB",fre_sect / 2, tot_sect / 2);
-[e ( _sprintf (1 , , (. , &U _buffer :s 7C / _fre_sect -> -> -> 2 `i `l `ul / _tot_sect -> -> -> 2 `i `l `ul ]
-"122
-[; ;rtcdrv.c: 122:         sendBuffer(buffer,strlen(buffer));
-[e ( _sendBuffer (2 , &U _buffer ( _strlen (1 -> &U _buffer `*Cuc ]
-"124
-[; ;rtcdrv.c: 124:         f_mount(0,"0:",0);
-[e ( _f_mount (3 , , -> -> 0 `i `*S1440 :s 8C -> -> 0 `i `uc ]
-"125
-[; ;rtcdrv.c: 125:     } else {
+[; ;rtcdrv.c: 121:         } while (fno.fname[0]);
 }
-[e $U 1521  ]
+[e :U 1520 ]
+[e $ != -> *U + &U . _fno 4 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _fno 4 `ui `ux `i -> 0 `i 1522  ]
+[e :U 1521 ]
+"122
+[; ;rtcdrv.c: 122:         sendBuffer("",1);
+[e ( _sendBuffer (2 , :s 7C -> -> 1 `i `ui ]
+"123
+[; ;rtcdrv.c: 123:         memset(buffer,0,256);
+[e ( _memset (3 , , -> &U _buffer `*v -> 0 `i -> -> 256 `i `ui ]
+"124
+[; ;rtcdrv.c: 124:         f_getfree("", &fre_clust, &fs);
+[e ( _f_getfree (3 , , :s 8C &U _fre_clust &U _fs ]
+"125
+[; ;rtcdrv.c: 125:         tot_sect = (fs->n_fatent - 2) * fs->csize;
+[e = _tot_sect * - . *U _fs 11 -> -> -> 2 `i `l `ul -> . *U _fs 7 `ul ]
+"126
+[; ;rtcdrv.c: 126:         fre_sect = fre_clust * fs->csize;
+[e = _fre_sect * _fre_clust -> . *U _fs 7 `ul ]
+"127
+[; ;rtcdrv.c: 127:         sprintf(buffer, "%lu/%lu KiB",fre_sect / 2, tot_sect / 2);
+[e ( _sprintf (1 , , (. , &U _buffer :s 9C / _fre_sect -> -> -> 2 `i `l `ul / _tot_sect -> -> -> 2 `i `l `ul ]
+"128
+[; ;rtcdrv.c: 128:         sendBuffer(buffer,strlen(buffer)+1);
+[e ( _sendBuffer (2 , &U _buffer + ( _strlen (1 -> &U _buffer `*Cuc -> -> 1 `i `ui ]
+"130
+[; ;rtcdrv.c: 130:         f_mount(0,"0:",0);
+[e ( _f_mount (3 , , -> -> 0 `i `*S1440 :s 10C -> -> 0 `i `uc ]
+"131
+[; ;rtcdrv.c: 131:     } else {
+}
+[e $U 1525  ]
 [e :U 1514 ]
 {
-"126
-[; ;rtcdrv.c: 126:         sendBufferLen(0);
+"132
+[; ;rtcdrv.c: 132:         sendBufferLen(0);
 [e ( _sendBufferLen (1 -> -> 0 `i `ui ]
-"127
-[; ;rtcdrv.c: 127:     }
+"133
+[; ;rtcdrv.c: 133:     }
 }
-[e :U 1521 ]
-"128
-[; ;rtcdrv.c: 128: }
+[e :U 1525 ]
+"134
+[; ;rtcdrv.c: 134: }
 [e :UE 1513 ]
 }
-"130
-[; ;rtcdrv.c: 130: void processDRV(BYTE cmd, BYTE argCount) {
+"136
+[; ;rtcdrv.c: 136: void processDRV(BYTE cmd, BYTE argCount) {
 [v _processDRV `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _processDRV ]
 [v _cmd `uc ~T0 @X0 1 r1 ]
 [v _argCount `uc ~T0 @X0 1 r2 ]
 [f ]
-"131
-[; ;rtcdrv.c: 131:     switch (cmd) {
-[e $U 1524  ]
+"137
+[; ;rtcdrv.c: 137:     switch (cmd) {
+[e $U 1528  ]
 {
-"132
-[; ;rtcdrv.c: 132:         case 0b0000:
-[e :U 1525 ]
-"133
-[; ;rtcdrv.c: 133:             drvGetDir();
-[e ( _drvGetDir ..  ]
-"134
-[; ;rtcdrv.c: 134:             break;
-[e $U 1523  ]
-"135
-[; ;rtcdrv.c: 135:     }
-}
-[e $U 1523  ]
-[e :U 1524 ]
-[e [\ -> _cmd `i , $ -> 0 `i 1525
- 1523 ]
-[e :U 1523 ]
-"136
-[; ;rtcdrv.c: 136: }
-[e :UE 1522 ]
-}
 "138
-[; ;rtcdrv.c: 138: void rtcdrv_poll(void) {
+[; ;rtcdrv.c: 138:         case 0b0000:
+[e :U 1529 ]
+"139
+[; ;rtcdrv.c: 139:             drvGetDir();
+[e ( _drvGetDir ..  ]
+"140
+[; ;rtcdrv.c: 140:             break;
+[e $U 1527  ]
+"141
+[; ;rtcdrv.c: 141:     }
+}
+[e $U 1527  ]
+[e :U 1528 ]
+[e [\ -> _cmd `i , $ -> 0 `i 1529
+ 1527 ]
+[e :U 1527 ]
+"142
+[; ;rtcdrv.c: 142: }
+[e :UE 1526 ]
+}
+"144
+[; ;rtcdrv.c: 144: void rtcdrv_poll(void) {
 [v _rtcdrv_poll `(v ~T0 @X0 1 ef ]
 {
 [e :U _rtcdrv_poll ]
 [f ]
-"139
-[; ;rtcdrv.c: 139:     if (!PORTCbits.RC1) {
-[e $ ! ! != -> . . _PORTCbits 0 1 `i -> 0 `i 1527  ]
+"145
+[; ;rtcdrv.c: 145:     if (!PORTCbits.RC1) {
+[e $ ! ! != -> . . _PORTCbits 0 1 `i -> 0 `i 1531  ]
 {
-"141
-[; ;rtcdrv.c: 141:         RTCDRV_DATA d;
+"147
+[; ;rtcdrv.c: 147:         RTCDRV_DATA d;
 [v _d `S1450 ~T0 @X0 1 a ]
-"142
-[; ;rtcdrv.c: 142:         d.data = PORTA;
+"148
+[; ;rtcdrv.c: 148:         d.data = PORTA;
 [e = . _d 1 _PORTA ]
-"143
-[; ;rtcdrv.c: 143:         for (int x = 0; x < 500; ++x) __nop();;do { LATCbits.LATC0 = 0; } while(0);for (int x = 0; x < 500; ++x) __nop();;do { LATCbits.LATC0 = 1; } while(0);;
+"149
+[; ;rtcdrv.c: 149:         for (int x = 0; x < 500; ++x) __nop();;do { LATCbits.LATC0 = 0; } while(0);for (int x = 0; x < 500; ++x) __nop();;do { LATCbits.LATC0 = 1; } while(0);;
 {
 [v _x `i ~T0 @X0 1 a ]
 [e = _x -> 0 `i ]
-[e $ < _x -> 500 `i 1528  ]
-[e $U 1529  ]
-[e :U 1528 ]
+[e $ < _x -> 500 `i 1532  ]
+[e $U 1533  ]
+[e :U 1532 ]
 [e ( ___nop ..  ]
 [e =+ _x -> 1 `i ]
-[e $ < _x -> 500 `i 1528  ]
-[e :U 1529 ]
-}
+[e $ < _x -> 500 `i 1532  ]
 [e :U 1533 ]
+}
+[e :U 1537 ]
 {
 [e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
 }
-[e :U 1532 ]
+[e :U 1536 ]
 {
 [v _x `i ~T0 @X0 1 a ]
 [e = _x -> 0 `i ]
-[e $ < _x -> 500 `i 1534  ]
-[e $U 1535  ]
-[e :U 1534 ]
+[e $ < _x -> 500 `i 1538  ]
+[e $U 1539  ]
+[e :U 1538 ]
 [e ( ___nop ..  ]
 [e =+ _x -> 1 `i ]
-[e $ < _x -> 500 `i 1534  ]
-[e :U 1535 ]
-}
+[e $ < _x -> 500 `i 1538  ]
 [e :U 1539 ]
+}
+[e :U 1543 ]
 {
 [e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
 }
-[e :U 1538 ]
-"145
-[; ;rtcdrv.c: 145:         if (d.data_part.rtc) {
-[e $ ! != -> . . _d 0 2 `i -> 0 `i 1540  ]
-{
-"147
-[; ;rtcdrv.c: 147:             processRTC(d.data_part.cmd, d.data_part.argCount);
-[e ( _processRTC (2 , . . _d 0 1 . . _d 0 0 ]
-"148
-[; ;rtcdrv.c: 148:         } else {
-}
-[e $U 1541  ]
-[e :U 1540 ]
-{
-"150
-[; ;rtcdrv.c: 150:             processDRV(d.data_part.cmd, d.data_part.argCount);
-[e ( _processDRV (2 , . . _d 0 1 . . _d 0 0 ]
+[e :U 1542 ]
 "151
-[; ;rtcdrv.c: 151:         }
-}
-[e :U 1541 ]
-"152
-[; ;rtcdrv.c: 152:         TRISA = 0xFF;
-[e = _TRISA -> -> 255 `i `uc ]
+[; ;rtcdrv.c: 151:         if (d.data_part.rtc) {
+[e $ ! != -> . . _d 0 2 `i -> 0 `i 1544  ]
+{
 "153
-[; ;rtcdrv.c: 153:     }
-}
-[e :U 1527 ]
+[; ;rtcdrv.c: 153:             processRTC(d.data_part.cmd, d.data_part.argCount);
+[e ( _processRTC (2 , . . _d 0 1 . . _d 0 0 ]
 "154
-[; ;rtcdrv.c: 154: }
-[e :UE 1526 ]
+[; ;rtcdrv.c: 154:         } else {
+}
+[e $U 1545  ]
+[e :U 1544 ]
+{
+"156
+[; ;rtcdrv.c: 156:             processDRV(d.data_part.cmd, d.data_part.argCount);
+[e ( _processDRV (2 , . . _d 0 1 . . _d 0 0 ]
+"157
+[; ;rtcdrv.c: 157:         }
+}
+[e :U 1545 ]
+"158
+[; ;rtcdrv.c: 158:         TRISA = 0xFF;
+[e = _TRISA -> -> 255 `i `uc ]
+"159
+[; ;rtcdrv.c: 159:     }
+}
+[e :U 1531 ]
+"160
+[; ;rtcdrv.c: 160: }
+[e :UE 1530 ]
 }
 [p f _sprintf 8684560 ]
-[a 5C 37 115 32 126 37 117 0 ]
-[a 4C 86 111 108 117 109 101 32 45 32 37 115 0 ]
-[a 7C 37 49 48 108 117 47 37 49 48 108 117 32 75 105 66 0 ]
+[a 6C 37 49 50 115 32 37 49 48 117 0 ]
+[a 9C 37 108 117 47 37 108 117 32 75 105 66 0 ]
 [a 1C 48 58 0 ]
-[a 8C 48 58 0 ]
+[a 10C 48 58 0 ]
+[a 4C 42 86 111 108 117 109 101 32 45 32 37 115 42 0 ]
 [a 2C 0 ]
 [a 3C 0 ]
-[a 6C 0 ]
+[a 5C 0 ]
+[a 7C 0 ]
+[a 8C 0 ]

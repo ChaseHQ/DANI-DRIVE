@@ -16619,7 +16619,7 @@ struct tm *getdate (const char *);
 
 
 
-void SetClock(uint8_t year, uint8_t month, uint8_t dayOfMonth, uint8_t dayOfWeek, uint8_t hour, uint8_t minute, uint8_t second);
+void SetClock(size_t year, uint8_t month, uint8_t dayOfMonth, uint8_t dayOfWeek, uint8_t hour, uint8_t minute, uint8_t second);
 struct tm ReadClock();
 # 63 "mcc_generated_files/fatfs/ff_time.c" 2
 

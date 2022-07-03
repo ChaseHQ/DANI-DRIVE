@@ -99,27 +99,35 @@ void drvGetDir() {
         
         f_opendir(&dir, "");
         do {
-            fileCount++;
             f_readdir(&dir, &fno);
+            if (!fno.fname[0]) continue; // Skip this file it's blank
+            if (!fno.fsize) continue;    // Skip zero file sized files
+            fileCount++;
         } while (fno.fname[0]);
         f_rewinddir(&dir);
         // File count now contains the count of the files in the directory
-        sendBufferLen(fileCount+2); // We will send the amount of files + 2, header + free
+        sendBufferLen(fileCount+6); // We will send the amount of files + 2, header + free
+        sendBuffer("",1);
         f_getlabel("",driveLabel,0);
-        sprintf(buffer,"Volume - %s", driveLabel);
-        sendBuffer(buffer,strlen(buffer));
+        sprintf(buffer,"*Volume - %s*", driveLabel);
+        sendBuffer(buffer,strlen(buffer)+1);
+        sendBuffer("",1);
         do {
-            memset(buffer,0,256);
             f_readdir(&dir, &fno);
-            sprintf(buffer,"%s ~%u",fno.fname,fno.fsize);
-            sendBuffer(buffer,strlen(buffer));
+            if (!fno.fname[0]) continue; // Skip this file it's blank
+            if (!fno.fsize) continue;    // Skip zero file sized files
+            memset(buffer,0,256);
+            sprintf(buffer,"%12s - %u bytes",fno.fname,fno.fsize);
+            sendBuffer(buffer,strlen(buffer)+1);
         } while (fno.fname[0]);
+        sendBuffer("",1);
         memset(buffer,0,256);
         f_getfree("", &fre_clust, &fs);
         tot_sect = (fs->n_fatent - 2) * fs->csize;
         fre_sect = fre_clust * fs->csize;
-        sprintf(buffer, "%10lu/%10lu KiB",fre_sect / 2, tot_sect / 2);
-        sendBuffer(buffer,strlen(buffer));
+        sprintf(buffer, "%lu KiB free",fre_sect / 2);
+        sendBuffer(buffer,strlen(buffer)+1);
+        sendBuffer("",1);
         
         f_mount(0,"0:",0);
     } else {

@@ -16650,37 +16650,7 @@ typedef union RTCDRV_DATA_ {
 
 void rtcdrv_poll(void);
 # 3 "main.c" 2
-
-
-    FATFS drive;
-    FIL file;
-    FFDIR dir;
-    FILINFO fno;
-
-void DiskTest() {
-    UINT actualLength;
-    char data[] = "Hello World!";
-
-    if (DRVA_IsMediaPresent()) {
-
-        if (f_mount(&drive,"0:",1) == FR_OK)
-        {
-            if (f_open(&file, "another.txt", 0x02 | 0x04 ) == FR_OK)
-            {
-                f_write(&file, data, sizeof(data)-1, &actualLength );
-                f_close(&file);
-            }
-
-
-
-
-
-            f_mount(0,"0:",0);
-        }
-        __nop();
-    }
-}
-
+# 34 "main.c"
 void main(void)
 {
 
@@ -16693,7 +16663,7 @@ void main(void)
     (INTCONbits.PEIE = 1);
     TMR0_StartTimer();
 
-    DiskTest();
+
 
     while(1) {
         rtcdrv_poll();

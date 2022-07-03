@@ -16633,9 +16633,10 @@ struct tm *getdate (const char *);
 
 
 
-void SetClock(uint8_t year, uint8_t month, uint8_t dayOfMonth, uint8_t dayOfWeek, uint8_t hour, uint8_t minute, uint8_t second);
+void SetClock(size_t year, uint8_t month, uint8_t dayOfMonth, uint8_t dayOfWeek, uint8_t hour, uint8_t minute, uint8_t second);
 struct tm ReadClock();
 # 7 "./rtcdrv.h" 2
+
 
 
 typedef union RTCDRV_DATA_ {
@@ -16647,11 +16648,6 @@ typedef union RTCDRV_DATA_ {
     BYTE data;
 } RTCDRV_DATA;
 
-enum RTCDRV_MODE_ {
-    RECV, SEND
-};
-
-volatile enum RTCDRV_MODE_ RTCDRV_MODE = RECV;
 void rtcdrv_poll(void);
 # 3 "main.c" 2
 # 34 "main.c"
@@ -16666,6 +16662,8 @@ void main(void)
     (INTCONbits.GIE = 1);
     (INTCONbits.PEIE = 1);
     TMR0_StartTimer();
+
+
 
     while(1) {
         rtcdrv_poll();
