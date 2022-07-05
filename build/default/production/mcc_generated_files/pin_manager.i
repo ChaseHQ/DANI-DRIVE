@@ -16009,11 +16009,21 @@ unsigned char __t3rd16on(void);
 void PIN_MANAGER_Initialize (void);
 # 390 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
+# 403 "mcc_generated_files/pin_manager.h"
+void IOCBF5_ISR(void);
+# 426 "mcc_generated_files/pin_manager.h"
+void IOCBF5_SetInterruptHandler(void (* InterruptHandler)(void));
+# 450 "mcc_generated_files/pin_manager.h"
+extern void (*IOCBF5_InterruptHandler)(void);
+# 474 "mcc_generated_files/pin_manager.h"
+void IOCBF5_DefaultInterruptHandler(void);
 # 49 "mcc_generated_files/pin_manager.c" 2
 
 
 
 
+
+void (*IOCBF5_InterruptHandler)(void);
 
 
 void PIN_MANAGER_Initialize(void)
@@ -16074,6 +16084,17 @@ void PIN_MANAGER_Initialize(void)
 
 
 
+    IOCBFbits.IOCBF5 = 0;
+
+    IOCBNbits.IOCBN5 = 0;
+
+    IOCBPbits.IOCBP5 = 1;
+
+
+
+
+    IOCBF5_SetInterruptHandler(IOCBF5_DefaultInterruptHandler);
+
 
     PIE0bits.IOCIE = 1;
 
@@ -16090,4 +16111,39 @@ void PIN_MANAGER_Initialize(void)
 
 void PIN_MANAGER_IOC(void)
 {
+
+    if(IOCBFbits.IOCBF5 == 1)
+    {
+        IOCBF5_ISR();
+    }
+}
+
+
+
+
+void IOCBF5_ISR(void) {
+
+
+
+
+    if(IOCBF5_InterruptHandler)
+    {
+        IOCBF5_InterruptHandler();
+    }
+    IOCBFbits.IOCBF5 = 0;
+}
+
+
+
+
+void IOCBF5_SetInterruptHandler(void (* InterruptHandler)(void)){
+    IOCBF5_InterruptHandler = InterruptHandler;
+}
+
+
+
+
+void IOCBF5_DefaultInterruptHandler(void){
+
+
 }

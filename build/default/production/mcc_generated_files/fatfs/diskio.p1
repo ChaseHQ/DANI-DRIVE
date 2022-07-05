@@ -10,8 +10,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _DRVA_IsWriteProtected `(a ~T0 @X0 0 ef ]
 "50 mcc_generated_files/fatfs/diskio.c
 [; ;mcc_generated_files/fatfs/diskio.c: 50:     }
-[c E86 0 .. ]
-[n E86 DRIVER_LIST DRVA  ]
+[c E87 0 .. ]
+[n E87 DRIVER_LIST DRVA  ]
 "30 mcc_generated_files/fatfs/drva.h
 [; ;mcc_generated_files/fatfs/drva.h: 30: _Bool DRVA_MediaInitialize(void);
 [v _DRVA_MediaInitialize `(a ~T0 @X0 0 ef ]
@@ -104,7 +104,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 2  ]
 [e :U 3 ]
-[e [\ -> _pdrv `i , $ . `E86 0 4
+[e [\ -> _pdrv `i , $ . `E87 0 4
  9 ]
 [e :U 2 ]
 "51
@@ -179,7 +179,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 11  ]
 [e :U 12 ]
-[e [\ -> _pdrv `i , $ . `E86 0 13
+[e [\ -> _pdrv `i , $ . `E87 0 13
  16 ]
 [e :U 11 ]
 "81
@@ -263,7 +263,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 18  ]
 [e :U 19 ]
-[e [\ -> _pdrv `i , $ . `E86 0 20
+[e [\ -> _pdrv `i , $ . `E87 0 20
  23 ]
 [e :U 18 ]
 "115
@@ -347,7 +347,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 25  ]
 [e :U 26 ]
-[e [\ -> _pdrv `i , $ . `E86 0 27
+[e [\ -> _pdrv `i , $ . `E87 0 27
  30 ]
 [e :U 25 ]
 "149
@@ -403,7 +403,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 32  ]
 [e :U 33 ]
-[e [\ -> _pdrv `i , $ . `E86 0 34
+[e [\ -> _pdrv `i , $ . `E87 0 34
  35 ]
 [e :U 32 ]
 "174

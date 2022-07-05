@@ -38,13 +38,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "16271
 [; ;C:/Users/Craig Vella/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f27k40.h: 16271: extern volatile PORTBbits_t PORTBbits __attribute__((address(0xF8E)));
 [v _PORTBbits `VS809 ~T0 @X0 0 e@3982 ]
-"209 mcc_generated_files/fatfs/drva.c
-[; ;mcc_generated_files/fatfs/drva.c: 209:     SPI2_Open(SPI2_DEFAULT);
-[c E9899 0 1 .. ]
-[n E9899 . SPI2_DEFAULT SPI2_FAST  ]
+"213 mcc_generated_files/fatfs/drva.c
+[; ;mcc_generated_files/fatfs/drva.c: 213:     SPI2_Open(SPI2_DEFAULT);
+[c E9907 0 1 .. ]
+[n E9907 . SPI2_DEFAULT SPI2_FAST  ]
 "64 mcc_generated_files/fatfs/../spi2.h
 [; ;mcc_generated_files/fatfs/../spi2.h: 64: _Bool SPI2_Open(spi2_modes_t spi2UniqueConfiguration);
-[v _SPI2_Open `(a ~T0 @X0 0 ef1`E9899 ]
+[v _SPI2_Open `(a ~T0 @X0 0 ef1`E9907 ]
 "65
 [; ;mcc_generated_files/fatfs/../spi2.h: 65: void SPI2_Close(void);
 [v _SPI2_Close `(v ~T0 @X0 0 ef ]
@@ -1795,455 +1795,470 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mcc_generated_files/fatfs/drva.c: 195: }
 [e :UE 1483 ]
 }
+"197
+[; ;mcc_generated_files/fatfs/drva.c: 197: void DRVA_IOCCD(void) {
+[v _DRVA_IOCCD `(v ~T0 @X0 1 ef ]
+{
+[e :U _DRVA_IOCCD ]
+[f ]
+"198
+[; ;mcc_generated_files/fatfs/drva.c: 198:     if (DiskInitialized) DiskInitialized = 0;
+[e $ ! != -> _DiskInitialized `i -> 0 `i 1487  ]
+[e = _DiskInitialized -> -> 0 `i `a ]
+[e :U 1487 ]
 "199
-[; ;mcc_generated_files/fatfs/drva.c: 199: _Bool DRVA_IsMediaPresent(void)
+[; ;mcc_generated_files/fatfs/drva.c: 199: }
+[e :UE 1486 ]
+}
+"203
+[; ;mcc_generated_files/fatfs/drva.c: 203: _Bool DRVA_IsMediaPresent(void)
 [v _DRVA_IsMediaPresent `(a ~T0 @X0 1 ef ]
-"200
-[; ;mcc_generated_files/fatfs/drva.c: 200: {
+"204
+[; ;mcc_generated_files/fatfs/drva.c: 204: {
 {
 [e :U _DRVA_IsMediaPresent ]
 [f ]
-"201
-[; ;mcc_generated_files/fatfs/drva.c: 201:     return !PORTBbits.RB5;
-[e ) -> -> ! != -> . . _PORTBbits 0 5 `i -> 0 `i `i `a ]
-[e $UE 1486  ]
-"202
-[; ;mcc_generated_files/fatfs/drva.c: 202: }
-[e :UE 1486 ]
-}
-"204
-[; ;mcc_generated_files/fatfs/drva.c: 204: _Bool DRVA_MediaInitialize(void)
-[v _DRVA_MediaInitialize `(a ~T0 @X0 1 ef ]
 "205
-[; ;mcc_generated_files/fatfs/drva.c: 205: {
+[; ;mcc_generated_files/fatfs/drva.c: 205:     return !PORTBbits.RB5;
+[e ) -> -> ! != -> . . _PORTBbits 0 5 `i -> 0 `i `i `a ]
+[e $UE 1488  ]
+"206
+[; ;mcc_generated_files/fatfs/drva.c: 206: }
+[e :UE 1488 ]
+}
+"208
+[; ;mcc_generated_files/fatfs/drva.c: 208: _Bool DRVA_MediaInitialize(void)
+[v _DRVA_MediaInitialize `(a ~T0 @X0 1 ef ]
+"209
+[; ;mcc_generated_files/fatfs/drva.c: 209: {
 {
 [e :U _DRVA_MediaInitialize ]
 [f ]
-"206
-[; ;mcc_generated_files/fatfs/drva.c: 206:     if (!DRVA_IsMediaPresent()) return 0;
-[e $ ! ! != -> ( _DRVA_IsMediaPresent ..  `i -> 0 `i 1488  ]
+"210
+[; ;mcc_generated_files/fatfs/drva.c: 210:     if (!DRVA_IsMediaPresent()) return 0;
+[e $ ! ! != -> ( _DRVA_IsMediaPresent ..  `i -> 0 `i 1490  ]
 [e ) -> -> 0 `i `a ]
-[e $UE 1487  ]
-[e :U 1488 ]
-"207
-[; ;mcc_generated_files/fatfs/drva.c: 207:     BYTE n, cmd, ty, ocr[4];
+[e $UE 1489  ]
+[e :U 1490 ]
+"211
+[; ;mcc_generated_files/fatfs/drva.c: 211:     BYTE n, cmd, ty, ocr[4];
 [v _n `uc ~T0 @X0 1 a ]
 [v _cmd `uc ~T0 @X0 1 a ]
 [v _ty `uc ~T0 @X0 1 a ]
 [v _ocr `uc ~T0 @X0 -> 4 `i a ]
-"209
-[; ;mcc_generated_files/fatfs/drva.c: 209:     SPI2_Open(SPI2_DEFAULT);
-[e ( _SPI2_Open (1 . `E9899 0 ]
-"210
-[; ;mcc_generated_files/fatfs/drva.c: 210:     for (n = 10; n; n--) SPI2_ExchangeByte(0xFF);
+"213
+[; ;mcc_generated_files/fatfs/drva.c: 213:     SPI2_Open(SPI2_DEFAULT);
+[e ( _SPI2_Open (1 . `E9907 0 ]
+"214
+[; ;mcc_generated_files/fatfs/drva.c: 214:     for (n = 10; n; n--) SPI2_ExchangeByte(0xFF);
 {
 [e = _n -> -> 10 `i `uc ]
-[e $U 1492  ]
-[e :U 1489 ]
+[e $U 1494  ]
+[e :U 1491 ]
 [e ( _SPI2_ExchangeByte (1 -> -> 255 `i `uc ]
 [e -- _n -> -> 1 `i `uc ]
+[e :U 1494 ]
+[e $ != -> _n `i -> 0 `i 1491  ]
 [e :U 1492 ]
-[e $ != -> _n `i -> 0 `i 1489  ]
-[e :U 1490 ]
 }
-"212
-[; ;mcc_generated_files/fatfs/drva.c: 212:     ty = 0;
-[e = _ty -> -> 0 `i `uc ]
-"213
-[; ;mcc_generated_files/fatfs/drva.c: 213:  if (send_cmd((0), 0) == 1) {
-[e $ ! == -> ( _send_cmd (2 , -> -> 0 `i `uc -> -> -> 0 `i `l `ul `i -> 1 `i 1493  ]
-{
-"214
-[; ;mcc_generated_files/fatfs/drva.c: 214:   Timer1 = 1000;
-[e = _Timer1 -> -> 1000 `i `ui ]
-"215
-[; ;mcc_generated_files/fatfs/drva.c: 215:   if (send_cmd((8), 0x1AA) == 1) {
-[e $ ! == -> ( _send_cmd (2 , -> -> 8 `i `uc -> -> -> 426 `i `l `ul `i -> 1 `i 1494  ]
-{
 "216
-[; ;mcc_generated_files/fatfs/drva.c: 216:    for (n = 0; n < 4; n++) ocr[n] = SPI2_ExchangeByte(0xFF);
-{
-[e = _n -> -> 0 `i `uc ]
-[e $ < -> _n `i -> 4 `i 1495  ]
-[e $U 1496  ]
-[e :U 1495 ]
-[e = *U + &U _ocr * -> _n `ux -> -> # *U &U _ocr `ui `ux ( _SPI2_ExchangeByte (1 -> -> 255 `i `uc ]
-[e ++ _n -> -> 1 `i `uc ]
-[e $ < -> _n `i -> 4 `i 1495  ]
-[e :U 1496 ]
-}
+[; ;mcc_generated_files/fatfs/drva.c: 216:     ty = 0;
+[e = _ty -> -> 0 `i `uc ]
 "217
-[; ;mcc_generated_files/fatfs/drva.c: 217:    if (ocr[2] == 0x01 && ocr[3] == 0xAA) {
-[e $ ! && == -> *U + &U _ocr * -> -> -> 2 `i `ui `ux -> -> # *U &U _ocr `ui `ux `i -> 1 `i == -> *U + &U _ocr * -> -> -> 3 `i `ui `ux -> -> # *U &U _ocr `ui `ux `i -> 170 `i 1498  ]
+[; ;mcc_generated_files/fatfs/drva.c: 217:  if (send_cmd((0), 0) == 1) {
+[e $ ! == -> ( _send_cmd (2 , -> -> 0 `i `uc -> -> -> 0 `i `l `ul `i -> 1 `i 1495  ]
 {
 "218
-[; ;mcc_generated_files/fatfs/drva.c: 218:     while (Timer1 && send_cmd((41|0x80), 0x40000000));
-[e $U 1499  ]
-[e :U 1500 ]
-[e :U 1499 ]
-[e $ && != _Timer1 -> -> 0 `i `ui != -> ( _send_cmd (2 , -> | -> 41 `i -> 128 `i `uc -> -> 1073741824 `l `ul `i -> 0 `i 1500  ]
-[e :U 1501 ]
+[; ;mcc_generated_files/fatfs/drva.c: 218:   Timer1 = 1000;
+[e = _Timer1 -> -> 1000 `i `ui ]
 "219
-[; ;mcc_generated_files/fatfs/drva.c: 219:     if (Timer1 && send_cmd((58), 0) == 0) {
-[e $ ! && != _Timer1 -> -> 0 `i `ui == -> ( _send_cmd (2 , -> -> 58 `i `uc -> -> -> 0 `i `l `ul `i -> 0 `i 1502  ]
+[; ;mcc_generated_files/fatfs/drva.c: 219:   if (send_cmd((8), 0x1AA) == 1) {
+[e $ ! == -> ( _send_cmd (2 , -> -> 8 `i `uc -> -> -> 426 `i `l `ul `i -> 1 `i 1496  ]
 {
 "220
-[; ;mcc_generated_files/fatfs/drva.c: 220:      for (n = 0; n < 4; n++) ocr[n] = SPI2_ExchangeByte(0xFF);
+[; ;mcc_generated_files/fatfs/drva.c: 220:    for (n = 0; n < 4; n++) ocr[n] = SPI2_ExchangeByte(0xFF);
 {
 [e = _n -> -> 0 `i `uc ]
-[e $ < -> _n `i -> 4 `i 1503  ]
-[e $U 1504  ]
-[e :U 1503 ]
+[e $ < -> _n `i -> 4 `i 1497  ]
+[e $U 1498  ]
+[e :U 1497 ]
 [e = *U + &U _ocr * -> _n `ux -> -> # *U &U _ocr `ui `ux ( _SPI2_ExchangeByte (1 -> -> 255 `i `uc ]
 [e ++ _n -> -> 1 `i `uc ]
-[e $ < -> _n `i -> 4 `i 1503  ]
-[e :U 1504 ]
+[e $ < -> _n `i -> 4 `i 1497  ]
+[e :U 1498 ]
 }
 "221
-[; ;mcc_generated_files/fatfs/drva.c: 221:      ty = (ocr[0] & 0x40) ? 0x04|0x08 : 0x04;
-[e = _ty -> ? != & -> *U + &U _ocr * -> -> -> 0 `i `ui `ux -> -> # *U &U _ocr `ui `ux `i -> 64 `i -> 0 `i : | -> 4 `i -> 8 `i -> 4 `i `uc ]
+[; ;mcc_generated_files/fatfs/drva.c: 221:    if (ocr[2] == 0x01 && ocr[3] == 0xAA) {
+[e $ ! && == -> *U + &U _ocr * -> -> -> 2 `i `ui `ux -> -> # *U &U _ocr `ui `ux `i -> 1 `i == -> *U + &U _ocr * -> -> -> 3 `i `ui `ux -> -> # *U &U _ocr `ui `ux `i -> 170 `i 1500  ]
+{
 "222
-[; ;mcc_generated_files/fatfs/drva.c: 222:     }
-}
+[; ;mcc_generated_files/fatfs/drva.c: 222:     while (Timer1 && send_cmd((41|0x80), 0x40000000));
+[e $U 1501  ]
 [e :U 1502 ]
+[e :U 1501 ]
+[e $ && != _Timer1 -> -> 0 `i `ui != -> ( _send_cmd (2 , -> | -> 41 `i -> 128 `i `uc -> -> 1073741824 `l `ul `i -> 0 `i 1502  ]
+[e :U 1503 ]
 "223
-[; ;mcc_generated_files/fatfs/drva.c: 223:    }
-}
-[e :U 1498 ]
+[; ;mcc_generated_files/fatfs/drva.c: 223:     if (Timer1 && send_cmd((58), 0) == 0) {
+[e $ ! && != _Timer1 -> -> 0 `i `ui == -> ( _send_cmd (2 , -> -> 58 `i `uc -> -> -> 0 `i `l `ul `i -> 0 `i 1504  ]
+{
 "224
-[; ;mcc_generated_files/fatfs/drva.c: 224:   } else {
-}
+[; ;mcc_generated_files/fatfs/drva.c: 224:      for (n = 0; n < 4; n++) ocr[n] = SPI2_ExchangeByte(0xFF);
+{
+[e = _n -> -> 0 `i `uc ]
+[e $ < -> _n `i -> 4 `i 1505  ]
 [e $U 1506  ]
-[e :U 1494 ]
-{
+[e :U 1505 ]
+[e = *U + &U _ocr * -> _n `ux -> -> # *U &U _ocr `ui `ux ( _SPI2_ExchangeByte (1 -> -> 255 `i `uc ]
+[e ++ _n -> -> 1 `i `uc ]
+[e $ < -> _n `i -> 4 `i 1505  ]
+[e :U 1506 ]
+}
 "225
-[; ;mcc_generated_files/fatfs/drva.c: 225:    if (send_cmd((41|0x80), 0) <= 1) {
-[e $ ! <= -> ( _send_cmd (2 , -> | -> 41 `i -> 128 `i `uc -> -> -> 0 `i `l `ul `i -> 1 `i 1507  ]
-{
+[; ;mcc_generated_files/fatfs/drva.c: 225:      ty = (ocr[0] & 0x40) ? 0x04|0x08 : 0x04;
+[e = _ty -> ? != & -> *U + &U _ocr * -> -> -> 0 `i `ui `ux -> -> # *U &U _ocr `ui `ux `i -> 64 `i -> 0 `i : | -> 4 `i -> 8 `i -> 4 `i `uc ]
 "226
-[; ;mcc_generated_files/fatfs/drva.c: 226:     ty = 0x02; cmd = (41|0x80);
-[e = _ty -> -> 2 `i `uc ]
-[e = _cmd -> | -> 41 `i -> 128 `i `uc ]
+[; ;mcc_generated_files/fatfs/drva.c: 226:     }
+}
+[e :U 1504 ]
 "227
-[; ;mcc_generated_files/fatfs/drva.c: 227:    } else {
+[; ;mcc_generated_files/fatfs/drva.c: 227:    }
+}
+[e :U 1500 ]
+"228
+[; ;mcc_generated_files/fatfs/drva.c: 228:   } else {
 }
 [e $U 1508  ]
-[e :U 1507 ]
+[e :U 1496 ]
 {
-"228
-[; ;mcc_generated_files/fatfs/drva.c: 228:     ty = 0x01; cmd = (1);
+"229
+[; ;mcc_generated_files/fatfs/drva.c: 229:    if (send_cmd((41|0x80), 0) <= 1) {
+[e $ ! <= -> ( _send_cmd (2 , -> | -> 41 `i -> 128 `i `uc -> -> -> 0 `i `l `ul `i -> 1 `i 1509  ]
+{
+"230
+[; ;mcc_generated_files/fatfs/drva.c: 230:     ty = 0x02; cmd = (41|0x80);
+[e = _ty -> -> 2 `i `uc ]
+[e = _cmd -> | -> 41 `i -> 128 `i `uc ]
+"231
+[; ;mcc_generated_files/fatfs/drva.c: 231:    } else {
+}
+[e $U 1510  ]
+[e :U 1509 ]
+{
+"232
+[; ;mcc_generated_files/fatfs/drva.c: 232:     ty = 0x01; cmd = (1);
 [e = _ty -> -> 1 `i `uc ]
 [e = _cmd -> -> 1 `i `uc ]
-"229
-[; ;mcc_generated_files/fatfs/drva.c: 229:    }
+"233
+[; ;mcc_generated_files/fatfs/drva.c: 233:    }
+}
+[e :U 1510 ]
+"234
+[; ;mcc_generated_files/fatfs/drva.c: 234:    while (Timer1 && send_cmd(cmd, 0));
+[e $U 1511  ]
+[e :U 1512 ]
+[e :U 1511 ]
+[e $ && != _Timer1 -> -> 0 `i `ui != -> ( _send_cmd (2 , _cmd -> -> -> 0 `i `l `ul `i -> 0 `i 1512  ]
+[e :U 1513 ]
+"235
+[; ;mcc_generated_files/fatfs/drva.c: 235:    if (!Timer1 || send_cmd((16), 512) != 0) ty = 0;
+[e $ ! || ! != _Timer1 -> -> 0 `i `ui != -> ( _send_cmd (2 , -> -> 16 `i `uc -> -> -> 512 `i `l `ul `i -> 0 `i 1514  ]
+[e = _ty -> -> 0 `i `uc ]
+[e :U 1514 ]
+"236
+[; ;mcc_generated_files/fatfs/drva.c: 236:   }
 }
 [e :U 1508 ]
-"230
-[; ;mcc_generated_files/fatfs/drva.c: 230:    while (Timer1 && send_cmd(cmd, 0));
-[e $U 1509  ]
-[e :U 1510 ]
-[e :U 1509 ]
-[e $ && != _Timer1 -> -> 0 `i `ui != -> ( _send_cmd (2 , _cmd -> -> -> 0 `i `l `ul `i -> 0 `i 1510  ]
-[e :U 1511 ]
-"231
-[; ;mcc_generated_files/fatfs/drva.c: 231:    if (!Timer1 || send_cmd((16), 512) != 0) ty = 0;
-[e $ ! || ! != _Timer1 -> -> 0 `i `ui != -> ( _send_cmd (2 , -> -> 16 `i `uc -> -> -> 512 `i `l `ul `i -> 0 `i 1512  ]
-[e = _ty -> -> 0 `i `uc ]
-[e :U 1512 ]
-"232
-[; ;mcc_generated_files/fatfs/drva.c: 232:   }
-}
-[e :U 1506 ]
-"233
-[; ;mcc_generated_files/fatfs/drva.c: 233:  }
-}
-[e :U 1493 ]
-"234
-[; ;mcc_generated_files/fatfs/drva.c: 234:  CardType = ty;
-[e = _CardType -> _ty `ui ]
-"235
-[; ;mcc_generated_files/fatfs/drva.c: 235:  deselect();
-[e ( _deselect ..  ]
 "237
-[; ;mcc_generated_files/fatfs/drva.c: 237:  if (ty) {
-[e $ ! != -> _ty `i -> 0 `i 1513  ]
-{
-"238
-[; ;mcc_generated_files/fatfs/drva.c: 238:   DiskInitialized = 1;
-[e = _DiskInitialized -> -> 1 `i `a ]
-"240
-[; ;mcc_generated_files/fatfs/drva.c: 240:         return 1;
-[e ) -> -> 1 `i `a ]
-[e $UE 1487  ]
-"241
-[; ;mcc_generated_files/fatfs/drva.c: 241:  } else {
+[; ;mcc_generated_files/fatfs/drva.c: 237:  }
 }
-[e $U 1514  ]
-[e :U 1513 ]
+[e :U 1495 ]
+"238
+[; ;mcc_generated_files/fatfs/drva.c: 238:  CardType = ty;
+[e = _CardType -> _ty `ui ]
+"239
+[; ;mcc_generated_files/fatfs/drva.c: 239:  deselect();
+[e ( _deselect ..  ]
+"241
+[; ;mcc_generated_files/fatfs/drva.c: 241:  if (ty) {
+[e $ ! != -> _ty `i -> 0 `i 1515  ]
 {
 "242
-[; ;mcc_generated_files/fatfs/drva.c: 242:   SPI2_Close();
-[e ( _SPI2_Close ..  ]
-"243
-[; ;mcc_generated_files/fatfs/drva.c: 243:  }
-}
-[e :U 1514 ]
+[; ;mcc_generated_files/fatfs/drva.c: 242:   DiskInitialized = 1;
+[e = _DiskInitialized -> -> 1 `i `a ]
+"244
+[; ;mcc_generated_files/fatfs/drva.c: 244:         return 1;
+[e ) -> -> 1 `i `a ]
+[e $UE 1489  ]
 "245
-[; ;mcc_generated_files/fatfs/drva.c: 245:  return 0;
-[e ) -> -> 0 `i `a ]
-[e $UE 1487  ]
-"246
-[; ;mcc_generated_files/fatfs/drva.c: 246: }
-[e :UE 1487 ]
+[; ;mcc_generated_files/fatfs/drva.c: 245:  } else {
 }
-"248
-[; ;mcc_generated_files/fatfs/drva.c: 248: _Bool DRVA_IsMediaInitialized(void)
-[v _DRVA_IsMediaInitialized `(a ~T0 @X0 1 ef ]
+[e $U 1516  ]
+[e :U 1515 ]
+{
+"246
+[; ;mcc_generated_files/fatfs/drva.c: 246:   SPI2_Close();
+[e ( _SPI2_Close ..  ]
+"247
+[; ;mcc_generated_files/fatfs/drva.c: 247:  }
+}
+[e :U 1516 ]
 "249
-[; ;mcc_generated_files/fatfs/drva.c: 249: {
+[; ;mcc_generated_files/fatfs/drva.c: 249:  return 0;
+[e ) -> -> 0 `i `a ]
+[e $UE 1489  ]
+"250
+[; ;mcc_generated_files/fatfs/drva.c: 250: }
+[e :UE 1489 ]
+}
+"252
+[; ;mcc_generated_files/fatfs/drva.c: 252: _Bool DRVA_IsMediaInitialized(void)
+[v _DRVA_IsMediaInitialized `(a ~T0 @X0 1 ef ]
+"253
+[; ;mcc_generated_files/fatfs/drva.c: 253: {
 {
 [e :U _DRVA_IsMediaInitialized ]
 [f ]
-"250
-[; ;mcc_generated_files/fatfs/drva.c: 250:     return DiskInitialized;
-[e ) _DiskInitialized ]
-[e $UE 1515  ]
-"251
-[; ;mcc_generated_files/fatfs/drva.c: 251: }
-[e :UE 1515 ]
-}
-"253
-[; ;mcc_generated_files/fatfs/drva.c: 253: _Bool DRVA_IsWriteProtected(void)
-[v _DRVA_IsWriteProtected `(a ~T0 @X0 1 ef ]
 "254
-[; ;mcc_generated_files/fatfs/drva.c: 254: {
+[; ;mcc_generated_files/fatfs/drva.c: 254:     return DiskInitialized;
+[e ) _DiskInitialized ]
+[e $UE 1517  ]
+"255
+[; ;mcc_generated_files/fatfs/drva.c: 255: }
+[e :UE 1517 ]
+}
+"257
+[; ;mcc_generated_files/fatfs/drva.c: 257: _Bool DRVA_IsWriteProtected(void)
+[v _DRVA_IsWriteProtected `(a ~T0 @X0 1 ef ]
+"258
+[; ;mcc_generated_files/fatfs/drva.c: 258: {
 {
 [e :U _DRVA_IsWriteProtected ]
 [f ]
-"256
-[; ;mcc_generated_files/fatfs/drva.c: 256:     return DiskWP;
-[e ) _DiskWP ]
-[e $UE 1516  ]
-"257
-[; ;mcc_generated_files/fatfs/drva.c: 257: }
-[e :UE 1516 ]
-}
-"259
-[; ;mcc_generated_files/fatfs/drva.c: 259: uint16_t DRVA_GetSectorSize(void)
-[v _DRVA_GetSectorSize `(us ~T0 @X0 1 ef ]
 "260
-[; ;mcc_generated_files/fatfs/drva.c: 260: {
+[; ;mcc_generated_files/fatfs/drva.c: 260:     return DiskWP;
+[e ) _DiskWP ]
+[e $UE 1518  ]
+"261
+[; ;mcc_generated_files/fatfs/drva.c: 261: }
+[e :UE 1518 ]
+}
+"263
+[; ;mcc_generated_files/fatfs/drva.c: 263: uint16_t DRVA_GetSectorSize(void)
+[v _DRVA_GetSectorSize `(us ~T0 @X0 1 ef ]
+"264
+[; ;mcc_generated_files/fatfs/drva.c: 264: {
 {
 [e :U _DRVA_GetSectorSize ]
 [f ]
-"261
-[; ;mcc_generated_files/fatfs/drva.c: 261:     return 512;
+"265
+[; ;mcc_generated_files/fatfs/drva.c: 265:     return 512;
 [e ) -> -> 512 `i `us ]
-[e $UE 1517  ]
-"262
-[; ;mcc_generated_files/fatfs/drva.c: 262: }
-[e :UE 1517 ]
+[e $UE 1519  ]
+"266
+[; ;mcc_generated_files/fatfs/drva.c: 266: }
+[e :UE 1519 ]
 }
-"270
-[; ;mcc_generated_files/fatfs/drva.c: 270: _Bool DRVA_SectorRead(uint32_t sector_address, uint8_t* buffer, uint16_t sector_count)
+"274
+[; ;mcc_generated_files/fatfs/drva.c: 274: _Bool DRVA_SectorRead(uint32_t sector_address, uint8_t* buffer, uint16_t sector_count)
 [v _DRVA_SectorRead `(a ~T0 @X0 1 ef3`ul`*uc`us ]
-"271
-[; ;mcc_generated_files/fatfs/drva.c: 271: {
+"275
+[; ;mcc_generated_files/fatfs/drva.c: 275: {
 {
 [e :U _DRVA_SectorRead ]
-"270
-[; ;mcc_generated_files/fatfs/drva.c: 270: _Bool DRVA_SectorRead(uint32_t sector_address, uint8_t* buffer, uint16_t sector_count)
+"274
+[; ;mcc_generated_files/fatfs/drva.c: 274: _Bool DRVA_SectorRead(uint32_t sector_address, uint8_t* buffer, uint16_t sector_count)
 [v _sector_address `ul ~T0 @X0 1 r1 ]
 [v _buffer `*uc ~T0 @X0 1 r2 ]
 [v _sector_count `us ~T0 @X0 1 r3 ]
-"271
-[; ;mcc_generated_files/fatfs/drva.c: 271: {
+"275
+[; ;mcc_generated_files/fatfs/drva.c: 275: {
 [f ]
-"272
-[; ;mcc_generated_files/fatfs/drva.c: 272:     DWORD sect = (DWORD)sector_address;
+"276
+[; ;mcc_generated_files/fatfs/drva.c: 276:     DWORD sect = (DWORD)sector_address;
 [v _sect `ul ~T0 @X0 1 a ]
 [e = _sect _sector_address ]
-"274
-[; ;mcc_generated_files/fatfs/drva.c: 274:  if (!DRVA_IsMediaInitialized()) return 0;
-[e $ ! ! != -> ( _DRVA_IsMediaInitialized ..  `i -> 0 `i 1519  ]
-[e ) -> -> 0 `i `a ]
-[e $UE 1518  ]
-[e :U 1519 ]
-"275
-[; ;mcc_generated_files/fatfs/drva.c: 275:  if (!(CardType & 0x08)) sect *= 512;
-[e $ ! ! != & _CardType -> -> 8 `i `ui -> -> 0 `i `ui 1520  ]
-[e =* _sect -> -> -> 512 `i `l `ul ]
-[e :U 1520 ]
-"277
-[; ;mcc_generated_files/fatfs/drva.c: 277:  if (sector_count == 1) {
-[e $ ! == -> _sector_count `ui -> -> 1 `i `ui 1521  ]
-{
 "278
-[; ;mcc_generated_files/fatfs/drva.c: 278:   if ((send_cmd((17), sect) == 0)
-[e $ ! && == -> ( _send_cmd (2 , -> -> 17 `i `uc _sect `i -> 0 `i != ( _rcvr_datablock (2 , _buffer -> -> 512 `i `ui -> 0 `i 1522  ]
-"279
-[; ;mcc_generated_files/fatfs/drva.c: 279:    && rcvr_datablock(buffer, 512)) {
-{
-"280
-[; ;mcc_generated_files/fatfs/drva.c: 280:    sector_count = 0;
-[e = _sector_count -> -> 0 `i `us ]
-"281
-[; ;mcc_generated_files/fatfs/drva.c: 281:   }
-}
-[e :U 1522 ]
-"282
-[; ;mcc_generated_files/fatfs/drva.c: 282:  }
-}
-[e $U 1523  ]
-"283
-[; ;mcc_generated_files/fatfs/drva.c: 283:  else {
+[; ;mcc_generated_files/fatfs/drva.c: 278:  if (!DRVA_IsMediaInitialized()) return 0;
+[e $ ! ! != -> ( _DRVA_IsMediaInitialized ..  `i -> 0 `i 1521  ]
+[e ) -> -> 0 `i `a ]
+[e $UE 1520  ]
 [e :U 1521 ]
+"279
+[; ;mcc_generated_files/fatfs/drva.c: 279:  if (!(CardType & 0x08)) sect *= 512;
+[e $ ! ! != & _CardType -> -> 8 `i `ui -> -> 0 `i `ui 1522  ]
+[e =* _sect -> -> -> 512 `i `l `ul ]
+[e :U 1522 ]
+"281
+[; ;mcc_generated_files/fatfs/drva.c: 281:  if (sector_count == 1) {
+[e $ ! == -> _sector_count `ui -> -> 1 `i `ui 1523  ]
+{
+"282
+[; ;mcc_generated_files/fatfs/drva.c: 282:   if ((send_cmd((17), sect) == 0)
+[e $ ! && == -> ( _send_cmd (2 , -> -> 17 `i `uc _sect `i -> 0 `i != ( _rcvr_datablock (2 , _buffer -> -> 512 `i `ui -> 0 `i 1524  ]
+"283
+[; ;mcc_generated_files/fatfs/drva.c: 283:    && rcvr_datablock(buffer, 512)) {
 {
 "284
-[; ;mcc_generated_files/fatfs/drva.c: 284:   if (send_cmd((18), sect) == 0) {
-[e $ ! == -> ( _send_cmd (2 , -> -> 18 `i `uc _sect `i -> 0 `i 1524  ]
-{
+[; ;mcc_generated_files/fatfs/drva.c: 284:    sector_count = 0;
+[e = _sector_count -> -> 0 `i `us ]
 "285
-[; ;mcc_generated_files/fatfs/drva.c: 285:    do {
-[e :U 1527 ]
-{
-"286
-[; ;mcc_generated_files/fatfs/drva.c: 286:     if (!rcvr_datablock(buffer, 512)) break;
-[e $ ! ! != ( _rcvr_datablock (2 , _buffer -> -> 512 `i `ui -> 0 `i 1528  ]
-[e $U 1526  ]
-[e :U 1528 ]
-"287
-[; ;mcc_generated_files/fatfs/drva.c: 287:     buffer += 512;
-[e =+ _buffer * -> -> 512 `i `x -> -> # *U _buffer `i `x ]
-"288
-[; ;mcc_generated_files/fatfs/drva.c: 288:    } while (--sector_count);
-}
-[e $ != -> =- _sector_count -> -> 1 `i `us `ui -> -> 0 `i `ui 1527  ]
-[e :U 1526 ]
-"289
-[; ;mcc_generated_files/fatfs/drva.c: 289:    send_cmd((12), 0);
-[e ( _send_cmd (2 , -> -> 12 `i `uc -> -> -> 0 `i `l `ul ]
-"290
-[; ;mcc_generated_files/fatfs/drva.c: 290:   }
+[; ;mcc_generated_files/fatfs/drva.c: 285:   }
 }
 [e :U 1524 ]
-"291
-[; ;mcc_generated_files/fatfs/drva.c: 291:  }
+"286
+[; ;mcc_generated_files/fatfs/drva.c: 286:  }
 }
+[e $U 1525  ]
+"287
+[; ;mcc_generated_files/fatfs/drva.c: 287:  else {
 [e :U 1523 ]
+{
+"288
+[; ;mcc_generated_files/fatfs/drva.c: 288:   if (send_cmd((18), sect) == 0) {
+[e $ ! == -> ( _send_cmd (2 , -> -> 18 `i `uc _sect `i -> 0 `i 1526  ]
+{
+"289
+[; ;mcc_generated_files/fatfs/drva.c: 289:    do {
+[e :U 1529 ]
+{
+"290
+[; ;mcc_generated_files/fatfs/drva.c: 290:     if (!rcvr_datablock(buffer, 512)) break;
+[e $ ! ! != ( _rcvr_datablock (2 , _buffer -> -> 512 `i `ui -> 0 `i 1530  ]
+[e $U 1528  ]
+[e :U 1530 ]
+"291
+[; ;mcc_generated_files/fatfs/drva.c: 291:     buffer += 512;
+[e =+ _buffer * -> -> 512 `i `x -> -> # *U _buffer `i `x ]
 "292
-[; ;mcc_generated_files/fatfs/drva.c: 292:  deselect();
-[e ( _deselect ..  ]
-"294
-[; ;mcc_generated_files/fatfs/drva.c: 294:  return 1;
-[e ) -> -> 1 `i `a ]
-[e $UE 1518  ]
-"296
-[; ;mcc_generated_files/fatfs/drva.c: 296: }
-[e :UE 1518 ]
+[; ;mcc_generated_files/fatfs/drva.c: 292:    } while (--sector_count);
 }
+[e $ != -> =- _sector_count -> -> 1 `i `us `ui -> -> 0 `i `ui 1529  ]
+[e :U 1528 ]
+"293
+[; ;mcc_generated_files/fatfs/drva.c: 293:    send_cmd((12), 0);
+[e ( _send_cmd (2 , -> -> 12 `i `uc -> -> -> 0 `i `l `ul ]
+"294
+[; ;mcc_generated_files/fatfs/drva.c: 294:   }
+}
+[e :U 1526 ]
+"295
+[; ;mcc_generated_files/fatfs/drva.c: 295:  }
+}
+[e :U 1525 ]
+"296
+[; ;mcc_generated_files/fatfs/drva.c: 296:  deselect();
+[e ( _deselect ..  ]
 "298
-[; ;mcc_generated_files/fatfs/drva.c: 298: _Bool DRVA_SectorWrite(uint32_t sector_address, const uint8_t* buffer, uint16_t sector_count)
+[; ;mcc_generated_files/fatfs/drva.c: 298:  return 1;
+[e ) -> -> 1 `i `a ]
+[e $UE 1520  ]
+"300
+[; ;mcc_generated_files/fatfs/drva.c: 300: }
+[e :UE 1520 ]
+}
+"302
+[; ;mcc_generated_files/fatfs/drva.c: 302: _Bool DRVA_SectorWrite(uint32_t sector_address, const uint8_t* buffer, uint16_t sector_count)
 [v _DRVA_SectorWrite `(a ~T0 @X0 1 ef3`ul`*Cuc`us ]
-"299
-[; ;mcc_generated_files/fatfs/drva.c: 299: {
+"303
+[; ;mcc_generated_files/fatfs/drva.c: 303: {
 {
 [e :U _DRVA_SectorWrite ]
-"298
-[; ;mcc_generated_files/fatfs/drva.c: 298: _Bool DRVA_SectorWrite(uint32_t sector_address, const uint8_t* buffer, uint16_t sector_count)
+"302
+[; ;mcc_generated_files/fatfs/drva.c: 302: _Bool DRVA_SectorWrite(uint32_t sector_address, const uint8_t* buffer, uint16_t sector_count)
 [v _sector_address `ul ~T0 @X0 1 r1 ]
 [v _buffer `*Cuc ~T0 @X0 1 r2 ]
 [v _sector_count `us ~T0 @X0 1 r3 ]
-"299
-[; ;mcc_generated_files/fatfs/drva.c: 299: {
+"303
+[; ;mcc_generated_files/fatfs/drva.c: 303: {
 [f ]
-"300
-[; ;mcc_generated_files/fatfs/drva.c: 300:     DWORD sect = (DWORD)sector_address;
+"304
+[; ;mcc_generated_files/fatfs/drva.c: 304:     DWORD sect = (DWORD)sector_address;
 [v _sect `ul ~T0 @X0 1 a ]
 [e = _sect _sector_address ]
-"302
-[; ;mcc_generated_files/fatfs/drva.c: 302:  if (!DRVA_IsMediaInitialized()) return 0;
-[e $ ! ! != -> ( _DRVA_IsMediaInitialized ..  `i -> 0 `i 1530  ]
-[e ) -> -> 0 `i `a ]
-[e $UE 1529  ]
-[e :U 1530 ]
-"304
-[; ;mcc_generated_files/fatfs/drva.c: 304:  if (!(CardType & 0x08)) sect *= 512;
-[e $ ! ! != & _CardType -> -> 8 `i `ui -> -> 0 `i `ui 1531  ]
-[e =* _sect -> -> -> 512 `i `l `ul ]
-[e :U 1531 ]
 "306
-[; ;mcc_generated_files/fatfs/drva.c: 306:  if (sector_count == 1) {
-[e $ ! == -> _sector_count `ui -> -> 1 `i `ui 1532  ]
-{
-"307
-[; ;mcc_generated_files/fatfs/drva.c: 307:   if ((send_cmd((24), sect) == 0)
-[e $ ! && == -> ( _send_cmd (2 , -> -> 24 `i `uc _sect `i -> 0 `i != ( _xmit_datablock (2 , _buffer -> -> 254 `i `uc -> 0 `i 1533  ]
-"308
-[; ;mcc_generated_files/fatfs/drva.c: 308:    && xmit_datablock(buffer, 0xFE)) {
-{
-"309
-[; ;mcc_generated_files/fatfs/drva.c: 309:    sector_count = 0;
-[e = _sector_count -> -> 0 `i `us ]
-"310
-[; ;mcc_generated_files/fatfs/drva.c: 310:   }
-}
-[e :U 1533 ]
-"311
-[; ;mcc_generated_files/fatfs/drva.c: 311:  }
-}
-[e $U 1534  ]
-"312
-[; ;mcc_generated_files/fatfs/drva.c: 312:  else {
+[; ;mcc_generated_files/fatfs/drva.c: 306:  if (!DRVA_IsMediaInitialized()) return 0;
+[e $ ! ! != -> ( _DRVA_IsMediaInitialized ..  `i -> 0 `i 1532  ]
+[e ) -> -> 0 `i `a ]
+[e $UE 1531  ]
 [e :U 1532 ]
+"308
+[; ;mcc_generated_files/fatfs/drva.c: 308:  if (!(CardType & 0x08)) sect *= 512;
+[e $ ! ! != & _CardType -> -> 8 `i `ui -> -> 0 `i `ui 1533  ]
+[e =* _sect -> -> -> 512 `i `l `ul ]
+[e :U 1533 ]
+"310
+[; ;mcc_generated_files/fatfs/drva.c: 310:  if (sector_count == 1) {
+[e $ ! == -> _sector_count `ui -> -> 1 `i `ui 1534  ]
+{
+"311
+[; ;mcc_generated_files/fatfs/drva.c: 311:   if ((send_cmd((24), sect) == 0)
+[e $ ! && == -> ( _send_cmd (2 , -> -> 24 `i `uc _sect `i -> 0 `i != ( _xmit_datablock (2 , _buffer -> -> 254 `i `uc -> 0 `i 1535  ]
+"312
+[; ;mcc_generated_files/fatfs/drva.c: 312:    && xmit_datablock(buffer, 0xFE)) {
 {
 "313
-[; ;mcc_generated_files/fatfs/drva.c: 313:   if (CardType & (0x02|0x04)) send_cmd((23|0x80), sector_count);
-[e $ ! != & _CardType -> | -> 2 `i -> 4 `i `ui -> -> 0 `i `ui 1535  ]
-[e ( _send_cmd (2 , -> | -> 23 `i -> 128 `i `uc -> _sector_count `ul ]
-[e :U 1535 ]
+[; ;mcc_generated_files/fatfs/drva.c: 313:    sector_count = 0;
+[e = _sector_count -> -> 0 `i `us ]
 "314
-[; ;mcc_generated_files/fatfs/drva.c: 314:   if (send_cmd((25), sect) == 0) {
-[e $ ! == -> ( _send_cmd (2 , -> -> 25 `i `uc _sect `i -> 0 `i 1536  ]
-{
-"315
-[; ;mcc_generated_files/fatfs/drva.c: 315:    do {
-[e :U 1539 ]
-{
-"316
-[; ;mcc_generated_files/fatfs/drva.c: 316:     if (!xmit_datablock(buffer, 0xFC)) break;
-[e $ ! ! != ( _xmit_datablock (2 , _buffer -> -> 252 `i `uc -> 0 `i 1540  ]
-[e $U 1538  ]
-[e :U 1540 ]
-"317
-[; ;mcc_generated_files/fatfs/drva.c: 317:     buffer += 512;
-[e =+ _buffer * -> -> 512 `i `x -> -> # *U _buffer `i `x ]
-"318
-[; ;mcc_generated_files/fatfs/drva.c: 318:    } while (--sector_count);
+[; ;mcc_generated_files/fatfs/drva.c: 314:   }
 }
-[e $ != -> =- _sector_count -> -> 1 `i `us `ui -> -> 0 `i `ui 1539  ]
-[e :U 1538 ]
+[e :U 1535 ]
+"315
+[; ;mcc_generated_files/fatfs/drva.c: 315:  }
+}
+[e $U 1536  ]
+"316
+[; ;mcc_generated_files/fatfs/drva.c: 316:  else {
+[e :U 1534 ]
+{
+"317
+[; ;mcc_generated_files/fatfs/drva.c: 317:   if (CardType & (0x02|0x04)) send_cmd((23|0x80), sector_count);
+[e $ ! != & _CardType -> | -> 2 `i -> 4 `i `ui -> -> 0 `i `ui 1537  ]
+[e ( _send_cmd (2 , -> | -> 23 `i -> 128 `i `uc -> _sector_count `ul ]
+[e :U 1537 ]
+"318
+[; ;mcc_generated_files/fatfs/drva.c: 318:   if (send_cmd((25), sect) == 0) {
+[e $ ! == -> ( _send_cmd (2 , -> -> 25 `i `uc _sect `i -> 0 `i 1538  ]
+{
 "319
-[; ;mcc_generated_files/fatfs/drva.c: 319:    if (!xmit_datablock(0, 0xFD)) sector_count = 1;
-[e $ ! ! != ( _xmit_datablock (2 , -> -> 0 `i `*Cuc -> -> 253 `i `uc -> 0 `i 1541  ]
-[e = _sector_count -> -> 1 `i `us ]
+[; ;mcc_generated_files/fatfs/drva.c: 319:    do {
 [e :U 1541 ]
+{
 "320
-[; ;mcc_generated_files/fatfs/drva.c: 320:   }
+[; ;mcc_generated_files/fatfs/drva.c: 320:     if (!xmit_datablock(buffer, 0xFC)) break;
+[e $ ! ! != ( _xmit_datablock (2 , _buffer -> -> 252 `i `uc -> 0 `i 1542  ]
+[e $U 1540  ]
+[e :U 1542 ]
+"321
+[; ;mcc_generated_files/fatfs/drva.c: 321:     buffer += 512;
+[e =+ _buffer * -> -> 512 `i `x -> -> # *U _buffer `i `x ]
+"322
+[; ;mcc_generated_files/fatfs/drva.c: 322:    } while (--sector_count);
+}
+[e $ != -> =- _sector_count -> -> 1 `i `us `ui -> -> 0 `i `ui 1541  ]
+[e :U 1540 ]
+"323
+[; ;mcc_generated_files/fatfs/drva.c: 323:    if (!xmit_datablock(0, 0xFD)) sector_count = 1;
+[e $ ! ! != ( _xmit_datablock (2 , -> -> 0 `i `*Cuc -> -> 253 `i `uc -> 0 `i 1543  ]
+[e = _sector_count -> -> 1 `i `us ]
+[e :U 1543 ]
+"324
+[; ;mcc_generated_files/fatfs/drva.c: 324:   }
+}
+[e :U 1538 ]
+"325
+[; ;mcc_generated_files/fatfs/drva.c: 325:  }
 }
 [e :U 1536 ]
-"321
-[; ;mcc_generated_files/fatfs/drva.c: 321:  }
-}
-[e :U 1534 ]
-"322
-[; ;mcc_generated_files/fatfs/drva.c: 322:  deselect();
+"326
+[; ;mcc_generated_files/fatfs/drva.c: 326:  deselect();
 [e ( _deselect ..  ]
-"324
-[; ;mcc_generated_files/fatfs/drva.c: 324:  return 1;
+"328
+[; ;mcc_generated_files/fatfs/drva.c: 328:  return 1;
 [e ) -> -> 1 `i `a ]
-[e $UE 1529  ]
-"325
-[; ;mcc_generated_files/fatfs/drva.c: 325: }
-[e :UE 1529 ]
+[e $UE 1531  ]
+"329
+[; ;mcc_generated_files/fatfs/drva.c: 329: }
+[e :UE 1531 ]
 }

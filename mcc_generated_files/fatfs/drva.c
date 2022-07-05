@@ -194,6 +194,10 @@ void DRVA_TMR_ms(void) {
 	if (n) Timer2 = --n;
 }
 
+void DRVA_IOCCD(void) {
+    if (DiskInitialized) DiskInitialized = false;
+}
+
 // Public functions
 
 bool DRVA_IsMediaPresent(void)

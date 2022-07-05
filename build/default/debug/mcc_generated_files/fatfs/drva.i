@@ -16025,6 +16025,14 @@ unsigned char __t3rd16on(void);
 void PIN_MANAGER_Initialize (void);
 # 390 "mcc_generated_files/fatfs/../pin_manager.h"
 void PIN_MANAGER_IOC(void);
+# 403 "mcc_generated_files/fatfs/../pin_manager.h"
+void IOCBF5_ISR(void);
+# 426 "mcc_generated_files/fatfs/../pin_manager.h"
+void IOCBF5_SetInterruptHandler(void (* InterruptHandler)(void));
+# 450 "mcc_generated_files/fatfs/../pin_manager.h"
+extern void (*IOCBF5_InterruptHandler)(void);
+# 474 "mcc_generated_files/fatfs/../pin_manager.h"
+void IOCBF5_DefaultInterruptHandler(void);
 # 51 "mcc_generated_files/fatfs/../mcc.h" 2
 
 
@@ -16552,6 +16560,7 @@ _Bool DRVA_SectorRead(uint32_t sector_address, uint8_t* buffer, uint16_t sector_
 _Bool DRVA_SectorWrite(uint32_t sector_address, const uint8_t* buffer, uint16_t sector_count);
 
 void DRVA_TMR_ms(void);
+void DRVA_IOCCD(void);
 # 6 "mcc_generated_files/fatfs/drva.c" 2
 
 
@@ -16715,6 +16724,10 @@ void DRVA_TMR_ms(void) {
  if (n) Timer1 = --n;
  n = Timer2;
  if (n) Timer2 = --n;
+}
+
+void DRVA_IOCCD(void) {
+    if (DiskInitialized) DiskInitialized = 0;
 }
 
 

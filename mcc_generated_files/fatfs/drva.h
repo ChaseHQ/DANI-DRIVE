@@ -38,5 +38,6 @@ bool DRVA_SectorRead(uint32_t sector_address, uint8_t* buffer, uint16_t sector_c
 bool DRVA_SectorWrite(uint32_t sector_address, const uint8_t* buffer, uint16_t sector_count);
 
 void DRVA_TMR_ms(void);
+void DRVA_IOCCD(void);
 
 #endif

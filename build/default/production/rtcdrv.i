@@ -16019,6 +16019,14 @@ unsigned char __t3rd16on(void);
 void PIN_MANAGER_Initialize (void);
 # 390 "./mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
+# 403 "./mcc_generated_files/pin_manager.h"
+void IOCBF5_ISR(void);
+# 426 "./mcc_generated_files/pin_manager.h"
+void IOCBF5_SetInterruptHandler(void (* InterruptHandler)(void));
+# 450 "./mcc_generated_files/pin_manager.h"
+extern void (*IOCBF5_InterruptHandler)(void);
+# 474 "./mcc_generated_files/pin_manager.h"
+void IOCBF5_DefaultInterruptHandler(void);
 # 51 "./mcc_generated_files/mcc.h" 2
 
 
@@ -16634,6 +16642,7 @@ _Bool DRVA_SectorRead(uint32_t sector_address, uint8_t* buffer, uint16_t sector_
 _Bool DRVA_SectorWrite(uint32_t sector_address, const uint8_t* buffer, uint16_t sector_count);
 
 void DRVA_TMR_ms(void);
+void DRVA_IOCCD(void);
 # 8 "./rtcdrv.h" 2
 
 
@@ -16703,7 +16712,7 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
 # 2 "rtcdrv.c" 2
-# 15 "rtcdrv.c"
+# 16 "rtcdrv.c"
 FATFS drive;
 FIL file;
 FFDIR dir;
@@ -16724,6 +16733,19 @@ void sendBuffer(char * buff, unsigned int size) {
 void sendBufferLen(size_t bufferLen) {
     char outbuff[2] = {bufferLen, bufferLen >> 8};
     sendBuffer(outbuff, 2);
+}
+
+void sendFile(FIL * file) {
+    BYTE byte = 0;
+    BYTE bread = 0;
+    TRISA = 0x00;
+    do {
+        f_read(&file,&byte,1,&bread);
+        PORTA = byte;
+        for (int x = 0; x < 500; ++x) __nop();;do { LATCbits.LATC0 = 0; } while(0);for (int x = 0; x < 500; ++x) __nop();;do { LATCbits.LATC0 = 1; } while(0);;
+        while (PORTCbits.RC1);
+    } while(bread);
+    for (int x = 0; x < 500; ++x) __nop();;do { LATCbits.LATC0 = 0; } while(0);for (int x = 0; x < 500; ++x) __nop();;do { LATCbits.LATC0 = 1; } while(0);;
 }
 
 void getBuffer(size_t bufferSize, BYTE * buffer) {
@@ -16809,7 +16831,7 @@ void drvGetDir() {
             if (!fno.fname[0]) continue;
             if (!fno.fsize) continue;
             memset(buffer,0,256);
-            sprintf(buffer,"%12s - %u bytes",fno.fname,fno.fsize);
+            sprintf(buffer,"%12s - %lu bytes",fno.fname,fno.fsize);
             sendBuffer(buffer,strlen(buffer)+1);
         } while (fno.fname[0]);
         sendBuffer("",1);
@@ -16827,10 +16849,37 @@ void drvGetDir() {
     }
 }
 
+void drvLoad(BYTE argCount) {
+    BYTE * argBuffer = (BYTE *)malloc(argCount);
+    getArgs(argCount,argBuffer);
+    BYTE * buffer = (BYTE *)malloc(argBuffer[0]);
+    getBuffer(argBuffer[0],buffer);
+
+    if (DRVA_IsMediaPresent() && (f_mount(&drive,"0:",1) == FR_OK)) {
+
+        if (f_open(&file,buffer,0x01|0x00) == FR_OK) {
+            sendBufferLen(((&file)->obj.objsize));
+            sendFile(&file);
+            f_close(&file);
+        } else {
+            sendBufferLen(0);
+        }
+        f_mount(0,"0:",0);
+    } else {
+        sendBufferLen(0);
+    }
+
+    free(argBuffer);
+    free(buffer);
+}
+
 void processDRV(BYTE cmd, BYTE argCount) {
     switch (cmd) {
         case 0b0000:
             drvGetDir();
+            break;
+        case 0b1000:
+            drvLoad(argCount);
             break;
     }
 }

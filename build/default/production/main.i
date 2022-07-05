@@ -16013,6 +16013,14 @@ unsigned char __t3rd16on(void);
 void PIN_MANAGER_Initialize (void);
 # 390 "./mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
+# 403 "./mcc_generated_files/pin_manager.h"
+void IOCBF5_ISR(void);
+# 426 "./mcc_generated_files/pin_manager.h"
+void IOCBF5_SetInterruptHandler(void (* InterruptHandler)(void));
+# 450 "./mcc_generated_files/pin_manager.h"
+extern void (*IOCBF5_InterruptHandler)(void);
+# 474 "./mcc_generated_files/pin_manager.h"
+void IOCBF5_DefaultInterruptHandler(void);
 # 51 "./mcc_generated_files/mcc.h" 2
 
 
@@ -16502,22 +16510,6 @@ void OSCILLATOR_Initialize(void);
 void PMD_Initialize(void);
 # 1 "main.c" 2
 
-# 1 "./mcc_generated_files/fatfs/drva.h" 1
-# 29 "./mcc_generated_files/fatfs/drva.h"
-_Bool DRVA_IsMediaPresent(void);
-_Bool DRVA_MediaInitialize(void);
-_Bool DRVA_IsMediaInitialized(void);
-
-_Bool DRVA_IsWriteProtected(void);
-uint16_t DRVA_GetSectorSize(void);
-uint32_t DRVA_GetSectorCount(void);
-
-_Bool DRVA_SectorRead(uint32_t sector_address, uint8_t* buffer, uint16_t sector_count);
-_Bool DRVA_SectorWrite(uint32_t sector_address, const uint8_t* buffer, uint16_t sector_count);
-
-void DRVA_TMR_ms(void);
-# 2 "main.c" 2
-
 # 1 "./rtcdrv.h" 1
 
 
@@ -16637,6 +16629,22 @@ void SetClock(size_t year, uint8_t month, uint8_t dayOfMonth, uint8_t dayOfWeek,
 struct tm ReadClock();
 # 7 "./rtcdrv.h" 2
 
+# 1 "./mcc_generated_files/fatfs/drva.h" 1
+# 29 "./mcc_generated_files/fatfs/drva.h"
+_Bool DRVA_IsMediaPresent(void);
+_Bool DRVA_MediaInitialize(void);
+_Bool DRVA_IsMediaInitialized(void);
+
+_Bool DRVA_IsWriteProtected(void);
+uint16_t DRVA_GetSectorSize(void);
+uint32_t DRVA_GetSectorCount(void);
+
+_Bool DRVA_SectorRead(uint32_t sector_address, uint8_t* buffer, uint16_t sector_count);
+_Bool DRVA_SectorWrite(uint32_t sector_address, const uint8_t* buffer, uint16_t sector_count);
+
+void DRVA_TMR_ms(void);
+void DRVA_IOCCD(void);
+# 8 "./rtcdrv.h" 2
 
 
 typedef union RTCDRV_DATA_ {
@@ -16649,8 +16657,9 @@ typedef union RTCDRV_DATA_ {
 } RTCDRV_DATA;
 
 void rtcdrv_poll(void);
-# 3 "main.c" 2
-# 34 "main.c"
+# 2 "main.c" 2
+
+
 void main(void)
 {
 
@@ -16659,11 +16668,10 @@ void main(void)
     SYSTEM_Initialize();
 
     TMR0_SetInterruptHandler(DRVA_TMR_ms);
+    IOCBF5_SetInterruptHandler(DRVA_IOCCD);
     (INTCONbits.GIE = 1);
     (INTCONbits.PEIE = 1);
     TMR0_StartTimer();
-
-
 
     while(1) {
         rtcdrv_poll();

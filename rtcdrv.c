@@ -8,6 +8,7 @@
 #define RTC_SET_CLK     0b1000
 
 #define DRV_DIR         0b0000
+#define DRV_LOAD        0b1000
 
 #define SET_OUT() TRISA = 0x00
 #define SET_IN() TRISA = 0xFF
@@ -32,6 +33,19 @@ void sendBuffer(char * buff, unsigned int size) {
 void sendBufferLen(size_t bufferLen) {
     char outbuff[2] = {bufferLen, bufferLen >> 8};
     sendBuffer(outbuff, 2); // Send Byte Size
+}
+
+void sendFile(FIL * file) {
+    BYTE byte = 0;
+    BYTE bread = 0;
+    SET_OUT();
+    do {
+        f_read(file,&byte,1,&bread);
+        PORTA = byte;
+        ACK_Recv();
+        while (bread && CA2_GetValue());
+    } while(bread);
+    ACK_Recv(); // Generate one more ACK that data is done
 }
 
 void getBuffer(size_t bufferSize, BYTE * buffer) {
@@ -106,7 +120,7 @@ void drvGetDir() {
         } while (fno.fname[0]);
         f_rewinddir(&dir);
         // File count now contains the count of the files in the directory
-        sendBufferLen(fileCount+6); // We will send the amount of files + 2, header + free
+        sendBufferLen(fileCount+6); // We will send the amount of files + 6, header + free + additional CRs
         sendBuffer("",1);
         f_getlabel("",driveLabel,0);
         sprintf(buffer,"*Volume - %s*", driveLabel);
@@ -117,7 +131,7 @@ void drvGetDir() {
             if (!fno.fname[0]) continue; // Skip this file it's blank
             if (!fno.fsize) continue;    // Skip zero file sized files
             memset(buffer,0,256);
-            sprintf(buffer,"%12s - %u bytes",fno.fname,fno.fsize);
+            sprintf(buffer,"%12s - %lu bytes",fno.fname,fno.fsize);
             sendBuffer(buffer,strlen(buffer)+1);
         } while (fno.fname[0]);
         sendBuffer("",1);
@@ -135,10 +149,37 @@ void drvGetDir() {
     }
 }
 
+void drvLoad(BYTE argCount) {
+    BYTE * argBuffer = (BYTE *)malloc(argCount);
+    getArgs(argCount,argBuffer);
+    BYTE * buffer = (BYTE *)malloc(argBuffer[0]);
+    getBuffer(argBuffer[0],buffer);
+    
+    if (DRVA_IsMediaPresent() && (f_mount(&drive,"0:",1) == FR_OK)) {
+        
+        if (f_open(&file,buffer,FA_READ|FA_OPEN_EXISTING) == FR_OK) {
+            sendBufferLen(f_size(&file));
+            sendFile(&file);
+            f_close(&file);
+        } else {
+            sendBufferLen(0);
+        }
+        f_mount(0,"0:",0);
+    } else {
+        sendBufferLen(0);
+    }
+    
+    free(argBuffer);
+    free(buffer);
+}
+
 void processDRV(BYTE cmd, BYTE argCount) {
     switch (cmd) {
         case DRV_DIR:
             drvGetDir();
+            break;
+        case DRV_LOAD:
+            drvLoad(argCount);
             break;
     }
 }

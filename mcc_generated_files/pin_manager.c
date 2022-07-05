@@ -51,6 +51,8 @@
 
 
 
+void (*IOCBF5_InterruptHandler)(void);
+
 
 void PIN_MANAGER_Initialize(void)
 {
@@ -106,9 +108,20 @@ void PIN_MANAGER_Initialize(void)
     INLVLE = 0x08;
 
 
+    /**
+    IOCx registers 
+    */
+    //interrupt on change for group IOCBF - flag
+    IOCBFbits.IOCBF5 = 0;
+    //interrupt on change for group IOCBN - negative
+    IOCBNbits.IOCBN5 = 0;
+    //interrupt on change for group IOCBP - positive
+    IOCBPbits.IOCBP5 = 1;
 
 
 
+    // register default IOC callback functions at runtime; use these methods to register a custom function
+    IOCBF5_SetInterruptHandler(IOCBF5_DefaultInterruptHandler);
    
     // Enable IOCI interrupt 
     PIE0bits.IOCIE = 1; 
@@ -126,6 +139,41 @@ void PIN_MANAGER_Initialize(void)
   
 void PIN_MANAGER_IOC(void)
 {   
+	// interrupt on change for pin IOCBF5
+    if(IOCBFbits.IOCBF5 == 1)
+    {
+        IOCBF5_ISR();  
+    }	
+}
+
+/**
+   IOCBF5 Interrupt Service Routine
+*/
+void IOCBF5_ISR(void) {
+
+    // Add custom IOCBF5 code
+
+    // Call the interrupt handler for the callback registered at runtime
+    if(IOCBF5_InterruptHandler)
+    {
+        IOCBF5_InterruptHandler();
+    }
+    IOCBFbits.IOCBF5 = 0;
+}
+
+/**
+  Allows selecting an interrupt handler for IOCBF5 at application runtime
+*/
+void IOCBF5_SetInterruptHandler(void (* InterruptHandler)(void)){
+    IOCBF5_InterruptHandler = InterruptHandler;
+}
+
+/**
+  Default interrupt handler for IOCBF5
+*/
+void IOCBF5_DefaultInterruptHandler(void){
+    // add your IOCBF5 interrupt custom code
+    // or set custom function using IOCBF5_SetInterruptHandler()
 }
 
 /**

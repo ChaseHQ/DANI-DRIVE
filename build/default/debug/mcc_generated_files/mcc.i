@@ -16014,6 +16014,14 @@ unsigned char __t3rd16on(void);
 void PIN_MANAGER_Initialize (void);
 # 390 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
+# 403 "mcc_generated_files/pin_manager.h"
+void IOCBF5_ISR(void);
+# 426 "mcc_generated_files/pin_manager.h"
+void IOCBF5_SetInterruptHandler(void (* InterruptHandler)(void));
+# 450 "mcc_generated_files/pin_manager.h"
+extern void (*IOCBF5_InterruptHandler)(void);
+# 474 "mcc_generated_files/pin_manager.h"
+void IOCBF5_DefaultInterruptHandler(void);
 # 51 "mcc_generated_files/mcc.h" 2
 
 

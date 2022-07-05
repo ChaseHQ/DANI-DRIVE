@@ -343,6 +343,7 @@ _Bool DRVA_SectorRead(uint32_t sector_address, uint8_t* buffer, uint16_t sector_
 _Bool DRVA_SectorWrite(uint32_t sector_address, const uint8_t* buffer, uint16_t sector_count);
 
 void DRVA_TMR_ms(void);
+void DRVA_IOCCD(void);
 # 25 "mcc_generated_files/fatfs/fatfs_demo.c" 2
 
 

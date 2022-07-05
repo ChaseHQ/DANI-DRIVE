@@ -3,13 +3,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "74 ./mcc_generated_files/mcc.h
 [; ;./mcc_generated_files/mcc.h: 74: void SYSTEM_Initialize(void);
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
-[v F10004 `(v ~T0 @X0 0 tf ]
+[v F10012 `(v ~T0 @X0 0 tf ]
 "333 ./mcc_generated_files/tmr0.h
 [; ;./mcc_generated_files/tmr0.h: 333:  void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
-[v _TMR0_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F10004 ]
+[v _TMR0_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F10012 ]
 "40 ./mcc_generated_files/fatfs/drva.h
 [; ;./mcc_generated_files/fatfs/drva.h: 40: void DRVA_TMR_ms(void);
 [v _DRVA_TMR_ms `(v ~T0 @X0 0 ef ]
+[v F9582 `(v ~T0 @X0 0 tf ]
+"426 ./mcc_generated_files/pin_manager.h
+[; ;./mcc_generated_files/pin_manager.h: 426: void IOCBF5_SetInterruptHandler(void (* InterruptHandler)(void));
+[v _IOCBF5_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F9582 ]
+"41 ./mcc_generated_files/fatfs/drva.h
+[; ;./mcc_generated_files/fatfs/drva.h: 41: void DRVA_IOCCD(void);
+[v _DRVA_IOCCD `(v ~T0 @X0 0 ef ]
 "26395 C:/Users/Craig Vella/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f27k40.h
 [; ;C:/Users/Craig Vella/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f27k40.h: 26395:     struct {
 [s S1408 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -1344,43 +1351,46 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Users/Craig Vella/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f27k40.h: 26838: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 [v $root$_main `(v ~T0 @X0 0 e ]
-"34 main.c
-[; ;main.c: 34: void main(void)
+"4 main.c
+[; ;main.c: 4: void main(void)
 [v _main `(v ~T0 @X0 1 ef ]
-"35
-[; ;main.c: 35: {
+"5
+[; ;main.c: 5: {
 {
 [e :U _main ]
 [f ]
-"39
-[; ;main.c: 39:     SYSTEM_Initialize();
+"9
+[; ;main.c: 9:     SYSTEM_Initialize();
 [e ( _SYSTEM_Initialize ..  ]
-"41
-[; ;main.c: 41:     TMR0_SetInterruptHandler(DRVA_TMR_ms);
+"11
+[; ;main.c: 11:     TMR0_SetInterruptHandler(DRVA_TMR_ms);
 [e ( _TMR0_SetInterruptHandler (1 &U _DRVA_TMR_ms ]
-"42
-[; ;main.c: 42:     (INTCONbits.GIE = 1);
+"12
+[; ;main.c: 12:     IOCBF5_SetInterruptHandler(DRVA_IOCCD);
+[e ( _IOCBF5_SetInterruptHandler (1 &U _DRVA_IOCCD ]
+"13
+[; ;main.c: 13:     (INTCONbits.GIE = 1);
 [e = . . _INTCONbits 1 2 -> -> 1 `i `uc ]
-"43
-[; ;main.c: 43:     (INTCONbits.PEIE = 1);
+"14
+[; ;main.c: 14:     (INTCONbits.PEIE = 1);
 [e = . . _INTCONbits 1 1 -> -> 1 `i `uc ]
-"44
-[; ;main.c: 44:     TMR0_StartTimer();
+"15
+[; ;main.c: 15:     TMR0_StartTimer();
 [e ( _TMR0_StartTimer ..  ]
-"48
-[; ;main.c: 48:     while(1) {
+"17
+[; ;main.c: 17:     while(1) {
 [e :U 1454 ]
 {
-"49
-[; ;main.c: 49:         rtcdrv_poll();
+"18
+[; ;main.c: 18:         rtcdrv_poll();
 [e ( _rtcdrv_poll ..  ]
-"50
-[; ;main.c: 50:     }
+"19
+[; ;main.c: 19:     }
 }
 [e :U 1453 ]
 [e $U 1454  ]
 [e :U 1455 ]
-"51
-[; ;main.c: 51: }
+"20
+[; ;main.c: 20: }
 [e :UE 1452 ]
 }

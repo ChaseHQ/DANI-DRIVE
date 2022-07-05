@@ -47,8 +47,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "32
 [; ;mcc_generated_files/fatfs/fatfs_demo.c: 32:     UINT actualLength;
 [v _actualLength `ui ~T0 @X0 1 a ]
-[v F262 `uc ~T0 @X0 -> 13 `i s ]
-[i F262
+[v F263 `uc ~T0 @X0 -> 13 `i s ]
+[i F263
 :U ..
 "33
 [; ;mcc_generated_files/fatfs/fatfs_demo.c: 33:     char data[] = "Hello World!";
@@ -68,7 +68,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _data `uc ~T0 @X0 -> 13 `i a ]
-[e = _data F262 ]
+[e = _data F263 ]
 "34
 [; ;mcc_generated_files/fatfs/fatfs_demo.c: 34:     if( DRVA_IsMediaPresent() == 0)
 [e $ ! == -> ( _DRVA_IsMediaPresent ..  `i -> 0 `i 7  ]
