@@ -245,7 +245,6 @@ bool DRVA_MediaInitialize(void)
 	} else {		/* Function failed */
 		SPI2_Close();
 	}
-    
 	return false;
 }
 

@@ -16712,7 +16712,7 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
 # 2 "rtcdrv.c" 2
-# 16 "rtcdrv.c"
+# 17 "rtcdrv.c"
 FATFS drive;
 FIL file;
 FFDIR dir;
@@ -16724,10 +16724,10 @@ void sendBuffer(char * buff, unsigned int size) {
     int i = 0;
     while (i < size) {
         PORTA = buff[i++];
-        for (int x = 0; x < 500; ++x) __nop();;do { LATCbits.LATC0 = 0; } while(0);for (int x = 0; x < 500; ++x) __nop();;do { LATCbits.LATC0 = 1; } while(0);;
+        for (int x = 0; x < 200; ++x) __nop();;do { LATCbits.LATC0 = 0; } while(0);for (int x = 0; x < 200; ++x) __nop();;do { LATCbits.LATC0 = 1; } while(0);;
         while (PORTCbits.RC1);
     }
-    for (int x = 0; x < 500; ++x) __nop();;do { LATCbits.LATC0 = 0; } while(0);for (int x = 0; x < 500; ++x) __nop();;do { LATCbits.LATC0 = 1; } while(0);;
+    for (int x = 0; x < 200; ++x) __nop();;do { LATCbits.LATC0 = 0; } while(0);for (int x = 0; x < 200; ++x) __nop();;do { LATCbits.LATC0 = 1; } while(0);;
 }
 
 void sendBufferLen(size_t bufferLen) {
@@ -16742,24 +16742,31 @@ void sendFile(FIL * file) {
     do {
         f_read(file,&byte,1,&bread);
         PORTA = byte;
-        for (int x = 0; x < 500; ++x) __nop();;do { LATCbits.LATC0 = 0; } while(0);for (int x = 0; x < 500; ++x) __nop();;do { LATCbits.LATC0 = 1; } while(0);;
+        for (int x = 0; x < 200; ++x) __nop();;do { LATCbits.LATC0 = 0; } while(0);for (int x = 0; x < 200; ++x) __nop();;do { LATCbits.LATC0 = 1; } while(0);;
         while (bread && PORTCbits.RC1);
     } while(bread);
-    for (int x = 0; x < 500; ++x) __nop();;do { LATCbits.LATC0 = 0; } while(0);for (int x = 0; x < 500; ++x) __nop();;do { LATCbits.LATC0 = 1; } while(0);;
+    for (int x = 0; x < 200; ++x) __nop();;do { LATCbits.LATC0 = 0; } while(0);for (int x = 0; x < 200; ++x) __nop();;do { LATCbits.LATC0 = 1; } while(0);;
 }
 
-void getBuffer(size_t bufferSize, BYTE * buffer) {
+void getBuffer(size_t bufferSize, BYTE * buffer, _Bool sendFinalAck) {
     TRISA = 0xFF;
     int i = 0;
     while (i < bufferSize) {
         while (PORTCbits.RC1);
         buffer[i++] = PORTA;
-        for (int x = 0; x < 500; ++x) __nop();;do { LATCbits.LATC0 = 0; } while(0);for (int x = 0; x < 500; ++x) __nop();;do { LATCbits.LATC0 = 1; } while(0);;
+        for (int x = 0; x < 200; ++x) __nop();;do { LATCbits.LATC0 = 0; } while(0);for (int x = 0; x < 200; ++x) __nop();;do { LATCbits.LATC0 = 1; } while(0);;
+    }
+    if (sendFinalAck) {
+        while (PORTCbits.RC1);
+        for (int x = 0; x < 200; ++x) __nop();;do { LATCbits.LATC0 = 0; } while(0);for (int x = 0; x < 200; ++x) __nop();;do { LATCbits.LATC0 = 1; } while(0);;
     }
 }
 
 void getArgs(size_t argsCount, BYTE * buffer) {
-    return getBuffer(argsCount, buffer);
+    size_t x = 0;
+    while (x < argsCount) {
+        getBuffer(1,&buffer[x++],1);
+    }
 }
 
 void rtcGetAClk() {
@@ -16782,7 +16789,7 @@ void rtcSetClk(BYTE argCount) {
     BYTE * argBuffer = (BYTE *)malloc(argCount);
     getArgs(argCount,argBuffer);
     BYTE * buffer = (BYTE *)malloc(argBuffer[0]);
-    getBuffer(argBuffer[0],buffer);
+    getBuffer(argBuffer[0],buffer,1);
     size_t year = (buffer[0]*100)+buffer[1];
     SetClock(year,buffer[2],buffer[3],buffer[4],buffer[5],buffer[6],buffer[7]);
     free(argBuffer);
@@ -16849,11 +16856,43 @@ void drvGetDir() {
     }
 }
 
+void drvSave(BYTE argCount) {
+    BYTE * argBuffer = (BYTE *)malloc(argCount);
+    getArgs(argCount,argBuffer);
+    size_t memSize = argBuffer[0] + (argBuffer[1] << 8);
+    BYTE * fileName = (BYTE *)malloc(argBuffer[2]);
+    getBuffer(argBuffer[2], fileName, 1);
+
+    BYTE btr = 0;
+    BYTE writtenCount = 0;
+    size_t recvCount = 0;
+
+    if (DRVA_IsMediaPresent() && (f_mount(&drive,"0:",1) == FR_OK)) {
+        if (f_open(&file, fileName, 0x02|0x08) == FR_OK) {
+            while (recvCount < memSize) {
+                getBuffer(1,&btr, 0);
+                f_write(&file,&btr,1,&writtenCount);
+                ++recvCount;
+            }
+            while (PORTCbits.RC1);
+            for (int x = 0; x < 200; ++x) __nop();;do { LATCbits.LATC0 = 0; } while(0);for (int x = 0; x < 200; ++x) __nop();;do { LATCbits.LATC0 = 1; } while(0);;
+            f_close(&file);
+        } else {
+
+        }
+    } else {
+
+    }
+
+    free(fileName);
+    free(argBuffer);
+}
+
 void drvLoad(BYTE argCount) {
     BYTE * argBuffer = (BYTE *)malloc(argCount);
     getArgs(argCount,argBuffer);
     BYTE * buffer = (BYTE *)malloc(argBuffer[0]);
-    getBuffer(argBuffer[0],buffer);
+    getBuffer(argBuffer[0],buffer,1);
 
     if (DRVA_IsMediaPresent() && (f_mount(&drive,"0:",1) == FR_OK)) {
 
@@ -16881,6 +16920,9 @@ void processDRV(BYTE cmd, BYTE argCount) {
         case 0b1000:
             drvLoad(argCount);
             break;
+        case 0b0100:
+            drvSave(argCount);
+            break;
     }
 }
 
@@ -16889,7 +16931,9 @@ void rtcdrv_poll(void) {
 
         RTCDRV_DATA d;
         d.data = PORTA;
-        for (int x = 0; x < 500; ++x) __nop();;do { LATCbits.LATC0 = 0; } while(0);for (int x = 0; x < 500; ++x) __nop();;do { LATCbits.LATC0 = 1; } while(0);;
+        for (int x = 0; x < 200; ++x) __nop();;do { LATCbits.LATC0 = 0; } while(0);for (int x = 0; x < 200; ++x) __nop();;do { LATCbits.LATC0 = 1; } while(0);;
+        while(PORTCbits.RC1);
+        for (int x = 0; x < 200; ++x) __nop();;do { LATCbits.LATC0 = 0; } while(0);for (int x = 0; x < 200; ++x) __nop();;do { LATCbits.LATC0 = 1; } while(0);;
 
         if (d.data_part.rtc) {
 

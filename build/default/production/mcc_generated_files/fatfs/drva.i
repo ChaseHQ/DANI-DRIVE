@@ -16777,7 +16777,6 @@ _Bool DRVA_MediaInitialize(void)
  } else {
   SPI2_Close();
  }
-
  return 0;
 }
 

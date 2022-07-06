@@ -1,7 +1,7 @@
 #include "rtcdrv.h"
 #include <string.h>
 
-#define ACK_Recv() delay(500);CA1_SetLow();delay(500);CA1_SetHigh();
+#define ACK_Recv() delay(200);CA1_SetLow();delay(200);CA1_SetHigh();
 
 #define RTC_CMD_GETACLK 0b0000
 #define RTC_CMD_GETCLK  0b0001
@@ -9,6 +9,7 @@
 
 #define DRV_DIR         0b0000
 #define DRV_LOAD        0b1000
+#define DRV_SAVE        0b0100
 
 #define SET_OUT() TRISA = 0x00
 #define SET_IN() TRISA = 0xFF
@@ -48,7 +49,7 @@ void sendFile(FIL * file) {
     ACK_Recv(); // Generate one more ACK that data is done
 }
 
-void getBuffer(size_t bufferSize, BYTE * buffer) {
+void getBuffer(size_t bufferSize, BYTE * buffer, bool sendFinalAck) {
     SET_IN();
     int i = 0;
     while (i < bufferSize) {
@@ -56,10 +57,17 @@ void getBuffer(size_t bufferSize, BYTE * buffer) {
         buffer[i++] = PORTA;
         ACK_Recv(); // Let Them know we took the data
     }
+    if (sendFinalAck) {
+        while (CA2_GetValue());
+        ACK_Recv(); 
+    }
 }
 
 void getArgs(size_t argsCount, BYTE * buffer) {
-    return getBuffer(argsCount, buffer);
+    size_t x = 0;
+    while (x < argsCount) {
+        getBuffer(1,&buffer[x++],true);
+    }
 }
 
 void rtcGetAClk() {
@@ -82,7 +90,7 @@ void rtcSetClk(BYTE argCount) {
     BYTE * argBuffer = (BYTE *)malloc(argCount);
     getArgs(argCount,argBuffer);
     BYTE * buffer = (BYTE *)malloc(argBuffer[0]);
-    getBuffer(argBuffer[0],buffer);
+    getBuffer(argBuffer[0],buffer,true);
     size_t year = (buffer[0]*100)+buffer[1];
     SetClock(year,buffer[2],buffer[3],buffer[4],buffer[5],buffer[6],buffer[7]);
     free(argBuffer);
@@ -149,11 +157,43 @@ void drvGetDir() {
     }
 }
 
+void drvSave(BYTE argCount) {
+    BYTE * argBuffer = (BYTE *)malloc(argCount);
+    getArgs(argCount,argBuffer);
+    size_t memSize = argBuffer[0] + (argBuffer[1] << 8);
+    BYTE * fileName = (BYTE *)malloc(argBuffer[2]);
+    getBuffer(argBuffer[2], fileName, true);
+    
+    BYTE btr = 0;
+    BYTE writtenCount = 0;
+    size_t recvCount = 0;
+    
+    if (DRVA_IsMediaPresent() && (f_mount(&drive,"0:",1) == FR_OK)) {
+        if (f_open(&file, fileName, FA_WRITE|FA_CREATE_ALWAYS) == FR_OK) {
+            while (recvCount < memSize) {
+                getBuffer(1,&btr, false); // Fix this it's the only time you have to ACK manually, make it a seperate function
+                f_write(&file,&btr,1,&writtenCount);
+                ++recvCount;
+            }
+            while (CA2_GetValue()); // Because files are received 1 byte at a time i have to ACK it manually
+            ACK_Recv();
+            f_close(&file);
+        } else {
+            // Add Error Check before allowing file to be sent
+        }
+    } else {
+        // Add Error Check before allowing file to be sent
+    }
+    
+    free(fileName);
+    free(argBuffer);
+}
+
 void drvLoad(BYTE argCount) {
     BYTE * argBuffer = (BYTE *)malloc(argCount);
     getArgs(argCount,argBuffer);
     BYTE * buffer = (BYTE *)malloc(argBuffer[0]);
-    getBuffer(argBuffer[0],buffer);
+    getBuffer(argBuffer[0],buffer,true);
     
     if (DRVA_IsMediaPresent() && (f_mount(&drive,"0:",1) == FR_OK)) {
         
@@ -181,6 +221,9 @@ void processDRV(BYTE cmd, BYTE argCount) {
         case DRV_LOAD:
             drvLoad(argCount);
             break;
+        case DRV_SAVE:
+            drvSave(argCount);
+            break;
     }
 }
 
@@ -190,6 +233,8 @@ void rtcdrv_poll(void) {
         RTCDRV_DATA d;
         d.data = PORTA;
         ACK_Recv(); // Ack that the command was recieved & Process it
+        while(CA2_GetValue()); 
+        ACK_Recv(); // Ack the Ack
         // Process the command
         if (d.data_part.rtc) {
             // it's a real time clock command

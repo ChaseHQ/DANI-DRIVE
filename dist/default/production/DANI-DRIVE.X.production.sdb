@@ -134,7 +134,7 @@ I2C1_NULL 5
 SPI2_DEFAULT 0
 SPI2_FAST 1
 ]
-"94 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\rtcdrv.c
+"44 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\rtcdrv.c
 [e E10085 . `uc
 FR_OK 0
 FR_DISK_ERR 1
@@ -285,13 +285,13 @@ FR_INVALID_PARAMETER 19
 [v _DRVA_IsMediaPresent DRVA_IsMediaPresent `(a  1 e 1 0 ]
 "208
 [v _DRVA_MediaInitialize DRVA_MediaInitialize `(a  1 e 1 0 ]
-"252
+"251
 [v _DRVA_IsMediaInitialized DRVA_IsMediaInitialized `(a  1 e 1 0 ]
-"257
+"256
 [v _DRVA_IsWriteProtected DRVA_IsWriteProtected `(a  1 e 1 0 ]
-"274
+"273
 [v _DRVA_SectorRead DRVA_SectorRead `(a  1 e 1 0 ]
-"302
+"301
 [v _DRVA_SectorWrite DRVA_SectorWrite `(a  1 e 1 0 ]
 "572 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/fatfs/ff.c
 [v _ld_word ld_word `(us  1 s 2 ld_word ]
@@ -371,6 +371,8 @@ FR_INVALID_PARAMETER 19
 [v _f_mount f_mount `(E69  1 e 1 0 ]
 "3520
 [v _f_open f_open `(E69  1 e 1 0 ]
+"3710
+[v _f_read f_read `(E69  1 e 1 0 ]
 "3810
 [v _f_write f_write `(E69  1 e 1 0 ]
 "3931
@@ -537,29 +539,33 @@ FR_INVALID_PARAMETER 19
 [s S2567 tm 24 `i 1 tm_sec 2 0 `i 1 tm_min 2 2 `i 1 tm_hour 2 4 `i 1 tm_mday 2 6 `i 1 tm_mon 2 8 `i 1 tm_year 2 10 `i 1 tm_wday 2 12 `i 1 tm_yday 2 14 `i 1 tm_isdst 2 16 `l 1 __tm_gmtoff 4 18 `*.2Cuc 1 __tm_zone 2 22 ]
 "34 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\rtc.c
 [v _ReadClock ReadClock `(S2567  1 e 24 0 ]
-"22 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\rtcdrv.c
+"23 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\rtcdrv.c
 [v _sendBuffer sendBuffer `(v  1 e 1 0 ]
-"33
+"34
 [v _sendBufferLen sendBufferLen `(v  1 e 1 0 ]
-"38
-[v _getBuffer getBuffer `(v  1 e 1 0 ]
-"48
-[v _getArgs getArgs `(v  1 e 1 0 ]
+"39
+[v _sendFile sendFile `(v  1 e 1 0 ]
 "52
+[v _getBuffer getBuffer `(v  1 e 1 0 ]
+"66
+[v _getArgs getArgs `(v  1 e 1 0 ]
+"73
 [v _rtcGetAClk rtcGetAClk `(v  1 e 1 0 ]
-"61
+"82
 [v _rtcGetClk rtcGetClk `(v  1 e 1 0 ]
-"68
+"89
 [v _rtcSetClk rtcSetClk `(v  1 e 1 0 ]
-"79
+"100
 [v _processRTC processRTC `(v  1 e 1 0 ]
-"93
+"114
 [v _drvGetDir drvGetDir `(v  1 e 1 0 ]
-"139
+"160
+[v _drvSave drvSave `(v  1 e 1 0 ]
+"192
 [v _drvLoad drvLoad `(v  1 e 1 0 ]
-"151
+"216
 [v _processDRV processDRV `(v  1 e 1 0 ]
-"162
+"230
 [v _rtcdrv_poll rtcdrv_poll `(v  1 e 1 0 ]
 "153 C:/Users/Craig Vella/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f27k40.h
 [v _SSP2CLKPPS SSP2CLKPPS `VEuc  1 e 1 @3727 ]
@@ -1103,9 +1109,9 @@ FR_INVALID_PARAMETER 19
 "12
 [v _brkp brkp `*.39uc  1 s 2 brkp ]
 "17 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\lite_free.c
-[u S5035 . 3 `*.2S5037 1 next 3 0 `[1]uc 1 space 1 0 ]
-[s S5037 chunk 5 `ui 1 size 2 0 `S5035 1 . 3 2 ]
-[v ___freelist __freelist `*.39S5037  1 e 2 0 ]
+[u S5069 . 3 `*.2S5071 1 next 3 0 `[1]uc 1 space 1 0 ]
+[s S5071 chunk 5 `ui 1 size 2 0 `S5069 1 . 3 2 ]
+[v ___freelist __freelist `*.39S5071  1 e 2 0 ]
 "8 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/fatfs/drva.c
 [v _DiskInitialized DiskInitialized `VEa  1 s 1 DiskInitialized ]
 "9
@@ -1147,60 +1153,66 @@ FR_INVALID_PARAMETER 19
 "59 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/tmr0.c
 [v _TMR0_InterruptHandler TMR0_InterruptHandler `*.38(v  1 e 3 0 ]
 [s S325 . 563 `uc 1 fs_type 1 0 `uc 1 pdrv 1 1 `uc 1 n_fats 1 2 `uc 1 wflag 1 3 `uc 1 fsi_flag 1 4 `us 1 id 2 5 `us 1 n_rootdir 2 7 `us 1 csize 2 9 `ul 1 last_clst 4 11 `ul 1 free_clst 4 15 `ul 1 cdir 4 19 `ul 1 n_fatent 4 23 `ul 1 fsize 4 27 `ul 1 volbase 4 31 `ul 1 fatbase 4 35 `ul 1 dirbase 4 39 `ul 1 database 4 43 `ul 1 winsect 4 47 `[512]uc 1 win 512 51 ]
-"16 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\rtcdrv.c
+"17 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\rtcdrv.c
 [v _drive drive `S325  1 e 563 0 ]
 "18
 [s S395 . 14 `*.39S325 1 fs 2 0 `us 1 id 2 2 `uc 1 attr 1 4 `uc 1 stat 1 5 `ul 1 sclust 4 6 `ul 1 objsize 4 10 ]
+[s S426 . 546 `S395 1 obj 14 0 `uc 1 flag 1 14 `uc 1 err 1 15 `ul 1 fptr 4 16 `ul 1 clust 4 20 `ul 1 sect 4 24 `ul 1 dir_sect 4 28 `*.39uc 1 dir_ptr 2 32 `[512]uc 1 buf 512 34 ]
+[v _file file `S426  1 e 546 0 ]
+"19
 [s S402 . 42 `S395 1 obj 14 0 `ul 1 dptr 4 14 `ul 1 clust 4 18 `ul 1 sect 4 22 `*.39uc 1 dir 2 26 `[12]uc 1 fn 12 28 `*.2Cuc 1 pat 2 40 ]
 [v _dir dir `S402  1 e 42 0 ]
 [s S410 . 22 `ul 1 fsize 4 0 `us 1 fdate 2 4 `us 1 ftime 2 6 `uc 1 fattrib 1 8 `[13]uc 1 fname 13 9 ]
-"19
-[v _fno fno `S410  1 e 22 0 ]
 "20
+[v _fno fno `S410  1 e 22 0 ]
+"21
 [v _fs fs `*.39S325  1 e 2 0 ]
 "4 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
 "20
 } 0
-"162 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\rtcdrv.c
+"230 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\rtcdrv.c
 [v _rtcdrv_poll rtcdrv_poll `(v  1 e 1 0 ]
 {
-"167
-[v rtcdrv_poll@x_4556 x `i  1 a 2 43 ]
-[v rtcdrv_poll@x x `i  1 a 2 41 ]
-[s S4350 . 1 `uc 1 argCount 1 0 :3:0 
+"237
+[v rtcdrv_poll@x_4590 x `i  1 a 2 93 ]
+[v rtcdrv_poll@x_4589 x `i  1 a 2 91 ]
+"235
+[v rtcdrv_poll@x_4588 x `i  1 a 2 89 ]
+[v rtcdrv_poll@x x `i  1 a 2 87 ]
+[s S4354 . 1 `uc 1 argCount 1 0 :3:0 
 `uc 1 cmd 1 0 :4:3 
 `uc 1 rtc 1 0 :1:7 
 ]
-"165
-[u S4354 RTCDRV_DATA_ 1 `S4350 1 data_part 1 0 `uc 1 data 1 0 ]
-[v rtcdrv_poll@d d `S4354  1 a 1 45 ]
-"178
+"233
+[u S4358 RTCDRV_DATA_ 1 `S4354 1 data_part 1 0 `uc 1 data 1 0 ]
+[v rtcdrv_poll@d d `S4358  1 a 1 95 ]
+"248
 } 0
-"79
+"100
 [v _processRTC processRTC `(v  1 e 1 0 ]
 {
 [v processRTC@cmd cmd `uc  1 a 1 wreg ]
 [v processRTC@cmd cmd `uc  1 a 1 wreg ]
 [v processRTC@argCount argCount `uc  1 p 1 85 ]
 [v processRTC@cmd cmd `uc  1 a 1 34 ]
-"91
+"112
 } 0
-"68
+"89
 [v _rtcSetClk rtcSetClk `(v  1 e 1 0 ]
 {
 [v rtcSetClk@argCount argCount `uc  1 a 1 wreg ]
-"71
+"92
 [v rtcSetClk@buffer buffer `*.39uc  1 a 2 59 ]
-"69
+"90
 [v rtcSetClk@argBuffer argBuffer `*.39uc  1 a 2 57 ]
-"73
+"94
 [v rtcSetClk@year year `ui  1 a 2 54 ]
-"68
+"89
 [v rtcSetClk@argCount argCount `uc  1 a 1 wreg ]
 [v rtcSetClk@argCount argCount `uc  1 a 1 56 ]
-"77
+"98
 } 0
 "4 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\rtc.c
 [v _SetClock SetClock `(v  1 e 1 0 ]
@@ -1273,27 +1285,27 @@ FR_INVALID_PARAMETER 19
 [v I2C1_Write1ByteRegister@address address `uc  1 a 1 23 ]
 "99
 } 0
-"61 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\rtcdrv.c
+"82 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\rtcdrv.c
 [v _rtcGetClk rtcGetClk `(v  1 e 1 0 ]
 {
 [s S2567 tm 24 `i 1 tm_sec 2 0 `i 1 tm_min 2 2 `i 1 tm_hour 2 4 `i 1 tm_mday 2 6 `i 1 tm_mon 2 8 `i 1 tm_year 2 10 `i 1 tm_wday 2 12 `i 1 tm_yday 2 14 `i 1 tm_isdst 2 16 `l 1 __tm_gmtoff 4 18 `*.2Cuc 1 __tm_zone 2 22 ]
-"62
+"83
 [v rtcGetClk@t t `S2567  1 a 24 8 ]
-"63
+"84
 [v rtcGetClk@bufferOut bufferOut `[8]uc  1 a 8 0 ]
-"66
+"87
 } 0
-"52
+"73
 [v _rtcGetAClk rtcGetAClk `(v  1 e 1 0 ]
 {
 [s S2567 tm 24 `i 1 tm_sec 2 0 `i 1 tm_min 2 2 `i 1 tm_hour 2 4 `i 1 tm_mday 2 6 `i 1 tm_mon 2 8 `i 1 tm_year 2 10 `i 1 tm_wday 2 12 `i 1 tm_yday 2 14 `i 1 tm_isdst 2 16 `l 1 __tm_gmtoff 4 18 `*.2Cuc 1 __tm_zone 2 22 ]
-"53
+"74
 [v rtcGetAClk@t t `S2567  1 a 24 4 ]
-"55
+"76
 [v rtcGetAClk@outSize outSize `ui  1 a 2 2 ]
-"54
+"75
 [v rtcGetAClk@bufferOut bufferOut `*.39uc  1 a 2 0 ]
-"59
+"80
 } 0
 "19 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\asctime.c
 [v _asctime asctime `(*.39uc  1 e 2 0 ]
@@ -1341,6 +1353,414 @@ FR_INVALID_PARAMETER 19
 [v ___awdiv@dividend dividend `i  1 p 2 4 ]
 [v ___awdiv@divisor divisor `i  1 p 2 6 ]
 "41
+} 0
+"216 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\rtcdrv.c
+[v _processDRV processDRV `(v  1 e 1 0 ]
+{
+[v processDRV@cmd cmd `uc  1 a 1 wreg ]
+[v processDRV@cmd cmd `uc  1 a 1 wreg ]
+[v processDRV@argCount argCount `uc  1 p 1 159 ]
+[v processDRV@cmd cmd `uc  1 a 1 86 ]
+"228
+} 0
+"160
+[v _drvSave drvSave `(v  1 e 1 0 ]
+{
+[v drvSave@argCount argCount `uc  1 a 1 wreg ]
+"179
+[v drvSave@x_4566 x `i  1 a 2 76 ]
+[v drvSave@x x `i  1 a 2 74 ]
+"161
+[v drvSave@argBuffer argBuffer `*.39uc  1 a 2 82 ]
+"164
+[v drvSave@fileName fileName `*.39uc  1 a 2 79 ]
+"169
+[v drvSave@recvCount recvCount `ui  1 a 2 71 ]
+"163
+[v drvSave@memSize memSize `ui  1 a 2 69 ]
+"167
+[v drvSave@btr btr `uc  1 a 1 81 ]
+"168
+[v drvSave@writtenCount writtenCount `uc  1 a 1 78 ]
+"160
+[v drvSave@argCount argCount `uc  1 a 1 wreg ]
+[v drvSave@argCount argCount `uc  1 a 1 73 ]
+"190
+} 0
+"3810 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/fatfs/ff.c
+[v _f_write f_write `(E69  1 e 1 0 ]
+{
+"3819
+[v f_write@sect sect `ul  1 a 4 133 ]
+[v f_write@clst clst `ul  1 a 4 127 ]
+[s S325 . 563 `uc 1 fs_type 1 0 `uc 1 pdrv 1 1 `uc 1 n_fats 1 2 `uc 1 wflag 1 3 `uc 1 fsi_flag 1 4 `us 1 id 2 5 `us 1 n_rootdir 2 7 `us 1 csize 2 9 `ul 1 last_clst 4 11 `ul 1 free_clst 4 15 `ul 1 cdir 4 19 `ul 1 n_fatent 4 23 `ul 1 fsize 4 27 `ul 1 volbase 4 31 `ul 1 fatbase 4 35 `ul 1 dirbase 4 39 `ul 1 database 4 43 `ul 1 winsect 4 47 `[512]uc 1 win 512 51 ]
+"3818
+[v f_write@fs fs `*.39S325  1 a 2 137 ]
+"3820
+[v f_write@wcnt wcnt `ui  1 a 2 131 ]
+[v f_write@cc cc `ui  1 a 2 125 ]
+[v f_write@csect csect `ui  1 a 2 123 ]
+"3821
+[v f_write@wbuff wbuff `*.39Cuc  1 a 2 121 ]
+"3817
+[v f_write@res res `E69  1 a 1 120 ]
+"3811
+[s S395 . 14 `*.39S325 1 fs 2 0 `us 1 id 2 2 `uc 1 attr 1 4 `uc 1 stat 1 5 `ul 1 sclust 4 6 `ul 1 objsize 4 10 ]
+[s S426 . 546 `S395 1 obj 14 0 `uc 1 flag 1 14 `uc 1 err 1 15 `ul 1 fptr 4 16 `ul 1 clust 4 20 `ul 1 sect 4 24 `ul 1 dir_sect 4 28 `*.39uc 1 dir_ptr 2 32 `[512]uc 1 buf 512 34 ]
+[v f_write@fp fp `*.39S426  1 p 2 96 ]
+"3812
+[v f_write@buff buff `*.39Cv  1 p 2 98 ]
+"3813
+[v f_write@btw btw `ui  1 p 2 100 ]
+"3814
+[v f_write@bw bw `*.39ui  1 p 2 102 ]
+"3922
+} 0
+"192 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\rtcdrv.c
+[v _drvLoad drvLoad `(v  1 e 1 0 ]
+{
+[v drvLoad@argCount argCount `uc  1 a 1 wreg ]
+"193
+[v drvLoad@argBuffer argBuffer `*.39uc  1 a 2 72 ]
+"195
+[v drvLoad@buffer buffer `*.39uc  1 a 2 70 ]
+"192
+[v drvLoad@argCount argCount `uc  1 a 1 wreg ]
+[v drvLoad@argCount argCount `uc  1 a 1 69 ]
+"214
+} 0
+"39
+[v _sendFile sendFile `(v  1 e 1 0 ]
+{
+"46
+[v sendFile@x_4453 x `i  1 a 2 68 ]
+[v sendFile@x x `i  1 a 2 66 ]
+"49
+[v sendFile@x_4455 x `i  1 a 2 72 ]
+[v sendFile@x_4454 x `i  1 a 2 70 ]
+"41
+[v sendFile@bread bread `uc  1 a 1 75 ]
+"40
+[v sendFile@byte byte `uc  1 a 1 74 ]
+[s S325 . 563 `uc 1 fs_type 1 0 `uc 1 pdrv 1 1 `uc 1 n_fats 1 2 `uc 1 wflag 1 3 `uc 1 fsi_flag 1 4 `us 1 id 2 5 `us 1 n_rootdir 2 7 `us 1 csize 2 9 `ul 1 last_clst 4 11 `ul 1 free_clst 4 15 `ul 1 cdir 4 19 `ul 1 n_fatent 4 23 `ul 1 fsize 4 27 `ul 1 volbase 4 31 `ul 1 fatbase 4 35 `ul 1 dirbase 4 39 `ul 1 database 4 43 `ul 1 winsect 4 47 `[512]uc 1 win 512 51 ]
+"39
+[s S395 . 14 `*.39S325 1 fs 2 0 `us 1 id 2 2 `uc 1 attr 1 4 `uc 1 stat 1 5 `ul 1 sclust 4 6 `ul 1 objsize 4 10 ]
+[s S426 . 546 `S395 1 obj 14 0 `uc 1 flag 1 14 `uc 1 err 1 15 `ul 1 fptr 4 16 `ul 1 clust 4 20 `ul 1 sect 4 24 `ul 1 dir_sect 4 28 `*.39uc 1 dir_ptr 2 32 `[512]uc 1 buf 512 34 ]
+[v sendFile@file file `*.39S426  1 p 2 64 ]
+"50
+} 0
+"3710 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/fatfs/ff.c
+[v _f_read f_read `(E69  1 e 1 0 ]
+{
+"3719
+[v f_read@sect sect `ul  1 a 4 58 ]
+[v f_read@clst clst `ul  1 a 4 46 ]
+"3720
+[v f_read@remain remain `ul  1 a 4 42 ]
+[s S325 . 563 `uc 1 fs_type 1 0 `uc 1 pdrv 1 1 `uc 1 n_fats 1 2 `uc 1 wflag 1 3 `uc 1 fsi_flag 1 4 `us 1 id 2 5 `us 1 n_rootdir 2 7 `us 1 csize 2 9 `ul 1 last_clst 4 11 `ul 1 free_clst 4 15 `ul 1 cdir 4 19 `ul 1 n_fatent 4 23 `ul 1 fsize 4 27 `ul 1 volbase 4 31 `ul 1 fatbase 4 35 `ul 1 dirbase 4 39 `ul 1 database 4 43 `ul 1 winsect 4 47 `[512]uc 1 win 512 51 ]
+"3718
+[v f_read@fs fs `*.39S325  1 a 2 62 ]
+"3721
+[v f_read@rcnt rcnt `ui  1 a 2 56 ]
+[v f_read@cc cc `ui  1 a 2 54 ]
+[v f_read@csect csect `ui  1 a 2 52 ]
+"3722
+[v f_read@rbuff rbuff `*.39uc  1 a 2 50 ]
+"3717
+[v f_read@res res `E69  1 a 1 41 ]
+"3711
+[s S395 . 14 `*.39S325 1 fs 2 0 `us 1 id 2 2 `uc 1 attr 1 4 `uc 1 stat 1 5 `ul 1 sclust 4 6 `ul 1 objsize 4 10 ]
+[s S426 . 546 `S395 1 obj 14 0 `uc 1 flag 1 14 `uc 1 err 1 15 `ul 1 fptr 4 16 `ul 1 clust 4 20 `ul 1 sect 4 24 `ul 1 dir_sect 4 28 `*.39uc 1 dir_ptr 2 32 `[512]uc 1 buf 512 34 ]
+[v f_read@fp fp `*.39S426  1 p 2 21 ]
+"3712
+[v f_read@buff buff `*.39v  1 p 2 23 ]
+"3713
+[v f_read@btr btr `ui  1 p 2 25 ]
+"3714
+[v f_read@br br `*.39ui  1 p 2 27 ]
+"3800
+} 0
+"16 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\lite_malloc.c
+[v _malloc malloc `(*.39v  1 e 2 0 ]
+{
+"55
+[v malloc@sz sz `*.39ui  1 a 2 30 ]
+"42
+[v malloc@new new `*.39uc  1 a 2 34 ]
+"41
+[v malloc@m m `ui  1 a 2 28 ]
+"20
+[v malloc@p p `*.39v  1 a 2 32 ]
+"16
+[v malloc@n n `ui  1 p 2 24 ]
+"18
+[v malloc@cur cur `*.39uc  1 s 2 cur ]
+[v malloc@end end `*.39uc  1 s 2 end ]
+"19
+[v malloc@lock lock `VE[2]i  1 s 4 lock ]
+"64
+} 0
+"19 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\lite_free.c
+[v ___simple_search_fl __simple_search_fl `(*.39v  1 e 2 0 ]
+{
+"50
+[u S5069 . 3 `*.2S5071 1 next 3 0 `[1]uc 1 space 1 0 ]
+[s S5071 chunk 5 `ui 1 size 2 0 `S5069 1 . 3 2 ]
+[v ___simple_search_fl@split split `*.39S5071  1 a 2 14 ]
+"53
+[v ___simple_search_fl@remaining_size remaining_size `ui  1 a 2 10 ]
+"45
+[u S5069 . 3 `*.2S5071 1 next 3 0 `[1]uc 1 space 1 0 ]
+[s S5071 chunk 5 `ui 1 size 2 0 `S5069 1 . 3 2 ]
+[v ___simple_search_fl@next next `*.39S5071  1 a 2 18 ]
+"20
+[u S5069 . 3 `*.2S5071 1 next 3 0 `[1]uc 1 space 1 0 ]
+[s S5071 chunk 5 `ui 1 size 2 0 `S5069 1 . 3 2 ]
+[v ___simple_search_fl@best best `*.39S5071  1 a 2 22 ]
+"23
+[v ___simple_search_fl@c c `*.39S5071  1 a 2 20 ]
+"22
+[v ___simple_search_fl@last last `*.39S5071  1 a 2 16 ]
+"21
+[v ___simple_search_fl@best_last best_last `*.39S5071  1 a 2 12 ]
+"19
+[v ___simple_search_fl@n n `ui  1 p 2 4 ]
+"65
+} 0
+"14 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\expand_heap.c
+[v ___expand_heap __expand_heap `(*.39v  1 e 2 0 ]
+{
+"17
+[v ___expand_heap@new_brkp new_brkp `*.39uc  1 a 2 10 ]
+"16
+[v ___expand_heap@n n `ui  1 a 2 8 ]
+"14
+[v ___expand_heap@pn pn `*.39ui  1 p 2 4 ]
+"32
+} 0
+"66 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\rtcdrv.c
+[v _getArgs getArgs `(v  1 e 1 0 ]
+{
+"67
+[v getArgs@x x `ui  1 a 2 23 ]
+"66
+[v getArgs@argsCount argsCount `ui  1 p 2 19 ]
+[v getArgs@buffer buffer `*.39uc  1 p 2 21 ]
+"71
+} 0
+"52
+[v _getBuffer getBuffer `(v  1 e 1 0 ]
+{
+"62
+[v getBuffer@x_4464 x `i  1 a 2 17 ]
+[v getBuffer@x_4463 x `i  1 a 2 15 ]
+"58
+[v getBuffer@x_4462 x `i  1 a 2 13 ]
+[v getBuffer@x x `i  1 a 2 11 ]
+"54
+[v getBuffer@i i `i  1 a 2 9 ]
+"52
+[v getBuffer@bufferSize bufferSize `ui  1 p 2 4 ]
+[v getBuffer@buffer buffer `*.39uc  1 p 2 6 ]
+[v getBuffer@sendFinalAck sendFinalAck `a  1 p 1 8 ]
+"64
+} 0
+"67 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\lite_free.c
+[v _free free `(v  1 e 1 0 ]
+{
+"68
+[u S5069 . 3 `*.2S5071 1 next 3 0 `[1]uc 1 space 1 0 ]
+[s S5071 chunk 5 `ui 1 size 2 0 `S5069 1 . 3 2 ]
+[v free@c c `*.39S5071  1 a 2 12 ]
+"69
+[v free@cptr cptr `*.39uc  1 a 2 10 ]
+"67
+[v free@ptr ptr `*.39v  1 p 2 4 ]
+"94
+} 0
+"3520 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/fatfs/ff.c
+[v _f_open f_open `(E69  1 e 1 0 ]
+{
+[s S325 . 563 `uc 1 fs_type 1 0 `uc 1 pdrv 1 1 `uc 1 n_fats 1 2 `uc 1 wflag 1 3 `uc 1 fsi_flag 1 4 `us 1 id 2 5 `us 1 n_rootdir 2 7 `us 1 csize 2 9 `ul 1 last_clst 4 11 `ul 1 free_clst 4 15 `ul 1 cdir 4 19 `ul 1 n_fatent 4 23 `ul 1 fsize 4 27 `ul 1 volbase 4 31 `ul 1 fatbase 4 35 `ul 1 dirbase 4 39 `ul 1 database 4 43 `ul 1 winsect 4 47 `[512]uc 1 win 512 51 ]
+"3527
+[s S395 . 14 `*.39S325 1 fs 2 0 `us 1 id 2 2 `uc 1 attr 1 4 `uc 1 stat 1 5 `ul 1 sclust 4 6 `ul 1 objsize 4 10 ]
+[s S402 . 42 `S395 1 obj 14 0 `ul 1 dptr 4 14 `ul 1 clust 4 18 `ul 1 sect 4 22 `*.39uc 1 dir 2 26 `[12]uc 1 fn 12 28 `*.2Cuc 1 pat 2 40 ]
+[v f_open@dj dj `S402  1 a 42 27 ]
+"3530
+[v f_open@clst clst `ul  1 a 4 20 ]
+"3531
+[v f_open@ofs ofs `ul  1 a 4 16 ]
+"3530
+[v f_open@cl cl `ul  1 a 4 12 ]
+[v f_open@bcs bcs `ul  1 a 4 8 ]
+[v f_open@sc sc `ul  1 a 4 4 ]
+[v f_open@dw dw `ul  1 a 4 0 ]
+"3528
+[v f_open@fs fs `*.39S325  1 a 2 24 ]
+"3526
+[v f_open@res res `E69  1 a 1 26 ]
+"3521
+[s S426 . 546 `S395 1 obj 14 0 `uc 1 flag 1 14 `uc 1 err 1 15 `ul 1 fptr 4 16 `ul 1 clust 4 20 `ul 1 sect 4 24 `ul 1 dir_sect 4 28 `*.39uc 1 dir_ptr 2 32 `[512]uc 1 buf 512 34 ]
+[v f_open@fp fp `*.39S426  1 p 2 142 ]
+"3522
+[v f_open@path path `*.34Cuc  1 p 2 144 ]
+"3523
+[v f_open@mode mode `uc  1 p 1 146 ]
+"3701
+} 0
+"1408
+[v _remove_chain remove_chain `(E69  1 s 1 remove_chain ]
+{
+"1415
+[v remove_chain@nxt nxt `ul  1 a 4 85 ]
+[s S325 . 563 `uc 1 fs_type 1 0 `uc 1 pdrv 1 1 `uc 1 n_fats 1 2 `uc 1 wflag 1 3 `uc 1 fsi_flag 1 4 `us 1 id 2 5 `us 1 n_rootdir 2 7 `us 1 csize 2 9 `ul 1 last_clst 4 11 `ul 1 free_clst 4 15 `ul 1 cdir 4 19 `ul 1 n_fatent 4 23 `ul 1 fsize 4 27 `ul 1 volbase 4 31 `ul 1 fatbase 4 35 `ul 1 dirbase 4 39 `ul 1 database 4 43 `ul 1 winsect 4 47 `[512]uc 1 win 512 51 ]
+"1416
+[v remove_chain@fs fs `*.39S325  1 a 2 90 ]
+"1414
+[v remove_chain@res res `E69  1 a 1 89 ]
+"1409
+[s S395 . 14 `*.39S325 1 fs 2 0 `us 1 id 2 2 `uc 1 attr 1 4 `uc 1 stat 1 5 `ul 1 sclust 4 6 `ul 1 objsize 4 10 ]
+[v remove_chain@obj obj `*.39S395  1 p 2 67 ]
+"1410
+[v remove_chain@clst clst `ul  1 p 4 69 ]
+"1411
+[v remove_chain@pclst pclst `ul  1 p 4 73 ]
+"1494
+} 0
+"2484
+[v _dir_register dir_register `(E69  1 s 1 dir_register ]
+{
+[s S325 . 563 `uc 1 fs_type 1 0 `uc 1 pdrv 1 1 `uc 1 n_fats 1 2 `uc 1 wflag 1 3 `uc 1 fsi_flag 1 4 `us 1 id 2 5 `us 1 n_rootdir 2 7 `us 1 csize 2 9 `ul 1 last_clst 4 11 `ul 1 free_clst 4 15 `ul 1 cdir 4 19 `ul 1 n_fatent 4 23 `ul 1 fsize 4 27 `ul 1 volbase 4 31 `ul 1 fatbase 4 35 `ul 1 dirbase 4 39 `ul 1 database 4 43 `ul 1 winsect 4 47 `[512]uc 1 win 512 51 ]
+"2489
+[v dir_register@fs fs `*.39S325  1 a 2 133 ]
+"2488
+[v dir_register@res res `E69  1 a 1 135 ]
+"2485
+[s S395 . 14 `*.39S325 1 fs 2 0 `us 1 id 2 2 `uc 1 attr 1 4 `uc 1 stat 1 5 `ul 1 sclust 4 6 `ul 1 objsize 4 10 ]
+[s S402 . 42 `S395 1 obj 14 0 `ul 1 dptr 4 14 `ul 1 clust 4 18 `ul 1 sect 4 22 `*.39uc 1 dir 2 26 `[12]uc 1 fn 12 28 `*.2Cuc 1 pat 2 40 ]
+[v dir_register@dp dp `*.39S402  1 p 2 131 ]
+"2579
+} 0
+"646
+[v _mem_cpy mem_cpy `(v  1 s 1 mem_cpy ]
+{
+"649
+[v mem_cpy@s s `*.39Cuc  1 a 2 12 ]
+"648
+[v mem_cpy@d d `*.39uc  1 a 2 10 ]
+"646
+[v mem_cpy@dst dst `*.39v  1 p 2 4 ]
+[v mem_cpy@src src `*.39Cv  1 p 2 6 ]
+[v mem_cpy@cnt cnt `ui  1 p 2 8 ]
+"656
+} 0
+"1783
+[v _dir_alloc dir_alloc `(E69  1 s 1 dir_alloc ]
+{
+"1789
+[v dir_alloc@n n `ui  1 a 2 128 ]
+[s S325 . 563 `uc 1 fs_type 1 0 `uc 1 pdrv 1 1 `uc 1 n_fats 1 2 `uc 1 wflag 1 3 `uc 1 fsi_flag 1 4 `us 1 id 2 5 `us 1 n_rootdir 2 7 `us 1 csize 2 9 `ul 1 last_clst 4 11 `ul 1 free_clst 4 15 `ul 1 cdir 4 19 `ul 1 n_fatent 4 23 `ul 1 fsize 4 27 `ul 1 volbase 4 31 `ul 1 fatbase 4 35 `ul 1 dirbase 4 39 `ul 1 database 4 43 `ul 1 winsect 4 47 `[512]uc 1 win 512 51 ]
+"1790
+[v dir_alloc@fs fs `*.39S325  1 a 2 126 ]
+"1788
+[v dir_alloc@res res `E69  1 a 1 130 ]
+"1784
+[s S395 . 14 `*.39S325 1 fs 2 0 `us 1 id 2 2 `uc 1 attr 1 4 `uc 1 stat 1 5 `ul 1 sclust 4 6 `ul 1 objsize 4 10 ]
+[s S402 . 42 `S395 1 obj 14 0 `ul 1 dptr 4 14 `ul 1 clust 4 18 `ul 1 sect 4 22 `*.39uc 1 dir 2 26 `[12]uc 1 fn 12 28 `*.2Cuc 1 pat 2 40 ]
+[v dir_alloc@dp dp `*.39S402  1 p 2 122 ]
+"1785
+[v dir_alloc@nent nent `ui  1 p 2 124 ]
+"1814
+} 0
+"4012
+[v _f_close f_close `(E69  1 e 1 0 ]
+{
+[s S325 . 563 `uc 1 fs_type 1 0 `uc 1 pdrv 1 1 `uc 1 n_fats 1 2 `uc 1 wflag 1 3 `uc 1 fsi_flag 1 4 `us 1 id 2 5 `us 1 n_rootdir 2 7 `us 1 csize 2 9 `ul 1 last_clst 4 11 `ul 1 free_clst 4 15 `ul 1 cdir 4 19 `ul 1 n_fatent 4 23 `ul 1 fsize 4 27 `ul 1 volbase 4 31 `ul 1 fatbase 4 35 `ul 1 dirbase 4 39 `ul 1 database 4 43 `ul 1 winsect 4 47 `[512]uc 1 win 512 51 ]
+"4017
+[v f_close@fs fs `*.39S325  1 a 2 55 ]
+"4016
+[v f_close@res res `E69  1 a 1 57 ]
+"4013
+[s S395 . 14 `*.39S325 1 fs 2 0 `us 1 id 2 2 `uc 1 attr 1 4 `uc 1 stat 1 5 `ul 1 sclust 4 6 `ul 1 objsize 4 10 ]
+[s S426 . 546 `S395 1 obj 14 0 `uc 1 flag 1 14 `uc 1 err 1 15 `ul 1 fptr 4 16 `ul 1 clust 4 20 `ul 1 sect 4 24 `ul 1 dir_sect 4 28 `*.39uc 1 dir_ptr 2 32 `[512]uc 1 buf 512 34 ]
+[v f_close@fp fp `*.39S426  1 p 2 53 ]
+"4038
+} 0
+"3931
+[v _f_sync f_sync `(E69  1 e 1 0 ]
+{
+"3937
+[v f_sync@tm tm `ul  1 a 4 44 ]
+[s S325 . 563 `uc 1 fs_type 1 0 `uc 1 pdrv 1 1 `uc 1 n_fats 1 2 `uc 1 wflag 1 3 `uc 1 fsi_flag 1 4 `us 1 id 2 5 `us 1 n_rootdir 2 7 `us 1 csize 2 9 `ul 1 last_clst 4 11 `ul 1 free_clst 4 15 `ul 1 cdir 4 19 `ul 1 n_fatent 4 23 `ul 1 fsize 4 27 `ul 1 volbase 4 31 `ul 1 fatbase 4 35 `ul 1 dirbase 4 39 `ul 1 database 4 43 `ul 1 winsect 4 47 `[512]uc 1 win 512 51 ]
+"3936
+[v f_sync@fs fs `*.39S325  1 a 2 51 ]
+"3938
+[v f_sync@dir dir `*.39uc  1 a 2 49 ]
+"3935
+[v f_sync@res res `E69  1 a 1 48 ]
+"3932
+[s S395 . 14 `*.39S325 1 fs 2 0 `us 1 id 2 2 `uc 1 attr 1 4 `uc 1 stat 1 5 `ul 1 sclust 4 6 `ul 1 objsize 4 10 ]
+[s S426 . 546 `S395 1 obj 14 0 `uc 1 flag 1 14 `uc 1 err 1 15 `ul 1 fptr 4 16 `ul 1 clust 4 20 `ul 1 sect 4 24 `ul 1 dir_sect 4 28 `*.39uc 1 dir_ptr 2 32 `[512]uc 1 buf 512 34 ]
+[v f_sync@fp fp `*.39S426  1 p 2 42 ]
+"4001
+} 0
+"1087
+[v _sync_fs sync_fs `(E69  1 s 1 sync_fs ]
+{
+"1091
+[v sync_fs@res res `E69  1 a 1 85 ]
+[s S325 . 563 `uc 1 fs_type 1 0 `uc 1 pdrv 1 1 `uc 1 n_fats 1 2 `uc 1 wflag 1 3 `uc 1 fsi_flag 1 4 `us 1 id 2 5 `us 1 n_rootdir 2 7 `us 1 csize 2 9 `ul 1 last_clst 4 11 `ul 1 free_clst 4 15 `ul 1 cdir 4 19 `ul 1 n_fatent 4 23 `ul 1 fsize 4 27 `ul 1 volbase 4 31 `ul 1 fatbase 4 35 `ul 1 dirbase 4 39 `ul 1 database 4 43 `ul 1 winsect 4 47 `[512]uc 1 win 512 51 ]
+"1088
+[v sync_fs@fs fs `*.39S325  1 p 2 83 ]
+"1114
+} 0
+"158 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/fatfs/diskio.c
+[v _disk_ioctl disk_ioctl `(E210  1 e 1 0 ]
+{
+"159
+[v disk_ioctl@pdrv pdrv `uc  1 a 1 wreg ]
+[v disk_ioctl@pdrv pdrv `uc  1 a 1 wreg ]
+"160
+[v disk_ioctl@cmd cmd `uc  1 p 1 4 ]
+"161
+[v disk_ioctl@buff buff `*.2v  1 p 2 5 ]
+"158
+[v disk_ioctl@pdrv pdrv `uc  1 a 1 9 ]
+"175
+} 0
+"1842 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/fatfs/ff.c
+[v _st_clust st_clust `(v  1 s 1 st_clust ]
+{
+[s S325 . 563 `uc 1 fs_type 1 0 `uc 1 pdrv 1 1 `uc 1 n_fats 1 2 `uc 1 wflag 1 3 `uc 1 fsi_flag 1 4 `us 1 id 2 5 `us 1 n_rootdir 2 7 `us 1 csize 2 9 `ul 1 last_clst 4 11 `ul 1 free_clst 4 15 `ul 1 cdir 4 19 `ul 1 n_fatent 4 23 `ul 1 fsize 4 27 `ul 1 volbase 4 31 `ul 1 fatbase 4 35 `ul 1 dirbase 4 39 `ul 1 database 4 43 `ul 1 winsect 4 47 `[512]uc 1 win 512 51 ]
+"1843
+[v st_clust@fs fs `*.39S325  1 p 2 8 ]
+"1844
+[v st_clust@dir dir `*.39uc  1 p 2 10 ]
+"1845
+[v st_clust@cl cl `ul  1 p 4 12 ]
+"1852
+} 0
+"79 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/fatfs/ff_time.c
+[v _get_fattime get_fattime `(ul  1 e 4 0 ]
+{
+[s S2567 tm 24 `i 1 tm_sec 2 0 `i 1 tm_min 2 2 `i 1 tm_hour 2 4 `i 1 tm_mday 2 6 `i 1 tm_mon 2 8 `i 1 tm_year 2 10 `i 1 tm_wday 2 12 `i 1 tm_yday 2 14 `i 1 tm_isdst 2 16 `l 1 __tm_gmtoff 4 18 `*.2Cuc 1 __tm_zone 2 22 ]
+"81
+[v get_fattime@clk clk `S2567  1 a 24 4 ]
+"83
+} 0
+"65
+[v _decimalToFatTime decimalToFatTime `(ul  1 s 4 decimalToFatTime ]
+{
+"67
+[v decimalToFatTime@fatTime fatTime `ul  1 a 4 15 ]
+"65
+[v decimalToFatTime@year year `us  1 p 2 4 ]
+[v decimalToFatTime@month month `uc  1 p 1 6 ]
+[v decimalToFatTime@day day `uc  1 p 1 7 ]
+[v decimalToFatTime@hour hour `uc  1 p 1 8 ]
+[v decimalToFatTime@minute minute `uc  1 p 1 9 ]
+[v decimalToFatTime@seconds seconds `uc  1 p 1 10 ]
+"77
 } 0
 "40 C:\Program Files\Microchip\xc8\v2.36\pic\include\c99\time.h
 [s S2567 tm 24 `i 1 tm_sec 2 0 `i 1 tm_min 2 2 `i 1 tm_hour 2 4 `i 1 tm_mday 2 6 `i 1 tm_mon 2 8 `i 1 tm_year 2 10 `i 1 tm_wday 2 12 `i 1 tm_yday 2 14 `i 1 tm_isdst 2 16 `l 1 __tm_gmtoff 4 18 `*.2Cuc 1 __tm_zone 2 22 ]
@@ -1650,140 +2070,27 @@ FR_INVALID_PARAMETER 19
 {
 "645
 } 0
-"151 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\rtcdrv.c
-[v _processDRV processDRV `(v  1 e 1 0 ]
-{
-[v processDRV@cmd cmd `uc  1 a 1 wreg ]
-[v processDRV@cmd cmd `uc  1 a 1 wreg ]
-[v processDRV@argCount argCount `uc  1 p 1 38 ]
-[v processDRV@cmd cmd `uc  1 a 1 85 ]
-"160
-} 0
-"139
-[v _drvLoad drvLoad `(v  1 e 1 0 ]
-{
-[v drvLoad@argCount argCount `uc  1 a 1 wreg ]
-"140
-[v drvLoad@argBuffer argBuffer `*.39uc  1 a 2 40 ]
-"142
-[v drvLoad@buffer buffer `*.39uc  1 a 2 38 ]
-"139
-[v drvLoad@argCount argCount `uc  1 a 1 wreg ]
-[v drvLoad@argCount argCount `uc  1 a 1 37 ]
-"149
-} 0
-"16 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\lite_malloc.c
-[v _malloc malloc `(*.39v  1 e 2 0 ]
-{
-"55
-[v malloc@sz sz `*.39ui  1 a 2 30 ]
-"42
-[v malloc@new new `*.39uc  1 a 2 34 ]
-"41
-[v malloc@m m `ui  1 a 2 28 ]
-"20
-[v malloc@p p `*.39v  1 a 2 32 ]
-"16
-[v malloc@n n `ui  1 p 2 24 ]
-"18
-[v malloc@cur cur `*.39uc  1 s 2 cur ]
-[v malloc@end end `*.39uc  1 s 2 end ]
-"19
-[v malloc@lock lock `VE[2]i  1 s 4 lock ]
-"64
-} 0
-"19 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\lite_free.c
-[v ___simple_search_fl __simple_search_fl `(*.39v  1 e 2 0 ]
-{
-"50
-[u S5035 . 3 `*.2S5037 1 next 3 0 `[1]uc 1 space 1 0 ]
-[s S5037 chunk 5 `ui 1 size 2 0 `S5035 1 . 3 2 ]
-[v ___simple_search_fl@split split `*.39S5037  1 a 2 14 ]
-"53
-[v ___simple_search_fl@remaining_size remaining_size `ui  1 a 2 10 ]
-"45
-[u S5035 . 3 `*.2S5037 1 next 3 0 `[1]uc 1 space 1 0 ]
-[s S5037 chunk 5 `ui 1 size 2 0 `S5035 1 . 3 2 ]
-[v ___simple_search_fl@next next `*.39S5037  1 a 2 18 ]
-"20
-[u S5035 . 3 `*.2S5037 1 next 3 0 `[1]uc 1 space 1 0 ]
-[s S5037 chunk 5 `ui 1 size 2 0 `S5035 1 . 3 2 ]
-[v ___simple_search_fl@best best `*.39S5037  1 a 2 22 ]
-"23
-[v ___simple_search_fl@c c `*.39S5037  1 a 2 20 ]
-"22
-[v ___simple_search_fl@last last `*.39S5037  1 a 2 16 ]
-"21
-[v ___simple_search_fl@best_last best_last `*.39S5037  1 a 2 12 ]
-"19
-[v ___simple_search_fl@n n `ui  1 p 2 4 ]
-"65
-} 0
-"14 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\expand_heap.c
-[v ___expand_heap __expand_heap `(*.39v  1 e 2 0 ]
-{
-"17
-[v ___expand_heap@new_brkp new_brkp `*.39uc  1 a 2 10 ]
-"16
-[v ___expand_heap@n n `ui  1 a 2 8 ]
-"14
-[v ___expand_heap@pn pn `*.39ui  1 p 2 4 ]
-"32
-} 0
-"48 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\rtcdrv.c
-[v _getArgs getArgs `(v  1 e 1 0 ]
-{
-[v getArgs@argsCount argsCount `ui  1 p 2 14 ]
-[v getArgs@buffer buffer `*.39uc  1 p 2 16 ]
-"50
-} 0
-"38
-[v _getBuffer getBuffer `(v  1 e 1 0 ]
-{
-"44
-[v getBuffer@x_4448 x `i  1 a 2 12 ]
-[v getBuffer@x x `i  1 a 2 10 ]
-"40
-[v getBuffer@i i `i  1 a 2 8 ]
-"38
-[v getBuffer@bufferSize bufferSize `ui  1 p 2 4 ]
-[v getBuffer@buffer buffer `*.39uc  1 p 2 6 ]
-"46
-} 0
-"67 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\lite_free.c
-[v _free free `(v  1 e 1 0 ]
-{
-"68
-[u S5035 . 3 `*.2S5037 1 next 3 0 `[1]uc 1 space 1 0 ]
-[s S5037 chunk 5 `ui 1 size 2 0 `S5035 1 . 3 2 ]
-[v free@c c `*.39S5037  1 a 2 12 ]
-"69
-[v free@cptr cptr `*.39uc  1 a 2 10 ]
-"67
-[v free@ptr ptr `*.39v  1 p 2 4 ]
-"94
-} 0
-"93 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\rtcdrv.c
+"114 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\rtcdrv.c
 [v _drvGetDir drvGetDir `(v  1 e 1 0 ]
 {
-"96
+"117
 [v drvGetDir@buffer buffer `[256]uc  1 a 256 0 ]
-"97
+"118
 [v drvGetDir@driveLabel driveLabel `[34]uc  1 a 34 0 ]
-"99
-[v drvGetDir@fre_clust fre_clust `ul  1 a 4 34 ]
-[v drvGetDir@fre_sect fre_sect `ul  1 a 4 154 ]
-"98
-[v drvGetDir@fileCount fileCount `ui  1 a 2 158 ]
-"137
+"120
+[v drvGetDir@fre_clust fre_clust `ul  1 a 4 51 ]
+[v drvGetDir@fre_sect fre_sect `ul  1 a 4 153 ]
+"119
+[v drvGetDir@fileCount fileCount `ui  1 a 2 157 ]
+"158
 } 0
 "9 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
-[u S5144 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[u S5178 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
 "13
-[s S5147 _IO_FILE 11 `S5144 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v sprintf@f f `S5147  1 a 11 30 ]
+[s S5181 _IO_FILE 11 `S5178 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v sprintf@f f `S5181  1 a 11 30 ]
 "12
 [v sprintf@ap ap `[1]*.39v  1 a 2 28 ]
 "9
@@ -1796,9 +2103,9 @@ FR_INVALID_PARAMETER 19
 {
 "1393
 [v vfprintf@cfmt cfmt `*.32uc  1 a 2 75 ]
-[s S5179 _IO_FILE 0 ]
+[s S5213 _IO_FILE 0 ]
 "1390
-[v vfprintf@fp fp `*.39S5179  1 p 2 12 ]
+[v vfprintf@fp fp `*.39S5213  1 p 2 12 ]
 [v vfprintf@fmt fmt `*.32Cuc  1 p 2 14 ]
 [v vfprintf@ap ap `*.39*.39v  1 p 2 16 ]
 "1404
@@ -1810,9 +2117,9 @@ FR_INVALID_PARAMETER 19
 [v vfpfcnvrt@llu llu `uo  1 a 8 4 ]
 "694
 [v vfpfcnvrt@cp cp `*.39uc  1 a 2 0 ]
-[s S5179 _IO_FILE 0 ]
+[s S5213 _IO_FILE 0 ]
 "692
-[v vfpfcnvrt@fp fp `*.39S5179  1 p 2 63 ]
+[v vfpfcnvrt@fp fp `*.39S5213  1 p 2 63 ]
 [v vfpfcnvrt@fmt fmt `*.39*.32uc  1 p 2 65 ]
 [v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 67 ]
 "1387
@@ -1826,9 +2133,9 @@ FR_INVALID_PARAMETER 19
 [v utoa@i i `i  1 a 2 61 ]
 [v utoa@w w `i  1 a 2 51 ]
 [v utoa@p p `i  1 a 2 49 ]
-[s S5179 _IO_FILE 0 ]
+[s S5213 _IO_FILE 0 ]
 "615
-[v utoa@fp fp `*.39S5179  1 p 2 31 ]
+[v utoa@fp fp `*.39S5213  1 p 2 31 ]
 [v utoa@d d `uo  1 p 8 33 ]
 "641
 } 0
@@ -1838,9 +2145,9 @@ FR_INVALID_PARAMETER 19
 "74
 [v pad@w w `i  1 a 2 29 ]
 [v pad@i i `i  1 a 2 27 ]
-[s S5179 _IO_FILE 0 ]
+[s S5213 _IO_FILE 0 ]
 "72
-[v pad@fp fp `*.39S5179  1 p 2 20 ]
+[v pad@fp fp `*.39S5213  1 p 2 20 ]
 [v pad@buf buf `*.39uc  1 p 2 22 ]
 [v pad@p p `i  1 p 2 24 ]
 "95
@@ -1854,9 +2161,9 @@ FR_INVALID_PARAMETER 19
 [v fputs@c c `uc  1 a 1 17 ]
 "8
 [v fputs@s s `*.39Cuc  1 p 2 13 ]
-[u S5144 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S5147 _IO_FILE 11 `S5144 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputs@fp fp `*.39S5147  1 p 2 15 ]
+[u S5178 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S5181 _IO_FILE 11 `S5178 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputs@fp fp `*.39S5181  1 p 2 15 ]
 "19
 } 0
 "9 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\lomod.c
@@ -1906,9 +2213,9 @@ FR_INVALID_PARAMETER 19
 "571
 [v stoa@w w `i  1 a 2 27 ]
 [v stoa@i i `i  1 a 2 25 ]
-[s S5179 _IO_FILE 0 ]
+[s S5213 _IO_FILE 0 ]
 "568
-[v stoa@fp fp `*.39S5179  1 p 2 13 ]
+[v stoa@fp fp `*.39S5213  1 p 2 13 ]
 [v stoa@s s `*.39uc  1 p 2 15 ]
 "570
 [v stoa@F1142 F1142 `[7]uc  1 s 7 F1142 ]
@@ -1927,9 +2234,9 @@ FR_INVALID_PARAMETER 19
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 4 ]
-[u S5144 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S5147 _IO_FILE 11 `S5144 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputc@fp fp `*.39S5147  1 p 2 6 ]
+[u S5178 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S5181 _IO_FILE 11 `S5178 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputc@fp fp `*.39S5181  1 p 2 6 ]
 "24
 } 0
 "7 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\putch.c
@@ -1969,30 +2276,30 @@ FR_INVALID_PARAMETER 19
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 6 ]
 "53
 } 0
-"33 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\rtcdrv.c
+"34 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\rtcdrv.c
 [v _sendBufferLen sendBufferLen `(v  1 e 1 0 ]
 {
-"34
+"35
 [v sendBufferLen@outbuff outbuff `[2]uc  1 a 2 26 ]
-"33
+"34
 [v sendBufferLen@bufferLen bufferLen `ui  1 p 2 24 ]
-"36
+"37
 } 0
-"22
+"23
 [v _sendBuffer sendBuffer `(v  1 e 1 0 ]
 {
-"27
-[v sendBuffer@x_4427 x `i  1 a 2 18 ]
+"28
+[v sendBuffer@x_4431 x `i  1 a 2 18 ]
 [v sendBuffer@x x `i  1 a 2 16 ]
-"30
-[v sendBuffer@x_4437 x `i  1 a 2 22 ]
-[v sendBuffer@x_4436 x `i  1 a 2 20 ]
-"24
+"31
+[v sendBuffer@x_4441 x `i  1 a 2 22 ]
+[v sendBuffer@x_4440 x `i  1 a 2 20 ]
+"25
 [v sendBuffer@i i `i  1 a 2 14 ]
-"22
+"23
 [v sendBuffer@buff buff `*.34uc  1 p 2 8 ]
 [v sendBuffer@size size `ui  1 p 2 10 ]
-"31
+"32
 } 0
 "4 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\memset.c
 [v _memset memset `(*.39v  1 e 2 0 ]
@@ -2012,16 +2319,16 @@ FR_INVALID_PARAMETER 19
 {
 [s S325 . 563 `uc 1 fs_type 1 0 `uc 1 pdrv 1 1 `uc 1 n_fats 1 2 `uc 1 wflag 1 3 `uc 1 fsi_flag 1 4 `us 1 id 2 5 `us 1 n_rootdir 2 7 `us 1 csize 2 9 `ul 1 last_clst 4 11 `ul 1 free_clst 4 15 `ul 1 cdir 4 19 `ul 1 n_fatent 4 23 `ul 1 fsize 4 27 `ul 1 volbase 4 31 `ul 1 fatbase 4 35 `ul 1 dirbase 4 39 `ul 1 database 4 43 `ul 1 winsect 4 47 `[512]uc 1 win 512 51 ]
 "4489
-[v f_readdir@fs fs `*.39S325  1 a 2 95 ]
+[v f_readdir@fs fs `*.39S325  1 a 2 83 ]
 "4488
-[v f_readdir@res res `E69  1 a 1 97 ]
+[v f_readdir@res res `E69  1 a 1 85 ]
 "4484
 [s S395 . 14 `*.39S325 1 fs 2 0 `us 1 id 2 2 `uc 1 attr 1 4 `uc 1 stat 1 5 `ul 1 sclust 4 6 `ul 1 objsize 4 10 ]
 [s S402 . 42 `S395 1 obj 14 0 `ul 1 dptr 4 14 `ul 1 clust 4 18 `ul 1 sect 4 22 `*.39uc 1 dir 2 26 `[12]uc 1 fn 12 28 `*.2Cuc 1 pat 2 40 ]
-[v f_readdir@dp dp `*.39S402  1 p 2 91 ]
+[v f_readdir@dp dp `*.39S402  1 p 2 135 ]
 [s S410 . 22 `ul 1 fsize 4 0 `us 1 fdate 2 4 `us 1 ftime 2 6 `uc 1 fattrib 1 8 `[13]uc 1 fname 13 9 ]
 "4485
-[v f_readdir@fno fno `*.39S410  1 p 2 93 ]
+[v f_readdir@fno fno `*.39S410  1 p 2 137 ]
 "4510
 } 0
 "3428
@@ -2060,15 +2367,15 @@ FR_INVALID_PARAMETER 19
 {
 [s S325 . 563 `uc 1 fs_type 1 0 `uc 1 pdrv 1 1 `uc 1 n_fats 1 2 `uc 1 wflag 1 3 `uc 1 fsi_flag 1 4 `us 1 id 2 5 `us 1 n_rootdir 2 7 `us 1 csize 2 9 `ul 1 last_clst 4 11 `ul 1 free_clst 4 15 `ul 1 cdir 4 19 `ul 1 n_fatent 4 23 `ul 1 fsize 4 27 `ul 1 volbase 4 31 `ul 1 fatbase 4 35 `ul 1 dirbase 4 39 `ul 1 database 4 43 `ul 1 winsect 4 47 `[512]uc 1 win 512 51 ]
 "4393
-[v f_opendir@fs fs `*.39S325  1 a 2 104 ]
+[v f_opendir@fs fs `*.39S325  1 a 2 146 ]
 "4392
-[v f_opendir@res res `E69  1 a 1 106 ]
+[v f_opendir@res res `E69  1 a 1 148 ]
 "4388
 [s S395 . 14 `*.39S325 1 fs 2 0 `us 1 id 2 2 `uc 1 attr 1 4 `uc 1 stat 1 5 `ul 1 sclust 4 6 `ul 1 objsize 4 10 ]
 [s S402 . 42 `S395 1 obj 14 0 `ul 1 dptr 4 14 `ul 1 clust 4 18 `ul 1 sect 4 22 `*.39uc 1 dir 2 26 `[12]uc 1 fn 12 28 `*.2Cuc 1 pat 2 40 ]
-[v f_opendir@dp dp `*.39S402  1 p 2 100 ]
+[v f_opendir@dp dp `*.39S402  1 p 2 142 ]
 "4389
-[v f_opendir@path path `*.32Cuc  1 p 2 102 ]
+[v f_opendir@path path `*.34Cuc  1 p 2 144 ]
 "4444
 } 0
 "3015
@@ -2076,17 +2383,17 @@ FR_INVALID_PARAMETER 19
 {
 [s S325 . 563 `uc 1 fs_type 1 0 `uc 1 pdrv 1 1 `uc 1 n_fats 1 2 `uc 1 wflag 1 3 `uc 1 fsi_flag 1 4 `us 1 id 2 5 `us 1 n_rootdir 2 7 `us 1 csize 2 9 `ul 1 last_clst 4 11 `ul 1 free_clst 4 15 `ul 1 cdir 4 19 `ul 1 n_fatent 4 23 `ul 1 fsize 4 27 `ul 1 volbase 4 31 `ul 1 fatbase 4 35 `ul 1 dirbase 4 39 `ul 1 database 4 43 `ul 1 winsect 4 47 `[512]uc 1 win 512 51 ]
 "3022
-[v follow_path@fs fs `*.39S325  1 a 2 96 ]
+[v follow_path@fs fs `*.39S325  1 a 2 138 ]
 "3020
-[v follow_path@res res `E69  1 a 1 99 ]
+[v follow_path@res res `E69  1 a 1 141 ]
 "3021
-[v follow_path@ns ns `uc  1 a 1 98 ]
+[v follow_path@ns ns `uc  1 a 1 140 ]
 "3016
 [s S395 . 14 `*.39S325 1 fs 2 0 `us 1 id 2 2 `uc 1 attr 1 4 `uc 1 stat 1 5 `ul 1 sclust 4 6 `ul 1 objsize 4 10 ]
 [s S402 . 42 `S395 1 obj 14 0 `ul 1 dptr 4 14 `ul 1 clust 4 18 `ul 1 sect 4 22 `*.39uc 1 dir 2 26 `[12]uc 1 fn 12 28 `*.2Cuc 1 pat 2 40 ]
-[v follow_path@dp dp `*.39S402  1 p 2 86 ]
+[v follow_path@dp dp `*.39S402  1 p 2 128 ]
 "3017
-[v follow_path@path path `*.32Cuc  1 p 2 88 ]
+[v follow_path@path path `*.34Cuc  1 p 2 130 ]
 "3093
 } 0
 "1825
@@ -2106,15 +2413,15 @@ FR_INVALID_PARAMETER 19
 {
 [s S325 . 563 `uc 1 fs_type 1 0 `uc 1 pdrv 1 1 `uc 1 n_fats 1 2 `uc 1 wflag 1 3 `uc 1 fsi_flag 1 4 `us 1 id 2 5 `us 1 n_rootdir 2 7 `us 1 csize 2 9 `ul 1 last_clst 4 11 `ul 1 free_clst 4 15 `ul 1 cdir 4 19 `ul 1 n_fatent 4 23 `ul 1 fsize 4 27 `ul 1 volbase 4 31 `ul 1 fatbase 4 35 `ul 1 dirbase 4 39 `ul 1 database 4 43 `ul 1 winsect 4 47 `[512]uc 1 win 512 51 ]
 "2408
-[v dir_find@fs fs `*.39S325  1 a 2 82 ]
+[v dir_find@fs fs `*.39S325  1 a 2 124 ]
 "2407
-[v dir_find@res res `E69  1 a 1 85 ]
+[v dir_find@res res `E69  1 a 1 127 ]
 "2409
-[v dir_find@c c `uc  1 a 1 84 ]
+[v dir_find@c c `uc  1 a 1 126 ]
 "2404
 [s S395 . 14 `*.39S325 1 fs 2 0 `us 1 id 2 2 `uc 1 attr 1 4 `uc 1 stat 1 5 `ul 1 sclust 4 6 `ul 1 objsize 4 10 ]
 [s S402 . 42 `S395 1 obj 14 0 `ul 1 dptr 4 14 `ul 1 clust 4 18 `ul 1 sect 4 22 `*.39uc 1 dir 2 26 `[12]uc 1 fn 12 28 `*.2Cuc 1 pat 2 40 ]
-[v dir_find@dp dp `*.39S402  1 p 2 78 ]
+[v dir_find@dp dp `*.39S402  1 p 2 122 ]
 "2474
 } 0
 "2818
@@ -2127,7 +2434,7 @@ FR_INVALID_PARAMETER 19
 "2946
 [v create_name@i i `ui  1 a 2 29 ]
 "2947
-[v create_name@p p `*.32Cuc  1 a 2 27 ]
+[v create_name@p p `*.34Cuc  1 a 2 27 ]
 "2946
 [v create_name@ni ni `ui  1 a 2 25 ]
 "2945
@@ -2139,7 +2446,7 @@ FR_INVALID_PARAMETER 19
 [s S402 . 42 `S395 1 obj 14 0 `ul 1 dptr 4 14 `ul 1 clust 4 18 `ul 1 sect 4 22 `*.39uc 1 dir 2 26 `[12]uc 1 fn 12 28 `*.2Cuc 1 pat 2 40 ]
 [v create_name@dp dp `*.39S402  1 p 2 12 ]
 "2820
-[v create_name@path path `*.39*.32Cuc  1 p 2 14 ]
+[v create_name@path path `*.39*.34Cuc  1 p 2 14 ]
 "3006
 } 0
 "713
@@ -2172,13 +2479,13 @@ FR_INVALID_PARAMETER 19
 "3478
 [v f_mount@cfs cfs `*.39S325  1 a 2 79 ]
 "3481
-[v f_mount@rp rp `*.32Cuc  1 a 2 77 ]
+[v f_mount@rp rp `*.34Cuc  1 a 2 77 ]
 "3480
 [v f_mount@res res `E69  1 a 1 76 ]
 "3473
 [v f_mount@fs fs `*.39S325  1 p 2 71 ]
 "3474
-[v f_mount@path path `*.32Cuc  1 p 2 73 ]
+[v f_mount@path path `*.34Cuc  1 p 2 73 ]
 "3475
 [v f_mount@opt opt `uc  1 p 1 75 ]
 "3511
@@ -2190,22 +2497,22 @@ FR_INVALID_PARAMETER 19
 "5138
 [s S395 . 14 `*.39S325 1 fs 2 0 `us 1 id 2 2 `uc 1 attr 1 4 `uc 1 stat 1 5 `ul 1 sclust 4 6 `ul 1 objsize 4 10 ]
 [s S402 . 42 `S395 1 obj 14 0 `ul 1 dptr 4 14 `ul 1 clust 4 18 `ul 1 sect 4 22 `*.39uc 1 dir 2 26 `[12]uc 1 fn 12 28 `*.2Cuc 1 pat 2 40 ]
-[v f_getlabel@dj dj `S402  1 a 42 108 ]
+[v f_getlabel@dj dj `S402  1 a 42 9 ]
 "5139
-[v f_getlabel@fs fs `*.39S325  1 a 2 105 ]
+[v f_getlabel@fs fs `*.39S325  1 a 2 6 ]
 "5140
-[v f_getlabel@di di `ui  1 a 2 103 ]
-[v f_getlabel@si si `ui  1 a 2 101 ]
+[v f_getlabel@di di `ui  1 a 2 4 ]
+[v f_getlabel@si si `ui  1 a 2 2 ]
 "5141
-[v f_getlabel@wc wc `us  1 a 2 99 ]
+[v f_getlabel@wc wc `us  1 a 2 0 ]
 "5137
-[v f_getlabel@res res `E69  1 a 1 107 ]
+[v f_getlabel@res res `E69  1 a 1 8 ]
 "5132
-[v f_getlabel@path path `*.32Cuc  1 p 2 91 ]
+[v f_getlabel@path path `*.34Cuc  1 p 2 135 ]
 "5133
-[v f_getlabel@label label `*.39uc  1 p 2 93 ]
+[v f_getlabel@label label `*.39uc  1 p 2 137 ]
 "5134
-[v f_getlabel@vsn vsn `*.2ul  1 p 2 95 ]
+[v f_getlabel@vsn vsn `*.2ul  1 p 2 139 ]
 "5217
 } 0
 "1675
@@ -2230,35 +2537,35 @@ FR_INVALID_PARAMETER 19
 {
 [s S325 . 563 `uc 1 fs_type 1 0 `uc 1 pdrv 1 1 `uc 1 n_fats 1 2 `uc 1 wflag 1 3 `uc 1 fsi_flag 1 4 `us 1 id 2 5 `us 1 n_rootdir 2 7 `us 1 csize 2 9 `ul 1 last_clst 4 11 `ul 1 free_clst 4 15 `ul 1 cdir 4 19 `ul 1 n_fatent 4 23 `ul 1 fsize 4 27 `ul 1 volbase 4 31 `ul 1 fatbase 4 35 `ul 1 dirbase 4 39 `ul 1 database 4 43 `ul 1 winsect 4 47 `[512]uc 1 win 512 51 ]
 "2331
-[v dir_read@fs fs `*.39S325  1 a 2 86 ]
+[v dir_read@fs fs `*.39S325  1 a 2 130 ]
 "2330
-[v dir_read@res res `E69  1 a 1 90 ]
+[v dir_read@res res `E69  1 a 1 134 ]
 "2332
-[v dir_read@c c `uc  1 a 1 89 ]
-[v dir_read@a a `uc  1 a 1 88 ]
+[v dir_read@c c `uc  1 a 1 133 ]
+[v dir_read@a a `uc  1 a 1 132 ]
 "2326
 [s S395 . 14 `*.39S325 1 fs 2 0 `us 1 id 2 2 `uc 1 attr 1 4 `uc 1 stat 1 5 `ul 1 sclust 4 6 `ul 1 objsize 4 10 ]
 [s S402 . 42 `S395 1 obj 14 0 `ul 1 dptr 4 14 `ul 1 clust 4 18 `ul 1 sect 4 22 `*.39uc 1 dir 2 26 `[12]uc 1 fn 12 28 `*.2Cuc 1 pat 2 40 ]
-[v dir_read@dp dp `*.39S402  1 p 2 78 ]
+[v dir_read@dp dp `*.39S402  1 p 2 122 ]
 "2327
-[v dir_read@vol vol `i  1 p 2 80 ]
+[v dir_read@vol vol `i  1 p 2 124 ]
 "2393
 } 0
 "1723
 [v _dir_next dir_next `(E69  1 s 1 dir_next ]
 {
 "1728
-[v dir_next@clst clst `ul  1 a 4 74 ]
-[v dir_next@ofs ofs `ul  1 a 4 68 ]
+[v dir_next@clst clst `ul  1 a 4 118 ]
+[v dir_next@ofs ofs `ul  1 a 4 112 ]
 [s S325 . 563 `uc 1 fs_type 1 0 `uc 1 pdrv 1 1 `uc 1 n_fats 1 2 `uc 1 wflag 1 3 `uc 1 fsi_flag 1 4 `us 1 id 2 5 `us 1 n_rootdir 2 7 `us 1 csize 2 9 `ul 1 last_clst 4 11 `ul 1 free_clst 4 15 `ul 1 cdir 4 19 `ul 1 n_fatent 4 23 `ul 1 fsize 4 27 `ul 1 volbase 4 31 `ul 1 fatbase 4 35 `ul 1 dirbase 4 39 `ul 1 database 4 43 `ul 1 winsect 4 47 `[512]uc 1 win 512 51 ]
 "1729
-[v dir_next@fs fs `*.39S325  1 a 2 72 ]
+[v dir_next@fs fs `*.39S325  1 a 2 116 ]
 "1724
 [s S395 . 14 `*.39S325 1 fs 2 0 `us 1 id 2 2 `uc 1 attr 1 4 `uc 1 stat 1 5 `ul 1 sclust 4 6 `ul 1 objsize 4 10 ]
 [s S402 . 42 `S395 1 obj 14 0 `ul 1 dptr 4 14 `ul 1 clust 4 18 `ul 1 sect 4 22 `*.39uc 1 dir 2 26 `[12]uc 1 fn 12 28 `*.2Cuc 1 pat 2 40 ]
-[v dir_next@dp dp `*.39S402  1 p 2 52 ]
+[v dir_next@dp dp `*.39S402  1 p 2 96 ]
 "1725
-[v dir_next@stretch stretch `i  1 p 2 54 ]
+[v dir_next@stretch stretch `i  1 p 2 98 ]
 "1773
 } 0
 "1636
@@ -2303,37 +2610,37 @@ FR_INVALID_PARAMETER 19
 [v _create_chain create_chain `(ul  1 s 4 create_chain ]
 {
 "1508
-[v create_chain@cs cs `ul  1 a 4 48 ]
-[v create_chain@ncl ncl `ul  1 a 4 42 ]
-[v create_chain@scl scl `ul  1 a 4 38 ]
+[v create_chain@cs cs `ul  1 a 4 92 ]
+[v create_chain@ncl ncl `ul  1 a 4 86 ]
+[v create_chain@scl scl `ul  1 a 4 82 ]
 [s S325 . 563 `uc 1 fs_type 1 0 `uc 1 pdrv 1 1 `uc 1 n_fats 1 2 `uc 1 wflag 1 3 `uc 1 fsi_flag 1 4 `us 1 id 2 5 `us 1 n_rootdir 2 7 `us 1 csize 2 9 `ul 1 last_clst 4 11 `ul 1 free_clst 4 15 `ul 1 cdir 4 19 `ul 1 n_fatent 4 23 `ul 1 fsize 4 27 `ul 1 volbase 4 31 `ul 1 fatbase 4 35 `ul 1 dirbase 4 39 `ul 1 database 4 43 `ul 1 winsect 4 47 `[512]uc 1 win 512 51 ]
 "1510
-[v create_chain@fs fs `*.39S325  1 a 2 46 ]
+[v create_chain@fs fs `*.39S325  1 a 2 90 ]
 "1509
-[v create_chain@res res `E69  1 a 1 37 ]
+[v create_chain@res res `E69  1 a 1 81 ]
 "1504
 [s S395 . 14 `*.39S325 1 fs 2 0 `us 1 id 2 2 `uc 1 attr 1 4 `uc 1 stat 1 5 `ul 1 sclust 4 6 `ul 1 objsize 4 10 ]
-[v create_chain@obj obj `*.39S395  1 p 2 23 ]
+[v create_chain@obj obj `*.39S395  1 p 2 67 ]
 "1505
-[v create_chain@clst clst `ul  1 p 4 25 ]
+[v create_chain@clst clst `ul  1 p 4 69 ]
 "1594
 } 0
 "1218
 [v _put_fat put_fat `(E69  1 s 1 put_fat ]
 {
 "1224
-[v put_fat@bc bc `ui  1 a 2 20 ]
+[v put_fat@bc bc `ui  1 a 2 64 ]
 "1225
-[v put_fat@p p `*.39uc  1 a 2 18 ]
+[v put_fat@p p `*.39uc  1 a 2 62 ]
 "1226
-[v put_fat@res res `E69  1 a 1 22 ]
+[v put_fat@res res `E69  1 a 1 66 ]
 [s S325 . 563 `uc 1 fs_type 1 0 `uc 1 pdrv 1 1 `uc 1 n_fats 1 2 `uc 1 wflag 1 3 `uc 1 fsi_flag 1 4 `us 1 id 2 5 `us 1 n_rootdir 2 7 `us 1 csize 2 9 `ul 1 last_clst 4 11 `ul 1 free_clst 4 15 `ul 1 cdir 4 19 `ul 1 n_fatent 4 23 `ul 1 fsize 4 27 `ul 1 volbase 4 31 `ul 1 fatbase 4 35 `ul 1 dirbase 4 39 `ul 1 database 4 43 `ul 1 winsect 4 47 `[512]uc 1 win 512 51 ]
 "1219
-[v put_fat@fs fs `*.39S325  1 p 2 75 ]
+[v put_fat@fs fs `*.39S325  1 p 2 34 ]
 "1220
-[v put_fat@clst clst `ul  1 p 4 77 ]
+[v put_fat@clst clst `ul  1 p 4 36 ]
 "1221
-[v put_fat@val val `ul  1 p 4 81 ]
+[v put_fat@val val `ul  1 p 4 40 ]
 "1267
 } 0
 "610
@@ -2346,8 +2653,8 @@ FR_INVALID_PARAMETER 19
 "616
 [v _st_dword st_dword `(v  1 s 1 st_dword ]
 {
-[v st_dword@ptr ptr `*.39uc  1 p 2 4 ]
-[v st_dword@val val `ul  1 p 4 6 ]
+[v st_dword@ptr ptr `*.39uc  1 p 2 28 ]
+[v st_dword@val val `ul  1 p 4 30 ]
 "622
 } 0
 "4606
@@ -2369,7 +2676,7 @@ FR_INVALID_PARAMETER 19
 "4612
 [v f_getfree@res res `E69  1 a 1 115 ]
 "4607
-[v f_getfree@path path `*.32Cuc  1 p 2 71 ]
+[v f_getfree@path path `*.34Cuc  1 p 2 71 ]
 "4608
 [v f_getfree@nclst nclst `*.39ul  1 p 2 73 ]
 "4609
@@ -2420,7 +2727,7 @@ FR_INVALID_PARAMETER 19
 "3211
 [v find_volume@stat stat `uc  1 a 1 53 ]
 "3204
-[v find_volume@path path `*.39*.32Cuc  1 p 2 0 ]
+[v find_volume@path path `*.39*.34Cuc  1 p 2 0 ]
 "3205
 [v find_volume@rfs rfs `*.39*.39S325  1 p 2 2 ]
 "3206
@@ -2440,17 +2747,17 @@ FR_INVALID_PARAMETER 19
 [v _get_ldnumber get_ldnumber `(i  1 s 2 get_ldnumber ]
 {
 "3106
-[v get_ldnumber@tp tp `*.32Cuc  1 a 2 15 ]
+[v get_ldnumber@tp tp `*.34Cuc  1 a 2 15 ]
 "3108
 [v get_ldnumber@vol vol `i  1 a 2 13 ]
 "3106
-[v get_ldnumber@tt tt `*.32Cuc  1 a 2 11 ]
+[v get_ldnumber@tt tt `*.34Cuc  1 a 2 11 ]
 "3108
 [v get_ldnumber@i i `i  1 a 2 8 ]
 "3107
 [v get_ldnumber@tc tc `uc  1 a 1 10 ]
 "3103
-[v get_ldnumber@path path `*.39*.32Cuc  1 p 2 4 ]
+[v get_ldnumber@path path `*.39*.34Cuc  1 p 2 4 ]
 "3167
 } 0
 "23 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/fatfs/diskio.c
@@ -2466,10 +2773,10 @@ FR_INVALID_PARAMETER 19
 [v disk_status@pdrv pdrv `uc  1 a 1 6 ]
 "52
 } 0
-"257 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/fatfs/drva.c
+"256 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/fatfs/drva.c
 [v _DRVA_IsWriteProtected DRVA_IsWriteProtected `(a  1 e 1 0 ]
 {
-"261
+"260
 } 0
 "60 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/fatfs/diskio.c
 [v _disk_initialize disk_initialize `(uc  1 e 1 0 ]
@@ -2492,7 +2799,7 @@ FR_INVALID_PARAMETER 19
 [v DRVA_MediaInitialize@n n `uc  1 a 1 28 ]
 [v DRVA_MediaInitialize@ty ty `uc  1 a 1 27 ]
 [v DRVA_MediaInitialize@cmd cmd `uc  1 a 1 26 ]
-"250
+"249
 } 0
 "77 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/spi2.c
 [v _SPI2_Open SPI2_Open `(a  1 e 1 0 ]
@@ -2564,16 +2871,16 @@ FR_INVALID_PARAMETER 19
 [v disk_write@pdrv pdrv `uc  1 a 1 43 ]
 "150
 } 0
-"302 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/fatfs/drva.c
+"301 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/fatfs/drva.c
 [v _DRVA_SectorWrite DRVA_SectorWrite `(a  1 e 1 0 ]
 {
-"304
+"303
 [v DRVA_SectorWrite@sect sect `ul  1 a 4 29 ]
-"302
+"301
 [v DRVA_SectorWrite@sector_address sector_address `ul  1 p 4 19 ]
 [v DRVA_SectorWrite@buffer buffer `*.39Cuc  1 p 2 23 ]
 [v DRVA_SectorWrite@sector_count sector_count `us  1 p 2 25 ]
-"329
+"328
 } 0
 "98
 [v _xmit_datablock xmit_datablock `(i  1 s 2 xmit_datablock ]
@@ -2615,16 +2922,16 @@ FR_INVALID_PARAMETER 19
 [v disk_read@pdrv pdrv `uc  1 a 1 41 ]
 "116
 } 0
-"274 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/fatfs/drva.c
+"273 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/fatfs/drva.c
 [v _DRVA_SectorRead DRVA_SectorRead `(a  1 e 1 0 ]
 {
-"276
+"275
 [v DRVA_SectorRead@sect sect `ul  1 a 4 27 ]
-"274
+"273
 [v DRVA_SectorRead@sector_address sector_address `ul  1 p 4 19 ]
 [v DRVA_SectorRead@buffer buffer `*.39uc  1 p 2 23 ]
 [v DRVA_SectorRead@sector_count sector_count `us  1 p 2 25 ]
-"300
+"299
 } 0
 "148
 [v _send_cmd send_cmd `(uc  1 s 1 send_cmd ]
@@ -2697,10 +3004,10 @@ FR_INVALID_PARAMETER 19
 [v SPI2_ExchangeByte@data data `uc  1 a 1 4 ]
 "103
 } 0
-"252 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/fatfs/drva.c
+"251 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/fatfs/drva.c
 [v _DRVA_IsMediaInitialized DRVA_IsMediaInitialized `(a  1 e 1 0 ]
 {
-"255
+"254
 } 0
 "671 C:\Users\Craig Vella\MPLABXProjects\DANI-DRIVE.X\mcc_generated_files/fatfs/ff.c
 [v _mem_cmp mem_cmp `(i  1 s 2 mem_cmp ]
