@@ -7556,110 +7556,70 @@
          <value>WDT window violation reset has not occurred</value>
       </entry>
    </tokenMap>
-   <generatedFileHashHistoryMap class="java.util.HashMap">
-      <entry>
-         <file>mcc_generated_files\interrupt_manager.h</file>
-         <hash>3c232e048a12f598326ac3ade703c64be950499054878d427e84355e95e4c513</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\fatfs\ffsystem.c</file>
-         <hash>9abd55ef008afed7a5330d4d276ea41b89a27933e7fef613c5a05671c577ee15</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\fatfs\fatfs_demo.h</file>
-         <hash>60b79d81ea7104386259b44bbbcf5c9439e625ba9c4cd7afc72490a9366d2dc3</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\examples\i2c1_master_example.c</file>
-         <hash>18248931068024d5434828ae7a903d04f3f7e15faeb692702507fa128df716fc</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\spi2.h</file>
-         <hash>e1f83010415715811b642a4e9fdd0169c96d76cd4945377b522eca78ecf0ebbe</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\fatfs\drva.c</file>
-         <hash>026ab17fc4665322b0bf4cb0f68bc772aa1686ce44c3662a415fcfd80c7a4ead</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\spi2.c</file>
-         <hash>80165ebd8435cc612699bcb24645f6d21049602747721e07a6086a2cb1312c38</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\fatfs\drva.h</file>
-         <hash>234738b560cae5d35373a9303e597a2c4ea1c4eb9f9bf3af62e7cedd91e7be46</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\i2c1_master.h</file>
-         <hash>c83261094e5394c107a6a4e458cb2baf786ebb89925c72703fdee9490b300039</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\fatfs\fatfs_demo.c</file>
-         <hash>6fc0f8b8e21124a353c88976751e743aec6810bffcf86866215d6ffb44ba5a07</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\mcc.c</file>
-         <hash>e38dbed78508e780210bd9e3b55e972d156ae6d3bad8877920585c420692b191</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\i2c1_master.c</file>
-         <hash>b4b6e59e0bbe69645fb5af3d51ec5f3294420426df6fbd4d3d0f333743f1708c</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\mcc.h</file>
-         <hash>0ef3cf57bcd532e4fe33ffff6feebd628f4080945574afaebd594abce69b1f7d</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\device_config.h</file>
-         <hash>3497fb2ad6cfa0c3b1120518a5bc0cdb12be8d39402814248af23aab0a959fdf</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\fatfs\ff.h</file>
-         <hash>7b2cc1676a4968ffecb11fbcc3d318ab8aa32046e5667db76dfb99fd58bef2a4</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\fatfs\ff.c</file>
-         <hash>cdc61ee4b01c6e3eb1da72d30a51f0d8a52d6c0af78d4aeb025e66fcfcc95bfb</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\tmr0.h</file>
-         <hash>9c405cbd6db063327f505f16b5176ba800a77e959df3044138943a23748d4245</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\fatfs\ff_time.c</file>
-         <hash>ada0bf61f3a07af56084695eb722bc2e764c06c2feee7622f0d5327b52127eb0</hash>
-      </entry>
+   <generatedFileHashHistoryMap class="java.util.TreeMap">
       <entry>
          <file>main.c</file>
          <hash>063119f58723cf834dd4f2fc43cdbfcd1cc039687fc50b173e33625948e98a5d</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\fatfs\ffconf.h</file>
-         <hash>9250016b34a12f379ff6e9b8bab4676e7642e1ee1fd5efdcd307ff80cc337d24</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\device_config.c</file>
          <hash>191a48bee1924d9326fddf0a22be8ed4bd358792b4963233bf3c2cc4c1a0b6e2</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\pin_manager.h</file>
-         <hash>6e7ec6e718ebe22923a8bfc0971c3991a3e1ce4b1dfa32c2cfa2019f5afa9683</hash>
+         <file>mcc_generated_files\device_config.h</file>
+         <hash>3497fb2ad6cfa0c3b1120518a5bc0cdb12be8d39402814248af23aab0a959fdf</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\tmr0.c</file>
-         <hash>930970d80224ada814ae8e05bc6ecf809af044acf13dbe9cd299df9153d231df</hash>
+         <file>mcc_generated_files\examples\i2c1_master_example.c</file>
+         <hash>18248931068024d5434828ae7a903d04f3f7e15faeb692702507fa128df716fc</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\pin_manager.c</file>
-         <hash>b40d65cd2bdf1bd6be0b023b3186b55c68a03b158c66da4f93416bf41d5296af</hash>
+         <file>mcc_generated_files\examples\i2c1_master_example.h</file>
+         <hash>682650961ba5e2b568b1f510bd9746506de7f2dd6af34daaf57a99a3ed1fb9c1</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\fatfs\diskio.c</file>
          <hash>3ed094eb33b97be72f1b9df32fc96ea5a3d47b49e17a64c605a821f279d2e2fa</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\examples\i2c1_master_example.h</file>
-         <hash>682650961ba5e2b568b1f510bd9746506de7f2dd6af34daaf57a99a3ed1fb9c1</hash>
+         <file>mcc_generated_files\fatfs\diskio.h</file>
+         <hash>eb1ef7b2ae900e5fa80c78b674723ef3227b26209a17a4006cc2c96d89c09823</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\fatfs\drva.c</file>
+         <hash>026ab17fc4665322b0bf4cb0f68bc772aa1686ce44c3662a415fcfd80c7a4ead</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\fatfs\drva.h</file>
+         <hash>234738b560cae5d35373a9303e597a2c4ea1c4eb9f9bf3af62e7cedd91e7be46</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\fatfs\fatfs_demo.c</file>
+         <hash>6fc0f8b8e21124a353c88976751e743aec6810bffcf86866215d6ffb44ba5a07</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\fatfs\fatfs_demo.h</file>
+         <hash>60b79d81ea7104386259b44bbbcf5c9439e625ba9c4cd7afc72490a9366d2dc3</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\fatfs\ff.c</file>
+         <hash>cdc61ee4b01c6e3eb1da72d30a51f0d8a52d6c0af78d4aeb025e66fcfcc95bfb</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\fatfs\ff.h</file>
+         <hash>7b2cc1676a4968ffecb11fbcc3d318ab8aa32046e5667db76dfb99fd58bef2a4</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\fatfs\ff_time.c</file>
+         <hash>ada0bf61f3a07af56084695eb722bc2e764c06c2feee7622f0d5327b52127eb0</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\fatfs\ffconf.h</file>
+         <hash>9250016b34a12f379ff6e9b8bab4676e7642e1ee1fd5efdcd307ff80cc337d24</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\fatfs\ffsystem.c</file>
+         <hash>9abd55ef008afed7a5330d4d276ea41b89a27933e7fef613c5a05671c577ee15</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\fatfs\ffunicode.c</file>
@@ -7670,12 +7630,52 @@
          <hash>a2f4450985098bc47c270a2df95779dd88787a3fbac90e2ae5e6bb916296e707</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\fatfs\diskio.h</file>
-         <hash>eb1ef7b2ae900e5fa80c78b674723ef3227b26209a17a4006cc2c96d89c09823</hash>
+         <file>mcc_generated_files\i2c1_master.c</file>
+         <hash>b4b6e59e0bbe69645fb5af3d51ec5f3294420426df6fbd4d3d0f333743f1708c</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\i2c1_master.h</file>
+         <hash>c83261094e5394c107a6a4e458cb2baf786ebb89925c72703fdee9490b300039</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\interrupt_manager.c</file>
          <hash>9062f588a5cf66a588e3dbd5d9894935379c35738d343fa29e51ddfb8aa99be1</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\interrupt_manager.h</file>
+         <hash>3c232e048a12f598326ac3ade703c64be950499054878d427e84355e95e4c513</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\mcc.c</file>
+         <hash>e38dbed78508e780210bd9e3b55e972d156ae6d3bad8877920585c420692b191</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\mcc.h</file>
+         <hash>0ef3cf57bcd532e4fe33ffff6feebd628f4080945574afaebd594abce69b1f7d</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\pin_manager.c</file>
+         <hash>b40d65cd2bdf1bd6be0b023b3186b55c68a03b158c66da4f93416bf41d5296af</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\pin_manager.h</file>
+         <hash>6e7ec6e718ebe22923a8bfc0971c3991a3e1ce4b1dfa32c2cfa2019f5afa9683</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\spi2.c</file>
+         <hash>80165ebd8435cc612699bcb24645f6d21049602747721e07a6086a2cb1312c38</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\spi2.h</file>
+         <hash>e1f83010415715811b642a4e9fdd0169c96d76cd4945377b522eca78ecf0ebbe</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\tmr0.c</file>
+         <hash>930970d80224ada814ae8e05bc6ecf809af044acf13dbe9cd299df9153d231df</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\tmr0.h</file>
+         <hash>9c405cbd6db063327f505f16b5176ba800a77e959df3044138943a23748d4245</hash>
       </entry>
    </generatedFileHashHistoryMap>
 </config>
